@@ -1,0 +1,9 @@
+0.7
+2020.2
+Jun 10 2021
+20:04:57
+D:/intelight/intelight/intelight.sim/sim_1/behav/xsim/glbl.v,1623370582,verilog,,,,glbl,,,,,,,,
+D:/intelight/intelight/intelight.srcs/sim_1/new/max_tb.v,1645177241,verilog,,,,max_tb,,,,,,,,
+D:/intelight/intelight/intelight.srcs/sim_1/new/mux_tb.v,1645174929,verilog,,,,mux_tb,,,,,,,,
+D:/intelight/intelight/intelight.srcs/sources_1/new/max_file.v,1645178169,verilog,,D:/intelight/intelight/intelight.srcs/sim_1/new/max_tb.v,,comp_32bit;max4to1_32bit,,,,,,,,
+D:/intelight/intelight/intelight.srcs/sources_1/new/mux_file.v,1645174704,verilog,,D:/intelight/intelight/intelight.srcs/sim_1/new/mux_tb.v,,mux2to1_2bit;mux2to1_32bit,,,,,,,,
