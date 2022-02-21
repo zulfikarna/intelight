@@ -21,12 +21,12 @@ module CU(
     output wire QA,
     output wire SD,
     output wire RD,
-    output reg finish,
+    output reg finish
     );
     
     // State variable for FSM implementation 
     localparam
-        S_IDLE  = 8'hFF,
+        S_IDLE  = 8'HFF,
         S_INIT  = 8'HEE;
         
     // State transition variable

@@ -1,0 +1,18 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.883883",
+   "Default View_TopLeft":"-460,-195",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace inst PG_0 -pg 1 -lvl 2 -x 140 -y -180 -defaultsOSRD
+preplace inst SD_0 -pg 1 -lvl 1 -x -280 -y 240 -defaultsOSRD
+preplace inst decoder_0 -pg 1 -lvl 2 -x 140 -y 240 -defaultsOSRD
+preplace inst RD_0 -pg 1 -lvl 1 -x -280 -y 530 -defaultsOSRD
+preplace netloc PG_0_act 1 0 3 -440 -290 NJ -290 270
+preplace netloc SD_0_state 1 1 1 N 240
+levelinfo -pg 1 -460 -280 140 420
+pagesize -pg 1 -db -bbox -sgen -460 -440 420 640
+"
+}
+
