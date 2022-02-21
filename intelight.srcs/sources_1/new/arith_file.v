@@ -19,9 +19,9 @@ module multiply(
     plus    p0(.in0(w0),    .in1(w1),   .out0(w3));
     plus    p1(.in0(w2),    .in1(w3),   .out0(w4));
     
-    assign i = (c[2])? 2'd1 : 2'd0;
-    assign j = (c[1])? 2'd2 : 2'd0;
-    assign k = (c[0])? 2'd3 : 2'd0; 
+    assign i = (c[2])? 2'd1 : 2'd0; // if i==1, then times by 0.5
+    assign j = (c[1])? 2'd2 : 2'd0; // if j==1, then times by 0.25 
+    assign k = (c[0])? 2'd3 : 2'd0; // if k==1, then times by 0.125
     
     assign out = w4;
 endmodule

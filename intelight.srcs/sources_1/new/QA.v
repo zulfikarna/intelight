@@ -6,7 +6,7 @@
 
 module QA(
     // Q-Value input/output wire 
-    input wire clk,
+    input wire clk, rst,
     input wire  [31:0] next_qA0, next_qA1, next_qA2, next_qA3,
     output wire [31:0] curr_qA0, curr_qA1, curr_qA2, curr_qA3, // to Policy Generator 
     output wire [31:0] new_qA,
@@ -18,8 +18,20 @@ module QA(
     input wire [31:0] reward
     );
     
+    // For register
     wire [31:0] chos_curr_qA;
     wire [31:0] curr_qA0, curr_qA1, curr_qA2, curr_qA3;
+    
+    // For Bellman Equation Implementiation 
+    wire [31:0] i_alpha;
+    wire [31:0] o_alpha_i;
+    wire [31:0] o_alpha_j;
+    wire [31:0] o_alpha_k;
+    wire [31:0] o_alpha;
+    wire [31:0] o_gamma_i;
+    wire [31:0] o_gamma_j;
+    wire [31:0] o_gamma_k;
+    wire [31:0] o_gamma;
     
     reg_32bit reg0(.in0(next_qA0), .out0(curr_qA0), .clk(clk));
     reg_32bit reg1(.in0(next_qA1), .out0(curr_qA1), .clk(clk));
@@ -28,5 +40,20 @@ module QA(
     max4to1_32bit max0 (.in0(next_qA0), .in1(next_qA1), .in2(next_qA2), .in3(next_qA3), .out0(max_next_qA));
     mux4to1_32bit mux0 (.in0(curr_qA0), .in1(curr_qA1), .in2(curr_qA2), .in3(curr_qA3), .out0(chos_curr_qA), .sel(act));
     
-    
+    //  Implementation of Optimezed-Bellman Equat ion
+    //  Qnew = Q + alpha(reward+gamma(maxQ')-Q)
+    // 1. gamma(maxQ')
+    multiply mult_gamma_i(.in0(max_next_qA),    .c(gamma[5:4]), .out0(o_gamma_i));
+    multiply mult_gamma_j(.in0(max_next_qA),    .c(gamma[3:2]), .out0(o_gamma_j));
+    multiply mult_gamma_k(.in0(max_next_qA),    .c(gamma[1:0]), .out0(o_gamma_k));
+    assign o_gamma = o_gamma_i + o_gamma_j + o_gamma_k;
+    // 2. calculating i_alpha = reward + gamma(maxQ') - Q
+    assign i_alpha = reward + o_gamma - chos_curr_qA;
+    // 3. calculating o_alpha = alpha(reward + gamma(maxQ') - Q)
+    multiply mult_alpha_i(.in0(i_alpha),    .c(alpha[5:4]), .out0(o_alpha_i));
+    multiply mult_alpha_j(.in0(i_alpha),    .c(alpha[3:2]), .out0(o_alpha_j));
+    multiply mult_alpha_k(.in0(i_alpha),    .c(alpha[1:0]), .out0(o_alpha_k));
+    assign o_alpha = o_alpha_i + o_alpha_j + o_alpha_k;
+    // 4. calculating final value
+    assign new_qA = chos_curr_qA + o_alpha;
 endmodule
