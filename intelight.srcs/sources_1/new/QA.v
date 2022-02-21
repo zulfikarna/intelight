@@ -10,7 +10,7 @@ module QA(
     input wire  [31:0] next_qA0, next_qA1, next_qA2, next_qA3,
     output wire [31:0] curr_qA0, curr_qA1, curr_qA2, curr_qA3, // to Policy Generator 
     output wire [31:0] new_qA,
-    output wire [31:0] max_next_qA,
+    // output wire [31:0] max_next_qA,
     // Others 
     input wire [1:0] act,
     input wire [5:0] alpha,
