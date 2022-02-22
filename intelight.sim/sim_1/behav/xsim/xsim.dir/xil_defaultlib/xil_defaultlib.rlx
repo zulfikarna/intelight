@@ -2,11 +2,9 @@
 2020.2
 Jun 10 2021
 20:04:57
-D:/Dismas/ITB/SemesterVIII/TA2/intelight/intelight.sim/sim_1/behav/xsim/glbl.v,1623370582,verilog,,,,glbl,,,,,,,,
-D:/Dismas/ITB/SemesterVIII/TA2/intelight/intelight.srcs/sim_1/new/PG_tb.v,1645546036,verilog,,,,PG_tb,,,,,,,,
-D:/Dismas/ITB/SemesterVIII/TA2/intelight/intelight.srcs/sim_1/new/comp_tb.v,1645519902,verilog,,,,comp_tb,,,,,,,,
-D:/Dismas/ITB/SemesterVIII/TA2/intelight/intelight.srcs/sim_1/new/max_tb.v,1645519587,verilog,,,,max_tb,,,,,,,,
-D:/Dismas/ITB/SemesterVIII/TA2/intelight/intelight.srcs/sim_1/new/mux_tb.v,1645340761,verilog,,,,mux_tb,,,,,,,,
-D:/Dismas/ITB/SemesterVIII/TA2/intelight/intelight.srcs/sources_1/new/PG.v,1645340761,verilog,,D:/Dismas/ITB/SemesterVIII/TA2/intelight/intelight.srcs/sources_1/new/max_file.v,,PG,,,,,,,,
-D:/Dismas/ITB/SemesterVIII/TA2/intelight/intelight.srcs/sources_1/new/max_file.v,1645519479,verilog,,D:/Dismas/ITB/SemesterVIII/TA2/intelight/intelight.srcs/sources_1/new/mux_file.v,,comp_32bit;max4to1_32bit,,,,,,,,
-D:/Dismas/ITB/SemesterVIII/TA2/intelight/intelight.srcs/sources_1/new/mux_file.v,1645340761,verilog,,D:/Dismas/ITB/SemesterVIII/TA2/intelight/intelight.srcs/sim_1/new/PG_tb.v,,mux2to1_2bit;mux2to1_32bit;mux4to1_32bit,,,,,,,,
+D:/intelight/intelight/intelight.sim/sim_1/behav/xsim/glbl.v,1623370582,verilog,,,,glbl,,,,,,,,
+D:/intelight/intelight/intelight.srcs/sim_1/new/PG_tb.v,1645558845,verilog,,,,PG_tb,,,,,,,,
+D:/intelight/intelight/intelight.srcs/sources_1/new/PG.v,1645558630,verilog,,D:/intelight/intelight/intelight.srcs/sources_1/new/enable_file.v,,PG,,,,,,,,
+D:/intelight/intelight/intelight.srcs/sources_1/new/enable_file.v,1645558406,verilog,,D:/intelight/intelight/intelight.srcs/sources_1/new/max_file.v,,debit_decoder;decoder;enabler_2bit,,,,,,,,
+D:/intelight/intelight/intelight.srcs/sources_1/new/max_file.v,1645556665,verilog,,D:/intelight/intelight/intelight.srcs/sources_1/new/mux_file.v,,comp_32bit;max4to1_32bit,,,,,,,,
+D:/intelight/intelight/intelight.srcs/sources_1/new/mux_file.v,1645212477,verilog,,D:/intelight/intelight/intelight.srcs/sim_1/new/PG_tb.v,,mux2to1_2bit;mux2to1_32bit;mux4to1_32bit,,,,,,,,

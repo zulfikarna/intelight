@@ -4,6 +4,14 @@
 // Engineer : Zulfikar 13218029
 //////////////////////////////////////////////////////////////////////////////////
 
+module enabler_2bit(
+    input wire en,
+    input wire [1:0] in0,
+    output wire [1:0] out0
+    );
+    assign out0 = (en)? in0 : 2'b00;
+endmodule
+
 module decoder(
     input wire  [1:0] act,
     output wire en0, en1, en2, en3

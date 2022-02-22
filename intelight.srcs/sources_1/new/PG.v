@@ -5,6 +5,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module PG(
+    input en,
     input wire [31:0] qA0, qA1, qA2, qA3,
     input wire sel,
     input wire [1:0] act_random,
@@ -12,6 +13,7 @@ module PG(
     );
     wire [1:0] act_greed;
     wire [31:0] maxqA;
+    wire [1:0] temp_act;
     
     // Sub-blok Greed Action
     max4to1_32bit   greed_action(.in0(qA0), .in1(qA1),  .in2(qA2),  .in3(qA3),  .out0(maxqA));
@@ -21,8 +23,10 @@ module PG(
                                         2'd3;
     
     // Sub-blok Action Decider
-    mux2to1_2bit    action_decider(.in0(act_greed),  .in1(act_random),   .sel(sel),  .out0(act));
+    mux2to1_2bit    action_decider(.in0(act_greed),  .in1(act_random),   .sel(sel),  .out0(temp_act));
     
+    // Enabling action output
+    enabler_2bit en0(.in0(temp_act), .out0(act), .en(en));
 endmodule
 
 

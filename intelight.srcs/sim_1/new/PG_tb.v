@@ -7,15 +7,16 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module PG_tb;
     reg clk,rst;
+    reg en;
     reg [31:0] qA0, qA1, qA2, qA3;
     reg sel;
     reg [1:0] act_random;
     wire [1:0] act;
     
     PG dut(
+        .en(en),
         .qA0(qA0),
         .qA1(qA1),
         .qA2(qA2),
@@ -35,8 +36,11 @@ module PG_tb;
     initial begin
         rst = 1'b1;
         sel = 1'b0;
+        en = 1'b0;
         #10;
         rst = 1'b0;
+        #10;
+        en = 1'b1;
     end
     
     always @(posedge clk) begin

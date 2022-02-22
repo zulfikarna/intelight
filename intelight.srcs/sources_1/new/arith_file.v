@@ -52,3 +52,14 @@ module minus(
     );
     assign out0 = in0 - in1;
 endmodule
+
+module lsfr_16bit(
+    input wire  [15:0] in0,
+    output wire [15:0] out0
+    );
+    wire w0;
+    
+    assign w0 = in0[15] ^ in0[13] ^ in0[12] ^ in0[10];
+    assign out0 = {in0[14:0],n};
+endmodule
+    
