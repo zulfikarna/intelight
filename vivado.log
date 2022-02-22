@@ -224,3 +224,7 @@ Built simulation snapshot PG_tb_behav
 INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
 Time resolution is 1 ps
 relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:13 . Memory (MB): peak = 1330.039 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Feb 23 03:21:47 2022...
