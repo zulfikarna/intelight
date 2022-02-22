@@ -13,8 +13,8 @@ module QA(
     // output wire [31:0] max_next_qA,
     // Others 
     input wire [1:0] act,
-    input wire [5:0] alpha,
-    input wire [5:0] gamma,
+    input wire [2:0] alpha,
+    input wire [2:0] gamma,
     input wire [31:0] reward
     );
     
@@ -24,13 +24,7 @@ module QA(
     
     // For Bellman Equation Implementiation 
     wire [31:0] i_alpha;
-    wire [31:0] o_alpha_i;
-    wire [31:0] o_alpha_j;
-    wire [31:0] o_alpha_k;
     wire [31:0] o_alpha;
-    wire [31:0] o_gamma_i;
-    wire [31:0] o_gamma_j;
-    wire [31:0] o_gamma_k;
     wire [31:0] o_gamma;
     
     reg_32bit reg0(.in0(next_qA0), .out0(curr_qA0), .clk(clk));
@@ -43,17 +37,11 @@ module QA(
     //  Implementation of Optimezed-Bellman Equat ion
     //  Qnew = Q + alpha(reward+gamma(maxQ')-Q)
     // 1. gamma(maxQ')
-    multiply mult_gamma_i(.in0(max_next_qA),    .c(gamma[5:4]), .out0(o_gamma_i));
-    multiply mult_gamma_j(.in0(max_next_qA),    .c(gamma[3:2]), .out0(o_gamma_j));
-    multiply mult_gamma_k(.in0(max_next_qA),    .c(gamma[1:0]), .out0(o_gamma_k));
-    assign o_gamma = o_gamma_i + o_gamma_j + o_gamma_k;
+    multiply mult_gamma(.in0(max_next_qA),    .c(gamma), .out0(o_gamma));
     // 2. calculating i_alpha = reward + gamma(maxQ') - Q
     assign i_alpha = reward + o_gamma - chos_curr_qA;
     // 3. calculating o_alpha = alpha(reward + gamma(maxQ') - Q)
-    multiply mult_alpha_i(.in0(i_alpha),    .c(alpha[5:4]), .out0(o_alpha_i));
-    multiply mult_alpha_j(.in0(i_alpha),    .c(alpha[3:2]), .out0(o_alpha_j));
-    multiply mult_alpha_k(.in0(i_alpha),    .c(alpha[1:0]), .out0(o_alpha_k));
-    assign o_alpha = o_alpha_i + o_alpha_j + o_alpha_k;
+    multiply mult_alpha(.in0(i_alpha),    .c(alpha), .out0(o_alpha));
     // 4. calculating final value
     assign new_qA = chos_curr_qA + o_alpha;
 endmodule
