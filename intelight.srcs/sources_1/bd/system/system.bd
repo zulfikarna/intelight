@@ -11,11 +11,11 @@
     },
     "design_tree": {
       "RD_0": "",
-      "SD_0": "",
       "decoder_0": "",
       "PG_0": "",
+      "action_ram_0": "",
       "QA_0": "",
-      "action_ram_0": ""
+      "SD_0": ""
     },
     "components": {
       "RD_0": {
@@ -60,97 +60,6 @@
             "right": "0"
           },
           "reward": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          }
-        }
-      },
-      "SD_0": {
-        "vlnv": "xilinx.com:module_ref:SD:1.0",
-        "xci_name": "system_SD_0_0",
-        "xci_path": "ip\\system_SD_0_0\\system_SD_0_0.xci",
-        "inst_hier_path": "SD_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "SD",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "act": {
-            "direction": "I",
-            "left": "1",
-            "right": "0"
-          },
-          "delta_t": {
-            "direction": "I",
-            "left": "5",
-            "right": "0"
-          },
-          "debit_r0": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "debit_r1": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "debit_r2": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "debit_r3": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "init_panjang_r0": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "init_panjang_r1": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "init_panjang_r2": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "init_panjang_r3": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "start": {
-            "direction": "I"
-          },
-          "batas_0": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "batas_1": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "batas_2": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "batas_3": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "state": {
             "direction": "O",
             "left": "31",
             "right": "0"
@@ -233,6 +142,12 @@
           }
         }
       },
+      "action_ram_0": {
+        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+        "xci_name": "system_blk_mem_gen_0_0",
+        "xci_path": "ip\\system_blk_mem_gen_0_0\\system_blk_mem_gen_0_0.xci",
+        "inst_hier_path": "action_ram_0"
+      },
       "QA_0": {
         "vlnv": "xilinx.com:module_ref:QA:1.0",
         "xci_name": "system_QA_0_0",
@@ -310,12 +225,12 @@
           },
           "alpha": {
             "direction": "I",
-            "left": "5",
+            "left": "2",
             "right": "0"
           },
           "gamma": {
             "direction": "I",
-            "left": "5",
+            "left": "2",
             "right": "0"
           },
           "reward": {
@@ -325,11 +240,96 @@
           }
         }
       },
-      "action_ram_0": {
-        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
-        "xci_name": "system_blk_mem_gen_0_0",
-        "xci_path": "ip\\system_blk_mem_gen_0_0\\system_blk_mem_gen_0_0.xci",
-        "inst_hier_path": "action_ram_0"
+      "SD_0": {
+        "vlnv": "xilinx.com:module_ref:SD:1.0",
+        "xci_name": "system_SD_0_0",
+        "xci_path": "ip\\system_SD_0_0\\system_SD_0_0.xci",
+        "inst_hier_path": "SD_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "SD",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "act": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "delta_t": {
+            "direction": "I",
+            "left": "2",
+            "right": "0"
+          },
+          "debit_r0": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "debit_r1": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "debit_r2": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "debit_r3": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "init_panjang_r0": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "init_panjang_r1": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "init_panjang_r2": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "init_panjang_r3": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "start": {
+            "direction": "I"
+          },
+          "batas_0": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "batas_1": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "batas_2": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "batas_3": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "state": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          }
+        }
       }
     },
     "nets": {
@@ -337,8 +337,9 @@
         "ports": [
           "PG_0/act",
           "RD_0/act",
-          "SD_0/act",
-          "QA_0/act"
+          "decoder_0/act",
+          "QA_0/act",
+          "SD_0/act"
         ]
       },
       "QA_0_curr_qA0": {

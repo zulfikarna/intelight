@@ -7,7 +7,7 @@
 module SD(
     // Input untuk perhitungan panjang kemacetan 
     input wire [1:0] act,
-    input wire [5:0] delta_t,
+    input wire [2:0] delta_t,
     input wire [31:0] debit_r0,
     input wire [31:0] debit_r1,
     input wire [31:0] debit_r2,

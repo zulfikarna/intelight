@@ -12,9 +12,7 @@ module CU(
     input wire [15:0] max_episode,
     
     // From Programmable Logic 
-    input wire curr_state,
-    input wire act,
-    input wire act_sel,
+    input wire curr_reward,
     
     // Control Signal
     output wire PG,
