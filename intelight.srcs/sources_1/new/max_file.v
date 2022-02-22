@@ -15,7 +15,5 @@ module comp_32bit(
     input signed [31:0] in0, in1,
     output signed [31:0] out0
     );
-    assign out = (in0 > in1)? in0 : 
-                 (in1 > in0)? in1 :
-                              in0;
+    assign out0 = (in0 > in1)? in0 : in1;
 endmodule
