@@ -1,6 +1,6 @@
 Vivado Simulator v2021.1
 Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2021.1/bin/unwrapped/win64.o/xelab.exe -wto b00e1b8b0c4a4a169364327d9be69cf7 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot PG_tb_behav xil_defaultlib.PG_tb xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2021.1/bin/unwrapped/win64.o/xelab.exe -wto b00e1b8b0c4a4a169364327d9be69cf7 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_4 -L xlconstant_v1_1_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot bram_tb_behav xil_defaultlib.bram_tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
@@ -8,11 +8,18 @@ Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.comp_32bit
-Compiling module xil_defaultlib.max4to1_32bit
-Compiling module xil_defaultlib.mux2to1_2bit
-Compiling module xil_defaultlib.enabler_2bit
-Compiling module xil_defaultlib.PG
-Compiling module xil_defaultlib.PG_tb
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="zyn...
+Compiling module xil_defaultlib.bram_blk_mem_gen_0_0
+Compiling module xlconstant_v1_1_7.xlconstant_v1_1_7_xlconstant
+Compiling module xil_defaultlib.bram_xlconstant_0_0
+Compiling module xlconstant_v1_1_7.xlconstant_v1_1_7_xlconstant(CON...
+Compiling module xil_defaultlib.bram_xlconstant_0_1
+Compiling module xil_defaultlib.bram_xlconstant_1_0
+Compiling module xil_defaultlib.bram
+Compiling module xil_defaultlib.bram_wrapper
+Compiling module xil_defaultlib.bram_tb
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot PG_tb_behav
+Built simulation snapshot bram_tb_behav

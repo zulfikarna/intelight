@@ -1,0 +1,31 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.25",
+   "Default View_TopLeft":"-170,10",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_clka_0 -pg 1 -lvl 0 -x 0 -y 100 -defaultsOSRD
+preplace port port-id_rsta_0 -pg 1 -lvl 0 -x 0 -y 230 -defaultsOSRD
+preplace portBus addra_0 -pg 1 -lvl 0 -x 0 -y 70 -defaultsOSRD
+preplace portBus addrb_0 -pg 1 -lvl 0 -x 0 -y 260 -defaultsOSRD
+preplace portBus doutb_0 -pg 1 -lvl 3 -x 660 -y 340 -defaultsOSRD
+preplace portBus dina_0 -pg 1 -lvl 0 -x 0 -y 130 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 2 -x 520 -y 220 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 1 -x 110 -y 170 -defaultsOSRD
+preplace inst xlconstant_1 -pg 1 -lvl 1 -x 110 -y 340 -defaultsOSRD
+preplace inst xlconstant_2 -pg 1 -lvl 1 -x 110 -y 440 -defaultsOSRD
+preplace netloc clka_0_1 1 0 2 NJ 100 200
+preplace netloc xlconstant_0_dout 1 1 1 220 170n
+preplace netloc rsta_0_1 1 0 2 NJ 230 230
+preplace netloc addra_0_1 1 0 2 NJ 70 190J
+preplace netloc addrb_0_1 1 0 2 20J 250 NJ
+preplace netloc blk_mem_gen_0_doutb 1 1 2 240 430 640J
+preplace netloc dina_0_1 1 0 2 20J 110 190J
+preplace netloc xlconstant_1_dout 1 1 1 210 210n
+preplace netloc xlconstant_2_dout 1 1 1 210 370n
+levelinfo -pg 1 0 110 520 660
+pagesize -pg 1 -db -bbox -sgen -140 -60 800 500
+"
+}
+
