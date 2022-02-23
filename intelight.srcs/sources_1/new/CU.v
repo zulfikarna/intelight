@@ -6,19 +6,15 @@
 
 module CU(
     input wire clk, rst, start,
-    
     // From Processing System 
     input wire [15:0] max_step,
     input wire [15:0] max_episode,
     input wire [15:0] seed,
-    
     // From Programmable Logic 
     input wire curr_reward,
-    
     // Output for Policy Generator 
     output wire sel_act,
     output wire [1:0] act_random,
-    
     // Control Signal
     output wire PG,
     output wire QA,
@@ -31,16 +27,13 @@ module CU(
     localparam
         S_IDLE  = 8'HFF,
         S_INIT  = 8'HEE;
-        
     // State transition variable
     reg [7:0] cs;
     reg [7:0] ns;
-    
     // Counter variabel 
     reg [15:0] sc; // step counter
     reg [15:0] ec; // episode counter
     reg [15:0] epsilon;
-    
     // Variables for generating random number 
     reg  [15:0] i_lsfr;
     wire [15:0] o_lsrf;

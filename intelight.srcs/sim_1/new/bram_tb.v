@@ -37,13 +37,9 @@ module bram_tb();
     addra_0 = BASE_ADDR;
     dina_0 = BASE_DATA;
     addrb_0 = BASE_ADDR;
-    #10;
+    #50;
     rsta_0 = 1'b0;
     addra_0 = addra_0 + INC_ADDR;
-    #100;
-    rsta_0 = 1'b1;
-    #20;
-    rsta_0 = 1'b0;
   end
   
   always@(posedge clka_0) begin
