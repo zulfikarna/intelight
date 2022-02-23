@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-02-23T17:15:19.181Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 Edg/98.0.1108.56" etag="EEaXkRsZPubKLMgzBMxr" version="16.6.2" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2022-02-23T17:20:59.222Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 Edg/98.0.1108.56" etag="HUCZ9lanPXxtl2uDOkQ0" version="16.6.2" type="github" pages="2">
   <diagram id="ibiOQKyL-mADjhCVZYJ8" name="Sub-System">
-    <mxGraphModel dx="1598" dy="684" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1065" dy="456" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -402,14 +402,25 @@
             <mxPoint x="50" y="1340" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="8x604wCygLvyvU7YE64j-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="8x604wCygLvyvU7YE64j-2" target="8x604wCygLvyvU7YE64j-19">
+        <mxCell id="8x604wCygLvyvU7YE64j-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.005;entryY=0.172;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="8x604wCygLvyvU7YE64j-2" target="8x604wCygLvyvU7YE64j-19">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="8x604wCygLvyvU7YE64j-2" value="M&lt;br&gt;A&lt;br&gt;X" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" vertex="1" parent="1">
           <mxGeometry x="640" y="648" width="40" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="8x604wCygLvyvU7YE64j-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="8x604wCygLvyvU7YE64j-3" target="8x604wCygLvyvU7YE64j-19">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="8x604wCygLvyvU7YE64j-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.005;entryY=0.585;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="8x604wCygLvyvU7YE64j-3" target="8x604wCygLvyvU7YE64j-19">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="700" y="793" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8x604wCygLvyvU7YE64j-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.011;entryY=0.361;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="8x604wCygLvyvU7YE64j-3" target="8x604wCygLvyvU7YE64j-19">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="700" y="780" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="8x604wCygLvyvU7YE64j-3" value="M&lt;br&gt;I&lt;br&gt;N" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" vertex="1" parent="1">
           <mxGeometry x="640" y="748" width="40" height="80" as="geometry" />
@@ -503,10 +514,10 @@
             <mxPoint x="560" y="1023" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="8x604wCygLvyvU7YE64j-36" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;&lt;b&gt;Versi 1:&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;+ Jumlah reward bisa lebih dari 3&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;- Boros memori/resource&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;- Register membutuhkan delay 1 clock&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;- Tidak fleksibel terhadap jumlah persimpangan&lt;/span&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="8x604wCygLvyvU7YE64j-36" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;&lt;b&gt;Versi 1:&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;- Boros memori/resource&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;- Register membutuhkan delay 1 clock&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;- Tidak fleksibel terhadap jumlah persimpangan&lt;/span&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="50" y="580" width="260" height="55" as="geometry" />
         </mxCell>
-        <mxCell id="8x604wCygLvyvU7YE64j-37" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;&lt;b&gt;Versi 2:&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;+ Lebih fleksibel terhadap jumlah persimpangan&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;+ Hemat resource&amp;nbsp;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;- Reward maksimal hanya 3&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;- Belum diketahui sub-blok analyzer membutuhkan berapa clock&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="8x604wCygLvyvU7YE64j-37" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;&lt;b&gt;Versi 2:&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;+ Lebih fleksibel terhadap jumlah persimpangan&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;+ Hemat resource&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;- Belum diketahui sub-blok analyzer membutuhkan berapa clock&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="510" y="560" width="370" height="55" as="geometry" />
         </mxCell>
       </root>
