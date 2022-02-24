@@ -11,10 +11,32 @@ module max4to1_32bit(
     comp_32bit max2(.in0(w0),   .in1(w1),   .out0(out0));
 endmodule
 
+module max4to1_2bit(
+    input wire [1:0] in0, in1, in2, in3,
+    output wire [1:0] out0
+    );
+    wire [1:0] w0, w1;
+    assign w0   = (in0>in1) ? in0 : in1;
+    assign w1   = (in2>in3) ? in2 : i3;
+    assign out0 = (w1>w0)   ? w1 : w0;
+endmodule
+
+module min4to2_2bit(
+    input wire [1:0] in0, in1, in2, in3,
+    output wire [1:0] out0, out1
+    );
+    wire [1:0] w0, w1;
+    assign w0   = (in0<in1) ? in0 : in1;
+    assign w1   = (in2<in3) ? in2 : i3;
+    assign out0 = (w1<w0)   ? w1 : w0; 
+    assign out1 = (w1<w0)   ? w0 : w1;
+endmodule
+
 module comp_32bit(
     input signed [31:0] in0, in1,
     output signed [31:0] out0
     );
     assign out0 = (in0 > in1)? in0 : in1;
 endmodule
+
 

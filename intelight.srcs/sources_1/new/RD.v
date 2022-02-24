@@ -15,11 +15,7 @@ module RD(
     );
     // selecting reward 
     wire [1:0] sel;  
-    assign sel =    (act == 2'd0)? reward_row[7:6] :
-                    (act == 2'd1)? reward_row[5:4] :
-                    (act == 2'd2)? reward_row[3:2] :
-                    (act == 2'd3)? reward_row[1:0] :
-                                   2'd0;
+    analyzer analyzer0(.state(state), .sel(sel));
     
     mux4to1_32bit rd0(  .in0(reward_0),   
                         .in1(reward_1),     
@@ -29,14 +25,18 @@ module RD(
                         .out0(reward));
 endmodule
 
-module reward_encoder(
-    input wire [7:0] in0,
-    input wire [1:0] act, // selector
-    output wire [1:0] out0
+module analyzer(
+    input wire [31:0] state,
+    output wire [1:0] sel
     );
-    assign out0 =   (sel == 2'd0)? in[7:6] :
-                    (sel == 2'd1)? in[5:4] :
-                    (sel == 2'd2)? in[3:2] :
-                    (sel == 2'd3)? in[1:0] :
-                                   2'd0;
+    
+    wire [1:0] w_max; // nilai tertinggi
+    wire [1:0] w_mid; // nilai terendah kedua
+    wire [1:0] w_min; // nilai terendah 
+    
+    max4to1_2bit max0(.in0(state[1:0]), .in1(state[3:2]), .in2(state[5:4]), .in3(state[7:6]), .out0(w_max));
+    min4to2_2bit min0(.in0(state[1:0]), .in1(state[3:2]), .in2(state[5:4]), .in3(state[7:6]), .out0(w_min), .out1(w_mid));
 endmodule
+    
+    
+    
