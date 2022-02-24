@@ -15,7 +15,7 @@ module RD(
     );
     // selecting reward 
     wire [1:0] sel;  
-    analyzer analyzer0(.state(state), .sel(sel));
+    analyzer analyzer0(.state(state), .act(act), .sel(sel));
     
     mux4to1_32bit rd0(  .in0(reward_0),   
                         .in1(reward_1),     
@@ -27,15 +27,23 @@ endmodule
 
 module analyzer(
     input wire [31:0] state,
+    input wire [1:0] act,
     output wire [1:0] sel
     );
     
     wire [1:0] w_max; // nilai tertinggi
     wire [1:0] w_mid; // nilai terendah kedua
     wire [1:0] w_min; // nilai terendah 
+    wire [1:0] w_act;
     
     max4to1_2bit max0(.in0(state[1:0]), .in1(state[3:2]), .in2(state[5:4]), .in3(state[7:6]), .out0(w_max));
     min4to2_2bit min0(.in0(state[1:0]), .in1(state[3:2]), .in2(state[5:4]), .in3(state[7:6]), .out0(w_min), .out1(w_mid));
+    mux4to1_2bit mux0(.in0(state[1:0]), .in1(state[3:2]), .in2(state[5:4]), .in3(state[7:6]), .out0(w_act), .sel(act));
+    
+    assign sel =    (w_act == w_min)? 2'd00 :
+                    (w_act == w_mid)? 2'd01 :
+                    (w_act == w_max)? 2'd11 :
+                                      2'd10;    
 endmodule
     
     
