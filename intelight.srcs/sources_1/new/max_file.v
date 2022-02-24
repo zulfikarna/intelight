@@ -17,3 +17,4 @@ module comp_32bit(
     );
     assign out0 = (in0 > in1)? in0 : in1;
 endmodule
+

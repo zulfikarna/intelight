@@ -73,7 +73,7 @@ module SD(
     mux2to1_32bit   mux2    (.in0(init_panjang_r2),    .in1(panjang_r2),      .out0(panjang_w2),        .sel(start));
     plus            plus2   (.in0(delta_panjang_r2),   .in1(panjang_w2),      .out0(panjang_r2));
     
-    // Perhitungan panjang kemacetan : Ruas 3
+    // Perhitungan panjang kemaceta n : Ruas 3
     multiply        mult3   (.in0(debit_r3-debit_out_r3),           .c(delta_t),           .out0(delta_panjang_r3));
     mux2to1_32bit   mux3    (.in0(init_panjang_r3),    .in1(panjang_r3),      .out0(panjang_w3),        .sel(start));
     plus            plus3   (.in0(delta_panjang_r3),   .in1(panjang_w3),      .out0(panjang_r3));
@@ -95,6 +95,6 @@ module SD(
                         ((panjang_r3 >= batas_0)&&(panjang_r3 < batas_1))   ? 8'd1:
                         ((panjang_r3 >= batas_1)&&(panjang_r3 < batas_2))   ? 8'd2:
                                                                               8'd3;
-    assign state    = (((level_r0)||(level_r1<<2)||(level_r2<<4)||(level_r3<<8))||32'h0000_0000)<<2;
+    assign state    = ((level_r0)||(level_r1<<2)||(level_r2<<4)||(level_r3<<8))||32'h0000_0000;
 
 endmodule

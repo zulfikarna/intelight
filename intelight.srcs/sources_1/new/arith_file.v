@@ -23,7 +23,7 @@ module multiply(
     plus    p0(.in0(w0),    .in1(w1),   .out0(w3));
     plus    p1(.in0(w2),    .in1(w3),   .out0(w4));
     
-    assign out = w4;
+    assign out0 = w4;
 endmodule
 
 module r_shift(
@@ -60,6 +60,6 @@ module lsfr_16bit(
     wire w0;
     
     assign w0 = in0[15] ^ in0[13] ^ in0[12] ^ in0[10];
-    assign out0 = {in0[14:0],n};
+    assign out0 = {in0[14:0],w0};
 endmodule
     

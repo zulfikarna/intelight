@@ -4,18 +4,17 @@
 // Engineer: 13218029 Zulfikar
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module RD(
     input wire [1:0] act,
-    input wire [7:0] reward_row, // from reward memory
-    input wire [31:0] reward_0,
-    input wire [31:0] reward_1,
-    input wire [31:0] reward_2,
-    input wire [31:0] reward_3,
+    input wire [31:0] state,
+    input wire [31:0] reward_0, // lowest   : hijau pada level kemacetan 0 
+    input wire [31:0] reward_1, // mid-low  : hijau pada level kemacetan 1
+    input wire [31:0] reward_2, // mid-high : hijau pada level kemacetan 2
+    input wire [31:0] reward_3, // highest  : hijau pada level kemacetan 3 
     output wire [31:0] reward
     );
     // selecting reward 
-    wire [1:0] sel;
+    wire [1:0] sel;  
     assign sel =    (act == 2'd0)? reward_row[7:6] :
                     (act == 2'd1)? reward_row[5:4] :
                     (act == 2'd2)? reward_row[3:2] :

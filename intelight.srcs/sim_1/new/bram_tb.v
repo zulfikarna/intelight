@@ -15,7 +15,7 @@ module bram_tb();
   
   localparam
     BASE_ADDR = 32'h0000_0000,
-    INC_ADDR  = 3'd4,
+    INC_ADDR  = 3'd1,
     BASE_DATA = 32'hFFFF_FFFF,
     DEC_DATA = 32'd4;
   

@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
+// Tetsbench POLICY GENERATOR
 // Engineer: Dismas W.
 // 
 // Create Date: 22.02.2022 17:32:46
@@ -8,13 +8,16 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module PG_tb;
+    //clock and reset
     reg clk,rst;
+    //signal I/O
     reg en;
     reg [31:0] qA0, qA1, qA2, qA3;
     reg sel;
     reg [1:0] act_random;
     wire [1:0] act;
     
+    //DUT
     PG dut(
         .en(en),
         .qA0(qA0),
@@ -26,6 +29,7 @@ module PG_tb;
         .act(act)
     );
     
+    //Clock
     always begin
         clk = 1'b0;
         #10;
@@ -33,6 +37,7 @@ module PG_tb;
         #10;
     end
     
+    //initial reset and selector
     initial begin
         rst = 1'b1;
         sel = 1'b0;
@@ -43,6 +48,7 @@ module PG_tb;
         en = 1'b1;
     end
     
+    //data
     always @(posedge clk) begin
         qA0 = 32'd50;
         qA1 = 32'd100;
