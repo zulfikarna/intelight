@@ -16,7 +16,7 @@ module QA_tb();
     reg [1:0] act;
     reg [2:0] alpha;
     reg [2:0] gamma;
-    reg [31:0] reward;
+    reg signed [31:0] reward;
     
     //Output
     wire [31:0] curr_qA0, curr_qA1, curr_qA2, curr_qA3; 
@@ -62,13 +62,13 @@ module QA_tb();
     always @(posedge clk) begin
         next_qA0 = 32'd50;
         next_qA1 = 32'd60;
-        next_qA2 = 32'd70;
+        next_qA2 = -32'd70;
         next_qA3 = 32'd80;
         
         act = 2'd2;
         alpha = 3'd4;
         gamma = 3'd5;
-        reward = 31'd100;
+        reward = -31'd50;
         
     end
 endmodule
