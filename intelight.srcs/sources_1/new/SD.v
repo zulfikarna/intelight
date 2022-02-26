@@ -2,6 +2,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 // STATE DECIDER
 // Engineer: 13218029 Zulfikar
+//
+// Edited by: Dismas W.
+// 24/02/2022
 //////////////////////////////////////////////////////////////////////////////////
 
 module SD(
@@ -79,22 +82,58 @@ module SD(
     plus            plus3   (.in0(delta_panjang_r3),   .in1(panjang_w3),      .out0(panjang_r3));
     
     // Penentuan state 
-    assign level_r0 =   (panjang_r0 < batas_0)                              ? 8'd0:
-                        ((panjang_r0 >= batas_0)&&(panjang_r0 < batas_1))   ? 8'd1:
-                        ((panjang_r0 >= batas_1)&&(panjang_r0 < batas_2))   ? 8'd2:
-                                                                              8'd3;
-    assign level_r1 =   (panjang_r1 < batas_0)                              ? 8'd0:
-                        ((panjang_r1 >= batas_0)&&(panjang_r1 < batas_1))   ? 8'd1:
-                        ((panjang_r1 >= batas_1)&&(panjang_r1 < batas_2))   ? 8'd2:
-                                                                              8'd3;
-    assign level_r2 =   (panjang_r2 < batas_0)                              ? 8'd0:
-                        ((panjang_r2 >= batas_0)&&(panjang_r2 < batas_1))   ? 8'd1:
-                        ((panjang_r2 >= batas_1)&&(panjang_r2 < batas_2))   ? 8'd2:
-                                                                              8'd3;
-    assign level_r3 =   (panjang_r3 < batas_0)                              ? 8'd0:
-                        ((panjang_r3 >= batas_0)&&(panjang_r3 < batas_1))   ? 8'd1:
-                        ((panjang_r3 >= batas_1)&&(panjang_r3 < batas_2))   ? 8'd2:
-                                                                              8'd3;
+    comp_SD comp(
+        .panjang_w0(panjang_w0),
+        .panjang_w1(panjang_w1),
+        .panjang_w2(panjang_w2),
+        .panjang_w3(panjang_w3),
+        .batas_0(batas_0),
+        .batas_1(batas_1),
+        .batas_2(batas_2),
+        .batas_3(batas_3),
+        .level_r0(level_r0),
+        .level_r1(level_r1),
+        .level_r2(level_r2),
+        .level_r3(level_r3)
+    );
     assign state    = ((level_r0)||(level_r1<<2)||(level_r2<<4)||(level_r3<<8))||32'h0000_0000;
 
+endmodule
+
+
+//Module Comparator/Converter SD
+module comp_SD(
+    //INPUT
+    input wire [31:0] panjang_w0,
+    input wire [31:0] panjang_w1,
+    input wire [31:0] panjang_w2,
+    input wire [31:0] panjang_w3,
+    
+    input wire [31:0] batas_0,
+    input wire [31:0] batas_1,
+    input wire [31:0] batas_2,
+    input wire [31:0] batas_3,        
+    //OUTPUT
+    output wire [7:0] level_r0,
+    output wire [7:0] level_r1,
+    output wire [7:0] level_r2,
+    output wire [7:0] level_r3    
+    );
+    
+    assign level_r0 =   (panjang_w0 < batas_0)                              ? 8'd0:
+                        ((panjang_w0 >= batas_0)&&(panjang_w0 < batas_1))   ? 8'd1:
+                        ((panjang_w0 >= batas_1)&&(panjang_w0 < batas_2))   ? 8'd2:
+                                                                              8'd3;
+    assign level_r1 =   (panjang_w1 < batas_0)                              ? 8'd0:
+                        ((panjang_w1 >= batas_0)&&(panjang_w1 < batas_1))   ? 8'd1:
+                        ((panjang_w1 >= batas_1)&&(panjang_w1 < batas_2))   ? 8'd2:
+                                                                              8'd3;
+    assign level_r2 =   (panjang_w2 < batas_0)                              ? 8'd0:
+                        ((panjang_w2 >= batas_0)&&(panjang_w2 < batas_1))   ? 8'd1:
+                        ((panjang_w2 >= batas_1)&&(panjang_w2 < batas_2))   ? 8'd2:
+                                                                              8'd3;
+    assign level_r3 =   (panjang_w3 < batas_0)                              ? 8'd0:
+                        ((panjang_w3 >= batas_0)&&(panjang_w3 < batas_1))   ? 8'd1:
+                        ((panjang_w3 >= batas_1)&&(panjang_w3 < batas_2))   ? 8'd2:
+                                                                              8'd3;
 endmodule

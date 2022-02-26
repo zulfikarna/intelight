@@ -32,6 +32,7 @@ module SD_tb;
         .init_panjang_r1(init_panjang_r1),
         .init_panjang_r2(init_panjang_r2),
         .init_panjang_r3(init_panjang_r3),
+        .start(start),
         .batas_0(batas_0),
         .batas_1(batas_1),
         .batas_2(batas_2),
@@ -49,7 +50,7 @@ module SD_tb;
     //initial reset
     initial begin
         rst = 1'b1;
-        start = 1'b1;
+        start = 1'b0;
         #10;
         rst = 1'b0;
         
@@ -67,7 +68,7 @@ module SD_tb;
         init_panjang_r1 = 32'd10;
         init_panjang_r2 = 32'd20;
         init_panjang_r3 = 32'd15;
-        start = !start;
+        //start = !start;
         
         batas_0 = 32'd10;
         batas_1 = 32'd15;
