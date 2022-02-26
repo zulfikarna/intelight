@@ -40,9 +40,9 @@
             "left": "1",
             "right": "0"
           },
-          "reward_row": {
+          "state": {
             "direction": "I",
-            "left": "7",
+            "left": "31",
             "right": "0"
           },
           "reward_0": {
@@ -217,6 +217,11 @@
             "right": "0"
           },
           "new_qA": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "max_next_qA": {
             "direction": "O",
             "left": "31",
             "right": "0"

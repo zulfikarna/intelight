@@ -7,9 +7,9 @@
 module reg_32bit(
     input wire clk,
     input wire [31:0] in0,
-    output wire [31:0] out0
+    output reg [31:0] out0
     );
-    reg [31:0] temp;
+    //reg [31:0] temp;
     always@(posedge clk) begin
         out0 <= in0;
     end

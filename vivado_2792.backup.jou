@@ -1,0 +1,55 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Thu Feb 24 16:02:39 2022
+# Process ID: 2792
+# Current directory: D:/Dismas/ITB/SemesterVIII/TA2/intelight
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4156 D:\Dismas\ITB\SemesterVIII\TA2\intelight\intelight.xpr
+# Log file: D:/Dismas/ITB/SemesterVIII/TA2/intelight/vivado.log
+# Journal file: D:/Dismas/ITB/SemesterVIII/TA2/intelight\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Dismas/ITB/SemesterVIII/TA2/intelight/intelight.xpr
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top debit_decoder_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+source debit_decoder_tb.tcl
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top SD_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+close_sim
+launch_simulation
+source SD_tb.tcl
+relaunch_sim
+close_sim
+launch_simulation
+source SD_tb.tcl
+close_sim
+launch_simulation
+source SD_tb.tcl
+add_bp {D:/Dismas/ITB/SemesterVIII/TA2/intelight/intelight.srcs/sources_1/new/SD.v} 86
+remove_bps -file {D:/Dismas/ITB/SemesterVIII/TA2/intelight/intelight.srcs/sources_1/new/SD.v} -line 86
+relaunch_sim
+close_sim
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open D:/Dismas/ITB/SemesterVIII/TA2/intelight/intelight.srcs/sim_1/new/comp_SD_tb.v w ]
+add_files -fileset sim_1 D:/Dismas/ITB/SemesterVIII/TA2/intelight/intelight.srcs/sim_1/new/comp_SD_tb.v
+update_compile_order -fileset sim_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top comp_SD_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
