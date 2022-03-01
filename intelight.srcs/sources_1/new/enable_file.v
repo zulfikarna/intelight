@@ -27,7 +27,7 @@ module debit_decoder(
     output wire [31:0] out0, out1, out2, out3
     );
     
-    localparam DEBIT_OUT = 32'h00FF_0000;
+    localparam DEBIT_OUT = 32'h0051_0000;
     
     assign out0 = (act==0)? DEBIT_OUT : 1'h0000_0000;
     assign out1 = (act==1)? DEBIT_OUT : 1'h0000_0000;

@@ -4,11 +4,11 @@
 // Engineer: Dismas W.
 // 
 // Create Date: 26.02.2022 10:13:08
-// 
+// Edited : Zulfikar N. A.
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module QA_tb();
+    localparam INC = 32'd5;
     //clk dan rst
     reg clk, rst;
     //Input
@@ -21,7 +21,8 @@ module QA_tb();
     //Output
     wire [31:0] curr_qA0, curr_qA1, curr_qA2, curr_qA3; 
     wire [31:0] new_qA;
-    wire [31:0] max_next_qA;
+//    wire [31:0] max_next_qA;
+//    wire [31:0] chos_curr_qA;
     
     //dut
     QA dut(
@@ -36,11 +37,12 @@ module QA_tb();
         .curr_qA2(curr_qA2),
         .curr_qA3(curr_qA3),
         .new_qA(new_qA),
-        .max_next_qA(max_next_qA),
         .act(act),
         .alpha(alpha),
         .gamma(gamma),
         .reward(reward)
+        //.max_next_qA(max_next_qA),
+        //.debug_chos_curr_qA(debug_chos_curr_qA)
     );
     
     //clock
@@ -58,17 +60,25 @@ module QA_tb();
         rst = 1'b0;
     end
     
-    //data
-    always @(posedge clk) begin
-        next_qA0 = 32'd50;
+    // initial next Q value 
+    initial begin
+        act = 2'd2;
+        alpha = 3'd4; // alpha = 100 = 0.5
+        gamma = 3'd5; // gamma = 101 = 0.5 + 0.125 = 0.625
+        reward = -31'd50;
+        #1;
+        next_qA0 = 32'd1;
         next_qA1 = 32'd60;
         next_qA2 = -32'd70;
         next_qA3 = 32'd80;
-        
-        act = 2'd2;
-        alpha = 3'd4;
-        gamma = 3'd5;
-        reward = -31'd50;
-        
+    end
+    
+    // data updating
+    always @(posedge clk) begin
+        #1;
+        next_qA0 = next_qA0<<INC;
+        next_qA1 = next_qA1 - INC;
+        next_qA2 = next_qA2+INC;
+        next_qA3 = next_qA3>>INC;        
     end
 endmodule
