@@ -14,12 +14,12 @@ endmodule
 
 module decoder(
     input wire  [1:0] act,
-    output wire en0, en1, en2, en3
+    output wire [3:0] en0, en1, en2, en3
     );
-    assign en0 = (act==0)? 1'b1 : 1'b0;
-    assign en1 = (act==1)? 1'b1 : 1'b0;
-    assign en2 = (act==2)? 1'b1 : 1'b0;
-    assign en3 = (act==3)? 1'b1 : 1'b0;
+    assign en0 = (act==0)? 4'b1111 : 4'b0000;
+    assign en1 = (act==1)? 4'b1111 : 4'b0000;
+    assign en2 = (act==2)? 4'b1111 : 4'b0000;
+    assign en3 = (act==3)? 4'b1111 : 4'b0000;
 endmodule
 
 module debit_decoder(

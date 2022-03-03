@@ -169,10 +169,10 @@ proc create_hier_cell_Action_RAM { parentCell nameHier } {
   create_bd_pin -dir I -type clk clk_bram
   create_bd_pin -dir O -from 1 -to 0 curr_act
   create_bd_pin -dir O -from 31 -to 0 curr_state
-  create_bd_pin -dir O en0
-  create_bd_pin -dir O en1
-  create_bd_pin -dir O en2
-  create_bd_pin -dir O en3
+  create_bd_pin -dir O -from 3 -to 0 en0
+  create_bd_pin -dir O -from 3 -to 0 en1
+  create_bd_pin -dir O -from 3 -to 0 en2
+  create_bd_pin -dir O -from 3 -to 0 en3
   create_bd_pin -dir I -from 1 -to 0 next_action
   create_bd_pin -dir I -from 31 -to 0 next_state
   create_bd_pin -dir I -from 31 -to 0 q_new
@@ -391,10 +391,10 @@ proc create_root_design { parentCell } {
   set clk_bram_0 [ create_bd_port -dir I -type clk clk_bram_0 ]
   set curr_act_0 [ create_bd_port -dir O -from 1 -to 0 curr_act_0 ]
   set curr_state_0 [ create_bd_port -dir O -from 31 -to 0 curr_state_0 ]
-  set en0 [ create_bd_port -dir O en0 ]
-  set en1 [ create_bd_port -dir O en1 ]
-  set en2 [ create_bd_port -dir O en2 ]
-  set en3 [ create_bd_port -dir O en3 ]
+  set en0 [ create_bd_port -dir O -from 3 -to 0 en0 ]
+  set en1 [ create_bd_port -dir O -from 3 -to 0 en1 ]
+  set en2 [ create_bd_port -dir O -from 3 -to 0 en2 ]
+  set en3 [ create_bd_port -dir O -from 3 -to 0 en3 ]
   set next_action_0 [ create_bd_port -dir I -from 1 -to 0 next_action_0 ]
   set next_state_0 [ create_bd_port -dir I -from 31 -to 0 next_state_0 ]
   set q_new_0 [ create_bd_port -dir I -from 31 -to 0 q_new_0 ]

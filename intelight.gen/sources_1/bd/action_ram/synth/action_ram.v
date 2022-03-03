@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-//Date        : Thu Mar  3 16:05:20 2022
+//Date        : Thu Mar  3 18:30:14 2022
 //Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 //Command     : generate_target action_ram.bd
 //Design      : action_ram
@@ -28,10 +28,10 @@ module Action_RAM_imp_PU0KDT
   input clk_bram;
   output [1:0]curr_act;
   output [31:0]curr_state;
-  output en0;
-  output en1;
-  output en2;
-  output en3;
+  output [3:0]en0;
+  output [3:0]en1;
+  output [3:0]en2;
+  output [3:0]en3;
   input [1:0]next_action;
   input [31:0]next_state;
   input [31:0]q_new;
@@ -48,10 +48,10 @@ module Action_RAM_imp_PU0KDT
   wire clk_0_1;
   wire [3:0]cnst_0_4bit_dout;
   wire [0:0]cnst_1_1bit_dout;
-  wire decoder_0_en0;
-  wire decoder_0_en1;
-  wire decoder_0_en2;
-  wire decoder_0_en3;
+  wire [3:0]decoder_0_en0;
+  wire [3:0]decoder_0_en1;
+  wire [3:0]decoder_0_en2;
+  wire [3:0]decoder_0_en3;
   wire [31:0]dina_0_1;
   wire [1:0]next_action_1;
   wire [31:0]next_state_1;
@@ -64,10 +64,10 @@ module Action_RAM_imp_PU0KDT
   assign curr_act[1:0] = reg_2bit_0_out0;
   assign curr_state[31:0] = reg_32bit_0_out0;
   assign dina_0_1 = q_new[31:0];
-  assign en0 = decoder_0_en0;
-  assign en1 = decoder_0_en1;
-  assign en2 = decoder_0_en2;
-  assign en3 = decoder_0_en3;
+  assign en0[3:0] = decoder_0_en0;
+  assign en1[3:0] = decoder_0_en1;
+  assign en2[3:0] = decoder_0_en2;
+  assign en3[3:0] = decoder_0_en3;
   assign next_action_1 = next_action[1:0];
   assign next_state_1 = next_state[31:0];
   assign q_next_0[31:0] = Action_RAM_0_doutb;
@@ -87,7 +87,7 @@ module Action_RAM_imp_PU0KDT
         .enb(cnst_1_1bit_dout),
         .rsta(rsta_0_1),
         .rstb(rsta_0_1),
-        .wea({decoder_0_en0,decoder_0_en0,decoder_0_en0,decoder_0_en0}),
+        .wea(decoder_0_en0),
         .web(cnst_0_4bit_dout));
   action_ram_Action_RAM_1_0 Action_RAM_1
        (.addra(reg_32bit_0_out0),
@@ -101,7 +101,7 @@ module Action_RAM_imp_PU0KDT
         .enb(cnst_1_1bit_dout),
         .rsta(rsta_0_1),
         .rstb(rsta_0_1),
-        .wea({decoder_0_en1,decoder_0_en1,decoder_0_en1,decoder_0_en1}),
+        .wea(decoder_0_en1),
         .web(cnst_0_4bit_dout));
   action_ram_Action_RAM_2_0 Action_RAM_2
        (.addra(reg_32bit_0_out0),
@@ -115,7 +115,7 @@ module Action_RAM_imp_PU0KDT
         .enb(cnst_1_1bit_dout),
         .rsta(rsta_0_1),
         .rstb(rsta_0_1),
-        .wea({decoder_0_en2,decoder_0_en2,decoder_0_en2,decoder_0_en2}),
+        .wea(decoder_0_en2),
         .web(cnst_0_4bit_dout));
   action_ram_Action_RAM_3_0 Action_RAM_3
        (.addra(reg_32bit_0_out0),
@@ -129,7 +129,7 @@ module Action_RAM_imp_PU0KDT
         .enb(cnst_1_1bit_dout),
         .rsta(rsta_0_1),
         .rstb(rsta_0_1),
-        .wea({decoder_0_en3,decoder_0_en3,decoder_0_en3,decoder_0_en3}),
+        .wea(decoder_0_en3),
         .web(cnst_0_4bit_dout));
   action_ram_cnst_0_4bit_0 cnst_0_4bit
        (.dout(cnst_0_4bit_dout));
@@ -175,10 +175,10 @@ module action_ram
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_BRAM_0 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_BRAM_0, CLK_DOMAIN action_ram_clk_bram_0, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_bram_0;
   output [1:0]curr_act_0;
   output [31:0]curr_state_0;
-  output en0;
-  output en1;
-  output en2;
-  output en3;
+  output [3:0]en0;
+  output [3:0]en1;
+  output [3:0]en2;
+  output [3:0]en3;
   input [1:0]next_action_0;
   input [31:0]next_state_0;
   input [31:0]q_new_0;
@@ -190,10 +190,10 @@ module action_ram
 
   wire [1:0]Action_RAM_curr_act;
   wire [31:0]Action_RAM_curr_state;
-  wire Action_RAM_en0;
-  wire Action_RAM_en1;
-  wire Action_RAM_en2;
-  wire Action_RAM_en3;
+  wire [3:0]Action_RAM_en0;
+  wire [3:0]Action_RAM_en1;
+  wire [3:0]Action_RAM_en2;
+  wire [3:0]Action_RAM_en3;
   wire [31:0]Action_RAM_q_next_0;
   wire [31:0]Action_RAM_q_next_1;
   wire [31:0]Action_RAM_q_next_2;
@@ -207,10 +207,10 @@ module action_ram
   assign clk_bram_0_1 = clk_bram_0;
   assign curr_act_0[1:0] = Action_RAM_curr_act;
   assign curr_state_0[31:0] = Action_RAM_curr_state;
-  assign en0 = Action_RAM_en0;
-  assign en1 = Action_RAM_en1;
-  assign en2 = Action_RAM_en2;
-  assign en3 = Action_RAM_en3;
+  assign en0[3:0] = Action_RAM_en0;
+  assign en1[3:0] = Action_RAM_en1;
+  assign en2[3:0] = Action_RAM_en2;
+  assign en3[3:0] = Action_RAM_en3;
   assign next_action_0_1 = next_action_0[1:0];
   assign next_state_0_1 = next_state_0[31:0];
   assign q_new_0_1 = q_new_0[31:0];

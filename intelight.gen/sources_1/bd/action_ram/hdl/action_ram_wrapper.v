@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-//Date        : Thu Mar  3 16:05:20 2022
+//Date        : Thu Mar  3 18:30:14 2022
 //Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 //Command     : generate_target action_ram_wrapper.bd
 //Design      : action_ram_wrapper
@@ -28,10 +28,10 @@ module action_ram_wrapper
   input clk_bram_0;
   output [1:0]curr_act_0;
   output [31:0]curr_state_0;
-  output en0;
-  output en1;
-  output en2;
-  output en3;
+  output [3:0]en0;
+  output [3:0]en1;
+  output [3:0]en2;
+  output [3:0]en3;
   input [1:0]next_action_0;
   input [31:0]next_state_0;
   input [31:0]q_new_0;
@@ -44,10 +44,10 @@ module action_ram_wrapper
   wire clk_bram_0;
   wire [1:0]curr_act_0;
   wire [31:0]curr_state_0;
-  wire en0;
-  wire en1;
-  wire en2;
-  wire en3;
+  wire [3:0]en0;
+  wire [3:0]en1;
+  wire [3:0]en2;
+  wire [3:0]en3;
   wire [1:0]next_action_0;
   wire [31:0]next_state_0;
   wire [31:0]q_new_0;

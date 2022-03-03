@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1646296223">
   <File Type="PA-TCL" Name="QA.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="QA_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="QA_reports.tcl"/>
   <File Type="RDS-RDS" Name="QA.vds"/>
   <File Type="RDS-UTIL" Name="QA_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="QA_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="QA.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="QA_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="QA_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/arith_file.v">

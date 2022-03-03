@@ -1,25 +1,25 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Mar  3 16:05:20 2022" VIVADOVERSION="2021.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Mar  3 18:30:14 2022" VIVADOVERSION="2021.1">
 
   <SYSTEMINFO ARCH="zynq" BOARD="www.digilentinc.com:pynq-z1:part0:1.0" DEVICE="7z020" NAME="action_ram" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
   <EXTERNALPORTS>
-    <PORT DIR="O" NAME="en0" SIGIS="undef" SIGNAME="Action_RAM_decoder_0_en0">
+    <PORT DIR="O" LEFT="3" NAME="en0" RIGHT="0" SIGIS="undef" SIGNAME="Action_RAM_decoder_0_en0">
       <CONNECTIONS>
         <CONNECTION INSTANCE="Action_RAM_decoder_0" PORT="en0"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="en1" SIGIS="undef" SIGNAME="Action_RAM_decoder_0_en1">
+    <PORT DIR="O" LEFT="3" NAME="en1" RIGHT="0" SIGIS="undef" SIGNAME="Action_RAM_decoder_0_en1">
       <CONNECTIONS>
         <CONNECTION INSTANCE="Action_RAM_decoder_0" PORT="en1"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="en2" SIGIS="undef" SIGNAME="Action_RAM_decoder_0_en2">
+    <PORT DIR="O" LEFT="3" NAME="en2" RIGHT="0" SIGIS="undef" SIGNAME="Action_RAM_decoder_0_en2">
       <CONNECTIONS>
         <CONNECTION INSTANCE="Action_RAM_decoder_0" PORT="en2"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="en3" SIGIS="undef" SIGNAME="Action_RAM_decoder_0_en3">
+    <PORT DIR="O" LEFT="3" NAME="en3" RIGHT="0" SIGIS="undef" SIGNAME="Action_RAM_decoder_0_en3">
       <CONNECTIONS>
         <CONNECTION INSTANCE="Action_RAM_decoder_0" PORT="en3"/>
       </CONNECTIONS>
@@ -1188,25 +1188,25 @@
             <CONNECTION INSTANCE="Action_RAM_reg_2bit_0" PORT="out0"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="en0" SIGIS="undef" SIGNAME="Action_RAM_decoder_0_en0">
+        <PORT DIR="O" LEFT="3" NAME="en0" RIGHT="0" SIGIS="undef" SIGNAME="Action_RAM_decoder_0_en0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Action_RAM_Action_RAM_0" PORT="wea"/>
             <CONNECTION INSTANCE="External_Ports" PORT="en0"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="en1" SIGIS="undef" SIGNAME="Action_RAM_decoder_0_en1">
+        <PORT DIR="O" LEFT="3" NAME="en1" RIGHT="0" SIGIS="undef" SIGNAME="Action_RAM_decoder_0_en1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Action_RAM_Action_RAM_1" PORT="wea"/>
             <CONNECTION INSTANCE="External_Ports" PORT="en1"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="en2" SIGIS="undef" SIGNAME="Action_RAM_decoder_0_en2">
+        <PORT DIR="O" LEFT="3" NAME="en2" RIGHT="0" SIGIS="undef" SIGNAME="Action_RAM_decoder_0_en2">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Action_RAM_Action_RAM_2" PORT="wea"/>
             <CONNECTION INSTANCE="External_Ports" PORT="en2"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="en3" SIGIS="undef" SIGNAME="Action_RAM_decoder_0_en3">
+        <PORT DIR="O" LEFT="3" NAME="en3" RIGHT="0" SIGIS="undef" SIGNAME="Action_RAM_decoder_0_en3">
           <CONNECTIONS>
             <CONNECTION INSTANCE="Action_RAM_Action_RAM_3" PORT="wea"/>
             <CONNECTION INSTANCE="External_Ports" PORT="en3"/>

@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x872665099AFC29DE",
+      "boundary_crc": "0x6A711159B5143583",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../intelight.gen/sources_1/bd/action_ram",
       "name": "action_ram",
@@ -16,26 +16,34 @@
         "cnst_0_4bit": "",
         "Action_RAM_2": "",
         "Action_RAM_3": "",
-        "decoder_0": "",
         "cnst_1_1bit": "",
         "Action_RAM_1": "",
         "reg_32bit_1": "",
         "reg_2bit_0": "",
-        "reg_32bit_0": ""
+        "reg_32bit_0": "",
+        "decoder_0": ""
       }
     },
     "ports": {
       "en0": {
-        "direction": "O"
+        "direction": "O",
+        "left": "3",
+        "right": "0"
       },
       "en1": {
-        "direction": "O"
+        "direction": "O",
+        "left": "3",
+        "right": "0"
       },
       "en2": {
-        "direction": "O"
+        "direction": "O",
+        "left": "3",
+        "right": "0"
       },
       "en3": {
-        "direction": "O"
+        "direction": "O",
+        "left": "3",
+        "right": "0"
       },
       "q_next_3_0": {
         "direction": "O",
@@ -180,16 +188,24 @@
             "right": "0"
           },
           "en0": {
-            "direction": "O"
+            "direction": "O",
+            "left": "3",
+            "right": "0"
           },
           "en1": {
-            "direction": "O"
+            "direction": "O",
+            "left": "3",
+            "right": "0"
           },
           "en2": {
-            "direction": "O"
+            "direction": "O",
+            "left": "3",
+            "right": "0"
           },
           "en3": {
-            "direction": "O"
+            "direction": "O",
+            "left": "3",
+            "right": "0"
           }
         },
         "components": {
@@ -375,36 +391,6 @@
               }
             }
           },
-          "decoder_0": {
-            "vlnv": "xilinx.com:module_ref:decoder:1.0",
-            "xci_name": "action_ram_decoder_0_0",
-            "xci_path": "ip\\action_ram_decoder_0_0\\action_ram_decoder_0_0.xci",
-            "inst_hier_path": "Action_RAM/decoder_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "decoder",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "act": {
-                "direction": "I",
-                "left": "1",
-                "right": "0"
-              },
-              "en0": {
-                "direction": "O"
-              },
-              "en1": {
-                "direction": "O"
-              },
-              "en2": {
-                "direction": "O"
-              },
-              "en3": {
-                "direction": "O"
-              }
-            }
-          },
           "cnst_1_1bit": {
             "vlnv": "xilinx.com:ip:xlconstant:1.1",
             "xci_name": "action_ram_cnst_1_1bit_0",
@@ -562,6 +548,44 @@
               "out0": {
                 "direction": "O",
                 "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "decoder_0": {
+            "vlnv": "xilinx.com:module_ref:decoder:1.0",
+            "xci_name": "action_ram_decoder_0_0",
+            "xci_path": "ip\\action_ram_decoder_0_0\\action_ram_decoder_0_0.xci",
+            "inst_hier_path": "Action_RAM/decoder_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "decoder",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "act": {
+                "direction": "I",
+                "left": "1",
+                "right": "0"
+              },
+              "en0": {
+                "direction": "O",
+                "left": "3",
+                "right": "0"
+              },
+              "en1": {
+                "direction": "O",
+                "left": "3",
+                "right": "0"
+              },
+              "en2": {
+                "direction": "O",
+                "left": "3",
+                "right": "0"
+              },
+              "en3": {
+                "direction": "O",
+                "left": "3",
                 "right": "0"
               }
             }

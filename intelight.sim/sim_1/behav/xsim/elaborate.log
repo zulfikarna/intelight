@@ -4,6 +4,10 @@ Running: C:/Xilinx/Vivado/2021.1/bin/unwrapped/win64.o/xelab.exe -wto b00e1b8b0c
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 4 for port 'en0' [D:/intelight/intelight/intelight.srcs/sim_1/new/action_ram_tb.v:39]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 4 for port 'en1' [D:/intelight/intelight/intelight.srcs/sim_1/new/action_ram_tb.v:40]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 4 for port 'en2' [D:/intelight/intelight/intelight.srcs/sim_1/new/action_ram_tb.v:41]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 4 for port 'en3' [D:/intelight/intelight/intelight.srcs/sim_1/new/action_ram_tb.v:42]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis

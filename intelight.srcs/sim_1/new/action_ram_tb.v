@@ -67,7 +67,7 @@ module action_ram_tb();
   end
   
   always@(posedge clk_bram_0)begin
-    #25;
+    #1;
     next_state_0 = next_state_0 + STATE_INC;
     next_action_0 = (next_action_0 == 3)? 2'd0 : (next_action_0 + ACTION_INC);
     q_new_0         = q_new_0 - Q_NEW_INC;  
