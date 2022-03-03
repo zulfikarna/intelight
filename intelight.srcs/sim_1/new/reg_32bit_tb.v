@@ -9,22 +9,18 @@
 
 
 module reg_32bit_tb();
-    //clk
     reg clk;
-    
-    //input
     reg [31:0] in0;
-    //output
-    wire [31:0] out0;
+    wire [31:0] out_1clk;
+    wire [31:0] out_2clk;
     
     //dut
-    reg_32bit dut(
+    reg_32bit dut0(
         .in0(in0),
-        .out0(out0),
+        .out0(out_1clk),
         .clk(clk)
     );
     
-    //clock
     always begin
         clk = 1'b1;
         #10;
@@ -37,7 +33,7 @@ module reg_32bit_tb();
     end
     
     always @(posedge clk) begin
-        #50
+        #1;
         in0 = in0 + 1;
     end
 endmodule

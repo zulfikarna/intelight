@@ -1,0 +1,23 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/intelight/intelight/intelight.sim/sim_1/synth/timing/xsim/action_ram_tb_time_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module QA
+INFO: [VRFC 10-311] analyzing module max2to1_32bit
+INFO: [VRFC 10-311] analyzing module max2to1_32bit_3
+INFO: [VRFC 10-311] analyzing module max2to1_32bit_4
+INFO: [VRFC 10-311] analyzing module max4to1_32bit
+INFO: [VRFC 10-311] analyzing module reg_32bit
+INFO: [VRFC 10-311] analyzing module reg_32bit_0
+INFO: [VRFC 10-311] analyzing module reg_32bit_1
+INFO: [VRFC 10-311] analyzing module reg_32bit_2
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/intelight/intelight/intelight.srcs/sources_1/new/register_file.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module reg_32bit
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'reg_32bit' [D:/intelight/intelight/intelight.srcs/sources_1/new/register_file.v:7]
+INFO: [VRFC 10-311] analyzing module reg_2bit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/intelight/intelight/intelight.srcs/sources_1/new/enable_file.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module enabler_2bit
+INFO: [VRFC 10-311] analyzing module decoder
+INFO: [VRFC 10-311] analyzing module debit_decoder
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/intelight/intelight/intelight.gen/sources_1/bd/action_ram/hdl/action_ram_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module action_ram_wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/intelight/intelight/intelight.srcs/sim_1/new/action_ram_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module action_ram_tb

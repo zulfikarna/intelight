@@ -1,25 +1,20 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.883882",
-   "Default View_TopLeft":"-508,-181",
+   "Default View_ScaleFactor":"1.14516",
+   "Default View_TopLeft":"-499,-214",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace inst action_ram_0 -pg 1 -lvl 3 -x 400 -y 350 -defaultsOSRD
-preplace inst RD_0 -pg 1 -lvl 1 -x -280 -y 530 -defaultsOSRD
-preplace inst decoder_0 -pg 1 -lvl 2 -x 140 -y 280 -defaultsOSRD
-preplace inst PG_0 -pg 1 -lvl 2 -x 140 -y -30 -defaultsOSRD
-preplace inst QA_0 -pg 1 -lvl 4 -x 700 -y 50 -defaultsOSRD
-preplace inst SD_0 -pg 1 -lvl 1 -x -280 -y 240 -defaultsOSRD
-preplace netloc PG_0_act 1 0 4 -440 40 -120J 90 270 80 N
-preplace netloc QA_0_curr_qA0 1 1 4 -130 -180 NJ -180 N -180 890
-preplace netloc QA_0_curr_qA1 1 1 4 -120 -170 NJ -170 N -170 880
-preplace netloc QA_0_curr_qA2 1 1 4 -110 -160 NJ -160 N -160 870
-preplace netloc QA_0_curr_qA3 1 1 4 -100 -150 NJ -150 N -150 860
-preplace netloc RD_0_reward 1 1 3 -100 140 NJ 140 N
-preplace netloc SD_0_state 1 1 1 N 240
-levelinfo -pg 1 -460 -280 140 400 700 910
-pagesize -pg 1 -db -bbox -sgen -460 -440 910 640
+preplace portBus next_state -pg 1 -lvl 0 -x -300 -y 0 -defaultsOSRD
+preplace portBus q_new -pg 1 -lvl 0 -x -300 -y -50 -defaultsOSRD
+preplace inst Action_RAM_0 -pg 1 -lvl 2 -x 110 -y 40 -defaultsOSRD
+preplace inst reg_32bit_0 -pg 1 -lvl 1 -x -150 -y -10 -defaultsOSRD
+preplace netloc clka_0_1 1 0 2 -270J 60 -10J
+preplace netloc dina_0_1 1 0 2 -270J -80 -20J
+preplace netloc next_state_1 1 0 2 -280 80 N
+preplace netloc reg_32bit_0_out0 1 1 1 -30 -10n
+levelinfo -pg 1 -300 -150 110 240
+pagesize -pg 1 -db -bbox -sgen -450 -170 240 370
 "
 }
 0

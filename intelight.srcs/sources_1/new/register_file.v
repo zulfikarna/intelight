@@ -11,6 +11,18 @@ module reg_32bit(
     );
     //reg [31:0] temp;
     always@(posedge clk) begin
+        //#1;
+        out0 <= in0;
+    end
+endmodule
+
+module reg_2bit(
+    input wire clk,
+    input wire [1:0] in0,
+    output reg [1:0] out0
+    );
+    //reg [31:0] temp;
+    always@(posedge clk) begin
         out0 <= in0;
     end
 endmodule

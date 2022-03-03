@@ -1,6 +1,7 @@
 bram_blk_mem_gen_0_0.v,verilog,xil_defaultlib,../../../bd/bram/ip/bram_blk_mem_gen_0_0/sim/bram_blk_mem_gen_0_0.v,
 bram_xlconstant_0_0.v,verilog,xil_defaultlib,../../../bd/bram/ip/bram_xlconstant_0_0/sim/bram_xlconstant_0_0.v,
-bram.v,verilog,xil_defaultlib,../../../bd/bram/sim/bram.v,
 bram_xlconstant_0_1.v,verilog,xil_defaultlib,../../../bd/bram/ip/bram_xlconstant_0_1/sim/bram_xlconstant_0_1.v,
 bram_xlconstant_1_0.v,verilog,xil_defaultlib,../../../bd/bram/ip/bram_xlconstant_1_0/sim/bram_xlconstant_1_0.v,
+bram.v,verilog,xil_defaultlib,../../../bd/bram/sim/bram.v,
+bram_blk_mem_gen_1_0.v,verilog,xil_defaultlib,../../../bd/bram/ip/bram_blk_mem_gen_1_0/sim/bram_blk_mem_gen_1_0.v,
 glbl.v,Verilog,xil_defaultlib,glbl.v

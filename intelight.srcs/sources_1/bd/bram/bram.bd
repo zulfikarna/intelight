@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x99524419A3982F82",
+      "boundary_crc": "0xAF105636D66E100E",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../intelight.gen/sources_1/bd/bram",
       "name": "bram",
@@ -11,13 +11,14 @@
       "validated": "true"
     },
     "design_tree": {
-      "blk_mem_gen_0": "",
-      "xlconstant_0": "",
-      "xlconstant_1": "",
-      "xlconstant_2": ""
+      "bram_stand_alone": "",
+      "cnst_1_1bit": "",
+      "cnst_15_4bit": "",
+      "cnst_0_4bit": "",
+      "bram_bram_controller": ""
     },
     "ports": {
-      "clka_0": {
+      "clk": {
         "type": "clk",
         "direction": "I",
         "parameters": {
@@ -43,7 +44,32 @@
           }
         }
       },
-      "rsta_0": {
+      "addr_wr": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "addr_rd": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "dout_std": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "din_wr": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "dout_ctr": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "rst": {
         "type": "rst",
         "direction": "I",
         "parameters": {
@@ -56,35 +82,21 @@
             "value_src": "default"
           }
         }
-      },
-      "addra_0": {
-        "direction": "I",
-        "left": "31",
-        "right": "0"
-      },
-      "addrb_0": {
-        "direction": "I",
-        "left": "31",
-        "right": "0"
-      },
-      "doutb_0": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
-      "dina_0": {
-        "direction": "I",
-        "left": "31",
-        "right": "0"
       }
     },
     "components": {
-      "blk_mem_gen_0": {
+      "bram_stand_alone": {
         "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
         "xci_name": "bram_blk_mem_gen_0_0",
         "xci_path": "ip\\bram_blk_mem_gen_0_0\\bram_blk_mem_gen_0_0.xci",
-        "inst_hier_path": "blk_mem_gen_0",
+        "inst_hier_path": "bram_stand_alone",
         "parameters": {
+          "EN_SAFETY_CKT": {
+            "value": "true"
+          },
+          "Enable_32bit_Address": {
+            "value": "true"
+          },
           "Enable_B": {
             "value": "Use_ENB_Pin"
           },
@@ -103,22 +115,52 @@
           "Port_B_Write_Rate": {
             "value": "50"
           },
+          "Read_Width_A": {
+            "value": "32"
+          },
+          "Read_Width_B": {
+            "value": "32"
+          },
+          "Register_PortA_Output_of_Memory_Core": {
+            "value": "false"
+          },
+          "Register_PortA_Output_of_Memory_Primitives": {
+            "value": "false"
+          },
+          "Register_PortB_Output_of_Memory_Core": {
+            "value": "false"
+          },
+          "Register_PortB_Output_of_Memory_Primitives": {
+            "value": "false"
+          },
+          "Use_RSTA_Pin": {
+            "value": "true"
+          },
           "Use_RSTB_Pin": {
             "value": "true"
+          },
+          "Write_Width_A": {
+            "value": "32"
+          },
+          "Write_Width_B": {
+            "value": "32"
+          },
+          "use_bram_block": {
+            "value": "Stand_Alone"
           }
         }
       },
-      "xlconstant_0": {
+      "cnst_1_1bit": {
         "vlnv": "xilinx.com:ip:xlconstant:1.1",
         "xci_name": "bram_xlconstant_0_0",
         "xci_path": "ip\\bram_xlconstant_0_0\\bram_xlconstant_0_0.xci",
-        "inst_hier_path": "xlconstant_0"
+        "inst_hier_path": "cnst_1_1bit"
       },
-      "xlconstant_1": {
+      "cnst_15_4bit": {
         "vlnv": "xilinx.com:ip:xlconstant:1.1",
         "xci_name": "bram_xlconstant_0_1",
         "xci_path": "ip\\bram_xlconstant_0_1\\bram_xlconstant_0_1.xci",
-        "inst_hier_path": "xlconstant_1",
+        "inst_hier_path": "cnst_15_4bit",
         "parameters": {
           "CONST_VAL": {
             "value": "15"
@@ -128,11 +170,11 @@
           }
         }
       },
-      "xlconstant_2": {
+      "cnst_0_4bit": {
         "vlnv": "xilinx.com:ip:xlconstant:1.1",
         "xci_name": "bram_xlconstant_1_0",
         "xci_path": "ip\\bram_xlconstant_1_0\\bram_xlconstant_1_0.xci",
-        "inst_hier_path": "xlconstant_2",
+        "inst_hier_path": "cnst_0_4bit",
         "parameters": {
           "CONST_VAL": {
             "value": "0"
@@ -141,64 +183,107 @@
             "value": "4"
           }
         }
+      },
+      "bram_bram_controller": {
+        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+        "xci_name": "bram_blk_mem_gen_1_0",
+        "xci_path": "ip\\bram_blk_mem_gen_1_0\\bram_blk_mem_gen_1_0.xci",
+        "inst_hier_path": "bram_bram_controller",
+        "parameters": {
+          "Enable_B": {
+            "value": "Use_ENB_Pin"
+          },
+          "Memory_Type": {
+            "value": "True_Dual_Port_RAM"
+          },
+          "Port_B_Clock": {
+            "value": "100"
+          },
+          "Port_B_Enable_Rate": {
+            "value": "100"
+          },
+          "Port_B_Write_Rate": {
+            "value": "50"
+          },
+          "Use_RSTB_Pin": {
+            "value": "true"
+          }
+        }
       }
     },
     "nets": {
       "addra_0_1": {
         "ports": [
-          "addra_0",
-          "blk_mem_gen_0/addra"
+          "addr_wr",
+          "bram_stand_alone/addra",
+          "bram_bram_controller/addra"
         ]
       },
       "addrb_0_1": {
         "ports": [
-          "addrb_0",
-          "blk_mem_gen_0/addrb"
+          "addr_rd",
+          "bram_stand_alone/addrb",
+          "bram_bram_controller/addrb"
         ]
       },
       "blk_mem_gen_0_doutb": {
         "ports": [
-          "blk_mem_gen_0/doutb",
-          "doutb_0"
+          "bram_stand_alone/doutb",
+          "dout_std"
+        ]
+      },
+      "blk_mem_gen_1_doutb": {
+        "ports": [
+          "bram_bram_controller/doutb",
+          "dout_ctr"
         ]
       },
       "clka_0_1": {
         "ports": [
-          "clka_0",
-          "blk_mem_gen_0/clka",
-          "blk_mem_gen_0/clkb"
+          "clk",
+          "bram_stand_alone/clka",
+          "bram_stand_alone/clkb",
+          "bram_bram_controller/clka",
+          "bram_bram_controller/clkb"
         ]
       },
       "dina_0_1": {
         "ports": [
-          "dina_0",
-          "blk_mem_gen_0/dina"
+          "din_wr",
+          "bram_stand_alone/dina",
+          "bram_bram_controller/dina"
         ]
       },
       "rsta_0_1": {
         "ports": [
-          "rsta_0",
-          "blk_mem_gen_0/rsta",
-          "blk_mem_gen_0/rstb"
+          "rst",
+          "bram_bram_controller/rsta",
+          "bram_bram_controller/rstb",
+          "bram_stand_alone/rsta",
+          "bram_stand_alone/rstb"
         ]
       },
       "xlconstant_0_dout": {
         "ports": [
-          "xlconstant_0/dout",
-          "blk_mem_gen_0/ena",
-          "blk_mem_gen_0/enb"
+          "cnst_1_1bit/dout",
+          "bram_stand_alone/ena",
+          "bram_stand_alone/enb",
+          "bram_bram_controller/ena",
+          "bram_bram_controller/enb"
         ]
       },
       "xlconstant_1_dout": {
         "ports": [
-          "xlconstant_1/dout",
-          "blk_mem_gen_0/wea"
+          "cnst_15_4bit/dout",
+          "bram_stand_alone/wea",
+          "bram_bram_controller/wea"
         ]
       },
       "xlconstant_2_dout": {
         "ports": [
-          "xlconstant_2/dout",
-          "blk_mem_gen_0/web"
+          "cnst_0_4bit/dout",
+          "bram_stand_alone/web",
+          "bram_bram_controller/web"
         ]
       }
     }
