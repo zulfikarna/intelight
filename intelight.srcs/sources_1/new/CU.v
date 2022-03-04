@@ -11,7 +11,7 @@ module CU(
     input wire [15:0] max_episode,
     input wire [15:0] seed,
     // From Programmable Logic 
-    input wire curr_reward,
+    input wire goal_sig,
     // Output for Policy Generator 
     output wire sel_act,
     output wire [1:0] act_random,
@@ -25,8 +25,11 @@ module CU(
     
     // State variable for FSM implementation 
     localparam
-        S_IDLE  = 8'HFF,
-        S_INIT  = 8'HEE;
+        S_IDLE  = 8'hFF,
+        S_INIT  = 8'hEE,
+        S_L0    = 8'h00,
+        S_L1    = 8'h01,
+        S_DONE  = 8'hDD;
     // State transition variable
     reg [7:0] cs;
     reg [7:0] ns;
@@ -49,12 +52,37 @@ module CU(
         endcase
     end
     
+    // State Transition
+    always begin
+        case (cs)
+            S_IDLE :
+                if(start)
+                    ns <= S_INIT;
+                else
+                    ns <= S_IDLE;
+            S_INIT :
+                if(ec < max_episode)
+                    ns <= S_L0;
+                else
+                    ns <= S_DONE;
+            S_L0 :
+                if((sc > max_step) | goal_sig)
+                    ns <= S_L1;
+                else 
+                    ns <= S_L0;
+            S_L1 : 
+                ns <= S_INIT;
+            S_DONE :
+                ns <= S_IDLE;
+         endcase
+    end
+    
     // Step and Episode Counter Machine 
     always@(posedge clk) begin
         // Step Counter
         if((cs == S_L0)) begin
             sc = sc + 1;
-        end else if (csw == S_INIT) begin
+        end else if (cs == S_INIT) begin
             sc = 16'd0;
         end else begin
             sc = sc;
@@ -62,7 +90,7 @@ module CU(
         // Episode Counter 
         if(cs == S_IDLE) begin
             ec = 16'd0;
-        end else if (cs == S_LX) begin
+        end else if (cs == S_L1) begin
             ec = ec + 16'd1;
         end else begin
             ec = ec;

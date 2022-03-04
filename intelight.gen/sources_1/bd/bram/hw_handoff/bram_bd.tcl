@@ -37,6 +37,13 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 # To test this script, run the following commands from Vivado Tcl console:
 # source bram_script.tcl
 
+
+# The design that will be created by this Tcl script contains the following 
+# module references:
+# reg_32bit, reg_32bit
+
+# Please add the sources of those modules before sourcing this Tcl script.
+
 # If there is no project opened, this script will create a
 # project, but make sure you do not have an existing project
 # <./myproj/project_1.xpr> in the current working folder.
@@ -44,6 +51,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 set list_projs [get_projects -quiet]
 if { $list_projs eq "" } {
    create_project project_1 myproj -part xc7z020clg400-1
+   set_property BOARD_PART www.digilentinc.com:pynq-z1:part0:1.0 [current_project]
 }
 
 
@@ -158,7 +166,8 @@ proc create_root_design { parentCell } {
 
   # Create ports
   set addr_rd [ create_bd_port -dir I -from 31 -to 0 addr_rd ]
-  set addr_wr [ create_bd_port -dir I -from 31 -to 0 addr_wr ]
+  set addr_wr_1 [ create_bd_port -dir O -from 31 -to 0 addr_wr_1 ]
+  set addr_wr_2 [ create_bd_port -dir O -from 31 -to 0 addr_wr_2 ]
   set clk [ create_bd_port -dir I -type clk clk ]
   set din_wr [ create_bd_port -dir I -from 31 -to 0 din_wr ]
   set dout_ctr [ create_bd_port -dir O -from 31 -to 0 dout_ctr ]
@@ -179,9 +188,9 @@ proc create_root_design { parentCell } {
   # Create instance: bram_stand_alone, and set properties
   set bram_stand_alone [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.4 bram_stand_alone ]
   set_property -dict [ list \
-   CONFIG.Byte_Size {8} \
-   CONFIG.EN_SAFETY_CKT {true} \
-   CONFIG.Enable_32bit_Address {true} \
+   CONFIG.Byte_Size {9} \
+   CONFIG.EN_SAFETY_CKT {false} \
+   CONFIG.Enable_32bit_Address {false} \
    CONFIG.Enable_B {Use_ENB_Pin} \
    CONFIG.Memory_Type {True_Dual_Port_RAM} \
    CONFIG.Port_A_Write_Rate {50} \
@@ -191,12 +200,13 @@ proc create_root_design { parentCell } {
    CONFIG.Read_Width_A {32} \
    CONFIG.Read_Width_B {32} \
    CONFIG.Register_PortA_Output_of_Memory_Core {false} \
-   CONFIG.Register_PortA_Output_of_Memory_Primitives {false} \
+   CONFIG.Register_PortA_Output_of_Memory_Primitives {true} \
    CONFIG.Register_PortB_Output_of_Memory_Core {false} \
-   CONFIG.Register_PortB_Output_of_Memory_Primitives {false} \
-   CONFIG.Use_Byte_Write_Enable {true} \
-   CONFIG.Use_RSTA_Pin {true} \
-   CONFIG.Use_RSTB_Pin {true} \
+   CONFIG.Register_PortB_Output_of_Memory_Primitives {true} \
+   CONFIG.Use_Byte_Write_Enable {false} \
+   CONFIG.Use_RSTA_Pin {false} \
+   CONFIG.Use_RSTB_Pin {false} \
+   CONFIG.Write_Depth_A {2048} \
    CONFIG.Write_Width_A {32} \
    CONFIG.Write_Width_B {32} \
    CONFIG.use_bram_block {Stand_Alone} \
@@ -219,14 +229,37 @@ proc create_root_design { parentCell } {
   # Create instance: cnst_1_1bit, and set properties
   set cnst_1_1bit [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 cnst_1_1bit ]
 
+  # Create instance: reg_32bit_0, and set properties
+  set block_name reg_32bit
+  set block_cell_name reg_32bit_0
+  if { [catch {set reg_32bit_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $reg_32bit_0 eq "" } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
+  # Create instance: reg_32bit_1, and set properties
+  set block_name reg_32bit
+  set block_cell_name reg_32bit_1
+  if { [catch {set reg_32bit_1 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $reg_32bit_1 eq "" } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create port connections
-  connect_bd_net -net addra_0_1 [get_bd_ports addr_wr] [get_bd_pins bram_bram_controller/addra] [get_bd_pins bram_stand_alone/addra]
-  connect_bd_net -net addrb_0_1 [get_bd_ports addr_rd] [get_bd_pins bram_bram_controller/addrb] [get_bd_pins bram_stand_alone/addrb]
+  connect_bd_net -net addrb_0_1 [get_bd_ports addr_rd] [get_bd_pins bram_bram_controller/addrb] [get_bd_pins bram_stand_alone/addrb] [get_bd_pins reg_32bit_0/in0]
   connect_bd_net -net blk_mem_gen_0_doutb [get_bd_ports dout_std] [get_bd_pins bram_stand_alone/doutb]
   connect_bd_net -net blk_mem_gen_1_doutb [get_bd_ports dout_ctr] [get_bd_pins bram_bram_controller/doutb]
-  connect_bd_net -net clka_0_1 [get_bd_ports clk] [get_bd_pins bram_bram_controller/clka] [get_bd_pins bram_bram_controller/clkb] [get_bd_pins bram_stand_alone/clka] [get_bd_pins bram_stand_alone/clkb]
+  connect_bd_net -net clka_0_1 [get_bd_ports clk] [get_bd_pins bram_bram_controller/clka] [get_bd_pins bram_bram_controller/clkb] [get_bd_pins bram_stand_alone/clka] [get_bd_pins bram_stand_alone/clkb] [get_bd_pins reg_32bit_0/clk] [get_bd_pins reg_32bit_1/clk]
   connect_bd_net -net dina_0_1 [get_bd_ports din_wr] [get_bd_pins bram_bram_controller/dina] [get_bd_pins bram_stand_alone/dina]
-  connect_bd_net -net rsta_0_1 [get_bd_ports rst] [get_bd_pins bram_bram_controller/rsta] [get_bd_pins bram_bram_controller/rstb] [get_bd_pins bram_stand_alone/rsta] [get_bd_pins bram_stand_alone/rstb]
+  connect_bd_net -net reg_32bit_0_out0 [get_bd_ports addr_wr_1] [get_bd_pins bram_stand_alone/addra] [get_bd_pins reg_32bit_0/out0] [get_bd_pins reg_32bit_1/in0]
+  connect_bd_net -net reg_32bit_1_out0 [get_bd_ports addr_wr_2] [get_bd_pins bram_bram_controller/addra] [get_bd_pins reg_32bit_1/out0]
+  connect_bd_net -net rsta_0_1 [get_bd_ports rst] [get_bd_pins bram_bram_controller/rsta] [get_bd_pins bram_bram_controller/rstb]
   connect_bd_net -net xlconstant_0_dout [get_bd_pins bram_bram_controller/ena] [get_bd_pins bram_bram_controller/enb] [get_bd_pins bram_stand_alone/ena] [get_bd_pins bram_stand_alone/enb] [get_bd_pins cnst_1_1bit/dout]
   connect_bd_net -net xlconstant_1_dout [get_bd_pins bram_bram_controller/wea] [get_bd_pins bram_stand_alone/wea] [get_bd_pins cnst_15_4bit/dout]
   connect_bd_net -net xlconstant_2_dout [get_bd_pins bram_bram_controller/web] [get_bd_pins bram_stand_alone/web] [get_bd_pins cnst_0_4bit/dout]

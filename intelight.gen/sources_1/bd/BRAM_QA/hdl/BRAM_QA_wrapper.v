@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-//Date        : Thu Mar  3 13:20:17 2022
+//Date        : Fri Mar  4 18:14:06 2022
 //Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 //Command     : generate_target BRAM_QA_wrapper.bd
 //Design      : BRAM_QA_wrapper
@@ -16,6 +16,7 @@ module BRAM_QA_wrapper
     curr_qA1,
     curr_qA2,
     curr_qA3,
+    curr_state,
     gamma,
     new_qA,
     next_action,
@@ -32,6 +33,7 @@ module BRAM_QA_wrapper
   output [31:0]curr_qA1;
   output [31:0]curr_qA2;
   output [31:0]curr_qA3;
+  output [31:0]curr_state;
   input [2:0]gamma;
   output [31:0]new_qA;
   input [1:0]next_action;
@@ -49,6 +51,7 @@ module BRAM_QA_wrapper
   wire [31:0]curr_qA1;
   wire [31:0]curr_qA2;
   wire [31:0]curr_qA3;
+  wire [31:0]curr_state;
   wire [2:0]gamma;
   wire [31:0]new_qA;
   wire [1:0]next_action;
@@ -67,6 +70,7 @@ module BRAM_QA_wrapper
         .curr_qA1(curr_qA1),
         .curr_qA2(curr_qA2),
         .curr_qA3(curr_qA3),
+        .curr_state(curr_state),
         .gamma(gamma),
         .new_qA(new_qA),
         .next_action(next_action),

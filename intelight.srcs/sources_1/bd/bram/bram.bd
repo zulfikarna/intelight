@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xAF105636D66E100E",
+      "boundary_crc": "0x2F2483985AE85F54",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../intelight.gen/sources_1/bd/bram",
       "name": "bram",
@@ -15,7 +15,9 @@
       "cnst_1_1bit": "",
       "cnst_15_4bit": "",
       "cnst_0_4bit": "",
-      "bram_bram_controller": ""
+      "bram_bram_controller": "",
+      "reg_32bit_0": "",
+      "reg_32bit_1": ""
     },
     "ports": {
       "clk": {
@@ -43,11 +45,6 @@
             "value_src": "default"
           }
         }
-      },
-      "addr_wr": {
-        "direction": "I",
-        "left": "31",
-        "right": "0"
       },
       "addr_rd": {
         "direction": "I",
@@ -82,6 +79,16 @@
             "value_src": "default"
           }
         }
+      },
+      "addr_wr_1": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "addr_wr_2": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
       }
     },
     "components": {
@@ -91,11 +98,8 @@
         "xci_path": "ip\\bram_blk_mem_gen_0_0\\bram_blk_mem_gen_0_0.xci",
         "inst_hier_path": "bram_stand_alone",
         "parameters": {
-          "EN_SAFETY_CKT": {
-            "value": "true"
-          },
           "Enable_32bit_Address": {
-            "value": "true"
+            "value": "false"
           },
           "Enable_B": {
             "value": "Use_ENB_Pin"
@@ -125,19 +129,25 @@
             "value": "false"
           },
           "Register_PortA_Output_of_Memory_Primitives": {
-            "value": "false"
+            "value": "true"
           },
           "Register_PortB_Output_of_Memory_Core": {
             "value": "false"
           },
           "Register_PortB_Output_of_Memory_Primitives": {
+            "value": "true"
+          },
+          "Use_Byte_Write_Enable": {
             "value": "false"
           },
           "Use_RSTA_Pin": {
-            "value": "true"
+            "value": "false"
           },
           "Use_RSTB_Pin": {
-            "value": "true"
+            "value": "false"
+          },
+          "Write_Depth_A": {
+            "value": "2048"
           },
           "Write_Width_A": {
             "value": "32"
@@ -209,21 +219,81 @@
             "value": "true"
           }
         }
+      },
+      "reg_32bit_0": {
+        "vlnv": "xilinx.com:module_ref:reg_32bit:1.0",
+        "xci_name": "bram_reg_32bit_0_0",
+        "xci_path": "ip\\bram_reg_32bit_0_0\\bram_reg_32bit_0_0.xci",
+        "inst_hier_path": "reg_32bit_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "reg_32bit",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "bram_clka_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "in0": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "out0": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          }
+        }
+      },
+      "reg_32bit_1": {
+        "vlnv": "xilinx.com:module_ref:reg_32bit:1.0",
+        "xci_name": "bram_reg_32bit_0_1",
+        "xci_path": "ip\\bram_reg_32bit_0_1\\bram_reg_32bit_0_1.xci",
+        "inst_hier_path": "reg_32bit_1",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "reg_32bit",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "bram_clka_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "in0": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "out0": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          }
+        }
       }
     },
     "nets": {
-      "addra_0_1": {
-        "ports": [
-          "addr_wr",
-          "bram_stand_alone/addra",
-          "bram_bram_controller/addra"
-        ]
-      },
       "addrb_0_1": {
         "ports": [
           "addr_rd",
           "bram_stand_alone/addrb",
-          "bram_bram_controller/addrb"
+          "bram_bram_controller/addrb",
+          "reg_32bit_0/in0"
         ]
       },
       "blk_mem_gen_0_doutb": {
@@ -244,7 +314,9 @@
           "bram_stand_alone/clka",
           "bram_stand_alone/clkb",
           "bram_bram_controller/clka",
-          "bram_bram_controller/clkb"
+          "bram_bram_controller/clkb",
+          "reg_32bit_0/clk",
+          "reg_32bit_1/clk"
         ]
       },
       "dina_0_1": {
@@ -254,13 +326,26 @@
           "bram_bram_controller/dina"
         ]
       },
+      "reg_32bit_0_out0": {
+        "ports": [
+          "reg_32bit_0/out0",
+          "reg_32bit_1/in0",
+          "bram_stand_alone/addra",
+          "addr_wr_1"
+        ]
+      },
+      "reg_32bit_1_out0": {
+        "ports": [
+          "reg_32bit_1/out0",
+          "bram_bram_controller/addra",
+          "addr_wr_2"
+        ]
+      },
       "rsta_0_1": {
         "ports": [
           "rst",
           "bram_bram_controller/rsta",
-          "bram_bram_controller/rstb",
-          "bram_stand_alone/rsta",
-          "bram_stand_alone/rstb"
+          "bram_bram_controller/rstb"
         ]
       },
       "xlconstant_0_dout": {

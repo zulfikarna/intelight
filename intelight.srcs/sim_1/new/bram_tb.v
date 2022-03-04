@@ -11,11 +11,12 @@
 
 module bram_tb();
 
-  reg [31:0]addr_wr;
   reg [31:0]addr_rd;
   reg clk;
   reg [31:0]din_wr;
   reg rst;
+  wire [31:0]addr_wr_1;
+  wire [31:0]addr_wr_2;
   wire [31:0]dout_ctr;
   wire [31:0]dout_std;
   
@@ -25,7 +26,8 @@ module bram_tb();
     BASE_DATA = 32'hFFFF_FFFF,
     DEC_DATA = 32'd4;
   
-  bram_wrapper dut(.addr_wr(addr_wr),
+  bram_wrapper dut(.addr_wr_1(addr_wr_1),
+                .addr_wr_2(addr_wr_2),
                 .addr_rd(addr_rd),
                 .clk(clk),
                 .din_wr(din_wr),
@@ -43,7 +45,8 @@ module bram_tb();
   end
  
  initial begin
-    addr_wr = BASE_ADDR;
+    //addr_wr = BASE_ADDR;
+    addr_rd = BASE_ADDR;
     din_wr = BASE_DATA;
     rst = 1;
     #10;
@@ -51,9 +54,8 @@ module bram_tb();
  end
   
   always@(posedge clk) begin
-    #5;
-    addr_rd     = addr_wr;
-    addr_wr     = addr_wr + INC_ADDR;
+    addr_rd     = addr_rd + INC_ADDR;
+    //addr_wr     = addr_wr + INC_ADDR;
     din_wr      = din_wr - DEC_DATA;
     #10;
   end

@@ -5,6 +5,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+// Simulasi BRAM dan QA tanpa PG
 module BRAM_QA_tb();
   reg clk;
   reg rst;
@@ -13,6 +14,7 @@ module BRAM_QA_tb();
   reg [1:0]next_action;
   reg [31:0]next_state;
   reg [31:0]reward;
+  wire [31:0]curr_state;
   wire [31:0]curr_qA0;
   wire [31:0]curr_qA1;
   wire [31:0]curr_qA2;
@@ -23,13 +25,14 @@ module BRAM_QA_tb();
   wire [31:0]q_next_3;
   wire [31:0]new_qA;
   
-  BRAM_QA_wrapper dut0(
+  BRAM_QA_wrapper dut(
     .clk(clk),
     .rst(rst),
     .alpha(alpha),
     .gamma(gamma),
     .next_action(next_action),
     .next_state(next_state),
+    .curr_state(curr_state),
     .reward(reward),
     .curr_qA0(curr_qA0),
     .curr_qA1(curr_qA1),
@@ -58,6 +61,11 @@ module BRAM_QA_tb();
     #10;
   end
   
+  always @(posedge clk) begin
+    next_state = next_state + STATE_INC;
+    next_action = (next_action == 3)? 2'd0 : (next_action + ACTION_INC);
+  end
+  
   initial begin
     alpha   = ALPHA;
     gamma   = GAMMA;
@@ -65,14 +73,7 @@ module BRAM_QA_tb();
     next_state = STATE_BASE;
     next_action = 2'd0;
     rst = 1'b1;
-    #20;
+    #180;
     rst = 1'b0;
-  end
-  
-  always @(posedge clk) begin
-    next_state = next_state + STATE_INC;
-    next_action = (next_action == 3)? 2'd0 : (next_action + ACTION_INC);
-  end
-  
-  
+  end  
 endmodule

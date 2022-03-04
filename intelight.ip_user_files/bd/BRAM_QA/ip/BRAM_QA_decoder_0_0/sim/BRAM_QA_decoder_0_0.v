@@ -63,10 +63,10 @@ module BRAM_QA_decoder_0_0 (
 );
 
 input wire [1 : 0] act;
-output wire en0;
-output wire en1;
-output wire en2;
-output wire en3;
+output wire [3 : 0] en0;
+output wire [3 : 0] en1;
+output wire [3 : 0] en2;
+output wire [3 : 0] en3;
 
   decoder inst (
     .act(act),

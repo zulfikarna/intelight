@@ -1,13 +1,9 @@
 Vivado Simulator v2021.1
 Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2021.1/bin/unwrapped/win64.o/xelab.exe -wto b00e1b8b0c4a4a169364327d9be69cf7 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_4 -L xlconstant_v1_1_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot action_ram_tb_behav xil_defaultlib.action_ram_tb xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2021.1/bin/unwrapped/win64.o/xelab.exe -wto b00e1b8b0c4a4a169364327d9be69cf7 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_4 -L xlconstant_v1_1_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot bram_tb_behav xil_defaultlib.bram_tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 4 for port 'en0' [D:/intelight/intelight/intelight.srcs/sim_1/new/action_ram_tb.v:39]
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 4 for port 'en1' [D:/intelight/intelight/intelight.srcs/sim_1/new/action_ram_tb.v:40]
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 4 for port 'en2' [D:/intelight/intelight/intelight.srcs/sim_1/new/action_ram_tb.v:41]
-WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 4 for port 'en3' [D:/intelight/intelight/intelight.srcs/sim_1/new/action_ram_tb.v:42]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -16,24 +12,22 @@ Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
 Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
 Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
 Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="zyn...
-Compiling module xil_defaultlib.action_ram_Action_RAM_0_0
-Compiling module xil_defaultlib.action_ram_Action_RAM_1_0
-Compiling module xil_defaultlib.action_ram_Action_RAM_2_0
-Compiling module xil_defaultlib.action_ram_Action_RAM_3_0
+Compiling module xil_defaultlib.bram_blk_mem_gen_1_0
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_axi_regs_fwd_v8_4(C_DATA...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="zyn...
+Compiling module xil_defaultlib.bram_blk_mem_gen_0_0
 Compiling module xlconstant_v1_1_7.xlconstant_v1_1_7_xlconstant(CON...
-Compiling module xil_defaultlib.action_ram_cnst_0_4bit_0
+Compiling module xil_defaultlib.bram_xlconstant_1_0
+Compiling module xil_defaultlib.bram_xlconstant_0_1
 Compiling module xlconstant_v1_1_7.xlconstant_v1_1_7_xlconstant
-Compiling module xil_defaultlib.action_ram_cnst_1_1bit_0
-Compiling module xil_defaultlib.decoder
-Compiling module xil_defaultlib.action_ram_decoder_0_0
-Compiling module xil_defaultlib.reg_2bit
-Compiling module xil_defaultlib.action_ram_reg_2bit_0_0
+Compiling module xil_defaultlib.bram_xlconstant_0_0
 Compiling module xil_defaultlib.reg_32bit
-Compiling module xil_defaultlib.action_ram_reg_32bit_0_0
-Compiling module xil_defaultlib.action_ram_reg_32bit_0_1
-Compiling module xil_defaultlib.Action_RAM_imp_PU0KDT
-Compiling module xil_defaultlib.action_ram
-Compiling module xil_defaultlib.action_ram_wrapper
-Compiling module xil_defaultlib.action_ram_tb
+Compiling module xil_defaultlib.bram_reg_32bit_0_0
+Compiling module xil_defaultlib.bram_reg_32bit_0_1
+Compiling module xil_defaultlib.bram
+Compiling module xil_defaultlib.bram_wrapper
+Compiling module xil_defaultlib.bram_tb
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot action_ram_tb_behav
+Built simulation snapshot bram_tb_behav
