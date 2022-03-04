@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-03-04T14:26:58.442Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 Edg/98.0.1108.62" etag="7Ytd5UABKfBhzLZBuzxF" version="16.6.5" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2022-03-04T14:27:07.414Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36 Edg/98.0.1108.62" etag="EHDwlfNulWpr-Gfhpqn0" version="16.6.5" type="github" pages="2">
   <diagram id="ibiOQKyL-mADjhCVZYJ8" name="Sub-System">
-    <mxGraphModel dx="609" dy="260" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1065" dy="456" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -219,7 +219,7 @@
         </mxCell>
         <mxCell id="8Y_S_hFf_7bJ75hY1ZtG-91" value="state" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;" parent="1" source="RxYKYdI8n64CIUrCkolP-1" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="740" y="390" as="targetPoint" />
+            <mxPoint x="800" y="390" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="8Y_S_hFf_7bJ75hY1ZtG-89" value="COMP" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
