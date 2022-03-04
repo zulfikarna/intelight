@@ -163,13 +163,11 @@ module gsg(
     input wire [31:0] state,
     output wire sig_goal
     );
-    wire sel0, sel1, sel2, sel3, sel4, sel5, sel;
-    assign sel0 = (state[7:6]==state[5:4]);
-    assign sel1 = (state[7:6]==state[3:2]);
-    assign sel2 = (state[7:6]==state[1:0]);
-    assign sel3 = (state[5:4]==state[3:2]);
-    assign sel4 = (state[5:4]==state[1:0]);
-    assign sel5 = (state[3:2]==state[1:0]);
-    assign sel = sel0 && sel1 && sel2 && sel3 && sel4 && sel5;
-    mux2to1_2bit mux0(.in0(1), .in1(0), .sel(~sel), .out0(sig_goal));
+    wire sel0, sel1, sel2, sel3, sel;
+    assign sel0 = (state[7:0]==8'h00);
+    assign sel1 = (state[7:0]==8'h55);
+    assign sel2 = (state[7:0]==8'hAA);
+    assign sel3 = (state[7:0]==8'hFF);
+    assign sel = sel0 && sel1 && sel2 && sel3;
+    mux2to1_2bit mux0(.in0(0), .in1(1), .sel(sel), .out0(sig_goal));
 endmodule
