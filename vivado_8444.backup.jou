@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Sat Feb 26 16:50:49 2022
+# Process ID: 8444
+# Current directory: D:/Dismas/ITB/SemesterVIII/TA2/intelight
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12456 D:\Dismas\ITB\SemesterVIII\TA2\intelight\intelight.xpr
+# Log file: D:/Dismas/ITB/SemesterVIII/TA2/intelight/vivado.log
+# Journal file: D:/Dismas/ITB/SemesterVIII/TA2/intelight\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Dismas/ITB/SemesterVIII/TA2/intelight/intelight.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source QA_tb.tcl
+relaunch_sim
+relaunch_sim
+close_sim

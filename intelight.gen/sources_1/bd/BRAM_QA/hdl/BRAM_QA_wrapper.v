@@ -1,8 +1,8 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-//Date        : Fri Mar  4 18:14:06 2022
-//Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
+//Date        : Sat Mar  5 17:30:40 2022
+//Host        : DESKTOP-JVERO04 running 64-bit major release  (build 9200)
 //Command     : generate_target BRAM_QA_wrapper.bd
 //Design      : BRAM_QA_wrapper
 //Purpose     : IP block netlist

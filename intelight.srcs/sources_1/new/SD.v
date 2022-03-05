@@ -27,16 +27,16 @@ module SD(
     input wire [31:0] batas_2,
     // Output
     output wire [31:0] next_state,
-    output wire sig_goal,
+    output wire sig_goal
     // for debugging 
-    output wire [31:0] panjang_r0,
-    output wire [31:0] panjang_r1,
-    output wire [31:0] panjang_r2,
-    output wire [31:0] panjang_r3,
-    output wire [31:0] panjang_w0,
-    output wire [31:0] panjang_w1,
-    output wire [31:0] panjang_w2,
-    output wire [31:0] panjang_w3
+//    output wire [31:0] panjang_r0,
+//    output wire [31:0] panjang_r1,
+//    output wire [31:0] panjang_r2,
+//    output wire [31:0] panjang_r3,
+//    output wire [31:0] panjang_w0,
+//    output wire [31:0] panjang_w1,
+//    output wire [31:0] panjang_w2,
+//    output wire [31:0] panjang_w3
     );
     // Perubahan panjang antrian kendaraan
     wire [31:0] delta_panjang_r0;

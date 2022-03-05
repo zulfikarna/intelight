@@ -7,7 +7,8 @@
       "name": "action_ram",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2021.1"
+      "tool_version": "2021.1",
+      "validated": "true"
     },
     "design_tree": {
       "Action_RAM": {
@@ -17,10 +18,10 @@
         "Action_RAM_3": "",
         "cnst_1_1bit": "",
         "Action_RAM_1": "",
-        "decoder_0": "",
         "reg_2bit_0": "",
         "reg_32bit_0": "",
-        "reg_32bit_1": ""
+        "reg_32bit_1": "",
+        "decoder_0": ""
       }
     },
     "ports": {
@@ -71,11 +72,43 @@
       },
       "clk_bram_0": {
         "type": "clk",
-        "direction": "I"
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "action_ram_clk_bram_0",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
       },
       "rst_bram_0": {
         "type": "rst",
-        "direction": "I"
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
       },
       "q_new_0": {
         "direction": "I",
@@ -420,6 +453,105 @@
               }
             }
           },
+          "reg_2bit_0": {
+            "vlnv": "xilinx.com:module_ref:reg_2bit:1.0",
+            "xci_name": "action_ram_reg_2bit_0_0",
+            "xci_path": "ip\\action_ram_reg_2bit_0_0\\action_ram_reg_2bit_0_0.xci",
+            "inst_hier_path": "Action_RAM/reg_2bit_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "reg_2bit",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "CLK_DOMAIN": {
+                    "value": "action_ram_clk_bram_0",
+                    "value_src": "default_prop"
+                  }
+                }
+              },
+              "in0": {
+                "direction": "I",
+                "left": "1",
+                "right": "0"
+              },
+              "out0": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              }
+            }
+          },
+          "reg_32bit_0": {
+            "vlnv": "xilinx.com:module_ref:reg_32bit:1.0",
+            "xci_name": "action_ram_reg_32bit_0_0",
+            "xci_path": "ip\\action_ram_reg_32bit_0_0\\action_ram_reg_32bit_0_0.xci",
+            "inst_hier_path": "Action_RAM/reg_32bit_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "reg_32bit",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "CLK_DOMAIN": {
+                    "value": "action_ram_clk_bram_0",
+                    "value_src": "default_prop"
+                  }
+                }
+              },
+              "in0": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "out0": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "reg_32bit_1": {
+            "vlnv": "xilinx.com:module_ref:reg_32bit:1.0",
+            "xci_name": "action_ram_reg_32bit_0_1",
+            "xci_path": "ip\\action_ram_reg_32bit_0_1\\action_ram_reg_32bit_0_1.xci",
+            "inst_hier_path": "Action_RAM/reg_32bit_1",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "reg_32bit",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "CLK_DOMAIN": {
+                    "value": "action_ram_clk_bram_0",
+                    "value_src": "default_prop"
+                  }
+                }
+              },
+              "in0": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "out0": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
           "decoder_0": {
             "vlnv": "xilinx.com:module_ref:decoder:1.0",
             "xci_name": "action_ram_decoder_0_0",
@@ -454,87 +586,6 @@
               "en3": {
                 "direction": "O",
                 "left": "3",
-                "right": "0"
-              }
-            }
-          },
-          "reg_2bit_0": {
-            "vlnv": "xilinx.com:module_ref:reg_2bit:1.0",
-            "xci_name": "action_ram_reg_2bit_0_0",
-            "xci_path": "ip\\action_ram_reg_2bit_0_0\\action_ram_reg_2bit_0_0.xci",
-            "inst_hier_path": "Action_RAM/reg_2bit_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "reg_2bit",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I"
-              },
-              "in0": {
-                "direction": "I",
-                "left": "1",
-                "right": "0"
-              },
-              "out0": {
-                "direction": "O",
-                "left": "1",
-                "right": "0"
-              }
-            }
-          },
-          "reg_32bit_0": {
-            "vlnv": "xilinx.com:module_ref:reg_32bit:1.0",
-            "xci_name": "action_ram_reg_32bit_0_0",
-            "xci_path": "ip\\action_ram_reg_32bit_0_0\\action_ram_reg_32bit_0_0.xci",
-            "inst_hier_path": "Action_RAM/reg_32bit_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "reg_32bit",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I"
-              },
-              "in0": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "out0": {
-                "direction": "O",
-                "left": "31",
-                "right": "0"
-              }
-            }
-          },
-          "reg_32bit_1": {
-            "vlnv": "xilinx.com:module_ref:reg_32bit:1.0",
-            "xci_name": "action_ram_reg_32bit_0_1",
-            "xci_path": "ip\\action_ram_reg_32bit_0_1\\action_ram_reg_32bit_0_1.xci",
-            "inst_hier_path": "Action_RAM/reg_32bit_1",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "reg_32bit",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I"
-              },
-              "in0": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "out0": {
-                "direction": "O",
-                "left": "31",
                 "right": "0"
               }
             }

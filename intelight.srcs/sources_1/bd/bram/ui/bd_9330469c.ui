@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.931646",
-   "Default View_TopLeft":"-530,0",
+   "Default View_ScaleFactor":"0.573495",
+   "Default View_TopLeft":"-234,0",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
@@ -32,7 +32,7 @@ preplace netloc xlconstant_0_dout 1 1 1 300 190n
 preplace netloc xlconstant_1_dout 1 1 1 330 230n
 preplace netloc xlconstant_2_dout 1 1 1 310 370n
 levelinfo -pg 1 0 150 470 610
-pagesize -pg 1 -db -bbox -sgen -140 0 760 790
+pagesize -pg 1 -db -bbox -sgen -150 0 770 790
 "
 }
 0

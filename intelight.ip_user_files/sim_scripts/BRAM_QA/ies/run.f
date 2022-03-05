@@ -1,8 +1,8 @@
 -makelib ies_lib/xpm -sv \
-  "C:/Xilinx/Vivado/2021.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+  "E:/Xilinx/Vivado/2021.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 -endlib
 -makelib ies_lib/xpm \
-  "C:/Xilinx/Vivado/2021.1/data/ip/xpm/xpm_VCOMP.vhd" \
+  "E:/Xilinx/Vivado/2021.1/data/ip/xpm/xpm_VCOMP.vhd" \
 -endlib
 -makelib ies_lib/blk_mem_gen_v8_4_4 \
   "../../../../intelight.gen/sources_1/bd/BRAM_QA/ipshared/2985/simulation/blk_mem_gen_v8_4.v" \
@@ -19,9 +19,9 @@
   "../../../bd/BRAM_QA/ip/BRAM_QA_Action_RAM_2_0/sim/BRAM_QA_Action_RAM_2_0.v" \
   "../../../bd/BRAM_QA/ip/BRAM_QA_xlconstant_0_0/sim/BRAM_QA_xlconstant_0_0.v" \
   "../../../bd/BRAM_QA/ip/BRAM_QA_Action_RAM_0_1/sim/BRAM_QA_Action_RAM_0_1.v" \
+  "../../../bd/BRAM_QA/ip/BRAM_QA_decoder_0_0/sim/BRAM_QA_decoder_0_0.v" \
   "../../../bd/BRAM_QA/ip/BRAM_QA_reg_2bit_0_0/sim/BRAM_QA_reg_2bit_0_0.v" \
   "../../../bd/BRAM_QA/ip/BRAM_QA_reg_32bit_0_0/sim/BRAM_QA_reg_32bit_0_0.v" \
-  "../../../bd/BRAM_QA/ip/BRAM_QA_decoder_0_0/sim/BRAM_QA_decoder_0_0.v" \
   "../../../bd/BRAM_QA/ip/BRAM_QA_QA_0_0/sim/BRAM_QA_QA_0_0.v" \
   "../../../bd/BRAM_QA/sim/BRAM_QA.v" \
 -endlib

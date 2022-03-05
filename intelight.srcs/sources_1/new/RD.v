@@ -2,6 +2,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 // REWARD DECIDER
 // Engineer: 13218029 Zulfikar
+// 
+// Notes:
+// (5/03/2022) Mengubah Line 46-49 dari 2'd00, 2'd01, 2'd11, 2'd10 menjadi 2'b00, 2'b01, 2'b11, 2'b10 - Dismas W.
 //////////////////////////////////////////////////////////////////////////////////
 
 module RD(
@@ -40,10 +43,10 @@ module analyzer(
     min4to2_2bit min0(.in0(state[1:0]), .in1(state[3:2]), .in2(state[5:4]), .in3(state[7:6]), .out0(w_min), .out1(w_mid));
     mux4to1_2bit mux0(.in0(state[1:0]), .in1(state[3:2]), .in2(state[5:4]), .in3(state[7:6]), .out0(w_act), .sel(act));
     
-    assign sel =    (w_act == w_min)? 2'd00 :
-                    (w_act == w_mid)? 2'd01 :
-                    (w_act == w_max)? 2'd11 :
-                                      2'd10;    
+    assign sel =    (w_act == w_min)? 2'b00 :
+                    (w_act == w_mid)? 2'b01 :
+                    (w_act == w_max)? 2'b11 :
+                                      2'b10;    
 endmodule
     
     

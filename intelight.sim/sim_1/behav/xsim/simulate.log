@@ -1,1 +1,5 @@
 Time resolution is 1 ps
+Block Memory Generator module system_wrapper_tb.dut.Action_RAM.Action_RAM_0.inst.\native_mem_mapped_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module system_wrapper_tb.dut.Action_RAM.Action_RAM_1.inst.\native_mem_mapped_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module system_wrapper_tb.dut.Action_RAM.Action_RAM_2.inst.\native_mem_mapped_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module system_wrapper_tb.dut.Action_RAM.Action_RAM_3.inst.\native_mem_mapped_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.

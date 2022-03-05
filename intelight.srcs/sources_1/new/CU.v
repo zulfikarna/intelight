@@ -2,6 +2,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 // CONTROL UNIT
 // Engineer : 13218029 Zulfikar
+//
+//Edit:
+// (5/03/2022) Mengubah deklarasi dari o_lsrf menjadi o_lsfr - Dismas W.
+// (5/03/2022) Mengubah transisi state menjadi posedge - Dismas W.
 //////////////////////////////////////////////////////////////////////////////////
 
 module CU(
@@ -39,8 +43,8 @@ module CU(
     reg [15:0] epsilon;
     // Variables for generating random number 
     reg  [15:0] i_lsfr;
-    wire [15:0] o_lsrf;
-    lsfr_16bit(.in0(i_lsfr), .out0(o_lsfr));
+    wire [15:0] o_lsfr;
+    lsfr_16bit rand(.in0(i_lsfr), .out0(o_lsfr));
     
     // LSFR Configuration 
     always@(posedge clk) begin
@@ -53,7 +57,7 @@ module CU(
     end
     
     // State Transition
-    always begin
+    always@(posedge clk) begin
         case (cs)
             S_IDLE :
                 if(start)
