@@ -57,7 +57,6 @@ module bram_tb();
     addr_rd     = addr_rd + INC_ADDR;
     //addr_wr     = addr_wr + INC_ADDR;
     din_wr      = din_wr - DEC_DATA;
-    #10;
   end
 
 endmodule

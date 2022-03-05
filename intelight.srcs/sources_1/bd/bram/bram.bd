@@ -7,8 +7,7 @@
       "name": "bram",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2021.1",
-      "validated": "true"
+      "tool_version": "2021.1"
     },
     "design_tree": {
       "bram_stand_alone": "",
@@ -22,29 +21,7 @@
     "ports": {
       "clk": {
         "type": "clk",
-        "direction": "I",
-        "parameters": {
-          "CLK_DOMAIN": {
-            "value": "bram_clka_0",
-            "value_src": "default"
-          },
-          "FREQ_HZ": {
-            "value": "100000000",
-            "value_src": "default"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
-          }
-        }
+        "direction": "I"
       },
       "addr_rd": {
         "direction": "I",
@@ -68,17 +45,7 @@
       },
       "rst": {
         "type": "rst",
-        "direction": "I",
-        "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_LOW",
-            "value_src": "default"
-          }
-        }
+        "direction": "I"
       },
       "addr_wr_1": {
         "direction": "O",
@@ -98,8 +65,11 @@
         "xci_path": "ip\\bram_blk_mem_gen_0_0\\bram_blk_mem_gen_0_0.xci",
         "inst_hier_path": "bram_stand_alone",
         "parameters": {
+          "EN_SAFETY_CKT": {
+            "value": "true"
+          },
           "Enable_32bit_Address": {
-            "value": "false"
+            "value": "true"
           },
           "Enable_B": {
             "value": "Use_ENB_Pin"
@@ -129,22 +99,19 @@
             "value": "false"
           },
           "Register_PortA_Output_of_Memory_Primitives": {
-            "value": "true"
+            "value": "false"
           },
           "Register_PortB_Output_of_Memory_Core": {
             "value": "false"
           },
           "Register_PortB_Output_of_Memory_Primitives": {
-            "value": "true"
-          },
-          "Use_Byte_Write_Enable": {
             "value": "false"
           },
           "Use_RSTA_Pin": {
-            "value": "false"
+            "value": "true"
           },
           "Use_RSTB_Pin": {
-            "value": "false"
+            "value": "true"
           },
           "Write_Depth_A": {
             "value": "2048"
@@ -233,13 +200,7 @@
         "ports": {
           "clk": {
             "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "CLK_DOMAIN": {
-                "value": "bram_clka_0",
-                "value_src": "default_prop"
-              }
-            }
+            "direction": "I"
           },
           "in0": {
             "direction": "I",
@@ -266,13 +227,7 @@
         "ports": {
           "clk": {
             "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "CLK_DOMAIN": {
-                "value": "bram_clka_0",
-                "value_src": "default_prop"
-              }
-            }
+            "direction": "I"
           },
           "in0": {
             "direction": "I",
@@ -329,9 +284,9 @@
       "reg_32bit_0_out0": {
         "ports": [
           "reg_32bit_0/out0",
-          "reg_32bit_1/in0",
           "bram_stand_alone/addra",
-          "addr_wr_1"
+          "addr_wr_1",
+          "reg_32bit_1/in0"
         ]
       },
       "reg_32bit_1_out0": {

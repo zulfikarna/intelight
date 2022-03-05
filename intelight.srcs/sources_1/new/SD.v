@@ -26,7 +26,7 @@ module SD(
     input wire [31:0] batas_1,
     input wire [31:0] batas_2,
     // Output
-    output wire [31:0] state,
+    output wire [31:0] next_state,
     output wire sig_goal,
     // for debugging 
     output wire [31:0] panjang_r0,
@@ -110,9 +110,9 @@ module SD(
         .level_r2(level_r2),
         .level_r3(level_r3)
     );
-    assign state    = ((level_r0)|(level_r1<<2)|(level_r2<<4)|(level_r3<<6))|32'h0000_0000;
+    assign next_state    = ((level_r0)|(level_r1<<2)|(level_r2<<4)|(level_r3<<6))|32'h0000_0000;
     
-    gsg gsg0(.state(state), .sig_goal(sig_goal));
+    gsg gsg0(.next_state(next_state), .sig_goal(sig_goal));
     
     always@(posedge clk) begin
         reg_panjang_w0 <= panjang_w0;
@@ -160,14 +160,14 @@ module comp_SD(
 endmodule
 
 module gsg(
-    input wire [31:0] state,
+    input wire [31:0] next_state,
     output wire sig_goal
     );
     wire sel0, sel1, sel2, sel3, sel;
-    assign sel0 = (state[7:0]==8'h00);
-    assign sel1 = (state[7:0]==8'h55);
-    assign sel2 = (state[7:0]==8'hAA);
-    assign sel3 = (state[7:0]==8'hFF);
+    assign sel0 = (next_state[7:0]==8'h00);
+    assign sel1 = (next_state[7:0]==8'h55);
+    assign sel2 = (next_state[7:0]==8'hAA);
+    assign sel3 = (next_state[7:0]==8'hFF);
     assign sel = sel0 && sel1 && sel2 && sel3;
     mux2to1_2bit mux0(.in0(0), .in1(1), .sel(sel), .out0(sig_goal));
 endmodule

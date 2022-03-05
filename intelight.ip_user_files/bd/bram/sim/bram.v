@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-//Date        : Fri Mar  4 18:38:24 2022
+//Date        : Fri Mar  4 22:39:02 2022
 //Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 //Command     : generate_target bram.bd
 //Design      : bram
@@ -63,8 +63,8 @@ module bram
         .wea(xlconstant_1_dout),
         .web(xlconstant_2_dout));
   bram_blk_mem_gen_0_0 bram_stand_alone
-       (.addra(reg_32bit_0_out0[10:0]),
-        .addrb(addrb_0_1[10:0]),
+       (.addra(reg_32bit_0_out0),
+        .addrb(addrb_0_1),
         .clka(clka_0_1),
         .clkb(clka_0_1),
         .dina(dina_0_1),
@@ -72,8 +72,10 @@ module bram
         .doutb(blk_mem_gen_0_doutb),
         .ena(xlconstant_0_dout),
         .enb(xlconstant_0_dout),
-        .wea(xlconstant_1_dout[0]),
-        .web(xlconstant_2_dout[0]));
+        .rsta(1'b0),
+        .rstb(1'b0),
+        .wea(xlconstant_1_dout),
+        .web(xlconstant_2_dout));
   bram_xlconstant_1_0 cnst_0_4bit
        (.dout(xlconstant_2_dout));
   bram_xlconstant_0_1 cnst_15_4bit
