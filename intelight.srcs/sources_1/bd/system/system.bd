@@ -21,25 +21,21 @@
         "reg_2bit_0": "",
         "reg_32bit_0": ""
       },
-      "reg_32bit_0": "",
       "EV": {
         "SD_0": "",
-        "RD_0": ""
+        "RD_0": "",
+        "reg_32bit_0": ""
       },
       "AGENT": {
         "PG_0": "",
         "QA_0": "",
         "cnst_1_1bit": ""
-      }
+      },
+      "CU_0": ""
     },
     "ports": {
       "act": {
         "direction": "O",
-        "left": "1",
-        "right": "0"
-      },
-      "act_rand": {
-        "direction": "I",
         "left": "1",
         "right": "0"
       },
@@ -52,26 +48,6 @@
         "type": "clk",
         "direction": "I"
       },
-      "curr_qA0": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
-      "curr_qA1": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
-      "curr_qA2": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
-      "curr_qA3": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
       "curr_state": {
         "direction": "O",
         "left": "31",
@@ -80,11 +56,6 @@
       "gamma": {
         "direction": "I",
         "left": "2",
-        "right": "0"
-      },
-      "new_qA": {
-        "direction": "O",
-        "left": "31",
         "right": "0"
       },
       "q_next_0": {
@@ -109,9 +80,6 @@
       },
       "rst": {
         "type": "rst",
-        "direction": "I"
-      },
-      "sel_act": {
         "direction": "I"
       },
       "reward_0": {
@@ -193,6 +161,52 @@
         "direction": "I",
         "left": "31",
         "right": "0"
+      },
+      "new_qA": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "curr_qA3": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "curr_qA2": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "curr_qA1": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "curr_qA0": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "start": {
+        "direction": "I"
+      },
+      "max_step": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "max_episode": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "seed": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "finish": {
+        "direction": "O"
       }
     },
     "components": {
@@ -733,33 +747,6 @@
           }
         }
       },
-      "reg_32bit_0": {
-        "vlnv": "xilinx.com:module_ref:reg_32bit:1.0",
-        "xci_name": "system_reg_32bit_0_2",
-        "xci_path": "ip\\system_reg_32bit_0_2\\system_reg_32bit_0_2.xci",
-        "inst_hier_path": "reg_32bit_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "reg_32bit",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I"
-          },
-          "in0": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "out0": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          }
-        }
-      },
       "EV": {
         "ports": {
           "clk": {
@@ -856,10 +843,13 @@
             "left": "31",
             "right": "0"
           },
-          "reward": {
+          "curr_reward": {
             "direction": "O",
             "left": "31",
             "right": "0"
+          },
+          "sig_goal": {
+            "direction": "O"
           }
         },
         "components": {
@@ -1043,6 +1033,33 @@
                 "right": "0"
               }
             }
+          },
+          "reg_32bit_0": {
+            "vlnv": "xilinx.com:module_ref:reg_32bit:1.0",
+            "xci_name": "system_reg_32bit_0_3",
+            "xci_path": "ip\\system_reg_32bit_0_3\\system_reg_32bit_0_3.xci",
+            "inst_hier_path": "EV/reg_32bit_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "reg_32bit",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I"
+              },
+              "in0": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "out0": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              }
+            }
           }
         },
         "nets": {
@@ -1056,7 +1073,13 @@
           "RD_0_reward": {
             "ports": [
               "RD_0/reward",
-              "reward"
+              "reg_32bit_0/in0"
+            ]
+          },
+          "SD_0_sig_goal": {
+            "ports": [
+              "SD_0/sig_goal",
+              "sig_goal"
             ]
           },
           "batas_0_0_1": {
@@ -1080,7 +1103,8 @@
           "clk_1": {
             "ports": [
               "clk",
-              "SD_0/clk"
+              "SD_0/clk",
+              "reg_32bit_0/clk"
             ]
           },
           "debit_r0_0_1": {
@@ -1142,6 +1166,12 @@
               "SD_0/next_state",
               "state",
               "RD_0/state"
+            ]
+          },
+          "reg_32bit_0_out0": {
+            "ports": [
+              "reg_32bit_0/out0",
+              "curr_reward"
             ]
           },
           "reward_0_0_1": {
@@ -1528,6 +1558,77 @@
             ]
           }
         }
+      },
+      "CU_0": {
+        "vlnv": "xilinx.com:module_ref:CU:1.0",
+        "xci_name": "system_CU_0_0",
+        "xci_path": "ip\\system_CU_0_0\\system_CU_0_0.xci",
+        "inst_hier_path": "CU_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "CU",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "start": {
+            "direction": "I"
+          },
+          "max_step": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "max_episode": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "seed": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "goal_sig": {
+            "direction": "I"
+          },
+          "sel_act": {
+            "direction": "O"
+          },
+          "act_random": {
+            "direction": "O",
+            "left": "1",
+            "right": "0"
+          },
+          "PG": {
+            "direction": "O"
+          },
+          "QA": {
+            "direction": "O"
+          },
+          "SD": {
+            "direction": "O"
+          },
+          "RD": {
+            "direction": "O"
+          },
+          "finish": {
+            "direction": "O"
+          }
+        }
       }
     },
     "nets": {
@@ -1571,6 +1672,36 @@
           "AGENT/q_next_3"
         ]
       },
+      "CU_0_act_random": {
+        "ports": [
+          "CU_0/act_random",
+          "AGENT/act_rand"
+        ]
+      },
+      "CU_0_finish": {
+        "ports": [
+          "CU_0/finish",
+          "finish"
+        ]
+      },
+      "CU_0_sel_act": {
+        "ports": [
+          "CU_0/sel_act",
+          "AGENT/sel_act"
+        ]
+      },
+      "EV_curr_reward": {
+        "ports": [
+          "EV/curr_reward",
+          "AGENT/reward"
+        ]
+      },
+      "EV_sig_goal": {
+        "ports": [
+          "EV/sig_goal",
+          "CU_0/goal_sig"
+        ]
+      },
       "PG_0_act": {
         "ports": [
           "AGENT/act",
@@ -1610,18 +1741,6 @@
           "new_qA"
         ]
       },
-      "RD_0_reward": {
-        "ports": [
-          "EV/reward",
-          "reg_32bit_0/in0"
-        ]
-      },
-      "act_random_0_1": {
-        "ports": [
-          "act_rand",
-          "AGENT/act_rand"
-        ]
-      },
       "alpha_1": {
         "ports": [
           "alpha",
@@ -1650,9 +1769,9 @@
         "ports": [
           "clk",
           "Action_RAM/clk_bram",
-          "reg_32bit_0/clk",
           "EV/clk",
-          "AGENT/clk"
+          "AGENT/clk",
+          "CU_0/clk"
         ]
       },
       "debit_r0_0_1": {
@@ -1715,16 +1834,22 @@
           "EV/init_panjang_r3_0"
         ]
       },
+      "max_episode_0_1": {
+        "ports": [
+          "max_episode",
+          "CU_0/max_episode"
+        ]
+      },
+      "max_step_0_1": {
+        "ports": [
+          "max_step",
+          "CU_0/max_step"
+        ]
+      },
       "next_state_1": {
         "ports": [
           "EV/state",
           "Action_RAM/next_state"
-        ]
-      },
-      "reg_32bit_0_out0": {
-        "ports": [
-          "reg_32bit_0/out0",
-          "AGENT/reward"
         ]
       },
       "reward_0_0_1": {
@@ -1755,13 +1880,20 @@
         "ports": [
           "rst",
           "Action_RAM/rst_bram",
-          "AGENT/rst"
+          "AGENT/rst",
+          "CU_0/rst"
         ]
       },
-      "sel_0_1": {
+      "seed_0_1": {
         "ports": [
-          "sel_act",
-          "AGENT/sel_act"
+          "seed",
+          "CU_0/seed"
+        ]
+      },
+      "start_0_1": {
+        "ports": [
+          "start",
+          "CU_0/start"
         ]
       }
     }
