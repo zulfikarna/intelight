@@ -496,6 +496,7 @@ proc create_hier_cell_AGENT { parentCell nameHier } {
   # Create pins
   create_bd_pin -dir O -from 1 -to 0 act
   create_bd_pin -dir I -from 1 -to 0 act1
+  create_bd_pin -dir O -from 1 -to 0 act_greed
   create_bd_pin -dir I -from 1 -to 0 act_rand
   create_bd_pin -dir I -from 2 -to 0 alpha
   create_bd_pin -dir I -type clk clk
@@ -545,6 +546,7 @@ proc create_hier_cell_AGENT { parentCell nameHier } {
   connect_bd_net -net Action_RAM_q_next_2 [get_bd_pins q_next_2] [get_bd_pins QA_0/next_qA2]
   connect_bd_net -net Action_RAM_q_next_3 [get_bd_pins q_next_3] [get_bd_pins QA_0/next_qA3]
   connect_bd_net -net PG_0_act [get_bd_pins act] [get_bd_pins PG_0/act]
+  connect_bd_net -net PG_0_act_greed [get_bd_pins act_greed] [get_bd_pins PG_0/act_greed]
   connect_bd_net -net QA_0_curr_qA0 [get_bd_pins curr_qA0] [get_bd_pins PG_0/qA0] [get_bd_pins QA_0/curr_qA0]
   connect_bd_net -net QA_0_curr_qA1 [get_bd_pins curr_qA1] [get_bd_pins PG_0/qA1] [get_bd_pins QA_0/curr_qA1]
   connect_bd_net -net QA_0_curr_qA2 [get_bd_pins curr_qA2] [get_bd_pins PG_0/qA2] [get_bd_pins QA_0/curr_qA2]
@@ -600,6 +602,8 @@ proc create_root_design { parentCell } {
 
   # Create ports
   set act [ create_bd_port -dir O -from 1 -to 0 act ]
+  set act_greed [ create_bd_port -dir O -from 1 -to 0 act_greed ]
+  set act_rand [ create_bd_port -dir O -from 1 -to 0 act_rand ]
   set alpha [ create_bd_port -dir I -from 2 -to 0 alpha ]
   set batas_0_0 [ create_bd_port -dir I -from 31 -to 0 batas_0_0 ]
   set batas_1_0 [ create_bd_port -dir I -from 31 -to 0 batas_1_0 ]
@@ -624,6 +628,7 @@ proc create_root_design { parentCell } {
   set max_episode [ create_bd_port -dir I -from 15 -to 0 max_episode ]
   set max_step [ create_bd_port -dir I -from 15 -to 0 max_step ]
   set new_qA [ create_bd_port -dir O -from 31 -to 0 new_qA ]
+  set next_state [ create_bd_port -dir O -from 31 -to 0 next_state ]
   set q_next_0 [ create_bd_port -dir O -from 31 -to 0 q_next_0 ]
   set q_next_1 [ create_bd_port -dir O -from 31 -to 0 q_next_1 ]
   set q_next_2 [ create_bd_port -dir O -from 31 -to 0 q_next_2 ]
@@ -634,7 +639,10 @@ proc create_root_design { parentCell } {
   set reward_3 [ create_bd_port -dir I -from 31 -to 0 reward_3 ]
   set rst [ create_bd_port -dir I -type rst rst ]
   set seed [ create_bd_port -dir I -from 15 -to 0 seed ]
+  set sel_act [ create_bd_port -dir O sel_act ]
   set start [ create_bd_port -dir I start ]
+  set wire_ec [ create_bd_port -dir O -from 15 -to 0 wire_ec ]
+  set wire_sc [ create_bd_port -dir O -from 15 -to 0 wire_sc ]
 
   # Create instance: AGENT
   create_hier_cell_AGENT [current_bd_instance .] AGENT
@@ -657,15 +665,18 @@ proc create_root_design { parentCell } {
   create_hier_cell_EV [current_bd_instance .] EV
 
   # Create port connections
+  connect_bd_net -net AGENT_act_greed [get_bd_ports act_greed] [get_bd_pins AGENT/act_greed]
   connect_bd_net -net Action_RAM_curr_act [get_bd_pins AGENT/act1] [get_bd_pins Action_RAM/curr_act]
   connect_bd_net -net Action_RAM_curr_state [get_bd_ports curr_state] [get_bd_pins Action_RAM/curr_state]
   connect_bd_net -net Action_RAM_q_next_0 [get_bd_ports q_next_0] [get_bd_pins AGENT/q_next_0] [get_bd_pins Action_RAM/q_next_0]
   connect_bd_net -net Action_RAM_q_next_1 [get_bd_ports q_next_1] [get_bd_pins AGENT/q_next_1] [get_bd_pins Action_RAM/q_next_1]
   connect_bd_net -net Action_RAM_q_next_2 [get_bd_ports q_next_2] [get_bd_pins AGENT/q_next_2] [get_bd_pins Action_RAM/q_next_2]
   connect_bd_net -net Action_RAM_q_next_3 [get_bd_ports q_next_3] [get_bd_pins AGENT/q_next_3] [get_bd_pins Action_RAM/q_next_3]
-  connect_bd_net -net CU_0_act_random [get_bd_pins AGENT/act_rand] [get_bd_pins CU_0/act_random]
+  connect_bd_net -net CU_0_act_random [get_bd_ports act_rand] [get_bd_pins AGENT/act_rand] [get_bd_pins CU_0/act_random]
   connect_bd_net -net CU_0_finish [get_bd_ports finish] [get_bd_pins CU_0/finish]
-  connect_bd_net -net CU_0_sel_act [get_bd_pins AGENT/sel_act] [get_bd_pins CU_0/sel_act]
+  connect_bd_net -net CU_0_sel_act [get_bd_ports sel_act] [get_bd_pins AGENT/sel_act] [get_bd_pins CU_0/sel_act]
+  connect_bd_net -net CU_0_wire_ec [get_bd_ports wire_ec] [get_bd_pins CU_0/wire_ec]
+  connect_bd_net -net CU_0_wire_sc [get_bd_ports wire_sc] [get_bd_pins CU_0/wire_sc]
   connect_bd_net -net EV_curr_reward [get_bd_pins AGENT/reward] [get_bd_pins EV/curr_reward]
   connect_bd_net -net EV_sig_goal [get_bd_pins CU_0/goal_sig] [get_bd_pins EV/sig_goal]
   connect_bd_net -net PG_0_act [get_bd_ports act] [get_bd_pins AGENT/act] [get_bd_pins Action_RAM/next_action] [get_bd_pins EV/act]
@@ -691,7 +702,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net init_panjang_r3_0_1 [get_bd_ports init_panjang_r3_0] [get_bd_pins EV/init_panjang_r3_0]
   connect_bd_net -net max_episode_0_1 [get_bd_ports max_episode] [get_bd_pins CU_0/max_episode]
   connect_bd_net -net max_step_0_1 [get_bd_ports max_step] [get_bd_pins CU_0/max_step]
-  connect_bd_net -net next_state_1 [get_bd_pins Action_RAM/next_state] [get_bd_pins EV/state]
+  connect_bd_net -net next_state_1 [get_bd_ports next_state] [get_bd_pins Action_RAM/next_state] [get_bd_pins EV/state]
   connect_bd_net -net reward_0_0_1 [get_bd_ports reward_0] [get_bd_pins EV/reward_0]
   connect_bd_net -net reward_1_0_1 [get_bd_ports reward_1] [get_bd_pins EV/reward_1]
   connect_bd_net -net reward_2_0_1 [get_bd_ports reward_2] [get_bd_pins EV/reward_2]

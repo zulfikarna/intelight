@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xEAE396273837470A",
+      "boundary_crc": "0x7838214010A3F62D",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../intelight.gen/sources_1/bd/system",
       "name": "system",
@@ -29,8 +29,8 @@
       },
       "AGENT": {
         "cnst_1_1bit": "",
-        "PG_0": "",
-        "QA_0": ""
+        "QA_0": "",
+        "PG_0": ""
       },
       "CU_0": ""
     },
@@ -244,6 +244,34 @@
       },
       "finish": {
         "direction": "O"
+      },
+      "act_rand": {
+        "direction": "O",
+        "left": "1",
+        "right": "0"
+      },
+      "sel_act": {
+        "direction": "O"
+      },
+      "wire_sc": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      },
+      "wire_ec": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      },
+      "act_greed": {
+        "direction": "O",
+        "left": "1",
+        "right": "0"
+      },
+      "next_state": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
       }
     },
     "components": {
@@ -1317,6 +1345,11 @@
             "direction": "I",
             "left": "31",
             "right": "0"
+          },
+          "act_greed": {
+            "direction": "O",
+            "left": "1",
+            "right": "0"
           }
         },
         "components": {
@@ -1325,55 +1358,6 @@
             "xci_name": "system_cnst_1_1bit_1",
             "xci_path": "ip\\system_cnst_1_1bit_1\\system_cnst_1_1bit_1.xci",
             "inst_hier_path": "AGENT/cnst_1_1bit"
-          },
-          "PG_0": {
-            "vlnv": "xilinx.com:module_ref:PG:1.0",
-            "xci_name": "system_PG_0_0",
-            "xci_path": "ip\\system_PG_0_0\\system_PG_0_0.xci",
-            "inst_hier_path": "AGENT/PG_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "PG",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "en": {
-                "direction": "I"
-              },
-              "qA0": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "qA1": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "qA2": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "qA3": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "sel": {
-                "direction": "I"
-              },
-              "act_random": {
-                "direction": "I",
-                "left": "1",
-                "right": "0"
-              },
-              "act": {
-                "direction": "O",
-                "left": "1",
-                "right": "0"
-              }
-            }
           },
           "QA_0": {
             "vlnv": "xilinx.com:module_ref:QA:1.0",
@@ -1470,6 +1454,60 @@
                 "right": "0"
               }
             }
+          },
+          "PG_0": {
+            "vlnv": "xilinx.com:module_ref:PG:1.0",
+            "xci_name": "system_PG_0_0",
+            "xci_path": "ip\\system_PG_0_0\\system_PG_0_0.xci",
+            "inst_hier_path": "AGENT/PG_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "PG",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "en": {
+                "direction": "I"
+              },
+              "qA0": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "qA1": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "qA2": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "qA3": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "sel": {
+                "direction": "I"
+              },
+              "act_random": {
+                "direction": "I",
+                "left": "1",
+                "right": "0"
+              },
+              "act": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "act_greed": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              }
+            }
           }
         },
         "nets": {
@@ -1507,6 +1545,12 @@
             "ports": [
               "PG_0/act",
               "act"
+            ]
+          },
+          "PG_0_act_greed": {
+            "ports": [
+              "PG_0/act_greed",
+              "act_greed"
             ]
           },
           "QA_0_curr_qA0": {
@@ -1665,11 +1709,27 @@
           },
           "finish": {
             "direction": "O"
+          },
+          "wire_sc": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "wire_ec": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
           }
         }
       }
     },
     "nets": {
+      "AGENT_act_greed": {
+        "ports": [
+          "AGENT/act_greed",
+          "act_greed"
+        ]
+      },
       "Action_RAM_curr_act": {
         "ports": [
           "Action_RAM/curr_act",
@@ -1713,7 +1773,8 @@
       "CU_0_act_random": {
         "ports": [
           "CU_0/act_random",
-          "AGENT/act_rand"
+          "AGENT/act_rand",
+          "act_rand"
         ]
       },
       "CU_0_finish": {
@@ -1725,7 +1786,20 @@
       "CU_0_sel_act": {
         "ports": [
           "CU_0/sel_act",
-          "AGENT/sel_act"
+          "AGENT/sel_act",
+          "sel_act"
+        ]
+      },
+      "CU_0_wire_ec": {
+        "ports": [
+          "CU_0/wire_ec",
+          "wire_ec"
+        ]
+      },
+      "CU_0_wire_sc": {
+        "ports": [
+          "CU_0/wire_sc",
+          "wire_sc"
         ]
       },
       "EV_curr_reward": {
@@ -1887,7 +1961,8 @@
       "next_state_1": {
         "ports": [
           "EV/state",
-          "Action_RAM/next_state"
+          "Action_RAM/next_state",
+          "next_state"
         ]
       },
       "reward_0_0_1": {

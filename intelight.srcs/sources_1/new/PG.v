@@ -9,7 +9,9 @@ module PG(
     input wire [31:0] qA0, qA1, qA2, qA3,
     input wire sel,
     input wire [1:0] act_random,
-    output wire [1:0] act
+    output wire [1:0] act,
+    // for debugging 
+    output wire [1:0] act_greed
     );
     wire [1:0] act_greed;
     wire [31:0] maxqA;

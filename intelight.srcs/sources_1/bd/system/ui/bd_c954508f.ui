@@ -1,94 +1,184 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.614812",
-   "Default View_TopLeft":"-439,0",
-   "ExpandedHierarchyInLayout":"",
+   "Default View_ScaleFactor":"1.20691",
+   "Default View_TopLeft":"1150,1795",
+   "ExpandedHierarchyInLayout":"/Action_RAM|/EV|/AGENT",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port port-id_clk -pg 1 -lvl 0 -x -240 -y 20 -defaultsOSRD
-preplace port port-id_rst -pg 1 -lvl 0 -x -240 -y 590 -defaultsOSRD
-preplace port port-id_start -pg 1 -lvl 0 -x -240 -y 850 -defaultsOSRD
-preplace port port-id_finish -pg 1 -lvl 4 -x 1420 -y 950 -defaultsOSRD
-preplace portBus act -pg 1 -lvl 4 -x 1420 -y 510 -defaultsOSRD
-preplace portBus alpha -pg 1 -lvl 0 -x -240 -y 530 -defaultsOSRD
-preplace portBus curr_state -pg 1 -lvl 4 -x 1420 -y 720 -defaultsOSRD
-preplace portBus gamma -pg 1 -lvl 0 -x -240 -y 560 -defaultsOSRD
-preplace portBus q_next_0 -pg 1 -lvl 4 -x 1420 -y 600 -defaultsOSRD
-preplace portBus q_next_1 -pg 1 -lvl 4 -x 1420 -y 690 -defaultsOSRD
-preplace portBus q_next_2 -pg 1 -lvl 4 -x 1420 -y 630 -defaultsOSRD
-preplace portBus q_next_3 -pg 1 -lvl 4 -x 1420 -y 660 -defaultsOSRD
-preplace portBus reward_0 -pg 1 -lvl 0 -x -240 -y 410 -defaultsOSRD
-preplace portBus reward_1 -pg 1 -lvl 0 -x -240 -y 440 -defaultsOSRD
-preplace portBus reward_2 -pg 1 -lvl 0 -x -240 -y 470 -defaultsOSRD
-preplace portBus reward_3 -pg 1 -lvl 0 -x -240 -y 500 -defaultsOSRD
-preplace portBus delta_t_0 -pg 1 -lvl 0 -x -240 -y 50 -defaultsOSRD
-preplace portBus debit_r0_0 -pg 1 -lvl 0 -x -240 -y 80 -defaultsOSRD
-preplace portBus debit_r1_0 -pg 1 -lvl 0 -x -240 -y 110 -defaultsOSRD
-preplace portBus debit_r2_0 -pg 1 -lvl 0 -x -240 -y 140 -defaultsOSRD
-preplace portBus debit_r3_0 -pg 1 -lvl 0 -x -240 -y 170 -defaultsOSRD
-preplace portBus init_panjang_r0_0 -pg 1 -lvl 0 -x -240 -y 200 -defaultsOSRD
-preplace portBus init_panjang_r1_0 -pg 1 -lvl 0 -x -240 -y 230 -defaultsOSRD
-preplace portBus init_panjang_r2_0 -pg 1 -lvl 0 -x -240 -y 260 -defaultsOSRD
-preplace portBus init_panjang_r3_0 -pg 1 -lvl 0 -x -240 -y 290 -defaultsOSRD
-preplace portBus batas_0_0 -pg 1 -lvl 0 -x -240 -y 320 -defaultsOSRD
-preplace portBus batas_1_0 -pg 1 -lvl 0 -x -240 -y 350 -defaultsOSRD
-preplace portBus batas_2_0 -pg 1 -lvl 0 -x -240 -y 380 -defaultsOSRD
-preplace portBus new_qA -pg 1 -lvl 4 -x 1420 -y 540 -defaultsOSRD
-preplace portBus curr_qA3 -pg 1 -lvl 4 -x 1420 -y 480 -defaultsOSRD
-preplace portBus curr_qA2 -pg 1 -lvl 4 -x 1420 -y 450 -defaultsOSRD
-preplace portBus curr_qA1 -pg 1 -lvl 4 -x 1420 -y 420 -defaultsOSRD
-preplace portBus curr_qA0 -pg 1 -lvl 4 -x 1420 -y 390 -defaultsOSRD
-preplace portBus max_step -pg 1 -lvl 0 -x -240 -y 880 -defaultsOSRD
-preplace portBus max_episode -pg 1 -lvl 0 -x -240 -y 910 -defaultsOSRD
-preplace portBus seed -pg 1 -lvl 0 -x -240 -y 940 -defaultsOSRD
-preplace inst Action_RAM -pg 1 -lvl 2 -x 730 -y 670 -defaultsOSRD
-preplace inst EV -pg 1 -lvl 1 -x 250 -y 270 -defaultsOSRD
-preplace inst AGENT -pg 1 -lvl 3 -x 1240 -y 460 -defaultsOSRD
-preplace inst CU_0 -pg 1 -lvl 2 -x 730 -y 890 -defaultsOSRD
-preplace netloc Action_RAM_curr_act 1 2 1 940 510n
-preplace netloc Action_RAM_curr_state 1 2 2 NJ 720 NJ
-preplace netloc Action_RAM_q_next_0 1 2 2 930 620 1380J
-preplace netloc Action_RAM_q_next_1 1 2 2 950 690 NJ
-preplace netloc Action_RAM_q_next_2 1 2 2 910 630 NJ
-preplace netloc Action_RAM_q_next_3 1 2 2 960 660 NJ
-preplace netloc CU_0_act_random 1 2 1 900 370n
-preplace netloc CU_0_finish 1 2 2 NJ 950 NJ
-preplace netloc CU_0_sel_act 1 2 1 890 350n
-preplace netloc EV_curr_reward 1 1 2 NJ 270 920
-preplace netloc EV_sig_goal 1 1 1 420 290n
-preplace netloc PG_0_act 1 0 4 -150 500 470 280 NJ 280 1400
-preplace netloc QA_0_curr_qA0 1 3 1 1370J 390n
-preplace netloc QA_0_curr_qA1 1 3 1 1390J 420n
-preplace netloc QA_0_curr_qA2 1 3 1 NJ 450
-preplace netloc QA_0_curr_qA3 1 3 1 1390J 470n
-preplace netloc QA_0_new_qA 1 1 3 480 290 NJ 290 1380
-preplace netloc alpha_1 1 0 3 NJ 530 NJ 530 NJ
-preplace netloc batas_0_0_1 1 0 1 -190J 310n
-preplace netloc batas_1_0_1 1 0 1 -220J 330n
-preplace netloc batas_2_0_1 1 0 1 -210J 350n
-preplace netloc clk_1 1 0 3 -150 30 440 390 NJ
-preplace netloc debit_r0_0_1 1 0 1 -170J 80n
-preplace netloc debit_r1_0_1 1 0 1 -180J 110n
-preplace netloc debit_r2_0_1 1 0 1 -190J 140n
-preplace netloc debit_r3_0_1 1 0 1 -200J 170n
-preplace netloc delta_t_0_1 1 0 1 -160J 50n
-preplace netloc gamma_1 1 0 3 NJ 560 430J 550 NJ
-preplace netloc init_panjang_r0_0_1 1 0 1 -210J 200n
-preplace netloc init_panjang_r1_0_1 1 0 1 -220J 230n
-preplace netloc init_panjang_r2_0_1 1 0 1 -190J 260n
-preplace netloc init_panjang_r3_0_1 1 0 1 NJ 290
-preplace netloc max_episode_0_1 1 0 2 NJ 910 NJ
-preplace netloc max_step_0_1 1 0 2 NJ 880 410J
-preplace netloc next_state_1 1 1 1 450 250n
-preplace netloc reward_0_0_1 1 0 1 -200J 370n
-preplace netloc reward_1_0_1 1 0 1 -190J 390n
-preplace netloc reward_2_0_1 1 0 1 -180J 410n
-preplace netloc reward_3_0_1 1 0 1 -170J 430n
-preplace netloc rst_bram_1 1 0 3 NJ 590 460 410 NJ
-preplace netloc seed_0_1 1 0 2 -190J 930 NJ
-preplace netloc start_0_1 1 0 2 -160J 870 NJ
-levelinfo -pg 1 -240 250 730 1240 1420
-pagesize -pg 1 -db -bbox -sgen -440 -30 1570 2450
+preplace port port-id_clk -pg 1 -lvl 0 -x -210 -y 20 -defaultsOSRD
+preplace port port-id_rst -pg 1 -lvl 0 -x -210 -y 620 -defaultsOSRD
+preplace port port-id_start -pg 1 -lvl 0 -x -210 -y 530 -defaultsOSRD
+preplace port port-id_finish -pg 1 -lvl 4 -x 3130 -y 910 -defaultsOSRD
+preplace port port-id_sel_act -pg 1 -lvl 4 -x 3130 -y 550 -defaultsOSRD
+preplace portBus act -pg 1 -lvl 4 -x 3130 -y 610 -defaultsOSRD
+preplace portBus alpha -pg 1 -lvl 0 -x -210 -y 560 -defaultsOSRD
+preplace portBus curr_state -pg 1 -lvl 4 -x 3130 -y 760 -defaultsOSRD
+preplace portBus gamma -pg 1 -lvl 0 -x -210 -y 590 -defaultsOSRD
+preplace portBus q_next_0 -pg 1 -lvl 4 -x 3130 -y 640 -defaultsOSRD
+preplace portBus q_next_1 -pg 1 -lvl 4 -x 3130 -y 730 -defaultsOSRD
+preplace portBus q_next_2 -pg 1 -lvl 4 -x 3130 -y 670 -defaultsOSRD
+preplace portBus q_next_3 -pg 1 -lvl 4 -x 3130 -y 700 -defaultsOSRD
+preplace portBus reward_0 -pg 1 -lvl 0 -x -210 -y 410 -defaultsOSRD
+preplace portBus reward_1 -pg 1 -lvl 0 -x -210 -y 440 -defaultsOSRD
+preplace portBus reward_2 -pg 1 -lvl 0 -x -210 -y 470 -defaultsOSRD
+preplace portBus reward_3 -pg 1 -lvl 0 -x -210 -y 500 -defaultsOSRD
+preplace portBus delta_t_0 -pg 1 -lvl 0 -x -210 -y 50 -defaultsOSRD
+preplace portBus debit_r0_0 -pg 1 -lvl 0 -x -210 -y 80 -defaultsOSRD
+preplace portBus debit_r1_0 -pg 1 -lvl 0 -x -210 -y 110 -defaultsOSRD
+preplace portBus debit_r2_0 -pg 1 -lvl 0 -x -210 -y 140 -defaultsOSRD
+preplace portBus debit_r3_0 -pg 1 -lvl 0 -x -210 -y 170 -defaultsOSRD
+preplace portBus init_panjang_r0_0 -pg 1 -lvl 0 -x -210 -y 200 -defaultsOSRD
+preplace portBus init_panjang_r1_0 -pg 1 -lvl 0 -x -210 -y 230 -defaultsOSRD
+preplace portBus init_panjang_r2_0 -pg 1 -lvl 0 -x -210 -y 260 -defaultsOSRD
+preplace portBus init_panjang_r3_0 -pg 1 -lvl 0 -x -210 -y 290 -defaultsOSRD
+preplace portBus batas_0_0 -pg 1 -lvl 0 -x -210 -y 320 -defaultsOSRD
+preplace portBus batas_1_0 -pg 1 -lvl 0 -x -210 -y 350 -defaultsOSRD
+preplace portBus batas_2_0 -pg 1 -lvl 0 -x -210 -y 380 -defaultsOSRD
+preplace portBus new_qA -pg 1 -lvl 4 -x 3130 -y 790 -defaultsOSRD
+preplace portBus curr_qA3 -pg 1 -lvl 4 -x 3130 -y 510 -defaultsOSRD
+preplace portBus curr_qA2 -pg 1 -lvl 4 -x 3130 -y 480 -defaultsOSRD
+preplace portBus curr_qA1 -pg 1 -lvl 4 -x 3130 -y 450 -defaultsOSRD
+preplace portBus curr_qA0 -pg 1 -lvl 4 -x 3130 -y 420 -defaultsOSRD
+preplace portBus max_step -pg 1 -lvl 0 -x -210 -y 910 -defaultsOSRD
+preplace portBus max_episode -pg 1 -lvl 0 -x -210 -y 940 -defaultsOSRD
+preplace portBus seed -pg 1 -lvl 0 -x -210 -y 970 -defaultsOSRD
+preplace portBus act_rand -pg 1 -lvl 4 -x 3130 -y 940 -defaultsOSRD
+preplace portBus wire_sc -pg 1 -lvl 4 -x 3130 -y 970 -defaultsOSRD
+preplace portBus wire_ec -pg 1 -lvl 4 -x 3130 -y 1000 -defaultsOSRD
+preplace portBus act_greed -pg 1 -lvl 4 -x 3130 -y 0 -defaultsOSRD
+preplace portBus next_state -pg 1 -lvl 4 -x 3130 -y 30 -defaultsOSRD
+preplace inst Action_RAM -pg 1 -lvl 2 -x 1280 -y 694 -defaultsOSRD
+preplace inst EV -pg 1 -lvl 1 -x 260 -y 272 -defaultsOSRD
+preplace inst AGENT -pg 1 -lvl 3 -x 2320 -y 492 -defaultsOSRD
+preplace inst CU_0 -pg 1 -lvl 2 -x 1280 -y 2354 -defaultsOSRD
+preplace inst Action_RAM|Action_RAM_0 -pg 1 -lvl 2 -x 1700 -y 804 -defaultsOSRD
+preplace inst Action_RAM|cnst_0_4bit -pg 1 -lvl 1 -x 1350 -y 934 -defaultsOSRD
+preplace inst Action_RAM|Action_RAM_2 -pg 1 -lvl 2 -x 1700 -y 1544 -defaultsOSRD
+preplace inst Action_RAM|Action_RAM_3 -pg 1 -lvl 2 -x 1700 -y 2004 -defaultsOSRD
+preplace inst Action_RAM|cnst_1_1bit -pg 1 -lvl 1 -x 1350 -y 1964 -defaultsOSRD
+preplace inst Action_RAM|Action_RAM_1 -pg 1 -lvl 2 -x 1700 -y 1184 -defaultsOSRD
+preplace inst Action_RAM|reg_2bit_0 -pg 1 -lvl 1 -x 1350 -y 1854 -defaultsOSRD
+preplace inst Action_RAM|reg_32bit_0 -pg 1 -lvl 1 -x 1350 -y 1664 -defaultsOSRD
+preplace inst Action_RAM|decoder_0 -pg 1 -lvl 1 -x 1350 -y 1524 -defaultsOSRD
+preplace inst EV|reg_32bit_0 -pg 1 -lvl 2 -x 640 -y 532 -defaultsOSRD
+preplace inst EV|RD_0 -pg 1 -lvl 1 -x 320 -y 542 -defaultsOSRD
+preplace inst EV|SD_0 -pg 1 -lvl 2 -x 640 -y 262 -defaultsOSRD
+preplace inst AGENT|cnst_1_1bit -pg 1 -lvl 1 -x 2390 -y 452 -defaultsOSRD
+preplace inst AGENT|QA_0 -pg 1 -lvl 1 -x 2390 -y 722 -defaultsOSRD
+preplace inst AGENT|PG_0 -pg 1 -lvl 2 -x 2710 -y 512 -defaultsOSRD
+preplace netloc Action_RAM_curr_act 1 2 1 2030 752n
+preplace netloc Action_RAM_curr_state 1 2 2 2040J 950 3100J
+preplace netloc Action_RAM_q_next_0 1 2 2 1960 892 3050J
+preplace netloc Action_RAM_q_next_1 1 2 2 1990 902 3080J
+preplace netloc Action_RAM_q_next_2 1 2 2 1970 912 3070J
+preplace netloc Action_RAM_q_next_3 1 2 2 2000 922 3090J
+preplace netloc CU_0_act_random 1 2 2 2020 940 N
+preplace netloc CU_0_finish 1 2 2 2050J 960 3110J
+preplace netloc CU_0_sel_act 1 2 2 1980 322 3050
+preplace netloc EV_curr_reward 1 1 2 NJ 252 2010
+preplace netloc EV_sig_goal 1 1 1 980 272n
+preplace netloc PG_0_act 1 0 4 10 12 1020 302 NJ 302 3010
+preplace netloc QA_0_curr_qA0 1 3 1 3070J 372n
+preplace netloc QA_0_curr_qA1 1 3 1 3040J 392n
+preplace netloc QA_0_curr_qA2 1 3 1 3020J 480n
+preplace netloc QA_0_curr_qA3 1 3 1 3040J 510n
+preplace netloc QA_0_new_qA 1 1 3 1050 312 NJ 312 3060
+preplace netloc alpha_1 1 0 3 -160J 2 NJ 2 2060J
+preplace netloc batas_0_0_1 1 0 1 -100J 320n
+preplace netloc batas_1_0_1 1 0 1 -110J 350n
+preplace netloc batas_2_0_1 1 0 1 -120J 380n
+preplace netloc clk_1 1 0 3 0 22 1010 574 1960J
+preplace netloc debit_r0_0_1 1 0 1 -20J 80n
+preplace netloc debit_r1_0_1 1 0 1 -30J 110n
+preplace netloc debit_r2_0_1 1 0 1 -40J 140n
+preplace netloc debit_r3_0_1 1 0 1 -50J 170n
+preplace netloc delta_t_0_1 1 0 1 -10J 50n
+preplace netloc gamma_1 1 0 3 -190J -8 NJ -8 2070J
+preplace netloc init_panjang_r0_0_1 1 0 1 -60J 200n
+preplace netloc init_panjang_r1_0_1 1 0 1 -70J 230n
+preplace netloc init_panjang_r2_0_1 1 0 1 -80J 260n
+preplace netloc init_panjang_r3_0_1 1 0 1 -90J 290n
+preplace netloc max_episode_0_1 1 0 2 NJ 940 970J
+preplace netloc max_step_0_1 1 0 2 NJ 910 990J
+preplace netloc next_state_1 1 1 3 1040 30 N 30 N
+preplace netloc reward_0_0_1 1 0 1 -130J 410n
+preplace netloc reward_1_0_1 1 0 1 -150J 440n
+preplace netloc reward_2_0_1 1 0 1 -170J 470n
+preplace netloc reward_3_0_1 1 0 1 -180J 500n
+preplace netloc rst_bram_1 1 0 3 -190J 672 1030 584 2030J
+preplace netloc seed_0_1 1 0 2 NJ 970 960J
+preplace netloc start_0_1 1 0 2 -140 32 1000J
+preplace netloc CU_0_wire_sc 1 2 2 2060J 970 NJ
+preplace netloc CU_0_wire_ec 1 2 2 2070J 1000 NJ
+preplace netloc AGENT_act_greed 1 3 1 3030 0n
+preplace netloc Action_RAM|Action_RAM_0_doutb 1 1 2 1570 994 NJ
+preplace netloc Action_RAM|Action_RAM_1_doutb 1 1 2 1570 1774 NJ
+preplace netloc Action_RAM|Action_RAM_2_doutb 1 1 2 1580 1734 NJ
+preplace netloc Action_RAM|Action_RAM_3_doutb 1 1 2 1580 1754 NJ
+preplace netloc Action_RAM|clk_0_1 1 0 2 1210 1734 1500
+preplace netloc Action_RAM|cnst_0_4bit_dout 1 1 1 1470 934n
+preplace netloc Action_RAM|cnst_1_1bit_dout 1 1 1 1510 754n
+preplace netloc Action_RAM|decoder_0_en0 1 1 1 1490 794n
+preplace netloc Action_RAM|decoder_0_en1 1 1 1 1480 1174n
+preplace netloc Action_RAM|decoder_0_en2 1 1 1 N 1534
+preplace netloc Action_RAM|decoder_0_en3 1 1 1 1490 1554n
+preplace netloc Action_RAM|dina_0_1 1 0 2 NJ 1774 1550
+preplace netloc Action_RAM|in0_0_1 1 0 1 N 1864
+preplace netloc Action_RAM|next_state_1 1 0 2 1220 1744 1560
+preplace netloc Action_RAM|reg_2bit_0_out0 1 0 3 1230 2024 1540 1794 NJ
+preplace netloc Action_RAM|reg_32bit_0_out0 1 1 2 1530 1814 NJ
+preplace netloc Action_RAM|rsta_0_1 1 0 2 NJ 1754 1520
+preplace netloc EV|PG_0_act 1 0 2 160 142 N
+preplace netloc EV|RD_0_reward 1 1 1 N 542
+preplace netloc EV|SD_0_sig_goal 1 2 1 N 272
+preplace netloc EV|batas_0_0_1 1 0 2 NJ 362 N
+preplace netloc EV|batas_1_0_1 1 0 2 NJ 382 N
+preplace netloc EV|batas_2_0_1 1 0 2 NJ 402 N
+preplace netloc EV|clk_1 1 0 2 NJ 122 470
+preplace netloc EV|debit_r0_0_1 1 0 2 NJ 182 N
+preplace netloc EV|debit_r1_0_1 1 0 2 NJ 202 N
+preplace netloc EV|debit_r2_0_1 1 0 2 NJ 222 N
+preplace netloc EV|debit_r3_0_1 1 0 2 NJ 242 N
+preplace netloc EV|delta_t_0_1 1 0 2 NJ 162 N
+preplace netloc EV|init_panjang_r0_0_1 1 0 2 NJ 262 N
+preplace netloc EV|init_panjang_r1_0_1 1 0 2 NJ 282 N
+preplace netloc EV|init_panjang_r2_0_1 1 0 2 NJ 302 N
+preplace netloc EV|init_panjang_r3_0_1 1 0 2 NJ 322 N
+preplace netloc EV|next_state_1 1 0 3 180 432 460J 462 800
+preplace netloc EV|reg_32bit_0_out0 1 2 1 810 252n
+preplace netloc EV|reward_0_0_1 1 0 1 N 532
+preplace netloc EV|reward_1_0_1 1 0 1 N 552
+preplace netloc EV|reward_2_0_1 1 0 1 N 572
+preplace netloc EV|reward_3_0_1 1 0 1 N 592
+preplace netloc EV|start_1 1 0 2 170J 342 N
+preplace netloc AGENT|Action_RAM_curr_act 1 0 1 N 752
+preplace netloc AGENT|Action_RAM_q_next_0 1 0 1 N 672
+preplace netloc AGENT|Action_RAM_q_next_1 1 0 1 N 692
+preplace netloc AGENT|Action_RAM_q_next_2 1 0 1 N 712
+preplace netloc AGENT|Action_RAM_q_next_3 1 0 1 N 732
+preplace netloc AGENT|PG_0_act 1 2 1 2870 502n
+preplace netloc AGENT|QA_0_curr_qA0 1 1 2 2530 372 NJ
+preplace netloc AGENT|QA_0_curr_qA1 1 1 2 2540 392 NJ
+preplace netloc AGENT|QA_0_curr_qA2 1 1 2 2550 632 NJ
+preplace netloc AGENT|QA_0_curr_qA3 1 1 2 2560 652 NJ
+preplace netloc AGENT|QA_0_new_qA 1 1 2 N 762 NJ
+preplace netloc AGENT|act_random_0_1 1 0 2 NJ 572 N
+preplace netloc AGENT|alpha_1 1 0 1 N 772
+preplace netloc AGENT|clk_1 1 0 1 N 632
+preplace netloc AGENT|gamma_1 1 0 1 N 792
+preplace netloc AGENT|reg_32bit_0_out0 1 0 1 N 812
+preplace netloc AGENT|rst_bram_1 1 0 1 N 652
+preplace netloc AGENT|sel_0_1 1 0 2 NJ 552 N
+preplace netloc AGENT|xlconstant_0_dout 1 1 1 NJ 452
+preplace netloc AGENT|PG_0_act_greed 1 2 1 2860 522n
+levelinfo -pg 1 -210 260 1280 2320 3130
+levelinfo -hier Action_RAM * 1350 1700 *
+levelinfo -hier EV * 320 640 *
+levelinfo -hier AGENT * 2390 2710 *
+pagesize -pg 1 -db -bbox -sgen -410 -20 3280 2540
+pagesize -hier Action_RAM -db -bbox -sgen 1180 614 1850 2194
+pagesize -hier EV -db -bbox -sgen 130 62 840 652
+pagesize -hier AGENT -db -bbox -sgen 2220 352 2900 872
 "
 }
 0

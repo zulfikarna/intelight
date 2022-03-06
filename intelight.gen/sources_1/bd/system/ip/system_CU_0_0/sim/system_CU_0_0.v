@@ -68,7 +68,9 @@ module system_CU_0_0 (
   QA,
   SD,
   RD,
-  finish
+  finish,
+  wire_sc,
+  wire_ec
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_clk, INSERT_VIP 0" *)
@@ -89,6 +91,8 @@ output wire QA;
 output wire SD;
 output wire RD;
 output wire finish;
+output wire [15 : 0] wire_sc;
+output wire [15 : 0] wire_ec;
 
   CU inst (
     .clk(clk),
@@ -104,6 +108,8 @@ output wire finish;
     .QA(QA),
     .SD(SD),
     .RD(RD),
-    .finish(finish)
+    .finish(finish),
+    .wire_sc(wire_sc),
+    .wire_ec(wire_ec)
   );
 endmodule

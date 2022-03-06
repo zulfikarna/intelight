@@ -62,7 +62,8 @@ module system_PG_0_0 (
   qA3,
   sel,
   act_random,
-  act
+  act,
+  act_greed
 );
 
 input wire en;
@@ -73,6 +74,7 @@ input wire [31 : 0] qA3;
 input wire sel;
 input wire [1 : 0] act_random;
 output wire [1 : 0] act;
+output wire [1 : 0] act_greed;
 
   PG inst (
     .en(en),
@@ -82,6 +84,7 @@ output wire [1 : 0] act;
     .qA3(qA3),
     .sel(sel),
     .act_random(act_random),
-    .act(act)
+    .act(act),
+    .act_greed(act_greed)
   );
 endmodule

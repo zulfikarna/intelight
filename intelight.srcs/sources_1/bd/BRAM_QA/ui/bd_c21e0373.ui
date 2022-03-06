@@ -24,26 +24,26 @@ preplace portBus next_action -pg 1 -lvl 0 -x -140 -y 160 -defaultsOSRD
 preplace portBus curr_state -pg 1 -lvl 3 -x 760 -y 160 -defaultsOSRD
 preplace inst Action_RAM -pg 1 -lvl 1 -x 180 -y 110 -defaultsOSRD
 preplace inst QA_0 -pg 1 -lvl 2 -x 587 -y 310 -defaultsOSRD
-preplace netloc Action_RAM_curr_act 1 1 1 320 140n
+preplace netloc Action_RAM_curr_act 1 1 1 310 140n
 preplace netloc Action_RAM_curr_state 1 1 2 NJ 160 NJ
-preplace netloc Action_RAM_q_next_0 1 1 2 360 40 NJ
-preplace netloc Action_RAM_q_next_1 1 1 2 340 130 NJ
-preplace netloc Action_RAM_q_next_2 1 1 2 350 70 NJ
-preplace netloc Action_RAM_q_next_3 1 1 2 330 100 NJ
-preplace netloc QA_0_curr_qA0 1 2 1 740J 250n
-preplace netloc QA_0_curr_qA1 1 2 1 740J 280n
+preplace netloc Action_RAM_q_next_0 1 1 2 350 40 NJ
+preplace netloc Action_RAM_q_next_1 1 1 2 330 130 NJ
+preplace netloc Action_RAM_q_next_2 1 1 2 340 70 NJ
+preplace netloc Action_RAM_q_next_3 1 1 2 320 100 NJ
+preplace netloc QA_0_curr_qA0 1 2 1 730J 250n
+preplace netloc QA_0_curr_qA1 1 2 1 730J 280n
 preplace netloc QA_0_curr_qA2 1 2 1 NJ 310
-preplace netloc QA_0_curr_qA3 1 2 1 740J 330n
-preplace netloc QA_0_new_qA 1 0 3 -90 460 NJ 460 740
-preplace netloc alpha_0_1 1 0 2 NJ 350 340J
+preplace netloc QA_0_curr_qA3 1 2 1 730J 330n
+preplace netloc QA_0_new_qA 1 0 3 -90 460 NJ 460 730
+preplace netloc alpha_0_1 1 0 2 NJ 350 330J
 preplace netloc clk_0_1 1 0 2 -120 220 NJ
 preplace netloc gamma_0_1 1 0 2 NJ 380 NJ
 preplace netloc next_action_0_1 1 0 1 -100J 150n
 preplace netloc next_state_1 1 0 1 NJ 130
-preplace netloc reward_0_1 1 0 2 NJ 410 340J
+preplace netloc reward_0_1 1 0 2 NJ 410 330J
 preplace netloc rsta_0_1 1 0 2 -110 240 NJ
 levelinfo -pg 1 -140 180 587 760
-pagesize -pg 1 -db -bbox -sgen -300 0 910 1910
+pagesize -pg 1 -db -bbox -sgen -290 0 910 1910
 "
 }
 0

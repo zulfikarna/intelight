@@ -4,8 +4,11 @@
 // Engineer : 13218029 Zulfikar
 //
 //Edit:
-// (5/03/2022) Mengubah deklarasi dari o_lsrf menjadi o_lsfr - Dismas W.
-// (5/03/2022) Mengubah transisi state menjadi posedge - Dismas W.
+// (5/03/2022)  Mengubah deklarasi dari o_lsrf menjadi o_lsfr - Dismas W.
+//              Mengubah transisi state menjadi posedge - Dismas W.
+// (6/03/2022)  Mengubah output sel_act disesuaikan dengan penempatan MUX di Action Decider (PG) - Zulfikar N. A.
+//              Menambahkan wire sc dan ex untuk debugging - Zulfikar N. A.
+//              Menambahkan blok sequential untuk mengatur state awal (rst = 1) - Zulfikar N. A.
 //////////////////////////////////////////////////////////////////////////////////
 
 module CU(
@@ -24,7 +27,10 @@ module CU(
     output wire QA,
     output wire SD,
     output wire RD,
-    output reg finish
+    output reg finish,
+    // for debugging 
+    output wire [15:0] wire_sc,
+    output wire [15:0] wire_ec
     );
     
     // State variable for FSM implementation 
@@ -54,6 +60,14 @@ module CU(
             default:
                 i_lsfr <= o_lsfr;
         endcase
+    end
+    
+    always@(posedge clk) begin 
+        if(rst) begin 
+            cs <= S_IDLE;
+        end else begin
+            cs <= ns;
+        end
     end
     
     // State Transition
@@ -113,7 +127,10 @@ module CU(
     // Control signals go here :
     
     // Random numbers for Policy Generator 
-    assign sel_act = (o_lsfr[10:0] < epsilon)? 1'b1 : 1'b0;
+    assign sel_act = (epsilon < o_lsfr[10:0])? 1'b1 : 1'b0;
     assign act_random = o_lsfr[1:0];
     
+    // for debugging 
+    assign wire_ec = ec;
+    assign wire_sc = sc;
 endmodule

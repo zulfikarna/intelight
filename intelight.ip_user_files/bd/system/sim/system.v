@@ -1,8 +1,8 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-//Date        : Sat Mar  5 21:07:45 2022
-//Host        : DESKTOP-JVERO04 running 64-bit major release  (build 9200)
+//Date        : Sun Mar  6 14:03:55 2022
+//Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 //Command     : generate_target system.bd
 //Design      : system
 //Purpose     : IP block netlist
@@ -12,6 +12,7 @@
 module AGENT_imp_YX08AZ
    (act,
     act1,
+    act_greed,
     act_rand,
     alpha,
     clk,
@@ -30,6 +31,7 @@ module AGENT_imp_YX08AZ
     sel_act);
   output [1:0]act;
   input [1:0]act1;
+  output [1:0]act_greed;
   input [1:0]act_rand;
   input [2:0]alpha;
   input clk;
@@ -53,6 +55,7 @@ module AGENT_imp_YX08AZ
   wire [31:0]Action_RAM_q_next_2;
   wire [31:0]Action_RAM_q_next_3;
   wire [1:0]PG_0_act;
+  wire [1:0]PG_0_act_greed;
   wire [31:0]QA_0_curr_qA0;
   wire [31:0]QA_0_curr_qA1;
   wire [31:0]QA_0_curr_qA2;
@@ -73,6 +76,7 @@ module AGENT_imp_YX08AZ
   assign Action_RAM_q_next_2 = q_next_2[31:0];
   assign Action_RAM_q_next_3 = q_next_3[31:0];
   assign act[1:0] = PG_0_act;
+  assign act_greed[1:0] = PG_0_act_greed;
   assign act_random_0_1 = act_rand[1:0];
   assign alpha_1 = alpha[2:0];
   assign clk_1 = clk;
@@ -87,6 +91,7 @@ module AGENT_imp_YX08AZ
   assign sel_0_1 = sel_act;
   system_PG_0_0 PG_0
        (.act(PG_0_act),
+        .act_greed(PG_0_act_greed),
         .act_random(act_random_0_1),
         .en(xlconstant_0_dout),
         .qA0(QA_0_curr_qA0),
@@ -370,6 +375,8 @@ endmodule
 (* CORE_GENERATION_INFO = "system,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=system,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=19,numReposBlks=16,numNonXlnxBlks=0,numHierBlks=3,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=9,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "system.hwdef" *) 
 module system
    (act,
+    act_greed,
+    act_rand,
     alpha,
     batas_0_0,
     batas_1_0,
@@ -394,6 +401,7 @@ module system
     max_episode,
     max_step,
     new_qA,
+    next_state,
     q_next_0,
     q_next_1,
     q_next_2,
@@ -404,8 +412,13 @@ module system
     reward_3,
     rst,
     seed,
-    start);
+    sel_act,
+    start,
+    wire_ec,
+    wire_sc);
   output [1:0]act;
+  output [1:0]act_greed;
+  output [1:0]act_rand;
   input [2:0]alpha;
   input [31:0]batas_0_0;
   input [31:0]batas_1_0;
@@ -430,6 +443,7 @@ module system
   input [15:0]max_episode;
   input [15:0]max_step;
   output [31:0]new_qA;
+  output [31:0]next_state;
   output [31:0]q_next_0;
   output [31:0]q_next_1;
   output [31:0]q_next_2;
@@ -440,8 +454,12 @@ module system
   input [31:0]reward_3;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RST RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RST, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input rst;
   input [15:0]seed;
+  output sel_act;
   input start;
+  output [15:0]wire_ec;
+  output [15:0]wire_sc;
 
+  wire [1:0]AGENT_act_greed;
   wire [1:0]Action_RAM_curr_act;
   wire [31:0]Action_RAM_curr_state;
   wire [31:0]Action_RAM_q_next_0;
@@ -451,6 +469,8 @@ module system
   wire [1:0]CU_0_act_random;
   wire CU_0_finish;
   wire CU_0_sel_act;
+  wire [15:0]CU_0_wire_ec;
+  wire [15:0]CU_0_wire_sc;
   wire [31:0]EV_curr_reward;
   wire EV_sig_goal;
   wire [1:0]PG_0_act;
@@ -486,6 +506,8 @@ module system
   wire start_0_1;
 
   assign act[1:0] = PG_0_act;
+  assign act_greed[1:0] = AGENT_act_greed;
+  assign act_rand[1:0] = CU_0_act_random;
   assign alpha_1 = alpha[2:0];
   assign batas_0_0_1 = batas_0_0[31:0];
   assign batas_1_0_1 = batas_1_0[31:0];
@@ -510,6 +532,7 @@ module system
   assign max_episode_0_1 = max_episode[15:0];
   assign max_step_0_1 = max_step[15:0];
   assign new_qA[31:0] = QA_0_new_qA;
+  assign next_state[31:0] = next_state_1;
   assign q_next_0[31:0] = Action_RAM_q_next_0;
   assign q_next_1[31:0] = Action_RAM_q_next_1;
   assign q_next_2[31:0] = Action_RAM_q_next_2;
@@ -520,10 +543,14 @@ module system
   assign reward_3_0_1 = reward_3[31:0];
   assign rst_bram_1 = rst;
   assign seed_0_1 = seed[15:0];
+  assign sel_act = CU_0_sel_act;
   assign start_0_1 = start;
+  assign wire_ec[15:0] = CU_0_wire_ec;
+  assign wire_sc[15:0] = CU_0_wire_sc;
   AGENT_imp_YX08AZ AGENT
        (.act(PG_0_act),
         .act1(Action_RAM_curr_act),
+        .act_greed(AGENT_act_greed),
         .act_rand(CU_0_act_random),
         .alpha(alpha_1),
         .clk(clk_1),
@@ -562,7 +589,9 @@ module system
         .rst(rst_bram_1),
         .seed(seed_0_1),
         .sel_act(CU_0_sel_act),
-        .start(start_0_1));
+        .start(start_0_1),
+        .wire_ec(CU_0_wire_ec),
+        .wire_sc(CU_0_wire_sc));
   EV_imp_1QWL980 EV
        (.act(PG_0_act),
         .batas_0_0(batas_0_0_1),

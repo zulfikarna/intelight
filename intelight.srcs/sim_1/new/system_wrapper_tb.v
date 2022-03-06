@@ -36,6 +36,8 @@ module system_wrapper_tb();
   
   wire finish;
   wire [1:0]act;
+  wire sel_act;
+  wire [1:0]act_rand;
   wire [31:0]curr_qA0;
   wire [31:0]curr_qA1;
   wire [31:0]curr_qA2;
@@ -46,9 +48,15 @@ module system_wrapper_tb();
   wire [31:0]q_next_1;
   wire [31:0]q_next_2;
   wire [31:0]q_next_3;
+  wire [15:0] wire_ec;
+  wire [15:0] wire_sc;
+  wire [1:0] act_greed;
+  wire [31:0] next_state;
   
   system dut(
         .act(act),
+        .act_rand(act_rand),
+        .sel_act(sel_act),
         .alpha(alpha),
         .batas_0_0(batas_0_0),
         .batas_1_0(batas_1_0),
@@ -83,7 +91,11 @@ module system_wrapper_tb();
         .reward_3(reward_3),
         .rst(rst),
         .seed(seed),
-        .start(start)
+        .start(start),
+        .wire_ec(wire_ec),
+        .wire_sc(wire_sc),
+        .act_greed(act_greed),
+        .next_state(next_state)
   );
         
   always begin
@@ -119,7 +131,12 @@ module system_wrapper_tb();
     init_panjang_r3_0 = 32'd35;
     max_episode = 16'd200;
     max_step = 16'd20;    
-    
+    #100;
+    start = 1'b0;
+  end
+  
+  always@(posedge clk) begin 
+    #1;
   end
   
   

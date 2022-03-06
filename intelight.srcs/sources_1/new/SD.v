@@ -5,6 +5,13 @@
 //
 // Edited by: Dismas W.
 // 24/02/2022
+//
+// Catatan :
+// 06-03-22 Zulfikar 
+// - sinyal input "start" digunakan untuk memilih panjang antrian kendaraan mana yang dipilih, dari :
+// init_panjang, dan panjang updated.
+// - start 1 => sistem baru dimulai 
+// - start 0 => sistem sudah berjalan
 //////////////////////////////////////////////////////////////////////////////////
 
 module SD(

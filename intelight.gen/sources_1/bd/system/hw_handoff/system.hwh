@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Mar  5 21:07:45 2022" VIVADOVERSION="2021.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Mar  6 14:18:33 2022" VIVADOVERSION="2021.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="system" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -207,6 +207,36 @@
         <CONNECTION INSTANCE="CU_0" PORT="finish"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="O" LEFT="1" NAME="act_rand" RIGHT="0" SIGIS="undef" SIGNAME="CU_0_act_random">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="CU_0" PORT="act_random"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="sel_act" SIGIS="undef" SIGNAME="CU_0_sel_act">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="CU_0" PORT="sel_act"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="wire_sc" RIGHT="0" SIGIS="undef" SIGNAME="CU_0_wire_sc">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="CU_0" PORT="wire_sc"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="wire_ec" RIGHT="0" SIGIS="undef" SIGNAME="CU_0_wire_ec">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="CU_0" PORT="wire_ec"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="1" NAME="act_greed" RIGHT="0" SIGIS="undef" SIGNAME="AGENT_PG_0_act_greed">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="AGENT_PG_0" PORT="act_greed"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="31" NAME="next_state" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_next_state">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="EV_SD_0" PORT="next_state"/>
+      </CONNECTIONS>
+    </PORT>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES/>
@@ -260,6 +290,11 @@
             <CONNECTION INSTANCE="External_Ports" PORT="act"/>
             <CONNECTION INSTANCE="EV_RD_0" PORT="act"/>
             <CONNECTION INSTANCE="EV_SD_0" PORT="act"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="act_greed" RIGHT="0" SIGIS="undef" SIGNAME="AGENT_PG_0_act_greed">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="act_greed"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -1586,11 +1621,13 @@
         <PORT DIR="O" NAME="sel_act" SIGIS="undef" SIGNAME="CU_0_sel_act">
           <CONNECTIONS>
             <CONNECTION INSTANCE="AGENT_PG_0" PORT="sel"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="sel_act"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="1" NAME="act_random" RIGHT="0" SIGIS="undef" SIGNAME="CU_0_act_random">
           <CONNECTIONS>
             <CONNECTION INSTANCE="AGENT_PG_0" PORT="act_random"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="act_rand"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="PG" SIGIS="undef"/>
@@ -1600,6 +1637,16 @@
         <PORT DIR="O" NAME="finish" SIGIS="undef" SIGNAME="CU_0_finish">
           <CONNECTIONS>
             <CONNECTION INSTANCE="External_Ports" PORT="finish"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="wire_sc" RIGHT="0" SIGIS="undef" SIGNAME="CU_0_wire_sc">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="wire_sc"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="wire_ec" RIGHT="0" SIGIS="undef" SIGNAME="CU_0_wire_ec">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="wire_ec"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -1739,6 +1786,7 @@
             <CONNECTION INSTANCE="Action_RAM_Action_RAM_3" PORT="addrb"/>
             <CONNECTION INSTANCE="Action_RAM_Action_RAM_0" PORT="addrb"/>
             <CONNECTION INSTANCE="Action_RAM_reg_32bit_0" PORT="in0"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="next_state"/>
             <CONNECTION INSTANCE="EV_RD_0" PORT="state"/>
           </CONNECTIONS>
         </PORT>
