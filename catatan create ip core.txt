@@ -1,0 +1,8 @@
+1. Add user port di main file (line 17, main)
+2. Hubungkan user port tsb ke slave module (line 73, main)
+3. Copy user port ke slave file (line 17, slave)
+// For output type
+4. Add I/O Connection (lie 120 slave)
+// For input type
+5. Modify the slave register writing (line 223, slave)
+6. 
