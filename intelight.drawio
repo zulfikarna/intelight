@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-03-09T10:16:49.032Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36 Edg/99.0.1150.30" etag="rPIc0vtTR3zkcHtFsekh" version="16.6.8" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2022-03-09T10:26:37.496Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36 Edg/99.0.1150.30" etag="o8BTkdKYCheE91c6p7Ei" version="16.6.8" type="github" pages="5">
   <diagram id="ibiOQKyL-mADjhCVZYJ8" name="Sub-System">
     <mxGraphModel dx="1278" dy="547" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -851,7 +851,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="8VhmESSBEO1YSoiqolJ2" name="FSM_c2">
-    <mxGraphModel dx="1966" dy="842" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="581" dy="249" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="PFJ0Y-Jn6b590tiQlFoa-0" />
         <mxCell id="PFJ0Y-Jn6b590tiQlFoa-1" parent="PFJ0Y-Jn6b590tiQlFoa-0" />
@@ -1176,6 +1176,9 @@
               <mxPoint x="150" y="50" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="wVuASz2uVPwFr6equwz_-34" value="&lt;b&gt;Ctrl Sig [3:0] -&amp;gt;&amp;nbsp; |SD|PG|RD|QA|&lt;/b&gt;&lt;br&gt;S_L0 -&amp;gt;&amp;nbsp; &amp;nbsp; 1&amp;nbsp; &amp;nbsp; &amp;nbsp;0&amp;nbsp; &amp;nbsp; 0&amp;nbsp; &amp;nbsp; 0&amp;nbsp; &amp;nbsp;&lt;br&gt;S_L1 -&amp;gt;&amp;nbsp; &amp;nbsp; 1&amp;nbsp; &amp;nbsp; &amp;nbsp;1&amp;nbsp; &amp;nbsp; 0&amp;nbsp; &amp;nbsp; 0&amp;nbsp; &amp;nbsp;&lt;br&gt;S_L2 -&amp;gt;&amp;nbsp; &amp;nbsp; 1&amp;nbsp; &amp;nbsp; &amp;nbsp;1&amp;nbsp; &amp;nbsp; 1&amp;nbsp; &amp;nbsp; 0&amp;nbsp; &amp;nbsp;&lt;br&gt;S_L3 -&amp;gt;&amp;nbsp; &amp;nbsp; 1&amp;nbsp; &amp;nbsp; &amp;nbsp;1&amp;nbsp; &amp;nbsp; 1&amp;nbsp; &amp;nbsp; 1&amp;nbsp; &amp;nbsp;&lt;br&gt;S_L4 -&amp;gt;&amp;nbsp; &amp;nbsp; 0&amp;nbsp; &amp;nbsp; &amp;nbsp;1&amp;nbsp; &amp;nbsp; 1&amp;nbsp; &amp;nbsp; 1&amp;nbsp; &amp;nbsp;&lt;br&gt;S_L5 -&amp;gt;&amp;nbsp; &amp;nbsp; 0&amp;nbsp; &amp;nbsp; &amp;nbsp;0&amp;nbsp; &amp;nbsp; 1&amp;nbsp; &amp;nbsp; 1&amp;nbsp; &amp;nbsp;&lt;br&gt;S_L6 -&amp;gt;&amp;nbsp; &amp;nbsp; 0&amp;nbsp; &amp;nbsp; &amp;nbsp;0&amp;nbsp; &amp;nbsp; 0&amp;nbsp; &amp;nbsp; 1&amp;nbsp; &amp;nbsp;&lt;br&gt;S_L7 -&amp;gt;&amp;nbsp; &amp;nbsp; 0&amp;nbsp; &amp;nbsp; &amp;nbsp;0&amp;nbsp; &amp;nbsp; 0&amp;nbsp; &amp;nbsp; 0&amp;nbsp; &amp;nbsp;&lt;br&gt;default -&amp;gt;&amp;nbsp; &amp;nbsp; 0&amp;nbsp; &amp;nbsp; &amp;nbsp;0&amp;nbsp; &amp;nbsp; 0&amp;nbsp; &amp;nbsp; 0&amp;nbsp; &amp;nbsp;" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;align=right;" vertex="1" parent="PFJ0Y-Jn6b590tiQlFoa-1">
+          <mxGeometry x="1030" y="205" width="190" height="175" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
