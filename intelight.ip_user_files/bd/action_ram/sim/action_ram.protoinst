@@ -1,9 +1,0 @@
-{
-	"version": "1.0",
-	"modules": {
-		"action_ram": {
-			"proto_instances": {
-			}
-		}
-	}
-}

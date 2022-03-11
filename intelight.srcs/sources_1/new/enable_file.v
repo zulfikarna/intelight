@@ -1,8 +1,19 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // ENABLE FILE
-// Engineer : Zulfikar 13218029
+// Engineer : Zulfikar 13218029 
+//
+// Revision :
+// (12/03/2022) Zulfikar    : Add enabler for 1 bit and 32 bit data
 //////////////////////////////////////////////////////////////////////////////////
+
+module enabler_1bit(
+    input wire en,
+    input wire in0,
+    output wire out0
+    );
+    assign out0 = (en)? in0 : 1'b0;
+endmodule
 
 module enabler_2bit(
     input wire en,
@@ -12,7 +23,15 @@ module enabler_2bit(
     assign out0 = (en)? in0 : 2'b00;
 endmodule
 
-module decoder(
+module enabler_32bit(
+    input wire en,
+    input wire [31:0] in0,
+    output wire [31:0] out0
+    );
+    assign out0 = (en)? in0 : 2'h0000_0000;
+endmodule
+
+module wen_decoder(
     input wire  [1:0] act,
     output wire [3:0] en0, en1, en2, en3
     );

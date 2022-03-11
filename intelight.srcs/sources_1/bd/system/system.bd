@@ -11,25 +11,23 @@
     },
     "design_tree": {
       "Action_RAM": {
-        "Action_RAM_0": "",
-        "cnst_0_4bit": "",
-        "Action_RAM_2": "",
-        "Action_RAM_3": "",
-        "cnst_1_1bit": "",
-        "Action_RAM_1": "",
-        "reg_2bit_0": "",
-        "reg_32bit_0": "",
-        "decoder_0": ""
+        "BRAM_Block": {
+          "Action_RAM_3": "",
+          "cnst_0_4bit": "",
+          "cnst_1_1bit": "",
+          "Action_RAM_0": "",
+          "Action_RAM_1": "",
+          "Action_RAM_2": ""
+        },
+        "bram_interface_0": ""
       },
       "EV": {
-        "reg_32bit_0": "",
         "RD_0": "",
         "SD_0": ""
       },
       "AGENT": {
-        "cnst_1_1bit": "",
-        "QA_0": "",
-        "PG_0": ""
+        "PG_0": "",
+        "QA_0": ""
       },
       "CU_0": ""
     },
@@ -47,11 +45,6 @@
       "clk": {
         "type": "clk",
         "direction": "I"
-      },
-      "curr_state": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
       },
       "gamma": {
         "direction": "I",
@@ -167,26 +160,6 @@
         "left": "31",
         "right": "0"
       },
-      "curr_qA3": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
-      "curr_qA2": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
-      "curr_qA1": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
-      "curr_qA0": {
-        "direction": "O",
-        "left": "31",
-        "right": "0"
-      },
       "start": {
         "direction": "I"
       },
@@ -273,280 +246,464 @@
             "left": "31",
             "right": "0"
           },
-          "q_next_3": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
           "q_next_1": {
             "direction": "O",
             "left": "31",
             "right": "0"
           },
-          "curr_act": {
-            "direction": "O",
-            "left": "1",
-            "right": "0"
-          },
-          "curr_state": {
+          "q_next_3": {
             "direction": "O",
             "left": "31",
             "right": "0"
           }
         },
         "components": {
-          "Action_RAM_0": {
-            "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
-            "xci_name": "system_Action_RAM_0_0",
-            "xci_path": "ip\\system_Action_RAM_0_0\\system_Action_RAM_0_0.xci",
-            "inst_hier_path": "Action_RAM/Action_RAM_0",
-            "parameters": {
-              "EN_SAFETY_CKT": {
-                "value": "true"
+          "BRAM_Block": {
+            "ports": {
+              "clk_bram": {
+                "type": "clk",
+                "direction": "I"
               },
-              "Enable_32bit_Address": {
-                "value": "true"
+              "rst_bram": {
+                "type": "rst",
+                "direction": "I"
               },
-              "Enable_B": {
-                "value": "Use_ENB_Pin"
+              "wea": {
+                "direction": "I",
+                "left": "3",
+                "right": "0"
               },
-              "Memory_Type": {
-                "value": "True_Dual_Port_RAM"
+              "addra": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
               },
-              "Port_B_Clock": {
-                "value": "100"
+              "q_new": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
               },
-              "Port_B_Enable_Rate": {
-                "value": "100"
+              "addrb": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
               },
-              "Port_B_Write_Rate": {
-                "value": "50"
+              "q_next_3": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
               },
-              "Read_Width_A": {
-                "value": "32"
+              "wea1": {
+                "direction": "I",
+                "left": "3",
+                "right": "0"
               },
-              "Read_Width_B": {
-                "value": "32"
+              "q_next_0": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
               },
-              "Register_PortA_Output_of_Memory_Primitives": {
-                "value": "false"
+              "wea2": {
+                "direction": "I",
+                "left": "3",
+                "right": "0"
               },
-              "Register_PortB_Output_of_Memory_Primitives": {
-                "value": "false"
+              "q_next_1": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
               },
-              "Use_RSTA_Pin": {
-                "value": "true"
+              "wea3": {
+                "direction": "I",
+                "left": "3",
+                "right": "0"
               },
-              "Use_RSTB_Pin": {
-                "value": "true"
+              "q_next_2": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              }
+            },
+            "components": {
+              "Action_RAM_3": {
+                "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+                "xci_name": "system_Action_RAM_3_0",
+                "xci_path": "ip\\system_Action_RAM_3_0\\system_Action_RAM_3_0.xci",
+                "inst_hier_path": "Action_RAM/BRAM_Block/Action_RAM_3",
+                "parameters": {
+                  "EN_SAFETY_CKT": {
+                    "value": "true"
+                  },
+                  "Enable_32bit_Address": {
+                    "value": "true"
+                  },
+                  "Enable_B": {
+                    "value": "Use_ENB_Pin"
+                  },
+                  "Memory_Type": {
+                    "value": "True_Dual_Port_RAM"
+                  },
+                  "Port_B_Clock": {
+                    "value": "100"
+                  },
+                  "Port_B_Enable_Rate": {
+                    "value": "100"
+                  },
+                  "Port_B_Write_Rate": {
+                    "value": "50"
+                  },
+                  "Read_Width_A": {
+                    "value": "32"
+                  },
+                  "Read_Width_B": {
+                    "value": "32"
+                  },
+                  "Register_PortA_Output_of_Memory_Primitives": {
+                    "value": "false"
+                  },
+                  "Register_PortB_Output_of_Memory_Primitives": {
+                    "value": "false"
+                  },
+                  "Use_RSTA_Pin": {
+                    "value": "true"
+                  },
+                  "Use_RSTB_Pin": {
+                    "value": "true"
+                  },
+                  "Write_Width_A": {
+                    "value": "32"
+                  },
+                  "Write_Width_B": {
+                    "value": "32"
+                  },
+                  "use_bram_block": {
+                    "value": "Stand_Alone"
+                  }
+                }
               },
-              "Write_Width_A": {
-                "value": "32"
+              "cnst_0_4bit": {
+                "vlnv": "xilinx.com:ip:xlconstant:1.1",
+                "xci_name": "system_cnst_0_4bit_0",
+                "xci_path": "ip\\system_cnst_0_4bit_0\\system_cnst_0_4bit_0.xci",
+                "inst_hier_path": "Action_RAM/BRAM_Block/cnst_0_4bit",
+                "parameters": {
+                  "CONST_VAL": {
+                    "value": "0"
+                  },
+                  "CONST_WIDTH": {
+                    "value": "4"
+                  }
+                }
               },
-              "Write_Width_B": {
-                "value": "32"
+              "cnst_1_1bit": {
+                "vlnv": "xilinx.com:ip:xlconstant:1.1",
+                "xci_name": "system_cnst_1_1bit_0",
+                "xci_path": "ip\\system_cnst_1_1bit_0\\system_cnst_1_1bit_0.xci",
+                "inst_hier_path": "Action_RAM/BRAM_Block/cnst_1_1bit"
               },
-              "use_bram_block": {
-                "value": "Stand_Alone"
+              "Action_RAM_0": {
+                "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+                "xci_name": "system_Action_RAM_0_0",
+                "xci_path": "ip\\system_Action_RAM_0_0\\system_Action_RAM_0_0.xci",
+                "inst_hier_path": "Action_RAM/BRAM_Block/Action_RAM_0",
+                "parameters": {
+                  "EN_SAFETY_CKT": {
+                    "value": "true"
+                  },
+                  "Enable_32bit_Address": {
+                    "value": "true"
+                  },
+                  "Enable_B": {
+                    "value": "Use_ENB_Pin"
+                  },
+                  "Memory_Type": {
+                    "value": "True_Dual_Port_RAM"
+                  },
+                  "Port_B_Clock": {
+                    "value": "100"
+                  },
+                  "Port_B_Enable_Rate": {
+                    "value": "100"
+                  },
+                  "Port_B_Write_Rate": {
+                    "value": "50"
+                  },
+                  "Read_Width_A": {
+                    "value": "32"
+                  },
+                  "Read_Width_B": {
+                    "value": "32"
+                  },
+                  "Register_PortA_Output_of_Memory_Primitives": {
+                    "value": "false"
+                  },
+                  "Register_PortB_Output_of_Memory_Primitives": {
+                    "value": "false"
+                  },
+                  "Use_RSTA_Pin": {
+                    "value": "true"
+                  },
+                  "Use_RSTB_Pin": {
+                    "value": "true"
+                  },
+                  "Write_Width_A": {
+                    "value": "32"
+                  },
+                  "Write_Width_B": {
+                    "value": "32"
+                  },
+                  "use_bram_block": {
+                    "value": "Stand_Alone"
+                  }
+                }
+              },
+              "Action_RAM_1": {
+                "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+                "xci_name": "system_Action_RAM_1_0",
+                "xci_path": "ip\\system_Action_RAM_1_0\\system_Action_RAM_1_0.xci",
+                "inst_hier_path": "Action_RAM/BRAM_Block/Action_RAM_1",
+                "parameters": {
+                  "EN_SAFETY_CKT": {
+                    "value": "true"
+                  },
+                  "Enable_32bit_Address": {
+                    "value": "true"
+                  },
+                  "Enable_B": {
+                    "value": "Use_ENB_Pin"
+                  },
+                  "Memory_Type": {
+                    "value": "True_Dual_Port_RAM"
+                  },
+                  "Port_B_Clock": {
+                    "value": "100"
+                  },
+                  "Port_B_Enable_Rate": {
+                    "value": "100"
+                  },
+                  "Port_B_Write_Rate": {
+                    "value": "50"
+                  },
+                  "Read_Width_A": {
+                    "value": "32"
+                  },
+                  "Read_Width_B": {
+                    "value": "32"
+                  },
+                  "Register_PortA_Output_of_Memory_Primitives": {
+                    "value": "false"
+                  },
+                  "Register_PortB_Output_of_Memory_Primitives": {
+                    "value": "false"
+                  },
+                  "Use_RSTA_Pin": {
+                    "value": "true"
+                  },
+                  "Use_RSTB_Pin": {
+                    "value": "true"
+                  },
+                  "Write_Width_A": {
+                    "value": "32"
+                  },
+                  "Write_Width_B": {
+                    "value": "32"
+                  },
+                  "use_bram_block": {
+                    "value": "Stand_Alone"
+                  }
+                }
+              },
+              "Action_RAM_2": {
+                "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+                "xci_name": "system_Action_RAM_2_0",
+                "xci_path": "ip\\system_Action_RAM_2_0\\system_Action_RAM_2_0.xci",
+                "inst_hier_path": "Action_RAM/BRAM_Block/Action_RAM_2",
+                "parameters": {
+                  "EN_SAFETY_CKT": {
+                    "value": "true"
+                  },
+                  "Enable_32bit_Address": {
+                    "value": "true"
+                  },
+                  "Enable_B": {
+                    "value": "Use_ENB_Pin"
+                  },
+                  "Memory_Type": {
+                    "value": "True_Dual_Port_RAM"
+                  },
+                  "Port_B_Clock": {
+                    "value": "100"
+                  },
+                  "Port_B_Enable_Rate": {
+                    "value": "100"
+                  },
+                  "Port_B_Write_Rate": {
+                    "value": "50"
+                  },
+                  "Read_Width_A": {
+                    "value": "32"
+                  },
+                  "Read_Width_B": {
+                    "value": "32"
+                  },
+                  "Register_PortA_Output_of_Memory_Primitives": {
+                    "value": "false"
+                  },
+                  "Register_PortB_Output_of_Memory_Primitives": {
+                    "value": "false"
+                  },
+                  "Use_RSTA_Pin": {
+                    "value": "true"
+                  },
+                  "Use_RSTB_Pin": {
+                    "value": "true"
+                  },
+                  "Write_Width_A": {
+                    "value": "32"
+                  },
+                  "Write_Width_B": {
+                    "value": "32"
+                  },
+                  "use_bram_block": {
+                    "value": "Stand_Alone"
+                  }
+                }
+              }
+            },
+            "nets": {
+              "Action_RAM_0_doutb": {
+                "ports": [
+                  "Action_RAM_0/doutb",
+                  "q_next_0"
+                ]
+              },
+              "Action_RAM_1_doutb": {
+                "ports": [
+                  "Action_RAM_1/doutb",
+                  "q_next_1"
+                ]
+              },
+              "Action_RAM_2_doutb": {
+                "ports": [
+                  "Action_RAM_2/doutb",
+                  "q_next_2"
+                ]
+              },
+              "Action_RAM_3_doutb": {
+                "ports": [
+                  "Action_RAM_3/doutb",
+                  "q_next_3"
+                ]
+              },
+              "bram_interface_0_en0": {
+                "ports": [
+                  "wea1",
+                  "Action_RAM_0/wea"
+                ]
+              },
+              "bram_interface_0_en1": {
+                "ports": [
+                  "wea2",
+                  "Action_RAM_1/wea"
+                ]
+              },
+              "bram_interface_0_en2": {
+                "ports": [
+                  "wea3",
+                  "Action_RAM_2/wea"
+                ]
+              },
+              "bram_interface_0_en3": {
+                "ports": [
+                  "wea",
+                  "Action_RAM_3/wea"
+                ]
+              },
+              "bram_interface_0_rd_addr": {
+                "ports": [
+                  "addrb",
+                  "Action_RAM_1/addrb",
+                  "Action_RAM_2/addrb",
+                  "Action_RAM_0/addrb",
+                  "Action_RAM_3/addrb"
+                ]
+              },
+              "clk_0_1": {
+                "ports": [
+                  "clk_bram",
+                  "Action_RAM_0/clkb",
+                  "Action_RAM_2/clka",
+                  "Action_RAM_2/clkb",
+                  "Action_RAM_1/clka",
+                  "Action_RAM_1/clkb",
+                  "Action_RAM_0/clka",
+                  "Action_RAM_3/clkb",
+                  "Action_RAM_3/clka"
+                ]
+              },
+              "cnst_0_4bit_dout": {
+                "ports": [
+                  "cnst_0_4bit/dout",
+                  "Action_RAM_0/web",
+                  "Action_RAM_2/web",
+                  "Action_RAM_1/web",
+                  "Action_RAM_3/web"
+                ]
+              },
+              "cnst_1_1bit_dout": {
+                "ports": [
+                  "cnst_1_1bit/dout",
+                  "Action_RAM_0/ena",
+                  "Action_RAM_0/enb",
+                  "Action_RAM_2/ena",
+                  "Action_RAM_2/enb",
+                  "Action_RAM_1/ena",
+                  "Action_RAM_1/enb",
+                  "Action_RAM_3/ena",
+                  "Action_RAM_3/enb"
+                ]
+              },
+              "dina_0_1": {
+                "ports": [
+                  "q_new",
+                  "Action_RAM_1/dina",
+                  "Action_RAM_2/dina",
+                  "Action_RAM_0/dina",
+                  "Action_RAM_3/dina"
+                ]
+              },
+              "reg_32bit_0_out0": {
+                "ports": [
+                  "addra",
+                  "Action_RAM_0/addra",
+                  "Action_RAM_1/addra",
+                  "Action_RAM_2/addra",
+                  "Action_RAM_3/addra"
+                ]
+              },
+              "rsta_0_1": {
+                "ports": [
+                  "rst_bram",
+                  "Action_RAM_0/rstb",
+                  "Action_RAM_2/rsta",
+                  "Action_RAM_2/rstb",
+                  "Action_RAM_1/rsta",
+                  "Action_RAM_1/rstb",
+                  "Action_RAM_0/rsta",
+                  "Action_RAM_3/rstb",
+                  "Action_RAM_3/rsta"
+                ]
               }
             }
           },
-          "cnst_0_4bit": {
-            "vlnv": "xilinx.com:ip:xlconstant:1.1",
-            "xci_name": "system_cnst_0_4bit_0",
-            "xci_path": "ip\\system_cnst_0_4bit_0\\system_cnst_0_4bit_0.xci",
-            "inst_hier_path": "Action_RAM/cnst_0_4bit",
-            "parameters": {
-              "CONST_VAL": {
-                "value": "0"
-              },
-              "CONST_WIDTH": {
-                "value": "4"
-              }
-            }
-          },
-          "Action_RAM_2": {
-            "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
-            "xci_name": "system_Action_RAM_2_0",
-            "xci_path": "ip\\system_Action_RAM_2_0\\system_Action_RAM_2_0.xci",
-            "inst_hier_path": "Action_RAM/Action_RAM_2",
-            "parameters": {
-              "EN_SAFETY_CKT": {
-                "value": "true"
-              },
-              "Enable_32bit_Address": {
-                "value": "true"
-              },
-              "Enable_B": {
-                "value": "Use_ENB_Pin"
-              },
-              "Memory_Type": {
-                "value": "True_Dual_Port_RAM"
-              },
-              "Port_B_Clock": {
-                "value": "100"
-              },
-              "Port_B_Enable_Rate": {
-                "value": "100"
-              },
-              "Port_B_Write_Rate": {
-                "value": "50"
-              },
-              "Read_Width_A": {
-                "value": "32"
-              },
-              "Read_Width_B": {
-                "value": "32"
-              },
-              "Register_PortA_Output_of_Memory_Primitives": {
-                "value": "false"
-              },
-              "Register_PortB_Output_of_Memory_Primitives": {
-                "value": "false"
-              },
-              "Use_RSTA_Pin": {
-                "value": "true"
-              },
-              "Use_RSTB_Pin": {
-                "value": "true"
-              },
-              "Write_Width_A": {
-                "value": "32"
-              },
-              "Write_Width_B": {
-                "value": "32"
-              },
-              "use_bram_block": {
-                "value": "Stand_Alone"
-              }
-            }
-          },
-          "Action_RAM_3": {
-            "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
-            "xci_name": "system_Action_RAM_3_0",
-            "xci_path": "ip\\system_Action_RAM_3_0\\system_Action_RAM_3_0.xci",
-            "inst_hier_path": "Action_RAM/Action_RAM_3",
-            "parameters": {
-              "EN_SAFETY_CKT": {
-                "value": "true"
-              },
-              "Enable_32bit_Address": {
-                "value": "true"
-              },
-              "Enable_B": {
-                "value": "Use_ENB_Pin"
-              },
-              "Memory_Type": {
-                "value": "True_Dual_Port_RAM"
-              },
-              "Port_B_Clock": {
-                "value": "100"
-              },
-              "Port_B_Enable_Rate": {
-                "value": "100"
-              },
-              "Port_B_Write_Rate": {
-                "value": "50"
-              },
-              "Read_Width_A": {
-                "value": "32"
-              },
-              "Read_Width_B": {
-                "value": "32"
-              },
-              "Register_PortA_Output_of_Memory_Primitives": {
-                "value": "false"
-              },
-              "Register_PortB_Output_of_Memory_Primitives": {
-                "value": "false"
-              },
-              "Use_RSTA_Pin": {
-                "value": "true"
-              },
-              "Use_RSTB_Pin": {
-                "value": "true"
-              },
-              "Write_Width_A": {
-                "value": "32"
-              },
-              "Write_Width_B": {
-                "value": "32"
-              },
-              "use_bram_block": {
-                "value": "Stand_Alone"
-              }
-            }
-          },
-          "cnst_1_1bit": {
-            "vlnv": "xilinx.com:ip:xlconstant:1.1",
-            "xci_name": "system_cnst_1_1bit_0",
-            "xci_path": "ip\\system_cnst_1_1bit_0\\system_cnst_1_1bit_0.xci",
-            "inst_hier_path": "Action_RAM/cnst_1_1bit"
-          },
-          "Action_RAM_1": {
-            "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
-            "xci_name": "system_Action_RAM_1_0",
-            "xci_path": "ip\\system_Action_RAM_1_0\\system_Action_RAM_1_0.xci",
-            "inst_hier_path": "Action_RAM/Action_RAM_1",
-            "parameters": {
-              "EN_SAFETY_CKT": {
-                "value": "true"
-              },
-              "Enable_32bit_Address": {
-                "value": "true"
-              },
-              "Enable_B": {
-                "value": "Use_ENB_Pin"
-              },
-              "Memory_Type": {
-                "value": "True_Dual_Port_RAM"
-              },
-              "Port_B_Clock": {
-                "value": "100"
-              },
-              "Port_B_Enable_Rate": {
-                "value": "100"
-              },
-              "Port_B_Write_Rate": {
-                "value": "50"
-              },
-              "Read_Width_A": {
-                "value": "32"
-              },
-              "Read_Width_B": {
-                "value": "32"
-              },
-              "Register_PortA_Output_of_Memory_Primitives": {
-                "value": "false"
-              },
-              "Register_PortB_Output_of_Memory_Primitives": {
-                "value": "false"
-              },
-              "Use_RSTA_Pin": {
-                "value": "true"
-              },
-              "Use_RSTB_Pin": {
-                "value": "true"
-              },
-              "Write_Width_A": {
-                "value": "32"
-              },
-              "Write_Width_B": {
-                "value": "32"
-              },
-              "use_bram_block": {
-                "value": "Stand_Alone"
-              }
-            }
-          },
-          "reg_2bit_0": {
-            "vlnv": "xilinx.com:module_ref:reg_2bit:1.0",
-            "xci_name": "system_reg_2bit_0_0",
-            "xci_path": "ip\\system_reg_2bit_0_0\\system_reg_2bit_0_0.xci",
-            "inst_hier_path": "Action_RAM/reg_2bit_0",
+          "bram_interface_0": {
+            "vlnv": "xilinx.com:module_ref:bram_interface:1.0",
+            "xci_name": "system_bram_interface_0_0",
+            "xci_path": "ip\\system_bram_interface_0_0\\system_bram_interface_0_0.xci",
+            "inst_hier_path": "Action_RAM/bram_interface_0",
             "reference_info": {
               "ref_type": "hdl",
-              "ref_name": "reg_2bit",
+              "ref_name": "bram_interface",
               "boundary_crc": "0x0"
             },
             "ports": {
@@ -554,68 +711,31 @@
                 "type": "clk",
                 "direction": "I",
                 "parameters": {
-                  "CLK_DOMAIN": {
-                    "value": "system_clk",
-                    "value_src": "default_prop"
+                  "ASSOCIATED_RESET": {
+                    "value": "rst",
+                    "value_src": "constant"
                   }
                 }
               },
-              "in0": {
-                "direction": "I",
-                "left": "1",
-                "right": "0"
+              "rst": {
+                "type": "rst",
+                "direction": "I"
               },
-              "out0": {
-                "direction": "O",
-                "left": "1",
-                "right": "0"
-              }
-            }
-          },
-          "reg_32bit_0": {
-            "vlnv": "xilinx.com:module_ref:reg_32bit:1.0",
-            "xci_name": "system_reg_32bit_0_1",
-            "xci_path": "ip\\system_reg_32bit_0_1\\system_reg_32bit_0_1.xci",
-            "inst_hier_path": "Action_RAM/reg_32bit_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "reg_32bit",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I",
-                "parameters": {
-                  "CLK_DOMAIN": {
-                    "value": "system_clk",
-                    "value_src": "default_prop"
-                  }
-                }
-              },
-              "in0": {
+              "next_state": {
                 "direction": "I",
                 "left": "31",
                 "right": "0"
               },
-              "out0": {
+              "rd_addr": {
                 "direction": "O",
                 "left": "31",
                 "right": "0"
-              }
-            }
-          },
-          "decoder_0": {
-            "vlnv": "xilinx.com:module_ref:decoder:1.0",
-            "xci_name": "system_decoder_0_0",
-            "xci_path": "ip\\system_decoder_0_0\\system_decoder_0_0.xci",
-            "inst_hier_path": "Action_RAM/decoder_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "decoder",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
+              },
+              "wr_addr": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
               "act": {
                 "direction": "I",
                 "left": "1",
@@ -647,142 +767,94 @@
         "nets": {
           "Action_RAM_0_doutb": {
             "ports": [
-              "Action_RAM_0/doutb",
+              "BRAM_Block/q_next_0",
               "q_next_0"
             ]
           },
           "Action_RAM_1_doutb": {
             "ports": [
-              "Action_RAM_1/doutb",
+              "BRAM_Block/q_next_1",
               "q_next_1"
             ]
           },
           "Action_RAM_2_doutb": {
             "ports": [
-              "Action_RAM_2/doutb",
+              "BRAM_Block/q_next_2",
               "q_next_2"
             ]
           },
           "Action_RAM_3_doutb": {
             "ports": [
-              "Action_RAM_3/doutb",
+              "BRAM_Block/q_next_3",
               "q_next_3"
+            ]
+          },
+          "bram_interface_0_en0": {
+            "ports": [
+              "bram_interface_0/en0",
+              "BRAM_Block/wea1"
+            ]
+          },
+          "bram_interface_0_en1": {
+            "ports": [
+              "bram_interface_0/en1",
+              "BRAM_Block/wea2"
+            ]
+          },
+          "bram_interface_0_en2": {
+            "ports": [
+              "bram_interface_0/en2",
+              "BRAM_Block/wea3"
+            ]
+          },
+          "bram_interface_0_en3": {
+            "ports": [
+              "bram_interface_0/en3",
+              "BRAM_Block/wea"
+            ]
+          },
+          "bram_interface_0_rd_addr": {
+            "ports": [
+              "bram_interface_0/rd_addr",
+              "BRAM_Block/addrb"
             ]
           },
           "clk_0_1": {
             "ports": [
               "clk_bram",
-              "Action_RAM_0/clkb",
-              "Action_RAM_3/clka",
-              "Action_RAM_3/clkb",
-              "Action_RAM_2/clka",
-              "Action_RAM_2/clkb",
-              "Action_RAM_1/clka",
-              "Action_RAM_1/clkb",
-              "Action_RAM_0/clka",
-              "reg_2bit_0/clk",
-              "reg_32bit_0/clk"
-            ]
-          },
-          "cnst_0_4bit_dout": {
-            "ports": [
-              "cnst_0_4bit/dout",
-              "Action_RAM_0/web",
-              "Action_RAM_3/web",
-              "Action_RAM_2/web",
-              "Action_RAM_1/web"
-            ]
-          },
-          "cnst_1_1bit_dout": {
-            "ports": [
-              "cnst_1_1bit/dout",
-              "Action_RAM_0/ena",
-              "Action_RAM_0/enb",
-              "Action_RAM_3/ena",
-              "Action_RAM_3/enb",
-              "Action_RAM_2/ena",
-              "Action_RAM_2/enb",
-              "Action_RAM_1/ena",
-              "Action_RAM_1/enb"
-            ]
-          },
-          "decoder_0_en0": {
-            "ports": [
-              "decoder_0/en0",
-              "Action_RAM_0/wea"
-            ]
-          },
-          "decoder_0_en1": {
-            "ports": [
-              "decoder_0/en1",
-              "Action_RAM_1/wea"
-            ]
-          },
-          "decoder_0_en2": {
-            "ports": [
-              "decoder_0/en2",
-              "Action_RAM_2/wea"
-            ]
-          },
-          "decoder_0_en3": {
-            "ports": [
-              "decoder_0/en3",
-              "Action_RAM_3/wea"
+              "BRAM_Block/clk_bram",
+              "bram_interface_0/clk"
             ]
           },
           "dina_0_1": {
             "ports": [
               "q_new",
-              "Action_RAM_1/dina",
-              "Action_RAM_2/dina",
-              "Action_RAM_3/dina",
-              "Action_RAM_0/dina"
+              "BRAM_Block/q_new"
             ]
           },
-          "in0_0_1": {
+          "next_action_1": {
             "ports": [
               "next_action",
-              "reg_2bit_0/in0"
+              "bram_interface_0/act"
             ]
           },
           "next_state_1": {
             "ports": [
               "next_state",
-              "Action_RAM_1/addrb",
-              "Action_RAM_2/addrb",
-              "Action_RAM_3/addrb",
-              "Action_RAM_0/addrb",
-              "reg_32bit_0/in0"
-            ]
-          },
-          "reg_2bit_0_out0": {
-            "ports": [
-              "reg_2bit_0/out0",
-              "curr_act",
-              "decoder_0/act"
+              "bram_interface_0/next_state"
             ]
           },
           "reg_32bit_0_out0": {
             "ports": [
-              "reg_32bit_0/out0",
-              "Action_RAM_0/addra",
-              "Action_RAM_1/addra",
-              "Action_RAM_2/addra",
-              "Action_RAM_3/addra",
-              "curr_state"
+              "bram_interface_0/wr_addr",
+              "BRAM_Block/addra"
             ]
           },
           "rsta_0_1": {
             "ports": [
               "rst_bram",
-              "Action_RAM_0/rstb",
-              "Action_RAM_3/rsta",
-              "Action_RAM_3/rstb",
-              "Action_RAM_2/rsta",
-              "Action_RAM_2/rstb",
-              "Action_RAM_1/rsta",
-              "Action_RAM_1/rstb",
-              "Action_RAM_0/rsta"
+              "BRAM_Block/rst_bram",
+              "bram_interface_0/rst"
             ]
           }
         }
@@ -888,47 +960,24 @@
             "left": "31",
             "right": "0"
           },
-          "sig_goal": {
+          "goal_sig": {
             "direction": "O"
           },
           "start": {
             "direction": "I"
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "en_SD": {
+            "direction": "I"
+          },
+          "en_RD": {
+            "direction": "I"
           }
         },
         "components": {
-          "reg_32bit_0": {
-            "vlnv": "xilinx.com:module_ref:reg_32bit:1.0",
-            "xci_name": "system_reg_32bit_0_3",
-            "xci_path": "ip\\system_reg_32bit_0_3\\system_reg_32bit_0_3.xci",
-            "inst_hier_path": "EV/reg_32bit_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "reg_32bit",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I",
-                "parameters": {
-                  "CLK_DOMAIN": {
-                    "value": "system_clk",
-                    "value_src": "default_prop"
-                  }
-                }
-              },
-              "in0": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "out0": {
-                "direction": "O",
-                "left": "31",
-                "right": "0"
-              }
-            }
-          },
           "RD_0": {
             "vlnv": "xilinx.com:module_ref:RD:1.0",
             "xci_name": "system_RD_0_0",
@@ -940,6 +989,23 @@
               "boundary_crc": "0x0"
             },
             "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "rst",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "rst": {
+                "type": "rst",
+                "direction": "I"
+              },
+              "en": {
+                "direction": "I"
+              },
               "act": {
                 "direction": "I",
                 "left": "1",
@@ -992,11 +1058,18 @@
                 "type": "clk",
                 "direction": "I",
                 "parameters": {
-                  "CLK_DOMAIN": {
-                    "value": "system_clk",
-                    "value_src": "default_prop"
+                  "ASSOCIATED_RESET": {
+                    "value": "rst",
+                    "value_src": "constant"
                   }
                 }
+              },
+              "rst": {
+                "type": "rst",
+                "direction": "I"
+              },
+              "en": {
+                "direction": "I"
               },
               "act": {
                 "direction": "I",
@@ -1071,7 +1144,7 @@
                 "left": "31",
                 "right": "0"
               },
-              "sig_goal": {
+              "goal_sig": {
                 "direction": "O"
               }
             }
@@ -1088,13 +1161,13 @@
           "RD_0_reward": {
             "ports": [
               "RD_0/reward",
-              "reg_32bit_0/in0"
+              "curr_reward"
             ]
           },
           "SD_0_sig_goal": {
             "ports": [
-              "SD_0/sig_goal",
-              "sig_goal"
+              "SD_0/goal_sig",
+              "goal_sig"
             ]
           },
           "batas_0_0_1": {
@@ -1118,7 +1191,7 @@
           "clk_1": {
             "ports": [
               "clk",
-              "reg_32bit_0/clk",
+              "RD_0/clk",
               "SD_0/clk"
             ]
           },
@@ -1152,6 +1225,18 @@
               "SD_0/delta_t"
             ]
           },
+          "en_1": {
+            "ports": [
+              "en_SD",
+              "SD_0/en"
+            ]
+          },
+          "en_2": {
+            "ports": [
+              "en_RD",
+              "RD_0/en"
+            ]
+          },
           "init_panjang_r0_0_1": {
             "ports": [
               "init_panjang_r0_0",
@@ -1183,12 +1268,6 @@
               "RD_0/state"
             ]
           },
-          "reg_32bit_0_out0": {
-            "ports": [
-              "reg_32bit_0/out0",
-              "curr_reward"
-            ]
-          },
           "reward_0_0_1": {
             "ports": [
               "reward_0",
@@ -1213,6 +1292,13 @@
               "RD_0/reward_3"
             ]
           },
+          "rst_1": {
+            "ports": [
+              "rst",
+              "RD_0/rst",
+              "SD_0/rst"
+            ]
+          },
           "start_1": {
             "ports": [
               "start",
@@ -1223,26 +1309,6 @@
       },
       "AGENT": {
         "ports": {
-          "curr_qA0": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "curr_qA1": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "curr_qA2": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "curr_qA3": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
           "sel_act": {
             "direction": "I"
           },
@@ -1313,111 +1379,15 @@
             "direction": "O",
             "left": "1",
             "right": "0"
+          },
+          "en_PG": {
+            "direction": "I"
+          },
+          "en_QA": {
+            "direction": "I"
           }
         },
         "components": {
-          "cnst_1_1bit": {
-            "vlnv": "xilinx.com:ip:xlconstant:1.1",
-            "xci_name": "system_cnst_1_1bit_1",
-            "xci_path": "ip\\system_cnst_1_1bit_1\\system_cnst_1_1bit_1.xci",
-            "inst_hier_path": "AGENT/cnst_1_1bit"
-          },
-          "QA_0": {
-            "vlnv": "xilinx.com:module_ref:QA:1.0",
-            "xci_name": "system_QA_0_0",
-            "xci_path": "ip\\system_QA_0_0\\system_QA_0_0.xci",
-            "inst_hier_path": "AGENT/QA_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "QA",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I",
-                "parameters": {
-                  "ASSOCIATED_RESET": {
-                    "value": "rst",
-                    "value_src": "constant"
-                  },
-                  "CLK_DOMAIN": {
-                    "value": "system_clk",
-                    "value_src": "default_prop"
-                  }
-                }
-              },
-              "rst": {
-                "type": "rst",
-                "direction": "I"
-              },
-              "next_qA0": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "next_qA1": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "next_qA2": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "next_qA3": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "curr_qA0": {
-                "direction": "O",
-                "left": "31",
-                "right": "0"
-              },
-              "curr_qA1": {
-                "direction": "O",
-                "left": "31",
-                "right": "0"
-              },
-              "curr_qA2": {
-                "direction": "O",
-                "left": "31",
-                "right": "0"
-              },
-              "curr_qA3": {
-                "direction": "O",
-                "left": "31",
-                "right": "0"
-              },
-              "new_qA": {
-                "direction": "O",
-                "left": "31",
-                "right": "0"
-              },
-              "act": {
-                "direction": "I",
-                "left": "1",
-                "right": "0"
-              },
-              "alpha": {
-                "direction": "I",
-                "left": "2",
-                "right": "0"
-              },
-              "gamma": {
-                "direction": "I",
-                "left": "2",
-                "right": "0"
-              },
-              "reward": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              }
-            }
-          },
           "PG_0": {
             "vlnv": "xilinx.com:module_ref:PG:1.0",
             "xci_name": "system_PG_0_0",
@@ -1429,6 +1399,20 @@
               "boundary_crc": "0x0"
             },
             "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "rst",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "rst": {
+                "type": "rst",
+                "direction": "I"
+              },
               "en": {
                 "direction": "I"
               },
@@ -1471,6 +1455,81 @@
                 "right": "0"
               }
             }
+          },
+          "QA_0": {
+            "vlnv": "xilinx.com:module_ref:QA:1.0",
+            "xci_name": "system_QA_0_0",
+            "xci_path": "ip\\system_QA_0_0\\system_QA_0_0.xci",
+            "inst_hier_path": "AGENT/QA_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "QA",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "rst",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "rst": {
+                "type": "rst",
+                "direction": "I"
+              },
+              "en": {
+                "direction": "I"
+              },
+              "next_qA0": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "next_qA1": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "next_qA2": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "next_qA3": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "new_qA": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "act": {
+                "direction": "I",
+                "left": "1",
+                "right": "0"
+              },
+              "alpha": {
+                "direction": "I",
+                "left": "2",
+                "right": "0"
+              },
+              "gamma": {
+                "direction": "I",
+                "left": "2",
+                "right": "0"
+              },
+              "reward": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
           }
         },
         "nets": {
@@ -1483,24 +1542,28 @@
           "Action_RAM_q_next_0": {
             "ports": [
               "q_next_0",
+              "PG_0/qA0",
               "QA_0/next_qA0"
             ]
           },
           "Action_RAM_q_next_1": {
             "ports": [
               "q_next_1",
+              "PG_0/qA1",
               "QA_0/next_qA1"
             ]
           },
           "Action_RAM_q_next_2": {
             "ports": [
               "q_next_2",
+              "PG_0/qA2",
               "QA_0/next_qA2"
             ]
           },
           "Action_RAM_q_next_3": {
             "ports": [
               "q_next_3",
+              "PG_0/qA3",
               "QA_0/next_qA3"
             ]
           },
@@ -1514,34 +1577,6 @@
             "ports": [
               "PG_0/act_greed",
               "act_greed"
-            ]
-          },
-          "QA_0_curr_qA0": {
-            "ports": [
-              "QA_0/curr_qA0",
-              "curr_qA0",
-              "PG_0/qA0"
-            ]
-          },
-          "QA_0_curr_qA1": {
-            "ports": [
-              "QA_0/curr_qA1",
-              "curr_qA1",
-              "PG_0/qA1"
-            ]
-          },
-          "QA_0_curr_qA2": {
-            "ports": [
-              "QA_0/curr_qA2",
-              "curr_qA2",
-              "PG_0/qA2"
-            ]
-          },
-          "QA_0_curr_qA3": {
-            "ports": [
-              "QA_0/curr_qA3",
-              "curr_qA3",
-              "PG_0/qA3"
             ]
           },
           "QA_0_new_qA": {
@@ -1565,7 +1600,20 @@
           "clk_1": {
             "ports": [
               "clk",
+              "PG_0/clk",
               "QA_0/clk"
+            ]
+          },
+          "en_1": {
+            "ports": [
+              "en_PG",
+              "PG_0/en"
+            ]
+          },
+          "en_2": {
+            "ports": [
+              "en_QA",
+              "QA_0/en"
             ]
           },
           "gamma_1": {
@@ -1583,6 +1631,7 @@
           "rst_bram_1": {
             "ports": [
               "rst",
+              "PG_0/rst",
               "QA_0/rst"
             ]
           },
@@ -1590,12 +1639,6 @@
             "ports": [
               "sel_act",
               "PG_0/sel"
-            ]
-          },
-          "xlconstant_0_dout": {
-            "ports": [
-              "cnst_1_1bit/dout",
-              "PG_0/en"
             ]
           }
         }
@@ -1689,18 +1732,6 @@
           "act_greed"
         ]
       },
-      "Action_RAM_curr_act": {
-        "ports": [
-          "Action_RAM/curr_act",
-          "AGENT/act1"
-        ]
-      },
-      "Action_RAM_curr_state": {
-        "ports": [
-          "Action_RAM/curr_state",
-          "curr_state"
-        ]
-      },
       "Action_RAM_q_next_0": {
         "ports": [
           "Action_RAM/q_next_0",
@@ -1727,6 +1758,30 @@
           "Action_RAM/q_next_3",
           "q_next_3",
           "AGENT/q_next_3"
+        ]
+      },
+      "CU_0_PG": {
+        "ports": [
+          "CU_0/PG",
+          "AGENT/en_PG"
+        ]
+      },
+      "CU_0_QA": {
+        "ports": [
+          "CU_0/QA",
+          "AGENT/en_QA"
+        ]
+      },
+      "CU_0_RD": {
+        "ports": [
+          "CU_0/RD",
+          "EV/en_RD"
+        ]
+      },
+      "CU_0_SD": {
+        "ports": [
+          "CU_0/SD",
+          "EV/en_SD"
         ]
       },
       "CU_0_act_random": {
@@ -1769,7 +1824,7 @@
       },
       "EV_sig_goal": {
         "ports": [
-          "EV/sig_goal",
+          "EV/goal_sig",
           "CU_0/goal_sig"
         ]
       },
@@ -1779,30 +1834,6 @@
           "Action_RAM/next_action",
           "act",
           "EV/act"
-        ]
-      },
-      "QA_0_curr_qA0": {
-        "ports": [
-          "AGENT/curr_qA0",
-          "curr_qA0"
-        ]
-      },
-      "QA_0_curr_qA1": {
-        "ports": [
-          "AGENT/curr_qA1",
-          "curr_qA1"
-        ]
-      },
-      "QA_0_curr_qA2": {
-        "ports": [
-          "AGENT/curr_qA2",
-          "curr_qA2"
-        ]
-      },
-      "QA_0_curr_qA3": {
-        "ports": [
-          "AGENT/curr_qA3",
-          "curr_qA3"
         ]
       },
       "QA_0_new_qA": {
@@ -1953,7 +1984,8 @@
           "rst",
           "Action_RAM/rst_bram",
           "AGENT/rst",
-          "CU_0/rst"
+          "CU_0/rst",
+          "EV/rst"
         ]
       },
       "seed_0_1": {

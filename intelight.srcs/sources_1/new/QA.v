@@ -6,9 +6,8 @@
 
 module QA(
     // Q-Value input/output wire 
-    input wire clk, rst,
+    input wire clk, rst, en,
     input wire  [31:0] next_qA0, next_qA1, next_qA2, next_qA3,
-    output wire [31:0] curr_qA0, curr_qA1, curr_qA2, curr_qA3, // to Policy Generator 
     output wire [31:0] new_qA,
     // Others 
     input wire [1:0] act,
@@ -29,14 +28,27 @@ module QA(
     wire [31:0] o_alpha;
     wire [31:0] o_gamma;
     
-    reg_32bit reg0(.in0(next_qA0), .out0(curr_qA0), .clk(clk));
-    reg_32bit reg1(.in0(next_qA1), .out0(curr_qA1), .clk(clk));
-    reg_32bit reg2(.in0(next_qA2), .out0(curr_qA2), .clk(clk));
-    reg_32bit reg3(.in0(next_qA3), .out0(curr_qA3), .clk(clk));
-    max4to1_32bit max0 (.in0(next_qA0), .in1(next_qA1), .in2(next_qA2), .in3(next_qA3), .out0(max_next_qA));
-    mux4to1_32bit mux0 (.in0(curr_qA0), .in1(curr_qA1), .in2(curr_qA2), .in3(curr_qA3), .out0(chos_curr_qA), .sel(act));
+    // MAX block
+    wire [31:0] w_max_next_qA;
+    max4to1_32bit max0 (.in0(next_qA0), .in1(next_qA1), .in2(next_qA2), .in3(next_qA3), .out0(w_max_next_qA));
+    reg_32bit reg0 (.clk(clk), .rst(rst), .in0(w_max_next_qA), .out0(max_next_qA));
+    
+    // MUX block
+    wire [31:0] curr_qA0;
+    wire [31:0] curr_qA1;
+    wire [31:0] curr_qA2;
+    wire [31:0] curr_qA3;
+    wire [31:0] w_chos_curr_qA;
+    reg_32bit reg1(.in0(next_qA0), .rst(rst), .out0(curr_qA0), .clk(clk));
+    reg_32bit reg2(.in0(next_qA1), .rst(rst), .out0(curr_qA1), .clk(clk));
+    reg_32bit reg3(.in0(next_qA2), .rst(rst), .out0(curr_qA2), .clk(clk));
+    reg_32bit reg4(.in0(next_qA3), .rst(rst), .out0(curr_qA3), .clk(clk));
+    mux4to1_32bit mux0 (.in0(curr_qA0), .in1(curr_qA1), .in2(curr_qA2), .in3(curr_qA3), .out0(w_chos_curr_qA), .sel(act));
+    reg_32bit reg5(.clk(clk), .rst(rst), .in0(w_chos_curr_qA), .out0(chos_curr_qA));
     
     //  Implementation of Optimezed-Bellman Equat ion
+    wire [31:0] w_new_qA_0;
+    wire [31:0] w_new_qA_1;
     //  Qnew = Q + alpha(reward+gamma(maxQ')-Q)
     // 1. gamma(maxQ')
     multiply mult_gamma(.in0(max_next_qA),    .c(gamma), .out0(o_gamma));
@@ -45,7 +57,11 @@ module QA(
     // 3. calculating o_alpha = alpha(reward + gamma(maxQ') - Q)
     multiply mult_alpha(.in0(i_alpha),    .c(alpha), .out0(o_alpha));
     // 4. calculating final value
-    assign new_qA = chos_curr_qA + o_alpha;
+    assign w_new_qA_0 = chos_curr_qA + o_alpha;
+    reg_32bit reg6(.clk(clk), .rst(rst), .in0(w_new_qA_0), .out0(w_new_qA_1));
+   
+   // Enabling output 
+   enabler_32bit en0(.in0(w_new_qA_1), .out0(new_qA), en(en));
    
    // for debugging 
 //   assign debug_chos_curr_qA = chos_curr_qA;

@@ -3,20 +3,21 @@
 // STATE DECIDER
 // Engineer: 13218029 Zulfikar
 //
-// Edited by: Dismas W.
-// 24/02/2022
-//
 // Catatan :
 // 06-03-22 Zulfikar 
 // - sinyal input "start" digunakan untuk memilih panjang antrian kendaraan mana yang dipilih, dari :
 // init_panjang, dan panjang updated.
 // - start 1 => sistem baru dimulai 
 // - start 0 => sistem sudah berjalan
+// 
+// Revisi :
+// (12/03/2022) Zulfikar    : synchronize the dataflow by adding registers 
+//                          : control the output using enabler 
 //////////////////////////////////////////////////////////////////////////////////
 
 module SD(
     // Input untuk perhitungan panjang kemacetan 
-    input clk,
+    input clk, rst, en,
     input wire [1:0] act,
     input wire [2:0] delta_t,
     input wire [31:0] debit_r0,
@@ -34,7 +35,7 @@ module SD(
     input wire [31:0] batas_2,
     // Output
     output wire [31:0] next_state,
-    output wire sig_goal
+    output wire goal_sig
     // for debugging 
 //    output wire [31:0] panjang_r0,
 //    output wire [31:0] panjang_r1,
@@ -45,6 +46,19 @@ module SD(
 //    output wire [31:0] panjang_w2,
 //    output wire [31:0] panjang_w3
     );
+    
+    // Block Decoder : menentukan debit kendaraan keluar (ketika lampu hijau)
+    wire [31:0] debit_out_r0;
+    wire [31:0] debit_out_r1;
+    wire [31:0] debit_out_r2;
+    wire [31:0] debit_out_r3;
+    debit_decoder debdec0 ( .act(act),   
+                            .out0(debit_out_r0), 
+                            .out1(debit_out_r1),
+                            .out2(debit_out_r2),
+                            .out3(debit_out_r3));
+    
+    // Block State Calc
     // Perubahan panjang antrian kendaraan
     wire [31:0] delta_panjang_r0;
     wire [31:0] delta_panjang_r1;
@@ -60,50 +74,48 @@ module SD(
     wire [31:0] panjang_w1;
     wire [31:0] panjang_w2;
     wire [31:0] panjang_w3;
-    // Register untuk menyimpan panjang 
+    // Block State Calc : Ruas 0
+    multiply        mult0   (.in0(debit_r0-debit_out_r0),           .c(delta_t),           .out0(delta_panjang_r0));
+    mux2to1_32bit_sd   mux0    (.in0(init_panjang_r0),    .in1(panjang_r0),      .out0(panjang_w0),        .sel(~start));
+    plus            plus0   (.in0(delta_panjang_r0),   .in1(reg_panjang_w0),      .out0(panjang_r0));
+    // Block State Calc : Ruas 1
+    multiply        mult1   (.in0(debit_r1-debit_out_r1),           .c(delta_t),           .out0(delta_panjang_r1));
+    mux2to1_32bit_sd   mux1    (.in0(init_panjang_r1),    .in1(panjang_r1),      .out0(panjang_w1),        .sel(~start));
+    plus            plus1   (.in0(delta_panjang_r1),   .in1(reg_panjang_w1),      .out0(panjang_r1));
+    // Block State Calc : Ruas 2
+    multiply        mult2   (.in0(debit_r2-debit_out_r2),           .c(delta_t),           .out0(delta_panjang_r2));
+    mux2to1_32bit_sd   mux2    (.in0(init_panjang_r2),    .in1(panjang_r2),      .out0(panjang_w2),        .sel(~start));
+    plus            plus2   (.in0(delta_panjang_r2),   .in1(reg_panjang_w2),      .out0(panjang_r2));
+    // Block State Calc : Ruas 3
+    multiply        mult3   (.in0(debit_r3-debit_out_r3),           .c(delta_t),           .out0(delta_panjang_r3));
+    mux2to1_32bit_sd   mux3    (.in0(init_panjang_r3),    .in1(panjang_r3),      .out0(panjang_w3),        .sel(~start));
+    plus            plus3   (.in0(delta_panjang_r3),   .in1(reg_panjang_w3),      .out0(panjang_r3));
+    // Previous panjang antrian kendaraan
     reg [31:0] reg_panjang_w0;
     reg [31:0] reg_panjang_w1;
     reg [31:0] reg_panjang_w2;
     reg [31:0] reg_panjang_w3;
-    // Level kemacetan 
+    always@(posedge clk) begin
+        if (rst) begin
+            reg_panjang_w0 <= 32'h0000_0000;
+            reg_panjang_w1 <= 32'h0000_0000;
+            reg_panjang_w2 <= 32'h0000_0000;
+            reg_panjang_w3 <= 32'h0000_0000;
+
+        end else begin
+            reg_panjang_w0 <= panjang_w0;
+            reg_panjang_w1 <= panjang_w1;
+            reg_panjang_w2 <= panjang_w2;
+            reg_panjang_w3 <= panjang_w3;
+        end
+    end
+    
+    // Block Comparator : untuk menentukan state berdasarkan panjang antrian kendaraan 
     wire [7:0] level_r0;
     wire [7:0] level_r1;
     wire [7:0] level_r2;
     wire [7:0] level_r3;
-    // Penentuan debit gerak kendaraan ketika lampu hijau  
-    wire [31:0] debit_out_r0;
-    wire [31:0] debit_out_r1;
-    wire [31:0] debit_out_r2;
-    wire [31:0] debit_out_r3;
-    
-    // Menentukan debit kendaraan keluar (ketika lampu hijau)
-    debit_decoder debdec0 ( .act(act),   
-                            .out0(debit_out_r0), 
-                            .out1(debit_out_r1),
-                            .out2(debit_out_r2),
-                            .out3(debit_out_r3));
-    
-    // Perhitungan panjang kemacetan : Ruas 0
-    multiply        mult0   (.in0(debit_r0-debit_out_r0),           .c(delta_t),           .out0(delta_panjang_r0));
-    mux2to1_32bit_sd   mux0    (.in0(init_panjang_r0),    .in1(panjang_r0),      .out0(panjang_w0),        .sel(~start));
-    plus            plus0   (.in0(delta_panjang_r0),   .in1(reg_panjang_w0),      .out0(panjang_r0));
-    
-    // Perhitungan panjang kemacetan : Ruas 1
-    multiply        mult1   (.in0(debit_r1-debit_out_r1),           .c(delta_t),           .out0(delta_panjang_r1));
-    mux2to1_32bit_sd   mux1    (.in0(init_panjang_r1),    .in1(panjang_r1),      .out0(panjang_w1),        .sel(~start));
-    plus            plus1   (.in0(delta_panjang_r1),   .in1(reg_panjang_w1),      .out0(panjang_r1));
-    
-    // Perhitungan panjang kemacetan : Ruas 2
-    multiply        mult2   (.in0(debit_r2-debit_out_r2),           .c(delta_t),           .out0(delta_panjang_r2));
-    mux2to1_32bit_sd   mux2    (.in0(init_panjang_r2),    .in1(panjang_r2),      .out0(panjang_w2),        .sel(~start));
-    plus            plus2   (.in0(delta_panjang_r2),   .in1(reg_panjang_w2),      .out0(panjang_r2));
-    
-    // Perhitungan panjang kemaceta n : Ruas 3
-    multiply        mult3   (.in0(debit_r3-debit_out_r3),           .c(delta_t),           .out0(delta_panjang_r3));
-    mux2to1_32bit_sd   mux3    (.in0(init_panjang_r3),    .in1(panjang_r3),      .out0(panjang_w3),        .sel(~start));
-    plus            plus3   (.in0(delta_panjang_r3),   .in1(reg_panjang_w3),      .out0(panjang_r3));
-    
-    // Penentuan state 
+    wire [31:0]w_next_state;
     comp_SD comp(
         .panjang_w0(panjang_w0),
         .panjang_w1(panjang_w1),
@@ -117,16 +129,15 @@ module SD(
         .level_r2(level_r2),
         .level_r3(level_r3)
     );
-    assign next_state    = ((level_r0)|(level_r1<<2)|(level_r2<<4)|(level_r3<<6))|32'h0000_0000;
+    assign w_next_state    = ((level_r0)|(level_r1<<2)|(level_r2<<4)|(level_r3<<6))|32'h0000_0000;
     
-    gsg gsg0(.next_state(next_state), .sig_goal(sig_goal));
+    // Block Goal Signal Generator 
+    wire w_goal_sig;
+    gsg gsg0(.next_state(next_state), .goal_sig(w_goal_sig));
     
-    always@(posedge clk) begin
-        reg_panjang_w0 <= panjang_w0;
-        reg_panjang_w1 <= panjang_w1;
-        reg_panjang_w2 <= panjang_w2;
-        reg_panjang_w3 <= panjang_w3;
-    end
+    // Enabling output 
+    enabler_32bit en0(.in0(w_next_state), .out0(next_state), .en(en));
+    enabler_1bit  en1(.in0(w_goal_sig),   .out0(goal_sig),   .en(en));
 endmodule
 
 
@@ -168,7 +179,7 @@ endmodule
 
 module gsg(
     input wire [31:0] next_state,
-    output wire sig_goal
+    output wire goal_sig
     );
     wire sel0, sel1, sel2, sel3, sel;
     assign sel0 = (next_state[7:0]==8'h00);
@@ -176,5 +187,5 @@ module gsg(
     assign sel2 = (next_state[7:0]==8'hAA);
     assign sel3 = (next_state[7:0]==8'hFF);
     assign sel = sel0 && sel1 && sel2 && sel3;
-    mux2to1_2bit mux0(.in0(0), .in1(1), .sel(sel), .out0(sig_goal));
+    mux2to1_2bit mux0(.in0(0), .in1(1), .sel(sel), .out0(goal_sig));
 endmodule

@@ -3,12 +3,14 @@
 // CONTROL UNIT
 // Engineer : 13218029 Zulfikar
 //
-//Edit:
-// (5/03/2022)  Mengubah deklarasi dari o_lsrf menjadi o_lsfr - Dismas W.
-//              Mengubah transisi state menjadi posedge - Dismas W.
-// (6/03/2022)  Mengubah output sel_act disesuaikan dengan penempatan MUX di Action Decider (PG) - Zulfikar N. A.
-//              Menambahkan wire sc dan ex untuk debugging - Zulfikar N. A.
-//              Menambahkan blok sequential untuk mengatur state awal (rst = 1) - Zulfikar N. A.
+// Revision :
+// (05/03/2022) Dismas W.   : Mengubah deklarasi dari o_lsrf menjadi o_lsfr
+//                          : Mengubah transisi state menjadi posedge
+// (06/03/2022) Zulfikar    : Mengubah output sel_act disesuaikan dengan penempatan MUX di Action Decider (PG)
+//                          : Menambahkan wire sc dan ex untuk debugging
+//                          : Menambahkan blok sequential untuk mengatur state awal (rst = 1)
+// (12/03/2022) Zulfikar    : synchronize the dataflow by adding registers 
+//                          : control the output using enabler 
 //////////////////////////////////////////////////////////////////////////////////
 
 module CU(
