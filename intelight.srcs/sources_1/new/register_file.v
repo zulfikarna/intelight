@@ -30,7 +30,7 @@ module reg2_32bit(
     );
     wire [31:0] wire0;
     reg_32bit reg0(.clk(clk), .rst(rst), .in0(in0), .out0(wire0));
-    reg_32bit reg0(.clk(clk), .rst(rst), .in0(wire0), .out0(out0));
+    reg_32bit reg1(.clk(clk), .rst(rst), .in0(wire0), .out0(out0));
 endmodule
 
 module reg3_32bit(
@@ -41,8 +41,8 @@ module reg3_32bit(
     wire [31:0] wire0;
     wire [31:0] wire1;
     reg_32bit reg0(.clk(clk), .rst(rst), .in0(in0), .out0(wire0));
-    reg_32bit reg0(.clk(clk), .rst(rst), .in0(wire0), .out0(wire1));
-    reg_32bit reg0(.clk(clk), .rst(rst), .in0(wire1), .out0(out0));
+    reg_32bit reg1(.clk(clk), .rst(rst), .in0(wire0), .out0(wire1));
+    reg_32bit reg2(.clk(clk), .rst(rst), .in0(wire1), .out0(out0));
 endmodule
 
 module reg_2bit(
@@ -67,5 +67,5 @@ module reg2_2bit(
     );
     wire [1:0] wire0;
     reg2_2bit reg0(.clk(clk), .rst(rst), .in0(in0), .out0(wire0));
-    reg2_2bit reg0(.clk(clk), .rst(rst), .in0(wire0), .out0(out0));
+    reg2_2bit reg1(.clk(clk), .rst(rst), .in0(wire0), .out0(out0));
 endmodule

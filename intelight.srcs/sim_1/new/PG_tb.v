@@ -16,16 +16,20 @@ module PG_tb;
     reg sel;
     reg [1:0] act_random;
     wire [1:0] act;
+    wire [1:0] act_greed;
     
     //DUT
     PG dut(
         .en(en),
+        .clk(clk),
+        .rst(rst),
         .qA0(qA0),
         .qA1(qA1),
         .qA2(qA2),
         .qA3(qA3),
         .sel(sel),
         .act_random(act_random),
+        .act_greed(act_greed),
         .act(act)
     );
     

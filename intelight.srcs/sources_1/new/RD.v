@@ -38,6 +38,11 @@ module RD(
 endmodule
 
 module analyzer(
+    // For debugging 
+    output wire [1:0] w_max,
+    output wire [1:0] w_mid,
+    output wire [1:0] w_min,
+    // -----
     input clk, rst,
     input wire [31:0] state,
     input wire [1:0] act,
@@ -48,14 +53,14 @@ module analyzer(
     wire [1:0] w_max0;
     wire [1:0] w_max; // nilai tertinggi
     max4to1_2bit max0(.in0(state[1:0]), .in1(state[3:2]), .in2(state[5:4]), .in3(state[7:6]), .out0(w_max0));
-    reg_2bit reg0(.clk(clk), .rst(rst), .in0(w_max_0), .out0(w_max));
+    reg_2bit reg0(.clk(clk), .rst(rst), .in0(w_max0), .out0(w_max));
     
     // MIN Block
     wire [1:0] w_min0;
     wire [1:0] w_mid0;
     wire [1:0] w_mid; // nilai terendah kedua
     wire [1:0] w_min; // nilai terendah 
-    min4to2_2bit min0(.in0(state[1:0]), .in1(state[3:2]), .in2(state[5:4]), .in3(state[7:6]), .out0(w_min_0), .out1(w_mid_0));
+    min4to2_2bit min0(.in0(state[1:0]), .in1(state[3:2]), .in2(state[5:4]), .in3(state[7:6]), .out0(w_min0), .out1(w_mid0));
     reg_2bit reg1(.clk(clk), .rst(rst), .in0(w_min0), .out0(w_min));
     reg_2bit reg2(.clk(clk), .rst(rst), .in0(w_mid0), .out0(w_mid));
     

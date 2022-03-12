@@ -11,9 +11,19 @@ module analyzer_tb();
     reg     [31:0] state;
     reg     [1:0]  act;
     wire    [1:0]  sel; 
+    wire [1:0] w_max;
+    wire [1:0] w_mid;
+    wire [1:0] w_min;
     
     // DUT initiation 
     analyzer dut0(
+        // for debugging 
+        .w_max(w_max),
+        .w_mid(w_mid),
+        .w_min(w_min),
+        // -----
+        .clk(clk),
+        .rst(rst),
         .state(state),
         .act(act),
         .sel(sel)
@@ -28,13 +38,14 @@ module analyzer_tb();
     
     initial begin
         rst = 1'b1;
+        state = 32'h0000_0001;
         #10; 
         rst = 1'b0;
     end
     
     // Testbench 
     always@(posedge clk) begin
-        state   = 32'h0000_00E4; // hE4 = b11100100
+        state   = state << 1;
         act     = 2'b00;
         #50; 
         act     = 2'b01;

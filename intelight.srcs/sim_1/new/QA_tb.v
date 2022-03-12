@@ -10,39 +10,37 @@
 module QA_tb();
     localparam INC = 32'd5;
     //clk dan rst
-    reg clk, rst;
+    reg clk, rst, en;
     //Input
     reg [31:0] next_qA0, next_qA1, next_qA2, next_qA3;
     reg [1:0] act;
     reg [2:0] alpha;
     reg [2:0] gamma;
     reg signed [31:0] reward;
-    
     //Output
-    wire [31:0] curr_qA0, curr_qA1, curr_qA2, curr_qA3; 
     wire [31:0] new_qA;
-//    wire [31:0] max_next_qA;
-//    wire [31:0] chos_curr_qA;
+    // For debugging
+    wire [31:0] max_next_qA;
+    wire [31:0] chos_curr_qA;
     
     //dut
     QA dut(
+        // for debugging
+        .max_next_qA(max_next_qA),
+        .chos_curr_qA(chos_curr_qA),
+        //----
         .clk(clk),
         .rst(rst),
+        .en(en),
         .next_qA0(next_qA0),
         .next_qA1(next_qA1),
         .next_qA2(next_qA2),
         .next_qA3(next_qA3),
-        .curr_qA0(curr_qA0),
-        .curr_qA1(curr_qA1),
-        .curr_qA2(curr_qA2),
-        .curr_qA3(curr_qA3),
         .new_qA(new_qA),
         .act(act),
         .alpha(alpha),
         .gamma(gamma),
         .reward(reward)
-        //.max_next_qA(max_next_qA),
-        //.debug_chos_curr_qA(debug_chos_curr_qA)
     );
     
     //clock
@@ -55,6 +53,7 @@ module QA_tb();
     
     //initial rst
     initial begin
+        en = 1'b1;
         rst = 1'b1;
         #10;
         rst = 1'b0;
@@ -76,9 +75,9 @@ module QA_tb();
     // data updating
     always @(posedge clk) begin
         #1;
-        next_qA0 = next_qA0<<INC;
-        next_qA1 = next_qA1 - INC;
+        next_qA0 = next_qA0<<1;
+        next_qA1 = next_qA1-INC;
         next_qA2 = next_qA2+INC;
-        next_qA3 = next_qA3>>INC;        
+        next_qA3 = next_qA3>>1;        
     end
 endmodule

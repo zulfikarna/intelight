@@ -5,6 +5,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module QA(
+    // for debugging
+    // output wire [31:0] max_next_qA,
+    // output wire [31:0] chos_curr_qA,
+    
     // Q-Value input/output wire 
     input wire clk, rst, en,
     input wire  [31:0] next_qA0, next_qA1, next_qA2, next_qA3,
@@ -14,9 +18,6 @@ module QA(
     input wire [2:0] alpha,
     input wire [2:0] gamma,
     input wire [31:0] reward
-    // for debugging
-//    output wire [31:0] max_next_qA,
-//    output wire [31:0] chos_curr_qA
     );
     
     // For register
@@ -61,7 +62,7 @@ module QA(
     reg_32bit reg6(.clk(clk), .rst(rst), .in0(w_new_qA_0), .out0(w_new_qA_1));
    
    // Enabling output 
-   enabler_32bit en0(.in0(w_new_qA_1), .out0(new_qA), en(en));
+   enabler_32bit en0(.in0(w_new_qA_1), .out0(new_qA), .en(en));
    
    // for debugging 
 //   assign debug_chos_curr_qA = chos_curr_qA;

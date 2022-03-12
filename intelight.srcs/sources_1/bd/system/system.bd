@@ -22,8 +22,8 @@
         "bram_interface_0": ""
       },
       "EV": {
-        "RD_0": "",
-        "SD_0": ""
+        "SD_0": "",
+        "RD_0": ""
       },
       "AGENT": {
         "PG_0": "",
@@ -95,62 +95,62 @@
         "left": "31",
         "right": "0"
       },
-      "delta_t_0": {
+      "delta_t": {
         "direction": "I",
         "left": "2",
         "right": "0"
       },
-      "debit_r0_0": {
+      "debit_r0": {
         "direction": "I",
         "left": "31",
         "right": "0"
       },
-      "debit_r1_0": {
+      "debit_r1": {
         "direction": "I",
         "left": "31",
         "right": "0"
       },
-      "debit_r2_0": {
+      "debit_r2": {
         "direction": "I",
         "left": "31",
         "right": "0"
       },
-      "debit_r3_0": {
+      "debit_r3": {
         "direction": "I",
         "left": "31",
         "right": "0"
       },
-      "init_panjang_r0_0": {
+      "init_panjang_r0": {
         "direction": "I",
         "left": "31",
         "right": "0"
       },
-      "init_panjang_r1_0": {
+      "init_panjang_r1": {
         "direction": "I",
         "left": "31",
         "right": "0"
       },
-      "init_panjang_r2_0": {
+      "init_panjang_r2": {
         "direction": "I",
         "left": "31",
         "right": "0"
       },
-      "init_panjang_r3_0": {
+      "init_panjang_r3": {
         "direction": "I",
         "left": "31",
         "right": "0"
       },
-      "batas_0_0": {
+      "batas_0": {
         "direction": "I",
         "left": "31",
         "right": "0"
       },
-      "batas_1_0": {
+      "batas_1": {
         "direction": "I",
         "left": "31",
         "right": "0"
       },
-      "batas_2_0": {
+      "batas_2": {
         "direction": "I",
         "left": "31",
         "right": "0"
@@ -870,62 +870,62 @@
             "left": "1",
             "right": "0"
           },
-          "delta_t_0": {
+          "delta_t": {
             "direction": "I",
             "left": "2",
             "right": "0"
           },
-          "debit_r0_0": {
+          "debit_r0": {
             "direction": "I",
             "left": "31",
             "right": "0"
           },
-          "debit_r1_0": {
+          "debit_r1": {
             "direction": "I",
             "left": "31",
             "right": "0"
           },
-          "debit_r2_0": {
+          "debit_r2": {
             "direction": "I",
             "left": "31",
             "right": "0"
           },
-          "debit_r3_0": {
+          "debit_r3": {
             "direction": "I",
             "left": "31",
             "right": "0"
           },
-          "init_panjang_r0_0": {
+          "init_panjang_r0": {
             "direction": "I",
             "left": "31",
             "right": "0"
           },
-          "init_panjang_r1_0": {
+          "init_panjang_r1": {
             "direction": "I",
             "left": "31",
             "right": "0"
           },
-          "init_panjang_r2_0": {
+          "init_panjang_r2": {
             "direction": "I",
             "left": "31",
             "right": "0"
           },
-          "init_panjang_r3_0": {
+          "init_panjang_r3": {
             "direction": "I",
             "left": "31",
             "right": "0"
           },
-          "batas_0_0": {
+          "batas_0": {
             "direction": "I",
             "left": "31",
             "right": "0"
           },
-          "batas_1_0": {
+          "batas_1": {
             "direction": "I",
             "left": "31",
             "right": "0"
           },
-          "batas_2_0": {
+          "batas_2": {
             "direction": "I",
             "left": "31",
             "right": "0"
@@ -963,9 +963,6 @@
           "goal_sig": {
             "direction": "O"
           },
-          "start": {
-            "direction": "I"
-          },
           "rst": {
             "type": "rst",
             "direction": "I"
@@ -978,71 +975,6 @@
           }
         },
         "components": {
-          "RD_0": {
-            "vlnv": "xilinx.com:module_ref:RD:1.0",
-            "xci_name": "system_RD_0_0",
-            "xci_path": "ip\\system_RD_0_0\\system_RD_0_0.xci",
-            "inst_hier_path": "EV/RD_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "RD",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I",
-                "parameters": {
-                  "ASSOCIATED_RESET": {
-                    "value": "rst",
-                    "value_src": "constant"
-                  }
-                }
-              },
-              "rst": {
-                "type": "rst",
-                "direction": "I"
-              },
-              "en": {
-                "direction": "I"
-              },
-              "act": {
-                "direction": "I",
-                "left": "1",
-                "right": "0"
-              },
-              "state": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward_0": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward_1": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward_2": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward_3": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward": {
-                "direction": "O",
-                "left": "31",
-                "right": "0"
-              }
-            }
-          },
           "SD_0": {
             "vlnv": "xilinx.com:module_ref:SD:1.0",
             "xci_name": "system_SD_0_0",
@@ -1121,9 +1053,6 @@
                 "left": "31",
                 "right": "0"
               },
-              "start": {
-                "direction": "I"
-              },
               "batas_0": {
                 "direction": "I",
                 "left": "31",
@@ -1146,6 +1075,111 @@
               },
               "goal_sig": {
                 "direction": "O"
+              },
+              "panjang_r0": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "panjang_r1": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "panjang_r2": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "panjang_r3": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "panjang_w0": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "panjang_w1": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "panjang_w2": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "panjang_w3": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
+          "RD_0": {
+            "vlnv": "xilinx.com:module_ref:RD:1.0",
+            "xci_name": "system_RD_0_0",
+            "xci_path": "ip\\system_RD_0_0\\system_RD_0_0.xci",
+            "inst_hier_path": "EV/RD_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "RD",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "rst",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "rst": {
+                "type": "rst",
+                "direction": "I"
+              },
+              "en": {
+                "direction": "I"
+              },
+              "act": {
+                "direction": "I",
+                "left": "1",
+                "right": "0"
+              },
+              "state": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward_0": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward_1": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward_2": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward_3": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
               }
             }
           }
@@ -1154,8 +1188,8 @@
           "PG_0_act": {
             "ports": [
               "act",
-              "RD_0/act",
-              "SD_0/act"
+              "SD_0/act",
+              "RD_0/act"
             ]
           },
           "RD_0_reward": {
@@ -1172,56 +1206,56 @@
           },
           "batas_0_0_1": {
             "ports": [
-              "batas_0_0",
+              "batas_0",
               "SD_0/batas_0"
             ]
           },
           "batas_1_0_1": {
             "ports": [
-              "batas_1_0",
+              "batas_1",
               "SD_0/batas_1"
             ]
           },
           "batas_2_0_1": {
             "ports": [
-              "batas_2_0",
+              "batas_2",
               "SD_0/batas_2"
             ]
           },
           "clk_1": {
             "ports": [
               "clk",
-              "RD_0/clk",
-              "SD_0/clk"
+              "SD_0/clk",
+              "RD_0/clk"
             ]
           },
           "debit_r0_0_1": {
             "ports": [
-              "debit_r0_0",
+              "debit_r0",
               "SD_0/debit_r0"
             ]
           },
           "debit_r1_0_1": {
             "ports": [
-              "debit_r1_0",
+              "debit_r1",
               "SD_0/debit_r1"
             ]
           },
           "debit_r2_0_1": {
             "ports": [
-              "debit_r2_0",
+              "debit_r2",
               "SD_0/debit_r2"
             ]
           },
           "debit_r3_0_1": {
             "ports": [
-              "debit_r3_0",
+              "debit_r3",
               "SD_0/debit_r3"
             ]
           },
           "delta_t_0_1": {
             "ports": [
-              "delta_t_0",
+              "delta_t",
               "SD_0/delta_t"
             ]
           },
@@ -1239,25 +1273,25 @@
           },
           "init_panjang_r0_0_1": {
             "ports": [
-              "init_panjang_r0_0",
+              "init_panjang_r0",
               "SD_0/init_panjang_r0"
             ]
           },
           "init_panjang_r1_0_1": {
             "ports": [
-              "init_panjang_r1_0",
+              "init_panjang_r1",
               "SD_0/init_panjang_r1"
             ]
           },
           "init_panjang_r2_0_1": {
             "ports": [
-              "init_panjang_r2_0",
+              "init_panjang_r2",
               "SD_0/init_panjang_r2"
             ]
           },
           "init_panjang_r3_0_1": {
             "ports": [
-              "init_panjang_r3_0",
+              "init_panjang_r3",
               "SD_0/init_panjang_r3"
             ]
           },
@@ -1295,14 +1329,8 @@
           "rst_1": {
             "ports": [
               "rst",
-              "RD_0/rst",
-              "SD_0/rst"
-            ]
-          },
-          "start_1": {
-            "ports": [
-              "start",
-              "SD_0/start"
+              "SD_0/rst",
+              "RD_0/rst"
             ]
           }
         }
@@ -1851,20 +1879,20 @@
       },
       "batas_0_0_1": {
         "ports": [
-          "batas_0_0",
-          "EV/batas_0_0"
+          "batas_0",
+          "EV/batas_0"
         ]
       },
       "batas_1_0_1": {
         "ports": [
-          "batas_1_0",
-          "EV/batas_1_0"
+          "batas_1",
+          "EV/batas_1"
         ]
       },
       "batas_2_0_1": {
         "ports": [
-          "batas_2_0",
-          "EV/batas_2_0"
+          "batas_2",
+          "EV/batas_2"
         ]
       },
       "clk_1": {
@@ -1878,32 +1906,32 @@
       },
       "debit_r0_0_1": {
         "ports": [
-          "debit_r0_0",
-          "EV/debit_r0_0"
+          "debit_r0",
+          "EV/debit_r0"
         ]
       },
       "debit_r1_0_1": {
         "ports": [
-          "debit_r1_0",
-          "EV/debit_r1_0"
+          "debit_r1",
+          "EV/debit_r1"
         ]
       },
       "debit_r2_0_1": {
         "ports": [
-          "debit_r2_0",
-          "EV/debit_r2_0"
+          "debit_r2",
+          "EV/debit_r2"
         ]
       },
       "debit_r3_0_1": {
         "ports": [
-          "debit_r3_0",
-          "EV/debit_r3_0"
+          "debit_r3",
+          "EV/debit_r3"
         ]
       },
       "delta_t_0_1": {
         "ports": [
-          "delta_t_0",
-          "EV/delta_t_0"
+          "delta_t",
+          "EV/delta_t"
         ]
       },
       "gamma_1": {
@@ -1914,26 +1942,26 @@
       },
       "init_panjang_r0_0_1": {
         "ports": [
-          "init_panjang_r0_0",
-          "EV/init_panjang_r0_0"
+          "init_panjang_r0",
+          "EV/init_panjang_r0"
         ]
       },
       "init_panjang_r1_0_1": {
         "ports": [
-          "init_panjang_r1_0",
-          "EV/init_panjang_r1_0"
+          "init_panjang_r1",
+          "EV/init_panjang_r1"
         ]
       },
       "init_panjang_r2_0_1": {
         "ports": [
-          "init_panjang_r2_0",
-          "EV/init_panjang_r2_0"
+          "init_panjang_r2",
+          "EV/init_panjang_r2"
         ]
       },
       "init_panjang_r3_0_1": {
         "ports": [
-          "init_panjang_r3_0",
-          "EV/init_panjang_r3_0"
+          "init_panjang_r3",
+          "EV/init_panjang_r3"
         ]
       },
       "max_episode_0_1": {
@@ -1984,8 +2012,8 @@
           "rst",
           "Action_RAM/rst_bram",
           "AGENT/rst",
-          "CU_0/rst",
-          "EV/rst"
+          "EV/rst",
+          "CU_0/rst"
         ]
       },
       "seed_0_1": {
@@ -1997,7 +2025,6 @@
       "start_0_1": {
         "ports": [
           "start",
-          "EV/start",
           "CU_0/start"
         ]
       }

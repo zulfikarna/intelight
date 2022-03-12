@@ -9,6 +9,9 @@
 // init_panjang, dan panjang updated.
 // - start 1 => sistem baru dimulai 
 // - start 0 => sistem sudah berjalan
+// 12-03-22 Zulfikar 
+// - sinyal rst harus di tahan di nilai HIGH sampai posedge clk pertama,
+//      hal ini karena register penyimpan panjang antrian kendaraan bekerja disetiap posedge clk
 // 
 // Revisi :
 // (12/03/2022) Zulfikar    : synchronize the dataflow by adding registers 
@@ -28,23 +31,22 @@ module SD(
     input wire [31:0] init_panjang_r1,
     input wire [31:0] init_panjang_r2,
     input wire [31:0] init_panjang_r3,
-    input wire start,
     // Input batas pergantian state 
     input wire [31:0] batas_0,
     input wire [31:0] batas_1,
     input wire [31:0] batas_2,
     // Output
     output wire [31:0] next_state,
-    output wire goal_sig
+    output wire goal_sig,
     // for debugging 
-//    output wire [31:0] panjang_r0,
-//    output wire [31:0] panjang_r1,
-//    output wire [31:0] panjang_r2,
-//    output wire [31:0] panjang_r3,
-//    output wire [31:0] panjang_w0,
-//    output wire [31:0] panjang_w1,
-//    output wire [31:0] panjang_w2,
-//    output wire [31:0] panjang_w3
+    output wire [31:0] panjang_r0,
+    output wire [31:0] panjang_r1,
+    output wire [31:0] panjang_r2,
+    output wire [31:0] panjang_r3,
+    output wire [31:0] panjang_w0,
+    output wire [31:0] panjang_w1,
+    output wire [31:0] panjang_w2,
+    output wire [31:0] panjang_w3
     );
     
     // Block Decoder : menentukan debit kendaraan keluar (ketika lampu hijau)
@@ -76,19 +78,19 @@ module SD(
     wire [31:0] panjang_w3;
     // Block State Calc : Ruas 0
     multiply        mult0   (.in0(debit_r0-debit_out_r0),           .c(delta_t),           .out0(delta_panjang_r0));
-    mux2to1_32bit_sd   mux0    (.in0(init_panjang_r0),    .in1(panjang_r0),      .out0(panjang_w0),        .sel(~start));
+    mux2to1_32bit_sd   mux0    (.in0(init_panjang_r0),    .in1(panjang_r0),      .out0(panjang_w0),        .sel(~rst));
     plus            plus0   (.in0(delta_panjang_r0),   .in1(reg_panjang_w0),      .out0(panjang_r0));
     // Block State Calc : Ruas 1
     multiply        mult1   (.in0(debit_r1-debit_out_r1),           .c(delta_t),           .out0(delta_panjang_r1));
-    mux2to1_32bit_sd   mux1    (.in0(init_panjang_r1),    .in1(panjang_r1),      .out0(panjang_w1),        .sel(~start));
+    mux2to1_32bit_sd   mux1    (.in0(init_panjang_r1),    .in1(panjang_r1),      .out0(panjang_w1),        .sel(~rst));
     plus            plus1   (.in0(delta_panjang_r1),   .in1(reg_panjang_w1),      .out0(panjang_r1));
     // Block State Calc : Ruas 2
     multiply        mult2   (.in0(debit_r2-debit_out_r2),           .c(delta_t),           .out0(delta_panjang_r2));
-    mux2to1_32bit_sd   mux2    (.in0(init_panjang_r2),    .in1(panjang_r2),      .out0(panjang_w2),        .sel(~start));
+    mux2to1_32bit_sd   mux2    (.in0(init_panjang_r2),    .in1(panjang_r2),      .out0(panjang_w2),        .sel(~rst));
     plus            plus2   (.in0(delta_panjang_r2),   .in1(reg_panjang_w2),      .out0(panjang_r2));
     // Block State Calc : Ruas 3
     multiply        mult3   (.in0(debit_r3-debit_out_r3),           .c(delta_t),           .out0(delta_panjang_r3));
-    mux2to1_32bit_sd   mux3    (.in0(init_panjang_r3),    .in1(panjang_r3),      .out0(panjang_w3),        .sel(~start));
+    mux2to1_32bit_sd   mux3    (.in0(init_panjang_r3),    .in1(panjang_r3),      .out0(panjang_w3),        .sel(~rst));
     plus            plus3   (.in0(delta_panjang_r3),   .in1(reg_panjang_w3),      .out0(panjang_r3));
     // Previous panjang antrian kendaraan
     reg [31:0] reg_panjang_w0;

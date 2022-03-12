@@ -37,14 +37,20 @@ module CU(
     
     // State variable for FSM implementation 
     localparam
-        S_IDLE  = 8'hFF,
-        S_INIT  = 8'hEE,
-        S_L0    = 8'h00,
-        S_L1    = 8'h01,
-        S_DONE  = 8'hDD;
+        S_IDLE  = 4'hA,
+        S_INIT  = 4'hB,
+        S_L0    = 4'h0,
+        S_L1    = 4'h1,
+        S_L2    = 4'h2,
+        S_L3    = 4'h3,
+        S_L4    = 4'h4,
+        S_L5    = 4'h5,
+        S_L6    = 4'h6,
+        S_L7    = 4'h7,
+        S_DONE  = 4'hF;
     // State transition variable
-    reg [7:0] cs;
-    reg [7:0] ns;
+    reg [3:0] cs;
+    reg [3:0] ns;
     // Counter variabel 
     reg [15:0] sc; // step counter
     reg [15:0] ec; // episode counter
