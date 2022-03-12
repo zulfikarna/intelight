@@ -8,6 +8,7 @@ DATA YANG PERLU DISIMPAN DALAM IP CORE REGISTER :
 - 3 bit		: [2:0]		alpha
 - 3 bit		: [2:0]		gamma
 - 3 bit 	: [2:0]		delta_t
+- 1 bit		: [0:0]		start (flag0)
 - 32 x 4 bit	: [31:0]	debit_rx (init)
 - 32 x 4 bit	: [31:0]	init_panjang_rx
 - 32 x 3 bit	: [31:0] 	batas_x
