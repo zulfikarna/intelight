@@ -2,14 +2,27 @@ Engineer : Zulfikar
 
 12/03/2022
 DATA YANG PERLU DISIMPAN DALAM IP CORE REGISTER :
-- 16 bit	: [15:0]	max_step
-- 16 bit	: [15:0]	max_episode
-- 16 bit	: [15:0]	seed
 - 3 bit		: [2:0]		alpha
 - 3 bit		: [2:0]		gamma
 - 3 bit 	: [2:0]		delta_t
 - 1 bit		: [0:0]		start (flag0)
+- 16 bit	: [15:0]	seed
+- 16 bit	: [15:0]	max_step
+- 16 bit	: [15:0]	max_episode
 - 32 x 4 bit	: [31:0]	debit_rx (init)
 - 32 x 4 bit	: [31:0]	init_panjang_rx
 - 32 x 3 bit	: [31:0] 	batas_x
 - 32 x 4 bit	: [31:0] 	reward_x
+
+Kebutuhan register : 1 + 1 + 15 = 17 register!
+
+-----------------------------------------------------------------------------------------------
+13/03/2022
+
+Register 0 config 	= [25:23]	[22-20]		[19-17]		[16-16]		[15-0]
+			  alpha		gamma		delta_t		start (flag)	seed
+
+Register 1 config	= [31:16]	[15- 0]
+			  max_step	max_episode
+
+Register 3 - 16 config	= full
