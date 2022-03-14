@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-//Date        : Sun Mar  6 14:18:32 2022
+//Date        : Mon Mar 14 10:46:48 2022
 //Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 //Command     : generate_target system_wrapper.bd
 //Design      : system_wrapper
@@ -10,175 +10,95 @@
 `timescale 1 ps / 1 ps
 
 module system_wrapper
-   (act,
-    act_greed,
-    act_rand,
-    alpha,
-    batas_0_0,
-    batas_1_0,
-    batas_2_0,
-    clk,
-    curr_qA0,
-    curr_qA1,
-    curr_qA2,
-    curr_qA3,
-    curr_state,
-    debit_r0_0,
-    debit_r1_0,
-    debit_r2_0,
-    debit_r3_0,
-    delta_t_0,
-    finish,
-    gamma,
-    init_panjang_r0_0,
-    init_panjang_r1_0,
-    init_panjang_r2_0,
-    init_panjang_r3_0,
-    max_episode,
-    max_step,
-    new_qA,
-    next_state,
-    q_next_0,
-    q_next_1,
-    q_next_2,
-    q_next_3,
-    reward_0,
-    reward_1,
-    reward_2,
-    reward_3,
-    rst,
-    seed,
-    sel_act,
-    start,
-    wire_ec,
-    wire_sc);
-  output [1:0]act;
-  output [1:0]act_greed;
-  output [1:0]act_rand;
-  input [2:0]alpha;
-  input [31:0]batas_0_0;
-  input [31:0]batas_1_0;
-  input [31:0]batas_2_0;
-  input clk;
-  output [31:0]curr_qA0;
-  output [31:0]curr_qA1;
-  output [31:0]curr_qA2;
-  output [31:0]curr_qA3;
-  output [31:0]curr_state;
-  input [31:0]debit_r0_0;
-  input [31:0]debit_r1_0;
-  input [31:0]debit_r2_0;
-  input [31:0]debit_r3_0;
-  input [2:0]delta_t_0;
-  output finish;
-  input [2:0]gamma;
-  input [31:0]init_panjang_r0_0;
-  input [31:0]init_panjang_r1_0;
-  input [31:0]init_panjang_r2_0;
-  input [31:0]init_panjang_r3_0;
-  input [15:0]max_episode;
-  input [15:0]max_step;
-  output [31:0]new_qA;
-  output [31:0]next_state;
-  output [31:0]q_next_0;
-  output [31:0]q_next_1;
-  output [31:0]q_next_2;
-  output [31:0]q_next_3;
-  input [31:0]reward_0;
-  input [31:0]reward_1;
-  input [31:0]reward_2;
-  input [31:0]reward_3;
-  input rst;
-  input [15:0]seed;
-  output sel_act;
-  input start;
-  output [15:0]wire_ec;
-  output [15:0]wire_sc;
+   (DDR_addr,
+    DDR_ba,
+    DDR_cas_n,
+    DDR_ck_n,
+    DDR_ck_p,
+    DDR_cke,
+    DDR_cs_n,
+    DDR_dm,
+    DDR_dq,
+    DDR_dqs_n,
+    DDR_dqs_p,
+    DDR_odt,
+    DDR_ras_n,
+    DDR_reset_n,
+    DDR_we_n,
+    FIXED_IO_ddr_vrn,
+    FIXED_IO_ddr_vrp,
+    FIXED_IO_mio,
+    FIXED_IO_ps_clk,
+    FIXED_IO_ps_porb,
+    FIXED_IO_ps_srstb,
+    irq_0);
+  inout [14:0]DDR_addr;
+  inout [2:0]DDR_ba;
+  inout DDR_cas_n;
+  inout DDR_ck_n;
+  inout DDR_ck_p;
+  inout DDR_cke;
+  inout DDR_cs_n;
+  inout [3:0]DDR_dm;
+  inout [31:0]DDR_dq;
+  inout [3:0]DDR_dqs_n;
+  inout [3:0]DDR_dqs_p;
+  inout DDR_odt;
+  inout DDR_ras_n;
+  inout DDR_reset_n;
+  inout DDR_we_n;
+  inout FIXED_IO_ddr_vrn;
+  inout FIXED_IO_ddr_vrp;
+  inout [53:0]FIXED_IO_mio;
+  inout FIXED_IO_ps_clk;
+  inout FIXED_IO_ps_porb;
+  inout FIXED_IO_ps_srstb;
+  output irq_0;
 
-  wire [1:0]act;
-  wire [1:0]act_greed;
-  wire [1:0]act_rand;
-  wire [2:0]alpha;
-  wire [31:0]batas_0_0;
-  wire [31:0]batas_1_0;
-  wire [31:0]batas_2_0;
-  wire clk;
-  wire [31:0]curr_qA0;
-  wire [31:0]curr_qA1;
-  wire [31:0]curr_qA2;
-  wire [31:0]curr_qA3;
-  wire [31:0]curr_state;
-  wire [31:0]debit_r0_0;
-  wire [31:0]debit_r1_0;
-  wire [31:0]debit_r2_0;
-  wire [31:0]debit_r3_0;
-  wire [2:0]delta_t_0;
-  wire finish;
-  wire [2:0]gamma;
-  wire [31:0]init_panjang_r0_0;
-  wire [31:0]init_panjang_r1_0;
-  wire [31:0]init_panjang_r2_0;
-  wire [31:0]init_panjang_r3_0;
-  wire [15:0]max_episode;
-  wire [15:0]max_step;
-  wire [31:0]new_qA;
-  wire [31:0]next_state;
-  wire [31:0]q_next_0;
-  wire [31:0]q_next_1;
-  wire [31:0]q_next_2;
-  wire [31:0]q_next_3;
-  wire [31:0]reward_0;
-  wire [31:0]reward_1;
-  wire [31:0]reward_2;
-  wire [31:0]reward_3;
-  wire rst;
-  wire [15:0]seed;
-  wire sel_act;
-  wire start;
-  wire [15:0]wire_ec;
-  wire [15:0]wire_sc;
+  wire [14:0]DDR_addr;
+  wire [2:0]DDR_ba;
+  wire DDR_cas_n;
+  wire DDR_ck_n;
+  wire DDR_ck_p;
+  wire DDR_cke;
+  wire DDR_cs_n;
+  wire [3:0]DDR_dm;
+  wire [31:0]DDR_dq;
+  wire [3:0]DDR_dqs_n;
+  wire [3:0]DDR_dqs_p;
+  wire DDR_odt;
+  wire DDR_ras_n;
+  wire DDR_reset_n;
+  wire DDR_we_n;
+  wire FIXED_IO_ddr_vrn;
+  wire FIXED_IO_ddr_vrp;
+  wire [53:0]FIXED_IO_mio;
+  wire FIXED_IO_ps_clk;
+  wire FIXED_IO_ps_porb;
+  wire FIXED_IO_ps_srstb;
+  wire irq_0;
 
   system system_i
-       (.act(act),
-        .act_greed(act_greed),
-        .act_rand(act_rand),
-        .alpha(alpha),
-        .batas_0_0(batas_0_0),
-        .batas_1_0(batas_1_0),
-        .batas_2_0(batas_2_0),
-        .clk(clk),
-        .curr_qA0(curr_qA0),
-        .curr_qA1(curr_qA1),
-        .curr_qA2(curr_qA2),
-        .curr_qA3(curr_qA3),
-        .curr_state(curr_state),
-        .debit_r0_0(debit_r0_0),
-        .debit_r1_0(debit_r1_0),
-        .debit_r2_0(debit_r2_0),
-        .debit_r3_0(debit_r3_0),
-        .delta_t_0(delta_t_0),
-        .finish(finish),
-        .gamma(gamma),
-        .init_panjang_r0_0(init_panjang_r0_0),
-        .init_panjang_r1_0(init_panjang_r1_0),
-        .init_panjang_r2_0(init_panjang_r2_0),
-        .init_panjang_r3_0(init_panjang_r3_0),
-        .max_episode(max_episode),
-        .max_step(max_step),
-        .new_qA(new_qA),
-        .next_state(next_state),
-        .q_next_0(q_next_0),
-        .q_next_1(q_next_1),
-        .q_next_2(q_next_2),
-        .q_next_3(q_next_3),
-        .reward_0(reward_0),
-        .reward_1(reward_1),
-        .reward_2(reward_2),
-        .reward_3(reward_3),
-        .rst(rst),
-        .seed(seed),
-        .sel_act(sel_act),
-        .start(start),
-        .wire_ec(wire_ec),
-        .wire_sc(wire_sc));
+       (.DDR_addr(DDR_addr),
+        .DDR_ba(DDR_ba),
+        .DDR_cas_n(DDR_cas_n),
+        .DDR_ck_n(DDR_ck_n),
+        .DDR_ck_p(DDR_ck_p),
+        .DDR_cke(DDR_cke),
+        .DDR_cs_n(DDR_cs_n),
+        .DDR_dm(DDR_dm),
+        .DDR_dq(DDR_dq),
+        .DDR_dqs_n(DDR_dqs_n),
+        .DDR_dqs_p(DDR_dqs_p),
+        .DDR_odt(DDR_odt),
+        .DDR_ras_n(DDR_ras_n),
+        .DDR_reset_n(DDR_reset_n),
+        .DDR_we_n(DDR_we_n),
+        .FIXED_IO_ddr_vrn(FIXED_IO_ddr_vrn),
+        .FIXED_IO_ddr_vrp(FIXED_IO_ddr_vrp),
+        .FIXED_IO_mio(FIXED_IO_mio),
+        .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
+        .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
+        .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
+        .irq_0(irq_0));
 endmodule

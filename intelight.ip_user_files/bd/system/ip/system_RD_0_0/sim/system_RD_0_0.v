@@ -55,6 +55,9 @@
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_RD_0_0 (
+  clk,
+  rst,
+  en,
   act,
   state,
   reward_0,
@@ -64,6 +67,13 @@ module system_RD_0_0 (
   reward
 );
 
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
+input wire clk;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *)
+input wire rst;
+input wire en;
 input wire [1 : 0] act;
 input wire [31 : 0] state;
 input wire [31 : 0] reward_0;
@@ -73,6 +83,9 @@ input wire [31 : 0] reward_3;
 output wire [31 : 0] reward;
 
   RD inst (
+    .clk(clk),
+    .rst(rst),
+    .en(en),
     .act(act),
     .state(state),
     .reward_0(reward_0),

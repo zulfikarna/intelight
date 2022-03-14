@@ -55,6 +55,8 @@
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_PG_0_0 (
+  clk,
+  rst,
   en,
   qA0,
   qA1,
@@ -66,6 +68,12 @@ module system_PG_0_0 (
   act_greed
 );
 
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
+input wire clk;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *)
+input wire rst;
 input wire en;
 input wire [31 : 0] qA0;
 input wire [31 : 0] qA1;
@@ -77,6 +85,8 @@ output wire [1 : 0] act;
 output wire [1 : 0] act_greed;
 
   PG inst (
+    .clk(clk),
+    .rst(rst),
     .en(en),
     .qA0(qA0),
     .qA1(qA1),

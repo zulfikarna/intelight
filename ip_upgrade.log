@@ -1,0 +1,16 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Sun Mar 13 15:11:38 2022
+| Host         : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_intelight_mem_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_intelight_mem_0_0 (xilinx.com:user:intelight_mem:1.0) from (Rev. 2) to (Rev. 4)
+

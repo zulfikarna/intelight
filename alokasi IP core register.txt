@@ -17,7 +17,7 @@ DATA YANG PERLU DISIMPAN DALAM IP CORE REGISTER :
 Kebutuhan register : 1 + 1 + 15 = 17 register!
 
 -----------------------------------------------------------------------------------------------
-13/03/2022
+13/03/2022 - Zulfikar
 
 Register 0 config 	= [25:23]	[22-20]		[19-17]		[16-16]		[15-0]
 			  alpha		gamma		delta_t		start (flag)	seed
@@ -25,4 +25,10 @@ Register 0 config 	= [25:23]	[22-20]		[19-17]		[16-16]		[15-0]
 Register 1 config	= [31:16]	[15- 0]
 			  max_step	max_episode
 
-Register 3 - 16 config	= full
+Register 2 - 5 config	= debit_rx
+
+Register 6 - 9 config	= init_panjang_rx
+
+Register 10 - 12 config = batas_x
+
+Register 13 - 16 config	= reward_x

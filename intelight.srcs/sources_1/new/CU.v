@@ -29,10 +29,10 @@ module CU(
     output wire QA,
     output wire SD,
     output wire RD,
-    output reg finish,
+    output reg finish
     // for debugging 
-    output wire [15:0] wire_sc,
-    output wire [15:0] wire_ec
+//    output wire [15:0] wire_sc,
+//    output wire [15:0] wire_ec
     );
     
     // State variable for FSM implementation 
@@ -70,6 +70,7 @@ module CU(
         endcase
     end
     
+    // Reset handler
     always@(posedge clk) begin 
         if(rst) begin 
             cs <= S_IDLE;
@@ -78,7 +79,7 @@ module CU(
         end
     end
     
-    // State Transition
+    // FSM State Controller
     always@(posedge clk) begin
         case (cs)
             S_IDLE :
@@ -91,14 +92,28 @@ module CU(
                     ns <= S_L0;
                 else
                     ns <= S_DONE;
-            S_L0 :
+            S_L0 : 
+                ns <= S_L1;
+            S_L1 :
+                ns <= S_L2;
+            S_L2 :
+                ns <= S_L3;
+            S_L3 :
                 if((sc > max_step) | goal_sig)
-                    ns <= S_L1;
+                    ns <= S_L4;
                 else 
-                    ns <= S_L0;
-            S_L1 : 
+                    ns <= S_L3;
+            S_L4 :
+                ns <= S_L5;
+            S_L5 :
+                ns <= S_L6;
+            S_L6 :
+                ns <= S_L7;
+            S_L7 :
                 ns <= S_INIT;
             S_DONE :
+                ns <= S_IDLE;
+            default
                 ns <= S_IDLE;
          endcase
     end
@@ -123,7 +138,7 @@ module CU(
         end
     end
     
-    // Epsilon updating 
+    // Epsilon updating machine
     always @(ec) begin
         if (cs == S_IDLE) begin
             epsilon = 11'd0;
@@ -132,13 +147,50 @@ module CU(
         end
     end
     
-    // Control signals go here :
+    // Control signal generator
+    reg [3:0] ctrl_sig;
+    always begin
+        // Format Control Signal : |SD|PG|RD|QA| 
+        case(cs)
+            S_L0 :
+                ctrl_sig = 4'b1000;
+            S_L1 :
+                ctrl_sig = 4'b1100;
+            S_L2 :
+                ctrl_sig = 4'b1110;
+            S_L3 :
+                ctrl_sig = 4'b1111;
+            S_L4 :
+                ctrl_sig = 4'b0111;
+            S_L5 :
+                ctrl_sig = 4'b0011;
+            S_L6 :
+                ctrl_sig = 4'b0001;
+            S_L7 :
+                ctrl_sig = 4'b0000;
+            default
+                ctrl_sig = 4'b0000;
+                
+        endcase
+    end
+    
+    // Finish signal generator 
+    always @(cs) begin
+        if (cs==S_DONE) begin
+            finish = 1'b1;
+        end else begin
+            finish = 1'b0;
+        end
+    end
     
     // Random numbers for Policy Generator 
     assign sel_act = (epsilon < o_lsfr[10:0])? 1'b1 : 1'b0;
     assign act_random = o_lsfr[1:0];
     
-    // for debugging 
-    assign wire_ec = ec;
-    assign wire_sc = sc;
+    // Control signal decoder
+    assign SD = ctrl_sig[3];
+    assign PG = ctrl_sig[2];
+    assign RD = ctrl_sig[1];
+    assign QA = ctrl_sig[0];
+    
 endmodule

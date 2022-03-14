@@ -56,6 +56,8 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module system_SD_0_0 (
   clk,
+  rst,
+  en,
   act,
   delta_t,
   debit_r0,
@@ -66,17 +68,28 @@ module system_SD_0_0 (
   init_panjang_r1,
   init_panjang_r2,
   init_panjang_r3,
-  start,
   batas_0,
   batas_1,
   batas_2,
   next_state,
-  sig_goal
+  goal_sig,
+  panjang_r0,
+  panjang_r1,
+  panjang_r2,
+  panjang_r3,
+  panjang_w0,
+  panjang_w1,
+  panjang_w2,
+  panjang_w3
 );
 
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_clk, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *)
+input wire rst;
+input wire en;
 input wire [1 : 0] act;
 input wire [2 : 0] delta_t;
 input wire [31 : 0] debit_r0;
@@ -87,15 +100,24 @@ input wire [31 : 0] init_panjang_r0;
 input wire [31 : 0] init_panjang_r1;
 input wire [31 : 0] init_panjang_r2;
 input wire [31 : 0] init_panjang_r3;
-input wire start;
 input wire [31 : 0] batas_0;
 input wire [31 : 0] batas_1;
 input wire [31 : 0] batas_2;
 output wire [31 : 0] next_state;
-output wire sig_goal;
+output wire goal_sig;
+output wire [31 : 0] panjang_r0;
+output wire [31 : 0] panjang_r1;
+output wire [31 : 0] panjang_r2;
+output wire [31 : 0] panjang_r3;
+output wire [31 : 0] panjang_w0;
+output wire [31 : 0] panjang_w1;
+output wire [31 : 0] panjang_w2;
+output wire [31 : 0] panjang_w3;
 
   SD inst (
     .clk(clk),
+    .rst(rst),
+    .en(en),
     .act(act),
     .delta_t(delta_t),
     .debit_r0(debit_r0),
@@ -106,11 +128,18 @@ output wire sig_goal;
     .init_panjang_r1(init_panjang_r1),
     .init_panjang_r2(init_panjang_r2),
     .init_panjang_r3(init_panjang_r3),
-    .start(start),
     .batas_0(batas_0),
     .batas_1(batas_1),
     .batas_2(batas_2),
     .next_state(next_state),
-    .sig_goal(sig_goal)
+    .goal_sig(goal_sig),
+    .panjang_r0(panjang_r0),
+    .panjang_r1(panjang_r1),
+    .panjang_r2(panjang_r2),
+    .panjang_r3(panjang_r3),
+    .panjang_w0(panjang_w0),
+    .panjang_w1(panjang_w1),
+    .panjang_w2(panjang_w2),
+    .panjang_w3(panjang_w3)
   );
 endmodule

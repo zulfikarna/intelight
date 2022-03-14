@@ -57,14 +57,11 @@
 module system_QA_0_0 (
   clk,
   rst,
+  en,
   next_qA0,
   next_qA1,
   next_qA2,
   next_qA3,
-  curr_qA0,
-  curr_qA1,
-  curr_qA2,
-  curr_qA3,
   new_qA,
   act,
   alpha,
@@ -72,20 +69,17 @@ module system_QA_0_0 (
   reward
 );
 
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_clk, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *)
 input wire rst;
+input wire en;
 input wire [31 : 0] next_qA0;
 input wire [31 : 0] next_qA1;
 input wire [31 : 0] next_qA2;
 input wire [31 : 0] next_qA3;
-output wire [31 : 0] curr_qA0;
-output wire [31 : 0] curr_qA1;
-output wire [31 : 0] curr_qA2;
-output wire [31 : 0] curr_qA3;
 output wire [31 : 0] new_qA;
 input wire [1 : 0] act;
 input wire [2 : 0] alpha;
@@ -95,14 +89,11 @@ input wire [31 : 0] reward;
   QA inst (
     .clk(clk),
     .rst(rst),
+    .en(en),
     .next_qA0(next_qA0),
     .next_qA1(next_qA1),
     .next_qA2(next_qA2),
     .next_qA3(next_qA3),
-    .curr_qA0(curr_qA0),
-    .curr_qA1(curr_qA1),
-    .curr_qA2(curr_qA2),
-    .curr_qA3(curr_qA3),
     .new_qA(new_qA),
     .act(act),
     .alpha(alpha),

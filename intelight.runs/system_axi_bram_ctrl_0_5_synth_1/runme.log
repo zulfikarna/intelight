@@ -1,0 +1,19 @@
+
+*** Running vivado
+    with args -log system_axi_bram_ctrl_0_5.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_axi_bram_ctrl_0_5.tcl
+
+
+
+****** Vivado v2021.1 (64-bit)
+  **** SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+  **** IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source system_axi_bram_ctrl_0_5.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-3685] Ignored loading user repository 'd:/intelight/ip_repo/intelight_mem_1.0'. The path is contained within another repository.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/intelight/ip_repo'.
+WARNING: [IP_Flow 19-3685] Ignored loading user repository 'd:/intelight/ip_repo/intelight_ip_1.0'. The path is contained within another repository.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2021.1/data/ip'.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP system_axi_bram_ctrl_0_5, cache-ID = 140c6a6c70f393d1.
+INFO: [Common 17-206] Exiting Vivado at Sun Mar 13 14:49:58 2022...
