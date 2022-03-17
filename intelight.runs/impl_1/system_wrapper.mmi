@@ -31,13 +31,13 @@
     <AddressSpace Name="system_i_PS_processing_system7_0.system_i_RAM_Block_RAM_1_axi_bram_ctrl_1" Begin="1107296256" End="1107304447">
       <AddressSpaceRange Name="system_i_PS_processing_system7_0.system_i_RAM_Block_RAM_1_axi_bram_ctrl_1" Begin="1107296256" End="1107304447" CoreMemory_Width="0" MemoryType="RAM_SP" MemoryConfiguration="">
         <BusBlock>
-          <BitLane MemType="RAMB36" Placement="X2Y16" Read_Width="0">
+          <BitLane MemType="RAMB36" Placement="X2Y10" Read_Width="0">
             <DataWidth MSB="15" LSB="0"/>
             <AddressRange Begin="0" End="2047"/>
             <BitLayout pattern=""/>
             <Parity ON="false" NumBits="0"/>
           </BitLane>
-          <BitLane MemType="RAMB36" Placement="X3Y14" Read_Width="0">
+          <BitLane MemType="RAMB36" Placement="X2Y11" Read_Width="0">
             <DataWidth MSB="31" LSB="16"/>
             <AddressRange Begin="0" End="2047"/>
             <BitLayout pattern=""/>
@@ -49,13 +49,13 @@
     <AddressSpace Name="system_i_PS_processing_system7_0.system_i_RAM_Block_RAM_2_axi_bram_ctrl_2" Begin="1140850688" End="1140858879">
       <AddressSpaceRange Name="system_i_PS_processing_system7_0.system_i_RAM_Block_RAM_2_axi_bram_ctrl_2" Begin="1140850688" End="1140858879" CoreMemory_Width="0" MemoryType="RAM_SP" MemoryConfiguration="">
         <BusBlock>
-          <BitLane MemType="RAMB36" Placement="X3Y16" Read_Width="0">
+          <BitLane MemType="RAMB36" Placement="X2Y9" Read_Width="0">
             <DataWidth MSB="15" LSB="0"/>
             <AddressRange Begin="0" End="2047"/>
             <BitLayout pattern=""/>
             <Parity ON="false" NumBits="0"/>
           </BitLane>
-          <BitLane MemType="RAMB36" Placement="X3Y15" Read_Width="0">
+          <BitLane MemType="RAMB36" Placement="X2Y14" Read_Width="0">
             <DataWidth MSB="31" LSB="16"/>
             <AddressRange Begin="0" End="2047"/>
             <BitLayout pattern=""/>
@@ -67,13 +67,13 @@
     <AddressSpace Name="system_i_PS_processing_system7_0.system_i_RAM_Block_RAM_3_axi_bram_ctrl_3" Begin="1174405120" End="1174413311">
       <AddressSpaceRange Name="system_i_PS_processing_system7_0.system_i_RAM_Block_RAM_3_axi_bram_ctrl_3" Begin="1174405120" End="1174413311" CoreMemory_Width="0" MemoryType="RAM_SP" MemoryConfiguration="">
         <BusBlock>
-          <BitLane MemType="RAMB36" Placement="X2Y15" Read_Width="0">
+          <BitLane MemType="RAMB36" Placement="X3Y9" Read_Width="0">
             <DataWidth MSB="15" LSB="0"/>
             <AddressRange Begin="0" End="2047"/>
             <BitLayout pattern=""/>
             <Parity ON="false" NumBits="0"/>
           </BitLane>
-          <BitLane MemType="RAMB36" Placement="X2Y14" Read_Width="0">
+          <BitLane MemType="RAMB36" Placement="X3Y10" Read_Width="0">
             <DataWidth MSB="31" LSB="16"/>
             <AddressRange Begin="0" End="2047"/>
             <BitLayout pattern=""/>

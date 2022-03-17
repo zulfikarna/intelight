@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
 -- Date        : Mon Mar 14 10:48:06 2022
 -- Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub
---               d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_CU_0_0/system_CU_0_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top system_CU_0_0 -prefix
+--               system_CU_0_0_ system_CU_0_0_stub.vhdl
 -- Design      : system_CU_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg400-1

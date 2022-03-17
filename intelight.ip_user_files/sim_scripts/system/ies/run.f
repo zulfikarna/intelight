@@ -66,10 +66,20 @@
 -endlib
 -makelib ies_lib/xil_defaultlib \
   "../../../bd/system/ip/system_xbar_0/sim/system_xbar_0.v" \
-  "../../../bd/system/ip/system_CU_0_0/sim/system_CU_0_0.v" \
   "../../../bd/system/ipshared/15e4/hdl/intelight_mem_v1_0_S00_AXI.v" \
   "../../../bd/system/ipshared/15e4/hdl/intelight_mem_v1_0.v" \
   "../../../bd/system/ip/system_intelight_mem_0_0/sim/system_intelight_mem_0_0.v" \
+-endlib
+-makelib ies_lib/axi_lite_ipif_v3_0_4 \
+  "../../../../intelight.gen/sources_1/bd/system/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd" \
+-endlib
+-makelib ies_lib/axi_intc_v4_1_15 \
+  "../../../../intelight.gen/sources_1/bd/system/ipshared/47b8/hdl/axi_intc_v4_1_vh_rfs.vhd" \
+-endlib
+-makelib ies_lib/xil_defaultlib \
+  "../../../bd/system/ip/system_axi_intc_0_0/sim/system_axi_intc_0_0.vhd" \
+-endlib
+-makelib ies_lib/xil_defaultlib \
   "../../../bd/system/ip/system_bram_interface_0_0/sim/system_bram_interface_0_0.v" \
 -endlib
 -makelib ies_lib/xlconstant_v1_1_7 \
@@ -113,14 +123,9 @@
 -makelib ies_lib/xil_defaultlib \
   "../../../bd/system/ip/system_axi_bram_ctrl_0_4/sim/system_axi_bram_ctrl_0_4.vhd" \
 -endlib
--makelib ies_lib/axi_lite_ipif_v3_0_4 \
-  "../../../../intelight.gen/sources_1/bd/system/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd" \
--endlib
--makelib ies_lib/axi_intc_v4_1_15 \
-  "../../../../intelight.gen/sources_1/bd/system/ipshared/47b8/hdl/axi_intc_v4_1_vh_rfs.vhd" \
--endlib
 -makelib ies_lib/xil_defaultlib \
-  "../../../bd/system/ip/system_axi_intc_0_0/sim/system_axi_intc_0_0.vhd" \
+  "../../../bd/system/ip/system_CU_0_0/sim/system_CU_0_0.v" \
+  "../../../bd/system/sim/system.v" \
 -endlib
 -makelib ies_lib/axi_protocol_converter_v2_1_24 \
   "../../../../intelight.gen/sources_1/bd/system/ipshared/6e0d/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
@@ -129,7 +134,6 @@
   "../../../bd/system/ip/system_auto_pc_2/sim/system_auto_pc_2.v" \
   "../../../bd/system/ip/system_auto_pc_0/sim/system_auto_pc_0.v" \
   "../../../bd/system/ip/system_auto_pc_1/sim/system_auto_pc_1.v" \
-  "../../../bd/system/sim/system.v" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
   glbl.v

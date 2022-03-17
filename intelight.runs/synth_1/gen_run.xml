@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1647229793">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1647234667">
   <File Type="PA-TCL" Name="system_wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="system_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="system_wrapper_reports.tcl"/>
@@ -74,14 +74,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/CU.v">
+    <File Path="$PSRCDIR/sources_1/new/bram_interface.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/bram_interface.v">
+    <File Path="$PSRCDIR/sources_1/new/CU.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -143,5 +143,4 @@
   <BlockFileSet Type="BlockSrcs" Name="system_RD_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_PG_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_axi_intc_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_CU_0_0"/>
 </GenRun>

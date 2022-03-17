@@ -30,11 +30,11 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_xbar
 # IP: bd/system/ip/system_ps7_0_axi_periph_1/system_ps7_0_axi_periph_1.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_ps7_0_axi_periph_1 || ORIG_REF_NAME==system_ps7_0_axi_periph_1} -quiet] -quiet
 
-# IP: bd/system/ip/system_CU_0_0/system_CU_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_CU_0_0 || ORIG_REF_NAME==system_CU_0_0} -quiet] -quiet
-
 # IP: bd/system/ip/system_intelight_mem_0_0/system_intelight_mem_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_intelight_mem_0_0 || ORIG_REF_NAME==system_intelight_mem_0_0} -quiet] -quiet
+
+# IP: bd/system/ip/system_axi_intc_0_0/system_axi_intc_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_intc_0_0 || ORIG_REF_NAME==system_axi_intc_0_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_bram_interface_0_0/system_bram_interface_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_bram_interface_0_0 || ORIG_REF_NAME==system_bram_interface_0_0} -quiet] -quiet
@@ -81,8 +81,8 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_Acti
 # IP: bd/system/ip/system_axi_bram_ctrl_0_4/system_axi_bram_ctrl_0_4.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_bram_ctrl_0_4 || ORIG_REF_NAME==system_axi_bram_ctrl_0_4} -quiet] -quiet
 
-# IP: bd/system/ip/system_axi_intc_0_0/system_axi_intc_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_axi_intc_0_0 || ORIG_REF_NAME==system_axi_intc_0_0} -quiet] -quiet
+# IP: bd/system/ip/system_CU_0_0/system_CU_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_CU_0_0 || ORIG_REF_NAME==system_CU_0_0} -quiet] -quiet
 
 # IP: bd/system/ip/system_auto_pc_2/system_auto_pc_2.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==system_auto_pc_2 || ORIG_REF_NAME==system_auto_pc_2} -quiet] -quiet

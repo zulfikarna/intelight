@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-// Date        : Sun Mar 13 23:30:38 2022
+// Date        : Mon Mar 14 12:10:47 2022
 // Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_intc_0_0/system_axi_intc_0_0_sim_netlist.v
@@ -106,7 +106,7 @@ module system_axi_intc_0_0
   (* C_HAS_SIE = "1" *) 
   (* C_INSTANCE = "system_axi_intc_0_0" *) 
   (* C_IRQ_ACTIVE = "1'b1" *) 
-  (* C_IRQ_IS_LEVEL = "1" *) 
+  (* C_IRQ_IS_LEVEL = "0" *) 
   (* C_IVAR_RESET_VALUE = "64'b0000000000000000000000000000000000000000000000000000000000010000" *) 
   (* C_KIND_OF_EDGE = "-1" *) 
   (* C_KIND_OF_INTR = "-1" *) 
@@ -159,23 +159,20 @@ module system_axi_intc_0_0_address_decoder
    (p_16_in,
     \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ,
     Bus_RNW_reg_reg_0,
-    Bus_RNW_reg_reg_1,
     ip2bus_wrack_prev2,
     Or128_vec2stdlogic19_out,
     ip2bus_rdack_prev2,
     Or128_vec2stdlogic,
     D,
+    Bus_RNW_reg_reg_1,
     ip2bus_wrack_reg,
     ip2bus_rdack_reg,
+    s_axi_wdata_0_sp_1,
     s_axi_wdata_1_sp_1,
     Bus_RNW_reg_reg_2,
-    s_axi_wdata_0_sp_1,
     \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3]_0 ,
     Q,
     s_axi_aclk,
-    s_axi_wdata,
-    s_axi_aresetn,
-    sie,
     ip2bus_wrack_int_d1,
     \s_axi_rdata_i_reg[1] ,
     \s_axi_rdata_i_reg[0] ,
@@ -183,36 +180,36 @@ module system_axi_intc_0_0_address_decoder
     \s_axi_rdata_i_reg[0]_1 ,
     ip2bus_rdack_int_d1,
     \GEN_BKEND_CE_REGISTERS[18].ce_out_i_reg[18]_0 ,
+    s_axi_wdata,
+    s_axi_aresetn,
+    sie,
     ip2bus_rdack,
     s_axi_arready,
     s_axi_arready_0,
     ip2bus_wrack,
     s_axi_wready,
+    \mer_int_reg[0] ,
     p_0_in,
     cie,
-    mer,
     \REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0] ,
     Bus_RNW_reg_reg_3);
   output p_16_in;
   output \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ;
   output Bus_RNW_reg_reg_0;
-  output Bus_RNW_reg_reg_1;
   output ip2bus_wrack_prev2;
   output Or128_vec2stdlogic19_out;
   output ip2bus_rdack_prev2;
   output Or128_vec2stdlogic;
   output [2:0]D;
+  output Bus_RNW_reg_reg_1;
   output ip2bus_wrack_reg;
   output ip2bus_rdack_reg;
+  output s_axi_wdata_0_sp_1;
   output s_axi_wdata_1_sp_1;
   output Bus_RNW_reg_reg_2;
-  output s_axi_wdata_0_sp_1;
   output \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3]_0 ;
   input Q;
   input s_axi_aclk;
-  input [1:0]s_axi_wdata;
-  input s_axi_aresetn;
-  input sie;
   input ip2bus_wrack_int_d1;
   input \s_axi_rdata_i_reg[1] ;
   input \s_axi_rdata_i_reg[0] ;
@@ -220,14 +217,17 @@ module system_axi_intc_0_0_address_decoder
   input \s_axi_rdata_i_reg[0]_1 ;
   input ip2bus_rdack_int_d1;
   input [6:0]\GEN_BKEND_CE_REGISTERS[18].ce_out_i_reg[18]_0 ;
+  input [1:0]s_axi_wdata;
+  input s_axi_aresetn;
+  input sie;
   input ip2bus_rdack;
   input s_axi_arready;
   input [3:0]s_axi_arready_0;
   input ip2bus_wrack;
   input s_axi_wready;
+  input \mer_int_reg[0] ;
   input p_0_in;
   input cie;
-  input mer;
   input \REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0] ;
   input Bus_RNW_reg_reg_3;
 
@@ -282,7 +282,7 @@ module system_axi_intc_0_0_address_decoder
   wire ip2bus_wrack_int_d1_i_4_n_0;
   wire ip2bus_wrack_prev2;
   wire ip2bus_wrack_reg;
-  wire mer;
+  wire \mer_int_reg[0] ;
   wire p_0_in;
   wire p_10_in;
   wire p_11_in;
@@ -749,16 +749,16 @@ module system_axi_intc_0_0_address_decoder
         .I2(p_8_in),
         .I3(p_13_in),
         .O(ip2bus_wrack_int_d1_i_4_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT4 #(
     .INIT(16'hFB08)) 
     \mer_int[0]_i_1 
        (.I0(s_axi_wdata[0]),
         .I1(p_11_in),
         .I2(Bus_RNW_reg_reg_0),
-        .I3(mer),
+        .I3(\mer_int_reg[0] ),
         .O(s_axi_wdata_0_sn_1));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
     .INIT(16'hCECC)) 
     \mer_int[1]_i_1 
@@ -848,7 +848,7 @@ endmodule
 (* C_FAMILY = "zynq" *) (* C_HAS_CIE = "1" *) (* C_HAS_FAST = "0" *) 
 (* C_HAS_ILR = "0" *) (* C_HAS_IPR = "1" *) (* C_HAS_IVR = "1" *) 
 (* C_HAS_SIE = "1" *) (* C_INSTANCE = "system_axi_intc_0_0" *) (* C_IRQ_ACTIVE = "1'b1" *) 
-(* C_IRQ_IS_LEVEL = "1" *) (* C_IVAR_RESET_VALUE = "64'b0000000000000000000000000000000000000000000000000000000000010000" *) (* C_KIND_OF_EDGE = "-1" *) 
+(* C_IRQ_IS_LEVEL = "0" *) (* C_IVAR_RESET_VALUE = "64'b0000000000000000000000000000000000000000000000000000000000010000" *) (* C_KIND_OF_EDGE = "-1" *) 
 (* C_KIND_OF_INTR = "-1" *) (* C_KIND_OF_LVL = "-1" *) (* C_MB_CLK_NOT_CONNECTED = "1" *) 
 (* C_NUM_INTR_INPUTS = "1" *) (* C_NUM_SW_INTR = "0" *) (* C_NUM_SYNC_FF = "2" *) 
 (* C_S_AXI_ADDR_WIDTH = "9" *) (* C_S_AXI_DATA_WIDTH = "32" *) (* ORIG_REF_NAME = "axi_intc" *) 
@@ -913,13 +913,14 @@ module system_axi_intc_0_0_axi_intc
   output [1:0]processor_ack_out;
 
   wire \<const0> ;
+  wire AXI_LITE_IPIF_I_n_10;
   wire AXI_LITE_IPIF_I_n_13;
   wire AXI_LITE_IPIF_I_n_14;
   wire AXI_LITE_IPIF_I_n_15;
   wire AXI_LITE_IPIF_I_n_16;
-  wire AXI_LITE_IPIF_I_n_6;
   wire INTC_CORE_I_n_0;
-  wire INTC_CORE_I_n_3;
+  wire INTC_CORE_I_n_1;
+  wire INTC_CORE_I_n_5;
   wire \I_SLAVE_ATTACHMENT/I_DECODER/Bus_RNW_reg ;
   wire \I_SLAVE_ATTACHMENT/I_DECODER/p_16_in ;
   wire \I_SLAVE_ATTACHMENT/I_DECODER/p_18_in ;
@@ -938,7 +939,6 @@ module system_axi_intc_0_0_axi_intc
   wire irq;
   wire isr;
   wire ivr;
-  wire mer;
   wire p_0_in;
   wire s_axi_aclk;
   wire [8:0]s_axi_araddr;
@@ -1032,12 +1032,12 @@ module system_axi_intc_0_0_axi_intc
   assign s_axi_rresp[0] = \<const0> ;
   system_axi_intc_0_0_axi_lite_ipif AXI_LITE_IPIF_I
        (.Bus_RNW_reg(\I_SLAVE_ATTACHMENT/I_DECODER/Bus_RNW_reg ),
-        .Bus_RNW_reg_reg(AXI_LITE_IPIF_I_n_6),
-        .Bus_RNW_reg_reg_0(AXI_LITE_IPIF_I_n_14),
+        .Bus_RNW_reg_reg(AXI_LITE_IPIF_I_n_10),
+        .Bus_RNW_reg_reg_0(AXI_LITE_IPIF_I_n_15),
         .\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] (AXI_LITE_IPIF_I_n_16),
         .Or128_vec2stdlogic(Or128_vec2stdlogic),
         .Or128_vec2stdlogic19_out(Or128_vec2stdlogic19_out),
-        .\REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0] (INTC_CORE_I_n_3),
+        .\REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0] (INTC_CORE_I_n_1),
         .cie(cie),
         .ier(ier),
         .ip2bus_rdack(ip2bus_rdack),
@@ -1051,7 +1051,7 @@ module system_axi_intc_0_0_axi_intc
         .ipr(ipr),
         .isr(isr),
         .ivr(ivr),
-        .mer(mer),
+        .\mer_int_reg[0] (INTC_CORE_I_n_5),
         .p_0_in(p_0_in),
         .p_16_in(\I_SLAVE_ATTACHMENT/I_DECODER/p_16_in ),
         .p_18_in(\I_SLAVE_ATTACHMENT/I_DECODER/p_18_in ),
@@ -1070,8 +1070,8 @@ module system_axi_intc_0_0_axi_intc
         .s_axi_rresp(\^s_axi_rresp ),
         .s_axi_rvalid_i_reg(s_axi_rvalid),
         .s_axi_wdata(s_axi_wdata[1:0]),
-        .s_axi_wdata_0_sp_1(AXI_LITE_IPIF_I_n_15),
-        .s_axi_wdata_1_sp_1(AXI_LITE_IPIF_I_n_13),
+        .s_axi_wdata_0_sp_1(AXI_LITE_IPIF_I_n_13),
+        .s_axi_wdata_1_sp_1(AXI_LITE_IPIF_I_n_14),
         .s_axi_wstrb(s_axi_wstrb),
         .s_axi_wvalid(s_axi_wvalid),
         .sie(sie));
@@ -1079,10 +1079,10 @@ module system_axi_intc_0_0_axi_intc
        (.G(\<const0> ));
   system_axi_intc_0_0_intc_core INTC_CORE_I
        (.Bus_RNW_reg(\I_SLAVE_ATTACHMENT/I_DECODER/Bus_RNW_reg ),
-        .\CIE_GEN.CIE_BIT_GEN[0].cie_reg[0]_0 (AXI_LITE_IPIF_I_n_14),
-        .\REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0]_0 (INTC_CORE_I_n_3),
+        .\CIE_GEN.CIE_BIT_GEN[0].cie_reg[0]_0 (AXI_LITE_IPIF_I_n_15),
+        .\REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0]_0 (INTC_CORE_I_n_1),
         .\REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0]_1 (AXI_LITE_IPIF_I_n_16),
-        .\SIE_GEN.SIE_BIT_GEN[0].sie_reg[0]_0 (AXI_LITE_IPIF_I_n_6),
+        .\SIE_GEN.SIE_BIT_GEN[0].sie_reg[0]_0 (AXI_LITE_IPIF_I_n_10),
         .cie(cie),
         .ier(ier),
         .intr(intr),
@@ -1090,9 +1090,9 @@ module system_axi_intc_0_0_axi_intc
         .irq(irq),
         .isr(isr),
         .ivr(ivr),
-        .mer(mer),
-        .\mer_int_reg[0]_0 (AXI_LITE_IPIF_I_n_15),
-        .\mer_int_reg[1]_0 (AXI_LITE_IPIF_I_n_13),
+        .\mer_int_reg[0]_0 (INTC_CORE_I_n_5),
+        .\mer_int_reg[0]_1 (AXI_LITE_IPIF_I_n_13),
+        .\mer_int_reg[1]_0 (AXI_LITE_IPIF_I_n_14),
         .p_0_in(p_0_in),
         .p_16_in(\I_SLAVE_ATTACHMENT/I_DECODER/p_16_in ),
         .p_18_in(\I_SLAVE_ATTACHMENT/I_DECODER/p_18_in ),
@@ -1135,34 +1135,33 @@ module system_axi_intc_0_0_axi_lite_ipif
     Bus_RNW_reg,
     s_axi_rvalid_i_reg,
     s_axi_bvalid_i_reg,
-    Bus_RNW_reg_reg,
     ip2bus_wrack_prev2,
     Or128_vec2stdlogic19_out,
     ip2bus_rdack_prev2,
     Or128_vec2stdlogic,
+    Bus_RNW_reg_reg,
     ip2bus_wrack_reg,
     ip2bus_rdack_reg,
+    s_axi_wdata_0_sp_1,
     s_axi_wdata_1_sp_1,
     Bus_RNW_reg_reg_0,
-    s_axi_wdata_0_sp_1,
     \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] ,
     s_axi_bresp,
     s_axi_rdata,
     rst_reg,
     s_axi_aclk,
     s_axi_arvalid,
-    s_axi_wstrb,
-    s_axi_wdata,
-    s_axi_aresetn,
-    sie,
     ip2bus_wrack_int_d1,
     ip2bus_rdack_int_d1,
     p_0_in,
     ivr,
-    mer,
+    \mer_int_reg[0] ,
     isr,
     ipr,
     ier,
+    s_axi_wdata,
+    s_axi_aresetn,
+    sie,
     s_axi_awvalid,
     s_axi_wvalid,
     s_axi_bready,
@@ -1171,6 +1170,7 @@ module system_axi_intc_0_0_axi_lite_ipif
     ip2bus_wrack,
     s_axi_araddr,
     s_axi_awaddr,
+    s_axi_wstrb,
     cie,
     \REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0] );
   output p_16_in;
@@ -1179,34 +1179,33 @@ module system_axi_intc_0_0_axi_lite_ipif
   output Bus_RNW_reg;
   output s_axi_rvalid_i_reg;
   output s_axi_bvalid_i_reg;
-  output Bus_RNW_reg_reg;
   output ip2bus_wrack_prev2;
   output Or128_vec2stdlogic19_out;
   output ip2bus_rdack_prev2;
   output Or128_vec2stdlogic;
+  output Bus_RNW_reg_reg;
   output ip2bus_wrack_reg;
   output ip2bus_rdack_reg;
+  output s_axi_wdata_0_sp_1;
   output s_axi_wdata_1_sp_1;
   output Bus_RNW_reg_reg_0;
-  output s_axi_wdata_0_sp_1;
   output \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] ;
   output [0:0]s_axi_bresp;
   output [2:0]s_axi_rdata;
   input rst_reg;
   input s_axi_aclk;
   input s_axi_arvalid;
-  input [3:0]s_axi_wstrb;
-  input [1:0]s_axi_wdata;
-  input s_axi_aresetn;
-  input sie;
   input ip2bus_wrack_int_d1;
   input ip2bus_rdack_int_d1;
   input p_0_in;
   input ivr;
-  input mer;
+  input \mer_int_reg[0] ;
   input isr;
   input [0:0]ipr;
   input ier;
+  input [1:0]s_axi_wdata;
+  input s_axi_aresetn;
+  input sie;
   input s_axi_awvalid;
   input s_axi_wvalid;
   input s_axi_bready;
@@ -1215,6 +1214,7 @@ module system_axi_intc_0_0_axi_lite_ipif
   input ip2bus_wrack;
   input [6:0]s_axi_araddr;
   input [6:0]s_axi_awaddr;
+  input [3:0]s_axi_wstrb;
   input cie;
   input \REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0] ;
 
@@ -1238,7 +1238,7 @@ module system_axi_intc_0_0_axi_lite_ipif
   wire [0:0]ipr;
   wire isr;
   wire ivr;
-  wire mer;
+  wire \mer_int_reg[0] ;
   wire p_0_in;
   wire p_16_in;
   wire p_18_in;
@@ -1287,7 +1287,7 @@ module system_axi_intc_0_0_axi_lite_ipif
         .ipr(ipr),
         .isr(isr),
         .ivr(ivr),
-        .mer(mer),
+        .\mer_int_reg[0] (\mer_int_reg[0] ),
         .p_0_in(p_0_in),
         .p_16_in(p_16_in),
         .rst_reg_0(rst_reg),
@@ -1315,46 +1315,46 @@ endmodule
 (* ORIG_REF_NAME = "intc_core" *) 
 module system_axi_intc_0_0_intc_core
    (s_axi_aresetn_0,
+    \REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0]_0 ,
+    irq,
     ivr,
     ipr,
-    \REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0]_0 ,
+    \mer_int_reg[0]_0 ,
     p_0_in,
     isr,
     sie,
     cie,
-    mer,
-    irq,
     ier,
     intr,
     s_axi_aclk,
     \REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0]_1 ,
+    \mer_int_reg[0]_1 ,
     \mer_int_reg[1]_0 ,
     \SIE_GEN.SIE_BIT_GEN[0].sie_reg[0]_0 ,
     \CIE_GEN.CIE_BIT_GEN[0].cie_reg[0]_0 ,
-    \mer_int_reg[0]_0 ,
     s_axi_aresetn,
     s_axi_wdata,
     Bus_RNW_reg,
     p_18_in,
     p_16_in);
   output s_axi_aresetn_0;
+  output \REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0]_0 ;
+  output irq;
   output ivr;
   output [0:0]ipr;
-  output \REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0]_0 ;
+  output \mer_int_reg[0]_0 ;
   output p_0_in;
   output isr;
   output sie;
   output cie;
-  output mer;
-  output irq;
   output ier;
   input [0:0]intr;
   input s_axi_aclk;
   input \REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0]_1 ;
+  input \mer_int_reg[0]_1 ;
   input \mer_int_reg[1]_0 ;
   input \SIE_GEN.SIE_BIT_GEN[0].sie_reg[0]_0 ;
   input \CIE_GEN.CIE_BIT_GEN[0].cie_reg[0]_0 ;
-  input \mer_int_reg[0]_0 ;
   input s_axi_aresetn;
   input [0:0]s_axi_wdata;
   input Bus_RNW_reg;
@@ -1365,7 +1365,7 @@ module system_axi_intc_0_0_intc_core
   wire \CIE_GEN.CIE_BIT_GEN[0].cie_reg[0]_0 ;
   wire \INTR_DETECT_GEN[0].EDGE_DETECT_GEN.hw_intr[0]_i_1_n_0 ;
   wire \IPR_GEN.ipr[0]_i_1_n_0 ;
-  wire \IRQ_LEVEL_GEN.IRQ_LEVEL_NORMAL_ON_AXI_CLK_GEN.Irq_i_1_n_0 ;
+  wire \IRQ_EDGE_GEN.IRQ_EDGE_NO_MB_CLK_GEN.Irq_i_2_n_0 ;
   wire \IVR_GEN.ivr[0]_i_1_n_0 ;
   wire \REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0]_0 ;
   wire \REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0]_1 ;
@@ -1374,7 +1374,10 @@ module system_axi_intc_0_0_intc_core
   wire \REG_GEN[0].isr[0]_i_1_n_0 ;
   wire \REG_GEN[0].isr[0]_i_2_n_0 ;
   wire \SIE_GEN.SIE_BIT_GEN[0].sie_reg[0]_0 ;
+  wire ack_or;
   wire cie;
+  wire [1:0]current_state;
+  wire [1:0]current_state__0;
   wire hw_intr;
   wire ier;
   wire [0:0]intr;
@@ -1383,8 +1386,8 @@ module system_axi_intc_0_0_intc_core
   wire irq;
   wire isr;
   wire ivr;
-  wire mer;
   wire \mer_int_reg[0]_0 ;
+  wire \mer_int_reg[0]_1 ;
   wire \mer_int_reg[1]_0 ;
   wire p_0_in;
   wire p_16_in;
@@ -1401,6 +1404,37 @@ module system_axi_intc_0_0_intc_core
         .D(\CIE_GEN.CIE_BIT_GEN[0].cie_reg[0]_0 ),
         .Q(cie),
         .R(1'b0));
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  LUT4 #(
+    .INIT(16'h1000)) 
+    \FSM_sequential_IRQ_EDGE_GEN.IRQ_EDGE_NO_MB_CLK_GEN.current_state[0]_i_1 
+       (.I0(current_state[1]),
+        .I1(current_state[0]),
+        .I2(\mer_int_reg[0]_0 ),
+        .I3(ipr),
+        .O(current_state__0[0]));
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  LUT3 #(
+    .INIT(8'h26)) 
+    \FSM_sequential_IRQ_EDGE_GEN.IRQ_EDGE_NO_MB_CLK_GEN.current_state[1]_i_1 
+       (.I0(current_state[0]),
+        .I1(current_state[1]),
+        .I2(ack_or),
+        .O(current_state__0[1]));
+  (* FSM_ENCODED_STATES = "gen_pulse:01,wait_ack:10,idle:00" *) 
+  FDRE \FSM_sequential_IRQ_EDGE_GEN.IRQ_EDGE_NO_MB_CLK_GEN.current_state_reg[0] 
+       (.C(s_axi_aclk),
+        .CE(1'b1),
+        .D(current_state__0[0]),
+        .Q(current_state[0]),
+        .R(s_axi_aresetn_0));
+  (* FSM_ENCODED_STATES = "gen_pulse:01,wait_ack:10,idle:00" *) 
+  FDRE \FSM_sequential_IRQ_EDGE_GEN.IRQ_EDGE_NO_MB_CLK_GEN.current_state_reg[1] 
+       (.C(s_axi_aclk),
+        .CE(1'b1),
+        .D(current_state__0[1]),
+        .Q(current_state[1]),
+        .R(s_axi_aresetn_0));
   LUT5 #(
     .INIT(32'h0000AE00)) 
     \INTR_DETECT_GEN[0].EDGE_DETECT_GEN.hw_intr[0]_i_1 
@@ -1434,21 +1468,23 @@ module system_axi_intc_0_0_intc_core
         .D(\IPR_GEN.ipr[0]_i_1_n_0 ),
         .Q(ipr),
         .R(s_axi_aresetn_0));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
-  LUT4 #(
-    .INIT(16'hE000)) 
-    \IRQ_LEVEL_GEN.IRQ_LEVEL_NORMAL_ON_AXI_CLK_GEN.Irq_i_1 
-       (.I0(irq),
-        .I1(mer),
-        .I2(ipr),
-        .I3(s_axi_aresetn),
-        .O(\IRQ_LEVEL_GEN.IRQ_LEVEL_NORMAL_ON_AXI_CLK_GEN.Irq_i_1_n_0 ));
-  FDRE \IRQ_LEVEL_GEN.IRQ_LEVEL_NORMAL_ON_AXI_CLK_GEN.Irq_reg 
+  LUT1 #(
+    .INIT(2'h1)) 
+    \IRQ_EDGE_GEN.IRQ_EDGE_NO_MB_CLK_GEN.Irq_i_1 
+       (.I0(s_axi_aresetn),
+        .O(s_axi_aresetn_0));
+  LUT2 #(
+    .INIT(4'h2)) 
+    \IRQ_EDGE_GEN.IRQ_EDGE_NO_MB_CLK_GEN.Irq_i_2 
+       (.I0(current_state[0]),
+        .I1(current_state[1]),
+        .O(\IRQ_EDGE_GEN.IRQ_EDGE_NO_MB_CLK_GEN.Irq_i_2_n_0 ));
+  FDRE \IRQ_EDGE_GEN.IRQ_EDGE_NO_MB_CLK_GEN.Irq_reg 
        (.C(s_axi_aclk),
         .CE(1'b1),
-        .D(\IRQ_LEVEL_GEN.IRQ_LEVEL_NORMAL_ON_AXI_CLK_GEN.Irq_i_1_n_0 ),
+        .D(\IRQ_EDGE_GEN.IRQ_EDGE_NO_MB_CLK_GEN.Irq_i_2_n_0 ),
         .Q(irq),
-        .R(1'b0));
+        .R(s_axi_aresetn_0));
   LUT2 #(
     .INIT(4'h7)) 
     \IVR_GEN.ivr[0]_i_1 
@@ -1477,7 +1513,7 @@ module system_axi_intc_0_0_intc_core
         .I4(s_axi_wdata),
         .I5(\REG_GEN[0].ier[0]_i_2_n_0 ),
         .O(\REG_GEN[0].ier[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \REG_GEN[0].ier[0]_i_2 
@@ -1490,6 +1526,7 @@ module system_axi_intc_0_0_intc_core
         .D(\REG_GEN[0].ier[0]_i_1_n_0 ),
         .Q(ier),
         .R(1'b0));
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
     .INIT(8'h08)) 
     \REG_GEN[0].isr[0]_i_1 
@@ -1519,11 +1556,17 @@ module system_axi_intc_0_0_intc_core
         .D(\SIE_GEN.SIE_BIT_GEN[0].sie_reg[0]_0 ),
         .Q(sie),
         .R(1'b0));
+  FDRE ack_or_reg
+       (.C(s_axi_aclk),
+        .CE(1'b1),
+        .D(\REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0]_0 ),
+        .Q(ack_or),
+        .R(s_axi_aresetn_0));
   FDRE \mer_int_reg[0] 
        (.C(s_axi_aclk),
         .CE(1'b1),
-        .D(\mer_int_reg[0]_0 ),
-        .Q(mer),
+        .D(\mer_int_reg[0]_1 ),
+        .Q(\mer_int_reg[0]_0 ),
         .R(s_axi_aresetn_0));
   FDRE \mer_int_reg[1] 
        (.C(s_axi_aclk),
@@ -1531,11 +1574,6 @@ module system_axi_intc_0_0_intc_core
         .D(\mer_int_reg[1]_0 ),
         .Q(p_0_in),
         .R(s_axi_aresetn_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    rst_i_1
-       (.I0(s_axi_aresetn),
-        .O(s_axi_aresetn_0));
 endmodule
 
 (* ORIG_REF_NAME = "slave_attachment" *) 
@@ -1546,34 +1584,33 @@ module system_axi_intc_0_0_slave_attachment
     Bus_RNW_reg_reg,
     s_axi_rvalid_i_reg_0,
     s_axi_bvalid_i_reg_0,
-    Bus_RNW_reg_reg_0,
     ip2bus_wrack_prev2,
     Or128_vec2stdlogic19_out,
     ip2bus_rdack_prev2,
     Or128_vec2stdlogic,
+    Bus_RNW_reg_reg_0,
     ip2bus_wrack_reg,
     ip2bus_rdack_reg,
+    s_axi_wdata_0_sp_1,
     s_axi_wdata_1_sp_1,
     Bus_RNW_reg_reg_1,
-    s_axi_wdata_0_sp_1,
     \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] ,
     s_axi_bresp,
     s_axi_rdata,
     rst_reg_0,
     s_axi_aclk,
     s_axi_arvalid,
-    s_axi_wstrb,
-    s_axi_wdata,
-    s_axi_aresetn,
-    sie,
     ip2bus_wrack_int_d1,
     ip2bus_rdack_int_d1,
     p_0_in,
     ivr,
-    mer,
+    \mer_int_reg[0] ,
     isr,
     ipr,
     ier,
+    s_axi_wdata,
+    s_axi_aresetn,
+    sie,
     s_axi_awvalid,
     s_axi_wvalid,
     s_axi_bready,
@@ -1582,6 +1619,7 @@ module system_axi_intc_0_0_slave_attachment
     ip2bus_wrack,
     s_axi_araddr,
     s_axi_awaddr,
+    s_axi_wstrb,
     cie,
     \REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0] );
   output p_16_in;
@@ -1590,34 +1628,33 @@ module system_axi_intc_0_0_slave_attachment
   output Bus_RNW_reg_reg;
   output s_axi_rvalid_i_reg_0;
   output s_axi_bvalid_i_reg_0;
-  output Bus_RNW_reg_reg_0;
   output ip2bus_wrack_prev2;
   output Or128_vec2stdlogic19_out;
   output ip2bus_rdack_prev2;
   output Or128_vec2stdlogic;
+  output Bus_RNW_reg_reg_0;
   output ip2bus_wrack_reg;
   output ip2bus_rdack_reg;
+  output s_axi_wdata_0_sp_1;
   output s_axi_wdata_1_sp_1;
   output Bus_RNW_reg_reg_1;
-  output s_axi_wdata_0_sp_1;
   output \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] ;
   output [0:0]s_axi_bresp;
   output [2:0]s_axi_rdata;
   input rst_reg_0;
   input s_axi_aclk;
   input s_axi_arvalid;
-  input [3:0]s_axi_wstrb;
-  input [1:0]s_axi_wdata;
-  input s_axi_aresetn;
-  input sie;
   input ip2bus_wrack_int_d1;
   input ip2bus_rdack_int_d1;
   input p_0_in;
   input ivr;
-  input mer;
+  input \mer_int_reg[0] ;
   input isr;
   input [0:0]ipr;
   input ier;
+  input [1:0]s_axi_wdata;
+  input s_axi_aresetn;
+  input sie;
   input s_axi_awvalid;
   input s_axi_wvalid;
   input s_axi_bready;
@@ -1626,6 +1663,7 @@ module system_axi_intc_0_0_slave_attachment
   input ip2bus_wrack;
   input [6:0]s_axi_araddr;
   input [6:0]s_axi_awaddr;
+  input [3:0]s_axi_wstrb;
   input cie;
   input \REG_GEN[0].IAR_NORMAL_MODE_GEN.iar_reg[0] ;
 
@@ -1675,7 +1713,7 @@ module system_axi_intc_0_0_slave_attachment
   wire is_write_reg_n_0;
   wire isr;
   wire ivr;
-  wire mer;
+  wire \mer_int_reg[0] ;
   wire p_0_in;
   wire [1:0]p_0_out;
   wire p_16_in;
@@ -1882,7 +1920,7 @@ module system_axi_intc_0_0_slave_attachment
         .ip2bus_wrack_int_d1(ip2bus_wrack_int_d1),
         .ip2bus_wrack_prev2(ip2bus_wrack_prev2),
         .ip2bus_wrack_reg(ip2bus_wrack_reg),
-        .mer(mer),
+        .\mer_int_reg[0] (\mer_int_reg[0] ),
         .p_0_in(p_0_in),
         .p_16_in(p_16_in),
         .s_axi_aclk(s_axi_aclk),
@@ -2104,7 +2142,7 @@ module system_axi_intc_0_0_slave_attachment
     \s_axi_rdata_i[0]_i_4 
        (.I0(bus2ip_addr[3]),
         .I1(bus2ip_addr[2]),
-        .I2(mer),
+        .I2(\mer_int_reg[0] ),
         .I3(bus2ip_addr[4]),
         .I4(isr),
         .I5(bus2ip_addr[5]),

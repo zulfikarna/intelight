@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
 -- Date        : Mon Mar 14 10:48:06 2022
 -- Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_CU_0_0/system_CU_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_CU_0_0 -prefix
+--               system_CU_0_0_ system_CU_0_0_sim_netlist.vhdl
 -- Design      : system_CU_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -32,8 +32,6 @@ entity system_CU_0_0_CU is
     seed : in STD_LOGIC_VECTOR ( 15 downto 0 );
     start : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_CU_0_0_CU : entity is "CU";
 end system_CU_0_0_CU;
 
 architecture STRUCTURE of system_CU_0_0_CU is

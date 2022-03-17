@@ -14,11 +14,11 @@ vlib modelsim_lib/msim/axi_register_slice_v2_1_24
 vlib modelsim_lib/msim/fifo_generator_v13_2_5
 vlib modelsim_lib/msim/axi_data_fifo_v2_1_23
 vlib modelsim_lib/msim/axi_crossbar_v2_1_25
+vlib modelsim_lib/msim/axi_lite_ipif_v3_0_4
+vlib modelsim_lib/msim/axi_intc_v4_1_15
 vlib modelsim_lib/msim/xlconstant_v1_1_7
 vlib modelsim_lib/msim/blk_mem_gen_v8_4_4
 vlib modelsim_lib/msim/axi_bram_ctrl_v4_1_5
-vlib modelsim_lib/msim/axi_lite_ipif_v3_0_4
-vlib modelsim_lib/msim/axi_intc_v4_1_15
 vlib modelsim_lib/msim/axi_protocol_converter_v2_1_24
 
 vmap xilinx_vip modelsim_lib/msim/xilinx_vip
@@ -34,11 +34,11 @@ vmap axi_register_slice_v2_1_24 modelsim_lib/msim/axi_register_slice_v2_1_24
 vmap fifo_generator_v13_2_5 modelsim_lib/msim/fifo_generator_v13_2_5
 vmap axi_data_fifo_v2_1_23 modelsim_lib/msim/axi_data_fifo_v2_1_23
 vmap axi_crossbar_v2_1_25 modelsim_lib/msim/axi_crossbar_v2_1_25
+vmap axi_lite_ipif_v3_0_4 modelsim_lib/msim/axi_lite_ipif_v3_0_4
+vmap axi_intc_v4_1_15 modelsim_lib/msim/axi_intc_v4_1_15
 vmap xlconstant_v1_1_7 modelsim_lib/msim/xlconstant_v1_1_7
 vmap blk_mem_gen_v8_4_4 modelsim_lib/msim/blk_mem_gen_v8_4_4
 vmap axi_bram_ctrl_v4_1_5 modelsim_lib/msim/axi_bram_ctrl_v4_1_5
-vmap axi_lite_ipif_v3_0_4 modelsim_lib/msim/axi_lite_ipif_v3_0_4
-vmap axi_intc_v4_1_15 modelsim_lib/msim/axi_intc_v4_1_15
 vmap axi_protocol_converter_v2_1_24 modelsim_lib/msim/axi_protocol_converter_v2_1_24
 
 vlog -work xilinx_vip  -incr -mfcu -sv -L axi_vip_v1_1_10 -L processing_system7_vip_v1_0_12 -L xilinx_vip "+incdir+C:/Xilinx/Vivado/2021.1/data/xilinx_vip/include" \
@@ -109,10 +109,20 @@ vlog -work axi_crossbar_v2_1_25  -incr -mfcu "+incdir+../../../../intelight.gen/
 
 vlog -work xil_defaultlib  -incr -mfcu "+incdir+../../../../intelight.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../intelight.gen/sources_1/bd/system/ipshared/f42d/hdl" "+incdir+C:/Xilinx/Vivado/2021.1/data/xilinx_vip/include" \
 "../../../bd/system/ip/system_xbar_0/sim/system_xbar_0.v" \
-"../../../bd/system/ip/system_CU_0_0/sim/system_CU_0_0.v" \
 "../../../bd/system/ipshared/15e4/hdl/intelight_mem_v1_0_S00_AXI.v" \
 "../../../bd/system/ipshared/15e4/hdl/intelight_mem_v1_0.v" \
 "../../../bd/system/ip/system_intelight_mem_0_0/sim/system_intelight_mem_0_0.v" \
+
+vcom -work axi_lite_ipif_v3_0_4  -93 \
+"../../../../intelight.gen/sources_1/bd/system/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd" \
+
+vcom -work axi_intc_v4_1_15  -93 \
+"../../../../intelight.gen/sources_1/bd/system/ipshared/47b8/hdl/axi_intc_v4_1_vh_rfs.vhd" \
+
+vcom -work xil_defaultlib  -93 \
+"../../../bd/system/ip/system_axi_intc_0_0/sim/system_axi_intc_0_0.vhd" \
+
+vlog -work xil_defaultlib  -incr -mfcu "+incdir+../../../../intelight.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../intelight.gen/sources_1/bd/system/ipshared/f42d/hdl" "+incdir+C:/Xilinx/Vivado/2021.1/data/xilinx_vip/include" \
 "../../../bd/system/ip/system_bram_interface_0_0/sim/system_bram_interface_0_0.v" \
 
 vlog -work xlconstant_v1_1_7  -incr -mfcu "+incdir+../../../../intelight.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../intelight.gen/sources_1/bd/system/ipshared/f42d/hdl" "+incdir+C:/Xilinx/Vivado/2021.1/data/xilinx_vip/include" \
@@ -156,14 +166,9 @@ vlog -work xil_defaultlib  -incr -mfcu "+incdir+../../../../intelight.gen/source
 vcom -work xil_defaultlib  -93 \
 "../../../bd/system/ip/system_axi_bram_ctrl_0_4/sim/system_axi_bram_ctrl_0_4.vhd" \
 
-vcom -work axi_lite_ipif_v3_0_4  -93 \
-"../../../../intelight.gen/sources_1/bd/system/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd" \
-
-vcom -work axi_intc_v4_1_15  -93 \
-"../../../../intelight.gen/sources_1/bd/system/ipshared/47b8/hdl/axi_intc_v4_1_vh_rfs.vhd" \
-
-vcom -work xil_defaultlib  -93 \
-"../../../bd/system/ip/system_axi_intc_0_0/sim/system_axi_intc_0_0.vhd" \
+vlog -work xil_defaultlib  -incr -mfcu "+incdir+../../../../intelight.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../intelight.gen/sources_1/bd/system/ipshared/f42d/hdl" "+incdir+C:/Xilinx/Vivado/2021.1/data/xilinx_vip/include" \
+"../../../bd/system/ip/system_CU_0_0/sim/system_CU_0_0.v" \
+"../../../bd/system/sim/system.v" \
 
 vlog -work axi_protocol_converter_v2_1_24  -incr -mfcu "+incdir+../../../../intelight.gen/sources_1/bd/system/ipshared/ec67/hdl" "+incdir+../../../../intelight.gen/sources_1/bd/system/ipshared/f42d/hdl" "+incdir+C:/Xilinx/Vivado/2021.1/data/xilinx_vip/include" \
 "../../../../intelight.gen/sources_1/bd/system/ipshared/6e0d/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
@@ -172,7 +177,6 @@ vlog -work xil_defaultlib  -incr -mfcu "+incdir+../../../../intelight.gen/source
 "../../../bd/system/ip/system_auto_pc_2/sim/system_auto_pc_2.v" \
 "../../../bd/system/ip/system_auto_pc_0/sim/system_auto_pc_0.v" \
 "../../../bd/system/ip/system_auto_pc_1/sim/system_auto_pc_1.v" \
-"../../../bd/system/sim/system.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

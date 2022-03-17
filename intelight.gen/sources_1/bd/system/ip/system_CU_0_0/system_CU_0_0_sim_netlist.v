@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
 // Date        : Mon Mar 14 10:48:06 2022
 // Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_CU_0_0/system_CU_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top system_CU_0_0 -prefix
+//               system_CU_0_0_ system_CU_0_0_sim_netlist.v
 // Design      : system_CU_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,73 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "system_CU_0_0,CU,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "CU,Vivado 2021.1" *) 
-(* NotValidForBitStream *)
-module system_CU_0_0
-   (clk,
-    rst,
-    start,
-    max_step,
-    max_episode,
-    seed,
-    goal_sig,
-    sel_act,
-    act_random,
-    PG,
-    QA,
-    SD,
-    RD,
-    finish);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *) input clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rst;
-  input start;
-  input [15:0]max_step;
-  input [15:0]max_episode;
-  input [15:0]seed;
-  input goal_sig;
-  output sel_act;
-  output [1:0]act_random;
-  output PG;
-  output QA;
-  output SD;
-  output RD;
-  output finish;
-
-  wire PG;
-  wire QA;
-  wire RD;
-  wire SD;
-  wire [1:0]act_random;
-  wire clk;
-  wire finish;
-  wire goal_sig;
-  wire [15:0]max_episode;
-  wire [15:0]max_step;
-  wire rst;
-  wire [15:0]seed;
-  wire sel_act;
-  wire start;
-
-  system_CU_0_0_CU inst
-       (.PG(PG),
-        .Q(act_random[1]),
-        .QA(QA),
-        .RD(RD),
-        .SD(SD),
-        .act_random(act_random[0]),
-        .clk(clk),
-        .finish(finish),
-        .goal_sig(goal_sig),
-        .max_episode(max_episode),
-        .max_step(max_step),
-        .rst(rst),
-        .seed(seed),
-        .sel_act(sel_act),
-        .start(start));
-endmodule
-
-(* ORIG_REF_NAME = "CU" *) 
 module system_CU_0_0_CU
    (finish,
     Q,
@@ -1654,6 +1587,72 @@ module system_CU_0_0_CU
         .I3(in7[1]),
         .I4(\FSM_onehot_cs_reg_n_0_[0] ),
         .O(sel_act_carry_i_8_n_0));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "system_CU_0_0,CU,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "CU,Vivado 2021.1" *) 
+(* NotValidForBitStream *)
+module system_CU_0_0
+   (clk,
+    rst,
+    start,
+    max_step,
+    max_episode,
+    seed,
+    goal_sig,
+    sel_act,
+    act_random,
+    PG,
+    QA,
+    SD,
+    RD,
+    finish);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rst;
+  input start;
+  input [15:0]max_step;
+  input [15:0]max_episode;
+  input [15:0]seed;
+  input goal_sig;
+  output sel_act;
+  output [1:0]act_random;
+  output PG;
+  output QA;
+  output SD;
+  output RD;
+  output finish;
+
+  wire PG;
+  wire QA;
+  wire RD;
+  wire SD;
+  wire [1:0]act_random;
+  wire clk;
+  wire finish;
+  wire goal_sig;
+  wire [15:0]max_episode;
+  wire [15:0]max_step;
+  wire rst;
+  wire [15:0]seed;
+  wire sel_act;
+  wire start;
+
+  system_CU_0_0_CU inst
+       (.PG(PG),
+        .Q(act_random[1]),
+        .QA(QA),
+        .RD(RD),
+        .SD(SD),
+        .act_random(act_random[0]),
+        .clk(clk),
+        .finish(finish),
+        .goal_sig(goal_sig),
+        .max_episode(max_episode),
+        .max_step(max_step),
+        .rst(rst),
+        .seed(seed),
+        .sel_act(sel_act),
+        .start(start));
 endmodule
 `ifndef GLBL
 `define GLBL
