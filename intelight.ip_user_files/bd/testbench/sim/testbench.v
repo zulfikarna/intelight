@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-//Date        : Tue Mar 22 12:36:14 2022
+//Date        : Tue Mar 22 16:41:01 2022
 //Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 //Command     : generate_target testbench.bd
 //Design      : testbench
@@ -622,6 +622,7 @@ module testbench
     delta_t,
     finish,
     gamma,
+    goal_sig,
     init_panjang_r0,
     init_panjang_r1,
     init_panjang_r2,
@@ -634,7 +635,12 @@ module testbench
     reward_3,
     rst,
     seed,
-    start);
+    sel_act,
+    start,
+    state,
+    wire_cs,
+    wire_ec,
+    wire_sc);
   output PG;
   output QA;
   output RD;
@@ -651,6 +657,7 @@ module testbench
   input [2:0]delta_t;
   output finish;
   input [2:0]gamma;
+  output goal_sig;
   input [31:0]init_panjang_r0;
   input [31:0]init_panjang_r1;
   input [31:0]init_panjang_r2;
@@ -663,7 +670,12 @@ module testbench
   input [31:0]reward_3;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RST RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RST, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input rst;
   input [15:0]seed;
+  output sel_act;
   input start;
+  output [31:0]state;
+  output [3:0]wire_cs;
+  output [15:0]wire_ec;
+  output [15:0]wire_sc;
 
   wire [1:0]AGENT_act;
   wire CU_0_RD;
@@ -671,6 +683,9 @@ module testbench
   wire [1:0]CU_0_act_random;
   wire CU_0_finish;
   wire CU_0_sel_act;
+  wire [3:0]CU_0_wire_cs;
+  wire [15:0]CU_0_wire_ec;
+  wire [15:0]CU_0_wire_sc;
   wire [31:0]EV_curr_reward;
   wire EV_goal_sig;
   wire [31:0]EV_state;
@@ -728,6 +743,7 @@ module testbench
   assign delta_t_0_1 = delta_t[2:0];
   assign finish = CU_0_finish;
   assign gamma_0_1 = gamma[2:0];
+  assign goal_sig = EV_goal_sig;
   assign init_panjang_r0_0_1 = init_panjang_r0[31:0];
   assign init_panjang_r1_0_1 = init_panjang_r1[31:0];
   assign init_panjang_r2_0_1 = init_panjang_r2[31:0];
@@ -740,7 +756,12 @@ module testbench
   assign reward_3_0_1 = reward_3[31:0];
   assign rst_0_1 = rst;
   assign seed_0_1 = seed[15:0];
+  assign sel_act = CU_0_sel_act;
   assign start_0_1 = start;
+  assign state[31:0] = EV_state;
+  assign wire_cs[3:0] = CU_0_wire_cs;
+  assign wire_ec[15:0] = CU_0_wire_ec;
+  assign wire_sc[15:0] = CU_0_wire_sc;
   AGENT_imp_N4KR90 AGENT
        (.act(AGENT_act),
         .act_rand(CU_0_act_random),
@@ -771,7 +792,10 @@ module testbench
         .rst(rst_0_1),
         .seed(seed_0_1),
         .sel_act(CU_0_sel_act),
-        .start(start_0_1));
+        .start(start_0_1),
+        .wire_cs(CU_0_wire_cs),
+        .wire_ec(CU_0_wire_ec),
+        .wire_sc(CU_0_wire_sc));
   EV_imp_1OQLYJF EV
        (.act(AGENT_act),
         .batas_0(batas_0_0_1),

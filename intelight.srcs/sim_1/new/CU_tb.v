@@ -4,7 +4,6 @@
 // Engineer: 13218029 Zulfikar N. A.
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module CU_tb();
     reg clk, rst, start;
     // From Processing System 
@@ -25,6 +24,7 @@ module CU_tb();
     // for debugging
     wire [15:0] wire_ec;
     wire [15:0] wire_sc;
+    wire [3:0] wire_cs;
     
     CU dut0(
         .clk(clk), 
@@ -40,6 +40,7 @@ module CU_tb();
         .QA(QA),
         .SD(SD),
         .RD(RD),
+        .wire_cs(wire_cs),
         .wire_ec(wire_ec),
         .wire_sc(wire_sc),
         .finish(finish) 
@@ -57,10 +58,22 @@ module CU_tb();
         max_step = 16'd20;
         max_episode = 16'd200;
         seed = 16'd10;
+        goal_sig = 1'b0;
+        #20;
+        rst = 1'b0;
         start = 1'b1;
-        #100;
-        start = 1'b0;
-        #10000;
+        #20;
         goal_sig = 1'b1;
+        #1000;
+        start = 1'b0;
     end
+    
+//    always @(*) begin 
+//        if (wire_cs == 4'd3) begin
+//            #40;
+//            goal_sig = !goal_sig;
+//        end
+//        #20;
+//        goal_sig = !goal_sig;
+//    end
 endmodule

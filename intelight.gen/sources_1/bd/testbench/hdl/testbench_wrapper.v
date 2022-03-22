@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-//Date        : Tue Mar 22 12:53:23 2022
+//Date        : Tue Mar 22 16:41:01 2022
 //Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 //Command     : generate_target testbench_wrapper.bd
 //Design      : testbench_wrapper
@@ -26,6 +26,7 @@ module testbench_wrapper
     delta_t,
     finish,
     gamma,
+    goal_sig,
     init_panjang_r0,
     init_panjang_r1,
     init_panjang_r2,
@@ -38,7 +39,12 @@ module testbench_wrapper
     reward_3,
     rst,
     seed,
-    start);
+    sel_act,
+    start,
+    state,
+    wire_cs,
+    wire_ec,
+    wire_sc);
   output PG;
   output QA;
   output RD;
@@ -55,6 +61,7 @@ module testbench_wrapper
   input [2:0]delta_t;
   output finish;
   input [2:0]gamma;
+  output goal_sig;
   input [31:0]init_panjang_r0;
   input [31:0]init_panjang_r1;
   input [31:0]init_panjang_r2;
@@ -67,7 +74,12 @@ module testbench_wrapper
   input [31:0]reward_3;
   input rst;
   input [15:0]seed;
+  output sel_act;
   input start;
+  output [31:0]state;
+  output [3:0]wire_cs;
+  output [15:0]wire_ec;
+  output [15:0]wire_sc;
 
   wire PG;
   wire QA;
@@ -85,6 +97,7 @@ module testbench_wrapper
   wire [2:0]delta_t;
   wire finish;
   wire [2:0]gamma;
+  wire goal_sig;
   wire [31:0]init_panjang_r0;
   wire [31:0]init_panjang_r1;
   wire [31:0]init_panjang_r2;
@@ -97,7 +110,12 @@ module testbench_wrapper
   wire [31:0]reward_3;
   wire rst;
   wire [15:0]seed;
+  wire sel_act;
   wire start;
+  wire [31:0]state;
+  wire [3:0]wire_cs;
+  wire [15:0]wire_ec;
+  wire [15:0]wire_sc;
 
   testbench testbench_i
        (.PG(PG),
@@ -116,6 +134,7 @@ module testbench_wrapper
         .delta_t(delta_t),
         .finish(finish),
         .gamma(gamma),
+        .goal_sig(goal_sig),
         .init_panjang_r0(init_panjang_r0),
         .init_panjang_r1(init_panjang_r1),
         .init_panjang_r2(init_panjang_r2),
@@ -128,5 +147,10 @@ module testbench_wrapper
         .reward_3(reward_3),
         .rst(rst),
         .seed(seed),
-        .start(start));
+        .sel_act(sel_act),
+        .start(start),
+        .state(state),
+        .wire_cs(wire_cs),
+        .wire_ec(wire_ec),
+        .wire_sc(wire_sc));
 endmodule

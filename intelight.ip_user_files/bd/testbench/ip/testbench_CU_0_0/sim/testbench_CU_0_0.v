@@ -68,6 +68,9 @@ module testbench_CU_0_0 (
   QA,
   SD,
   RD,
+  wire_sc,
+  wire_ec,
+  wire_cs,
   finish
 );
 
@@ -88,6 +91,9 @@ output wire PG;
 output wire QA;
 output wire SD;
 output wire RD;
+output wire [15 : 0] wire_sc;
+output wire [15 : 0] wire_ec;
+output wire [3 : 0] wire_cs;
 output wire finish;
 
   CU inst (
@@ -104,6 +110,9 @@ output wire finish;
     .QA(QA),
     .SD(SD),
     .RD(RD),
+    .wire_sc(wire_sc),
+    .wire_ec(wire_ec),
+    .wire_cs(wire_cs),
     .finish(finish)
   );
 endmodule

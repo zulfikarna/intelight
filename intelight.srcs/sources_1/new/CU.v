@@ -29,10 +29,12 @@ module CU(
     output wire QA,
     output wire SD,
     output wire RD,
+        // for debugging 
+    output wire [15:0] wire_sc,
+    output wire [15:0] wire_ec,
+    output wire [3:0] wire_cs,
     output reg finish
-    // for debugging 
-//    output wire [15:0] wire_sc,
-//    output wire [15:0] wire_ec
+
     );
     
     // State variable for FSM implementation 
@@ -121,7 +123,7 @@ module CU(
     // Step and Episode Counter Machine 
     always@(posedge clk) begin
         // Step Counter
-        if((cs == S_L0)) begin
+        if((cs == S_L3)) begin
             sc = sc + 1;
         end else if (cs == S_INIT) begin
             sc = 16'd0;
@@ -131,7 +133,7 @@ module CU(
         // Episode Counter 
         if(cs == S_IDLE) begin
             ec = 16'd0;
-        end else if (cs == S_L1) begin
+        end else if (cs == S_L7) begin
             ec = ec + 16'd1;
         end else begin
             ec = ec;
@@ -149,7 +151,7 @@ module CU(
     
     // Control signal generator
     reg [3:0] ctrl_sig;
-    always begin
+    always @(*) begin
         // Format Control Signal : |SD|PG|RD|QA| 
         case(cs)
             S_L0 :
@@ -169,8 +171,7 @@ module CU(
             S_L7 :
                 ctrl_sig = 4'b0000;
             default
-                ctrl_sig = 4'b0000;
-                
+                ctrl_sig = 4'b0000;       
         endcase
     end
     
@@ -193,4 +194,7 @@ module CU(
     assign RD = ctrl_sig[1];
     assign QA = ctrl_sig[0];
     
+    assign wire_cs = cs;
+    assign wire_ec = ec;
+    assign wire_sc = sc;    
 endmodule

@@ -188,6 +188,6 @@ module gsg(
     assign sel1 = (next_state[7:0]==8'h55);
     assign sel2 = (next_state[7:0]==8'hAA);
     assign sel3 = (next_state[7:0]==8'hFF);
-    assign sel = sel0 && sel1 && sel2 && sel3;
+    assign sel = sel0 | sel1 | sel2 | sel3 | 1'b0;
     mux2to1_2bit mux0(.in0(0), .in1(1), .sel(sel), .out0(goal_sig));
 endmodule

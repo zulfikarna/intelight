@@ -3,81 +3,81 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="system_wrapper_tb_behav.wdb" id="1">
+      <db_ref path="testbench_wrapper_tb_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
-            <top_module name="system_wrapper_tb" />
+            <top_module name="testbench_wrapper_tb" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="108.930 ns"></ZoomStartTime>
-      <ZoomEndTime time="719.931 ns"></ZoomEndTime>
-      <Cursor1Time time="357.430 ns"></Cursor1Time>
+      <ZoomStartTime time="1,125.693334 us"></ZoomStartTime>
+      <ZoomEndTime time="1,146.253335 us"></ZoomEndTime>
+      <Cursor1Time time="1,129.120000 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="219"></NameColumnWidth>
-      <ValueColumnWidth column_width="95"></ValueColumnWidth>
+      <ValueColumnWidth column_width="80"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="15" />
-   <wvobject fp_name="/system_wrapper_tb/clk" type="logic">
+   <wvobject fp_name="/testbench_wrapper_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/system_wrapper_tb/rst" type="logic">
+   <wvobject fp_name="/testbench_wrapper_tb/rst" type="logic">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
-   <wvobject fp_name="/system_wrapper_tb/start" type="logic">
+   <wvobject fp_name="/testbench_wrapper_tb/seed" type="array">
+      <obj_property name="ElementShortName">seed[15:0]</obj_property>
+      <obj_property name="ObjectShortName">seed[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_wrapper_tb/start" type="logic">
       <obj_property name="ElementShortName">start</obj_property>
       <obj_property name="ObjectShortName">start</obj_property>
    </wvobject>
-   <wvobject fp_name="/system_wrapper_tb/curr_state" type="array">
-      <obj_property name="ElementShortName">curr_state[31:0]</obj_property>
-      <obj_property name="ObjectShortName">curr_state[31:0]</obj_property>
+   <wvobject fp_name="/testbench_wrapper_tb/PG" type="logic">
+      <obj_property name="ElementShortName">PG</obj_property>
+      <obj_property name="ObjectShortName">PG</obj_property>
    </wvobject>
-   <wvobject fp_name="/system_wrapper_tb/next_state" type="array">
-      <obj_property name="ElementShortName">next_state[31:0]</obj_property>
-      <obj_property name="ObjectShortName">next_state[31:0]</obj_property>
+   <wvobject fp_name="/testbench_wrapper_tb/QA" type="logic">
+      <obj_property name="ElementShortName">QA</obj_property>
+      <obj_property name="ObjectShortName">QA</obj_property>
    </wvobject>
-   <wvobject fp_name="/system_wrapper_tb/new_qA" type="array">
-      <obj_property name="ElementShortName">new_qA[31:0]</obj_property>
-      <obj_property name="ObjectShortName">new_qA[31:0]</obj_property>
+   <wvobject fp_name="/testbench_wrapper_tb/RD" type="logic">
+      <obj_property name="ElementShortName">RD</obj_property>
+      <obj_property name="ObjectShortName">RD</obj_property>
    </wvobject>
-   <wvobject fp_name="/system_wrapper_tb/act" type="array">
-      <obj_property name="ElementShortName">act[1:0]</obj_property>
-      <obj_property name="ObjectShortName">act[1:0]</obj_property>
+   <wvobject fp_name="/testbench_wrapper_tb/SD" type="logic">
+      <obj_property name="ElementShortName">SD</obj_property>
+      <obj_property name="ObjectShortName">SD</obj_property>
    </wvobject>
-   <wvobject fp_name="/system_wrapper_tb/curr_qA0" type="array">
-      <obj_property name="ElementShortName">curr_qA0[31:0]</obj_property>
-      <obj_property name="ObjectShortName">curr_qA0[31:0]</obj_property>
+   <wvobject fp_name="/testbench_wrapper_tb/finish" type="logic">
+      <obj_property name="ElementShortName">finish</obj_property>
+      <obj_property name="ObjectShortName">finish</obj_property>
    </wvobject>
-   <wvobject fp_name="/system_wrapper_tb/curr_qA1" type="array">
-      <obj_property name="ElementShortName">curr_qA1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">curr_qA1[31:0]</obj_property>
+   <wvobject fp_name="/testbench_wrapper_tb/wire_cs" type="array">
+      <obj_property name="ElementShortName">wire_cs[3:0]</obj_property>
+      <obj_property name="ObjectShortName">wire_cs[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/system_wrapper_tb/curr_qA2" type="array">
-      <obj_property name="ElementShortName">curr_qA2[31:0]</obj_property>
-      <obj_property name="ObjectShortName">curr_qA2[31:0]</obj_property>
+   <wvobject fp_name="/testbench_wrapper_tb/wire_ec" type="array">
+      <obj_property name="ElementShortName">wire_ec[15:0]</obj_property>
+      <obj_property name="ObjectShortName">wire_ec[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/system_wrapper_tb/curr_qA3" type="array">
-      <obj_property name="ElementShortName">curr_qA3[31:0]</obj_property>
-      <obj_property name="ObjectShortName">curr_qA3[31:0]</obj_property>
+   <wvobject fp_name="/testbench_wrapper_tb/wire_sc" type="array">
+      <obj_property name="ElementShortName">wire_sc[15:0]</obj_property>
+      <obj_property name="ObjectShortName">wire_sc[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/system_wrapper_tb/q_next_0" type="array">
-      <obj_property name="ElementShortName">q_next_0[31:0]</obj_property>
-      <obj_property name="ObjectShortName">q_next_0[31:0]</obj_property>
+   <wvobject fp_name="/testbench_wrapper_tb/goal_sig" type="logic">
+      <obj_property name="ElementShortName">goal_sig</obj_property>
+      <obj_property name="ObjectShortName">goal_sig</obj_property>
    </wvobject>
-   <wvobject fp_name="/system_wrapper_tb/q_next_1" type="array">
-      <obj_property name="ElementShortName">q_next_1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">q_next_1[31:0]</obj_property>
+   <wvobject fp_name="/testbench_wrapper_tb/state" type="array">
+      <obj_property name="ElementShortName">state[31:0]</obj_property>
+      <obj_property name="ObjectShortName">state[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/system_wrapper_tb/q_next_2" type="array">
-      <obj_property name="ElementShortName">q_next_2[31:0]</obj_property>
-      <obj_property name="ObjectShortName">q_next_2[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/system_wrapper_tb/q_next_3" type="array">
-      <obj_property name="ElementShortName">q_next_3[31:0]</obj_property>
-      <obj_property name="ObjectShortName">q_next_3[31:0]</obj_property>
+   <wvobject fp_name="/testbench_wrapper_tb/sel_act" type="logic">
+      <obj_property name="ElementShortName">sel_act</obj_property>
+      <obj_property name="ObjectShortName">sel_act</obj_property>
    </wvobject>
 </wave_config>

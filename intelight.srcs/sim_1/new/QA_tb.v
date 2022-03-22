@@ -26,8 +26,8 @@ module QA_tb();
     //dut
     QA dut(
         // for debugging
-        .max_next_qA(max_next_qA),
-        .chos_curr_qA(chos_curr_qA),
+        //.max_next_qA(max_next_qA),
+        //.chos_curr_qA(chos_curr_qA),
         //----
         .clk(clk),
         .rst(rst),
@@ -43,41 +43,41 @@ module QA_tb();
         .reward(reward)
     );
     
-    //clock
-    always begin
-        clk = 1'b0;
-        #10;
-        clk = 1'b1;
-        #10;
-    end
+//    //clock
+//    always begin
+//        clk = 1'b0;
+//        #10;
+//        clk = 1'b1;
+//        #10;
+//    end
     
-    //initial rst
-    initial begin
-        en = 1'b1;
-        rst = 1'b1;
-        #10;
-        rst = 1'b0;
-    end
+//    //initial rst
+//    initial begin
+//        en = 1'b1;
+//        rst = 1'b1;
+//        #10;
+//        rst = 1'b0;
+//    end
     
-    // initial next Q value 
-    initial begin
-        act = 2'd2;
-        alpha = 3'd4; // alpha = 100 = 0.5
-        gamma = 3'd5; // gamma = 101 = 0.5 + 0.125 = 0.625
-        reward = -31'd50;
-        #1;
-        next_qA0 = 32'd1;
-        next_qA1 = 32'd60;
-        next_qA2 = -32'd70;
-        next_qA3 = 32'd80;
-    end
+//    // initial next Q value 
+//    initial begin
+//        act = 2'd2;
+//        alpha = 3'd4; // alpha = 100 = 0.5
+//        gamma = 3'd5; // gamma = 101 = 0.5 + 0.125 = 0.625
+//        reward = -31'd50;
+//        #1;
+//        next_qA0 = 32'd1;
+//        next_qA1 = 32'd60;
+//        next_qA2 = -32'd70;
+//        next_qA3 = 32'd80;
+//    end
     
-    // data updating
-    always @(posedge clk) begin
-        #1;
-        next_qA0 = next_qA0<<1;
-        next_qA1 = next_qA1-INC;
-        next_qA2 = next_qA2+INC;
-        next_qA3 = next_qA3>>1;        
-    end
+//    // data updating
+//    always @(posedge clk) begin
+//        #1;
+//        next_qA0 = next_qA0<<1;
+//        next_qA1 = next_qA1-INC;
+//        next_qA2 = next_qA2+INC;
+//        next_qA3 = next_qA3>>1;        
+//    end
 endmodule

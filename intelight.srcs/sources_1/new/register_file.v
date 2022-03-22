@@ -44,7 +44,7 @@ module reg3_32bit(
     reg_32bit reg0(.clk(clk), .rst(rst), .in0(in0), .out0(wire0));
     reg_32bit reg1(.clk(clk), .rst(rst), .in0(wire0), .out0(wire1));
     reg_32bit reg2(.clk(clk), .rst(rst), .in0(wire1), .out0(w_out0));
-    always begin 
+    always @(*) begin 
         out0 <= w_out0;
     end
 endmodule
@@ -73,7 +73,7 @@ module reg2_2bit(
     wire [1:0] w_out0;
     reg_2bit reg0(.clk(clk), .rst(rst), .in0(in0), .out0(wire0));
     reg_2bit reg1(.clk(clk), .rst(rst), .in0(wire0), .out0(w_out0));
-    always begin
+    always @(*)begin
         out0 <= w_out0;
     end
 endmodule

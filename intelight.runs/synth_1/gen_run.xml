@@ -126,13 +126,13 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="system_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_rst_ps7_0_50M_1"/>
   <BlockFileSet Type="BlockSrcs" Name="system_axi_bram_ctrl_0_3"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_rst_ps7_0_50M_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_processing_system7_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_SD_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_axi_bram_ctrl_0_5"/>
   <BlockFileSet Type="BlockSrcs" Name="system_bram_interface_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_intelight_mem_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_axi_bram_ctrl_0_5"/>
   <BlockFileSet Type="BlockSrcs" Name="system_axi_bram_ctrl_0_2"/>
   <BlockFileSet Type="BlockSrcs" Name="system_xbar_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_axi_bram_ctrl_0_4"/>
