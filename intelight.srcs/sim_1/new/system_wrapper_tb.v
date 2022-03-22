@@ -52,7 +52,7 @@ module system_wrapper_tb();
   wire [1:0] act_greed;
   wire [31:0] next_state;
   
-  system dut(
+  system_wrapper dut(
         .act(act),
         .act_rand(act_rand),
         .sel_act(sel_act),

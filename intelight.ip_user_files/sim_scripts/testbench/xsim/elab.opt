@@ -1,0 +1,1 @@
+--incr --debug typical --relax --mt auto -L xil_defaultlib -L xlconstant_v1_1_7 -L blk_mem_gen_v8_4_4 -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot testbench xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log
