@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x2103030B7FA9E32",
+      "boundary_crc": "0x726656AFA4C3E93E",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../intelight.gen/sources_1/bd/testbench",
       "name": "testbench",
@@ -40,6 +40,7 @@
         }
       },
       "bram_interface_0": "",
+      "enabler4_32bit_0": "",
       "CU_0": ""
     },
     "ports": {
@@ -234,6 +235,136 @@
       },
       "sel_act": {
         "direction": "O"
+      },
+      "level_r0": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "level_r1": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "level_r2": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "level_r3": {
+        "direction": "O",
+        "left": "7",
+        "right": "0"
+      },
+      "panjang_w0": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "panjang_w1": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "panjang_w2": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "panjang_w3": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "panjang_r0": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "panjang_r1": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "panjang_r2": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "panjang_r3": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "act": {
+        "direction": "O",
+        "left": "1",
+        "right": "0"
+      },
+      "act_greed": {
+        "direction": "O",
+        "left": "1",
+        "right": "0"
+      },
+      "q_next_3": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "q_next_0": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "q_next_1": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "q_next_2": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "new_qA": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "rd_addr": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "wr_addr": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "en0": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "en1": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "en2": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "en3": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "act_random": {
+        "direction": "O",
+        "left": "1",
+        "right": "0"
       }
     },
     "components": {
@@ -305,6 +436,11 @@
           },
           "en_QA": {
             "direction": "I"
+          },
+          "act_greed_0": {
+            "direction": "O",
+            "left": "1",
+            "right": "0"
           }
         },
         "components": {
@@ -504,6 +640,12 @@
               "QA_0/act"
             ]
           },
+          "PG_0_act_greed": {
+            "ports": [
+              "PG_0/act_greed",
+              "act_greed_0"
+            ]
+          },
           "QA_0_new_qA": {
             "ports": [
               "QA_0/new_qA",
@@ -681,6 +823,66 @@
           },
           "en_RD": {
             "direction": "I"
+          },
+          "level_r0_0": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "level_r1_0": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "level_r2_0": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "level_r3_0": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "panjang_w0_0": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "panjang_w1_0": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "panjang_w2_0": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "panjang_w3_0": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "panjang_r0_0": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "panjang_r1_0": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "panjang_r2_0": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "panjang_r3_0": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
           }
         },
         "components": {
@@ -905,6 +1107,26 @@
                 "direction": "O",
                 "left": "31",
                 "right": "0"
+              },
+              "level_r0": {
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              },
+              "level_r1": {
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              },
+              "level_r2": {
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              },
+              "level_r3": {
+                "direction": "O",
+                "left": "7",
+                "right": "0"
               }
             }
           }
@@ -921,6 +1143,78 @@
             "ports": [
               "RD_0/reward",
               "curr_reward"
+            ]
+          },
+          "SD_0_level_r0": {
+            "ports": [
+              "SD_0/level_r0",
+              "level_r0_0"
+            ]
+          },
+          "SD_0_level_r1": {
+            "ports": [
+              "SD_0/level_r1",
+              "level_r1_0"
+            ]
+          },
+          "SD_0_level_r2": {
+            "ports": [
+              "SD_0/level_r2",
+              "level_r2_0"
+            ]
+          },
+          "SD_0_level_r3": {
+            "ports": [
+              "SD_0/level_r3",
+              "level_r3_0"
+            ]
+          },
+          "SD_0_panjang_r0": {
+            "ports": [
+              "SD_0/panjang_r0",
+              "panjang_r0_0"
+            ]
+          },
+          "SD_0_panjang_r1": {
+            "ports": [
+              "SD_0/panjang_r1",
+              "panjang_r1_0"
+            ]
+          },
+          "SD_0_panjang_r2": {
+            "ports": [
+              "SD_0/panjang_r2",
+              "panjang_r2_0"
+            ]
+          },
+          "SD_0_panjang_r3": {
+            "ports": [
+              "SD_0/panjang_r3",
+              "panjang_r3_0"
+            ]
+          },
+          "SD_0_panjang_w0": {
+            "ports": [
+              "SD_0/panjang_w0",
+              "panjang_w0_0"
+            ]
+          },
+          "SD_0_panjang_w1": {
+            "ports": [
+              "SD_0/panjang_w1",
+              "panjang_w1_0"
+            ]
+          },
+          "SD_0_panjang_w2": {
+            "ports": [
+              "SD_0/panjang_w2",
+              "panjang_w2_0"
+            ]
+          },
+          "SD_0_panjang_w3": {
+            "ports": [
+              "SD_0/panjang_w3",
+              "panjang_w3_0"
             ]
           },
           "SD_0_sig_goal": {
@@ -1210,6 +1504,12 @@
                   "Memory_Type": {
                     "value": "True_Dual_Port_RAM"
                   },
+                  "Operating_Mode_A": {
+                    "value": "READ_FIRST"
+                  },
+                  "Operating_Mode_B": {
+                    "value": "READ_FIRST"
+                  },
                   "Port_B_Clock": {
                     "value": "100"
                   },
@@ -1244,7 +1544,7 @@
                     "value": "32"
                   },
                   "use_bram_block": {
-                    "value": "BRAM_Controller"
+                    "value": "Stand_Alone"
                   }
                 }
               },
@@ -1406,6 +1706,12 @@
                   "Memory_Type": {
                     "value": "True_Dual_Port_RAM"
                   },
+                  "Operating_Mode_A": {
+                    "value": "READ_FIRST"
+                  },
+                  "Operating_Mode_B": {
+                    "value": "READ_FIRST"
+                  },
                   "Port_B_Clock": {
                     "value": "100"
                   },
@@ -1440,7 +1746,7 @@
                     "value": "32"
                   },
                   "use_bram_block": {
-                    "value": "BRAM_Controller"
+                    "value": "Stand_Alone"
                   }
                 }
               },
@@ -1602,6 +1908,12 @@
                   "Memory_Type": {
                     "value": "True_Dual_Port_RAM"
                   },
+                  "Operating_Mode_A": {
+                    "value": "READ_FIRST"
+                  },
+                  "Operating_Mode_B": {
+                    "value": "READ_FIRST"
+                  },
                   "Port_B_Clock": {
                     "value": "100"
                   },
@@ -1636,7 +1948,7 @@
                     "value": "32"
                   },
                   "use_bram_block": {
-                    "value": "BRAM_Controller"
+                    "value": "Stand_Alone"
                   }
                 }
               },
@@ -1824,6 +2136,12 @@
                   "Memory_Type": {
                     "value": "True_Dual_Port_RAM"
                   },
+                  "Operating_Mode_A": {
+                    "value": "READ_FIRST"
+                  },
+                  "Operating_Mode_B": {
+                    "value": "READ_FIRST"
+                  },
                   "Port_B_Clock": {
                     "value": "100"
                   },
@@ -1858,7 +2176,7 @@
                     "value": "32"
                   },
                   "use_bram_block": {
-                    "value": "BRAM_Controller"
+                    "value": "Stand_Alone"
                   }
                 }
               }
@@ -2121,6 +2439,62 @@
           }
         }
       },
+      "enabler4_32bit_0": {
+        "vlnv": "xilinx.com:module_ref:enabler4_32bit:1.0",
+        "xci_name": "testbench_enabler4_32bit_0_0",
+        "xci_path": "ip\\testbench_enabler4_32bit_0_0\\testbench_enabler4_32bit_0_0.xci",
+        "inst_hier_path": "enabler4_32bit_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "enabler4_32bit",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "en": {
+            "direction": "I"
+          },
+          "in0": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "in1": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "in2": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "in3": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "out0": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "out1": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "out2": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "out3": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          }
+        }
+      },
       "CU_0": {
         "vlnv": "xilinx.com:module_ref:CU:1.0",
         "xci_name": "testbench_CU_0_0",
@@ -2221,7 +2595,14 @@
         "ports": [
           "AGENT/act",
           "EV/act",
+          "act",
           "bram_interface_0/act"
+        ]
+      },
+      "AGENT_act_greed_0": {
+        "ports": [
+          "AGENT/act_greed_0",
+          "act_greed"
         ]
       },
       "CU_0_RD": {
@@ -2235,13 +2616,15 @@
         "ports": [
           "CU_0/SD",
           "EV/en_SD",
-          "SD"
+          "SD",
+          "enabler4_32bit_0/en"
         ]
       },
       "CU_0_act_random": {
         "ports": [
           "CU_0/act_random",
-          "AGENT/act_rand"
+          "AGENT/act_rand",
+          "act_random"
         ]
       },
       "CU_0_finish": {
@@ -2288,11 +2671,107 @@
           "CU_0/goal_sig"
         ]
       },
+      "EV_level_r0_0": {
+        "ports": [
+          "EV/level_r0_0",
+          "level_r0"
+        ]
+      },
+      "EV_level_r1_0": {
+        "ports": [
+          "EV/level_r1_0",
+          "level_r1"
+        ]
+      },
+      "EV_level_r2_0": {
+        "ports": [
+          "EV/level_r2_0",
+          "level_r2"
+        ]
+      },
+      "EV_level_r3_0": {
+        "ports": [
+          "EV/level_r3_0",
+          "level_r3"
+        ]
+      },
+      "EV_panjang_r0_0": {
+        "ports": [
+          "EV/panjang_r0_0",
+          "panjang_r0"
+        ]
+      },
+      "EV_panjang_r1_0": {
+        "ports": [
+          "EV/panjang_r1_0",
+          "panjang_r1"
+        ]
+      },
+      "EV_panjang_r2_0": {
+        "ports": [
+          "EV/panjang_r2_0",
+          "panjang_r2"
+        ]
+      },
+      "EV_panjang_r3_0": {
+        "ports": [
+          "EV/panjang_r3_0",
+          "panjang_r3"
+        ]
+      },
+      "EV_panjang_w0_0": {
+        "ports": [
+          "EV/panjang_w0_0",
+          "panjang_w0"
+        ]
+      },
+      "EV_panjang_w1_0": {
+        "ports": [
+          "EV/panjang_w1_0",
+          "panjang_w1"
+        ]
+      },
+      "EV_panjang_w2_0": {
+        "ports": [
+          "EV/panjang_w2_0",
+          "panjang_w2"
+        ]
+      },
+      "EV_panjang_w3_0": {
+        "ports": [
+          "EV/panjang_w3_0",
+          "panjang_w3"
+        ]
+      },
       "EV_state": {
         "ports": [
           "EV/state",
-          "bram_interface_0/next_state",
-          "state"
+          "state",
+          "bram_interface_0/next_state"
+        ]
+      },
+      "RAM_Block_q_next_0": {
+        "ports": [
+          "RAM_Block/q_next_0",
+          "enabler4_32bit_0/in0"
+        ]
+      },
+      "RAM_Block_q_next_1": {
+        "ports": [
+          "RAM_Block/q_next_1",
+          "enabler4_32bit_0/in1"
+        ]
+      },
+      "RAM_Block_q_next_2": {
+        "ports": [
+          "RAM_Block/q_next_2",
+          "enabler4_32bit_0/in2"
+        ]
+      },
+      "RAM_Block_q_next_3": {
+        "ports": [
+          "RAM_Block/q_next_3",
+          "enabler4_32bit_0/in3"
         ]
       },
       "alpha_0_1": {
@@ -2322,13 +2801,15 @@
       "bram_interface_0_rd_addr": {
         "ports": [
           "bram_interface_0/rd_addr",
-          "RAM_Block/addrb"
+          "RAM_Block/addrb",
+          "rd_addr"
         ]
       },
       "bram_interface_0_wr_addr": {
         "ports": [
           "bram_interface_0/wr_addr",
-          "RAM_Block/addra"
+          "RAM_Block/addra",
+          "wr_addr"
         ]
       },
       "clk_0_1": {
@@ -2430,31 +2911,36 @@
       "q_new_1": {
         "ports": [
           "AGENT/new_qA",
-          "RAM_Block/q_new"
+          "RAM_Block/q_new",
+          "new_qA"
         ]
       },
       "q_next_0_1": {
         "ports": [
-          "RAM_Block/q_next_0",
-          "AGENT/q_next_0"
+          "enabler4_32bit_0/out0",
+          "AGENT/q_next_0",
+          "q_next_0"
         ]
       },
       "q_next_1_1": {
         "ports": [
-          "RAM_Block/q_next_1",
-          "AGENT/q_next_1"
+          "enabler4_32bit_0/out1",
+          "AGENT/q_next_1",
+          "q_next_1"
         ]
       },
       "q_next_2_1": {
         "ports": [
-          "RAM_Block/q_next_2",
-          "AGENT/q_next_2"
+          "enabler4_32bit_0/out2",
+          "AGENT/q_next_2",
+          "q_next_2"
         ]
       },
       "q_next_3_1": {
         "ports": [
-          "RAM_Block/q_next_3",
-          "AGENT/q_next_3"
+          "enabler4_32bit_0/out3",
+          "AGENT/q_next_3",
+          "q_next_3"
         ]
       },
       "reward_0_0_1": {
@@ -2506,25 +2992,29 @@
       "wea_0_1": {
         "ports": [
           "bram_interface_0/en0",
-          "RAM_Block/wea_0"
+          "RAM_Block/wea_0",
+          "en0"
         ]
       },
       "wea_1_1": {
         "ports": [
           "bram_interface_0/en1",
-          "RAM_Block/wea_1"
+          "RAM_Block/wea_1",
+          "en1"
         ]
       },
       "wea_2_1": {
         "ports": [
           "bram_interface_0/en2",
-          "RAM_Block/wea_2"
+          "RAM_Block/wea_2",
+          "en2"
         ]
       },
       "wea_3_1": {
         "ports": [
           "bram_interface_0/en3",
-          "RAM_Block/wea_3"
+          "RAM_Block/wea_3",
+          "en3"
         ]
       }
     }

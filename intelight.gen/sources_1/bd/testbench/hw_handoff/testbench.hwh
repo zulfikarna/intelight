@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Mar 22 16:41:01 2022" VIVADOVERSION="2021.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Mar 23 19:24:00 2022" VIVADOVERSION="2021.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="testbench" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -221,6 +221,136 @@
         <CONNECTION INSTANCE="CU_0" PORT="sel_act"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="O" LEFT="7" NAME="level_r0" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_level_r0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="EV_SD_0" PORT="level_r0"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="7" NAME="level_r1" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_level_r1">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="EV_SD_0" PORT="level_r1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="7" NAME="level_r2" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_level_r2">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="EV_SD_0" PORT="level_r2"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="7" NAME="level_r3" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_level_r3">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="EV_SD_0" PORT="level_r3"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="31" NAME="panjang_w0" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_panjang_w0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="EV_SD_0" PORT="panjang_w0"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="31" NAME="panjang_w1" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_panjang_w1">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="EV_SD_0" PORT="panjang_w1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="31" NAME="panjang_w2" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_panjang_w2">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="EV_SD_0" PORT="panjang_w2"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="31" NAME="panjang_w3" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_panjang_w3">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="EV_SD_0" PORT="panjang_w3"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="31" NAME="panjang_r0" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_panjang_r0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="EV_SD_0" PORT="panjang_r0"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="31" NAME="panjang_r1" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_panjang_r1">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="EV_SD_0" PORT="panjang_r1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="31" NAME="panjang_r2" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_panjang_r2">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="EV_SD_0" PORT="panjang_r2"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="31" NAME="panjang_r3" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_panjang_r3">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="EV_SD_0" PORT="panjang_r3"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="1" NAME="act" RIGHT="0" SIGIS="undef" SIGNAME="AGENT_PG_0_act">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="AGENT_PG_0" PORT="act"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="1" NAME="act_greed" RIGHT="0" SIGIS="undef" SIGNAME="AGENT_PG_0_act_greed">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="AGENT_PG_0" PORT="act_greed"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="31" NAME="q_next_3" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out3">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="enabler4_32bit_0" PORT="out3"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="31" NAME="q_next_0" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="enabler4_32bit_0" PORT="out0"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="31" NAME="q_next_1" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out1">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="enabler4_32bit_0" PORT="out1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="31" NAME="q_next_2" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out2">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="enabler4_32bit_0" PORT="out2"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="31" NAME="new_qA" RIGHT="0" SIGIS="undef" SIGNAME="AGENT_QA_0_new_qA">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="AGENT_QA_0" PORT="new_qA"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="31" NAME="rd_addr" RIGHT="0" SIGIS="undef" SIGNAME="bram_interface_0_rd_addr">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="bram_interface_0" PORT="rd_addr"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="31" NAME="wr_addr" RIGHT="0" SIGIS="undef" SIGNAME="bram_interface_0_wr_addr">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="bram_interface_0" PORT="wr_addr"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="3" NAME="en0" RIGHT="0" SIGIS="undef" SIGNAME="bram_interface_0_en0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="bram_interface_0" PORT="en0"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="3" NAME="en1" RIGHT="0" SIGIS="undef" SIGNAME="bram_interface_0_en1">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="bram_interface_0" PORT="en1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="3" NAME="en2" RIGHT="0" SIGIS="undef" SIGNAME="bram_interface_0_en2">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="bram_interface_0" PORT="en2"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="3" NAME="en3" RIGHT="0" SIGIS="undef" SIGNAME="bram_interface_0_en3">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="bram_interface_0" PORT="en3"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="1" NAME="act_random" RIGHT="0" SIGIS="undef" SIGNAME="CU_0_act_random">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="CU_0" PORT="act_random"/>
+      </CONNECTIONS>
+    </PORT>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES/>
@@ -248,24 +378,24 @@
             <CONNECTION INSTANCE="CU_0" PORT="PG"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="qA0" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Block_RAM_0_Action_RAM_0_doutb">
+        <PORT DIR="I" LEFT="31" NAME="qA0" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out0">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="RAM_Block_RAM_0_Action_RAM_0" PORT="doutb"/>
+            <CONNECTION INSTANCE="enabler4_32bit_0" PORT="out0"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="qA1" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Block_RAM_1_Action_RAM_1_doutb">
+        <PORT DIR="I" LEFT="31" NAME="qA1" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out1">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="RAM_Block_RAM_1_Action_RAM_1" PORT="doutb"/>
+            <CONNECTION INSTANCE="enabler4_32bit_0" PORT="out1"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="qA2" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Block_RAM_2_Action_RAM_2_doutb">
+        <PORT DIR="I" LEFT="31" NAME="qA2" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out2">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="RAM_Block_RAM_2_Action_RAM_2" PORT="doutb"/>
+            <CONNECTION INSTANCE="enabler4_32bit_0" PORT="out2"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="qA3" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Block_RAM_3_Action_RAM_3_doutb">
+        <PORT DIR="I" LEFT="31" NAME="qA3" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out3">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="RAM_Block_RAM_3_Action_RAM_3" PORT="doutb"/>
+            <CONNECTION INSTANCE="enabler4_32bit_0" PORT="out3"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="sel" SIGIS="undef" SIGNAME="CU_0_sel_act">
@@ -282,11 +412,16 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="EV_RD_0" PORT="act"/>
             <CONNECTION INSTANCE="EV_SD_0" PORT="act"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="act"/>
             <CONNECTION INSTANCE="bram_interface_0" PORT="act"/>
             <CONNECTION INSTANCE="AGENT_QA_0" PORT="act"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="1" NAME="act_greed" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="1" NAME="act_greed" RIGHT="0" SIGIS="undef" SIGNAME="AGENT_PG_0_act_greed">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="act_greed"/>
+          </CONNECTIONS>
+        </PORT>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
@@ -312,24 +447,24 @@
             <CONNECTION INSTANCE="CU_0" PORT="QA"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="next_qA0" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Block_RAM_0_Action_RAM_0_doutb">
+        <PORT DIR="I" LEFT="31" NAME="next_qA0" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out0">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="RAM_Block_RAM_0_Action_RAM_0" PORT="doutb"/>
+            <CONNECTION INSTANCE="enabler4_32bit_0" PORT="out0"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="next_qA1" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Block_RAM_1_Action_RAM_1_doutb">
+        <PORT DIR="I" LEFT="31" NAME="next_qA1" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out1">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="RAM_Block_RAM_1_Action_RAM_1" PORT="doutb"/>
+            <CONNECTION INSTANCE="enabler4_32bit_0" PORT="out1"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="next_qA2" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Block_RAM_2_Action_RAM_2_doutb">
+        <PORT DIR="I" LEFT="31" NAME="next_qA2" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out2">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="RAM_Block_RAM_2_Action_RAM_2" PORT="doutb"/>
+            <CONNECTION INSTANCE="enabler4_32bit_0" PORT="out2"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="next_qA3" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Block_RAM_3_Action_RAM_3_doutb">
+        <PORT DIR="I" LEFT="31" NAME="next_qA3" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out3">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="RAM_Block_RAM_3_Action_RAM_3" PORT="doutb"/>
+            <CONNECTION INSTANCE="enabler4_32bit_0" PORT="out3"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="new_qA" RIGHT="0" SIGIS="undef" SIGNAME="AGENT_QA_0_new_qA">
@@ -342,6 +477,7 @@
             <CONNECTION INSTANCE="RAM_Block_RAM_3_Action_RAM_3" PORT="dina"/>
             <CONNECTION INSTANCE="RAM_Block_RAM_0_Action_RAM_0" PORT="dina"/>
             <CONNECTION INSTANCE="RAM_Block_RAM_0_PL_RAM_0" PORT="dina"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="new_qA"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="1" NAME="act" RIGHT="0" SIGIS="undef" SIGNAME="AGENT_PG_0_act">
@@ -418,6 +554,7 @@
         <PORT DIR="O" LEFT="1" NAME="act_random" RIGHT="0" SIGIS="undef" SIGNAME="CU_0_act_random">
           <CONNECTIONS>
             <CONNECTION INSTANCE="AGENT_PG_0" PORT="act_random"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="act_random"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="PG" SIGIS="undef" SIGNAME="CU_0_PG">
@@ -436,6 +573,7 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="EV_SD_0" PORT="en"/>
             <CONNECTION INSTANCE="External_Ports" PORT="SD"/>
+            <CONNECTION INSTANCE="enabler4_32bit_0" PORT="en"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="RD" SIGIS="undef" SIGNAME="CU_0_RD">
@@ -616,8 +754,8 @@
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="next_state" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_next_state">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="bram_interface_0" PORT="next_state"/>
             <CONNECTION INSTANCE="External_Ports" PORT="state"/>
+            <CONNECTION INSTANCE="bram_interface_0" PORT="next_state"/>
             <CONNECTION INSTANCE="EV_RD_0" PORT="state"/>
           </CONNECTIONS>
         </PORT>
@@ -627,14 +765,66 @@
             <CONNECTION INSTANCE="CU_0" PORT="goal_sig"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="panjang_r0" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="31" NAME="panjang_r1" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="31" NAME="panjang_r2" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="31" NAME="panjang_r3" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="31" NAME="panjang_w0" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="31" NAME="panjang_w1" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="31" NAME="panjang_w2" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="31" NAME="panjang_w3" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="31" NAME="panjang_r0" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_panjang_r0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="panjang_r0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="panjang_r1" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_panjang_r1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="panjang_r1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="panjang_r2" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_panjang_r2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="panjang_r2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="panjang_r3" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_panjang_r3">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="panjang_r3"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="panjang_w0" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_panjang_w0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="panjang_w0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="panjang_w1" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_panjang_w1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="panjang_w1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="panjang_w2" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_panjang_w2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="panjang_w2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="panjang_w3" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_panjang_w3">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="panjang_w3"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="level_r0" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_level_r0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="level_r0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="level_r1" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_level_r1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="level_r1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="level_r2" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_level_r2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="level_r2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="level_r3" RIGHT="0" SIGIS="undef" SIGNAME="EV_SD_0_level_r3">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="level_r3"/>
+          </CONNECTIONS>
+        </PORT>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
@@ -649,7 +839,7 @@
         <PARAMETER NAME="C_INTERFACE_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_AXI_TYPE" VALUE="1"/>
         <PARAMETER NAME="C_AXI_SLAVE_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_USE_BRAM_BLOCK" VALUE="1"/>
+        <PARAMETER NAME="C_USE_BRAM_BLOCK" VALUE="0"/>
         <PARAMETER NAME="C_ENABLE_32BIT_ADDRESS" VALUE="1"/>
         <PARAMETER NAME="C_CTRL_ECC_ALGO" VALUE="NONE"/>
         <PARAMETER NAME="C_HAS_AXI_ID" VALUE="0"/>
@@ -671,7 +861,7 @@
         <PARAMETER NAME="C_HAS_REGCEA" VALUE="0"/>
         <PARAMETER NAME="C_USE_BYTE_WEA" VALUE="1"/>
         <PARAMETER NAME="C_WEA_WIDTH" VALUE="4"/>
-        <PARAMETER NAME="C_WRITE_MODE_A" VALUE="WRITE_FIRST"/>
+        <PARAMETER NAME="C_WRITE_MODE_A" VALUE="READ_FIRST"/>
         <PARAMETER NAME="C_WRITE_WIDTH_A" VALUE="32"/>
         <PARAMETER NAME="C_READ_WIDTH_A" VALUE="32"/>
         <PARAMETER NAME="C_WRITE_DEPTH_A" VALUE="2048"/>
@@ -685,7 +875,7 @@
         <PARAMETER NAME="C_HAS_REGCEB" VALUE="0"/>
         <PARAMETER NAME="C_USE_BYTE_WEB" VALUE="1"/>
         <PARAMETER NAME="C_WEB_WIDTH" VALUE="4"/>
-        <PARAMETER NAME="C_WRITE_MODE_B" VALUE="WRITE_FIRST"/>
+        <PARAMETER NAME="C_WRITE_MODE_B" VALUE="READ_FIRST"/>
         <PARAMETER NAME="C_WRITE_WIDTH_B" VALUE="32"/>
         <PARAMETER NAME="C_READ_WIDTH_B" VALUE="32"/>
         <PARAMETER NAME="C_WRITE_DEPTH_B" VALUE="2048"/>
@@ -717,7 +907,7 @@
         <PARAMETER NAME="C_DISABLE_WARN_BHV_RANGE" VALUE="0"/>
         <PARAMETER NAME="C_COUNT_36K_BRAM" VALUE="2"/>
         <PARAMETER NAME="C_COUNT_18K_BRAM" VALUE="0"/>
-        <PARAMETER NAME="C_EST_POWER_SUMMARY" VALUE="Estimated Power for IP     :     10.7492 mW"/>
+        <PARAMETER NAME="C_EST_POWER_SUMMARY" VALUE="Estimated Power for IP     :     11.415999 mW"/>
         <PARAMETER NAME="Component_Name" VALUE="testbench_Action_RAM_0_0"/>
         <PARAMETER NAME="Interface_Type" VALUE="Native"/>
         <PARAMETER NAME="AXI_Type" VALUE="AXI4_Full"/>
@@ -746,11 +936,11 @@
         <PARAMETER NAME="Write_Width_A" VALUE="32"/>
         <PARAMETER NAME="Write_Depth_A" VALUE="2048"/>
         <PARAMETER NAME="Read_Width_A" VALUE="32"/>
-        <PARAMETER NAME="Operating_Mode_A" VALUE="WRITE_FIRST"/>
+        <PARAMETER NAME="Operating_Mode_A" VALUE="READ_FIRST"/>
         <PARAMETER NAME="Enable_A" VALUE="Use_ENA_Pin"/>
         <PARAMETER NAME="Write_Width_B" VALUE="32"/>
         <PARAMETER NAME="Read_Width_B" VALUE="32"/>
-        <PARAMETER NAME="Operating_Mode_B" VALUE="WRITE_FIRST"/>
+        <PARAMETER NAME="Operating_Mode_B" VALUE="READ_FIRST"/>
         <PARAMETER NAME="Enable_B" VALUE="Use_ENB_Pin"/>
         <PARAMETER NAME="Register_PortA_Output_of_Memory_Primitives" VALUE="false"/>
         <PARAMETER NAME="Register_PortA_Output_of_Memory_Core" VALUE="false"/>
@@ -784,7 +974,7 @@
         <PARAMETER NAME="Collision_Warnings" VALUE="ALL"/>
         <PARAMETER NAME="Disable_Collision_Warnings" VALUE="false"/>
         <PARAMETER NAME="Disable_Out_of_Range_Warnings" VALUE="false"/>
-        <PARAMETER NAME="use_bram_block" VALUE="BRAM_Controller"/>
+        <PARAMETER NAME="use_bram_block" VALUE="Stand_Alone"/>
         <PARAMETER NAME="MEM_FILE" VALUE="NONE"/>
         <PARAMETER NAME="CTRL_ECC_ALGO" VALUE="NONE"/>
         <PARAMETER NAME="EN_SAFETY_CKT" VALUE="true"/>
@@ -852,8 +1042,7 @@
         <PORT DIR="I" LEFT="31" NAME="dinb" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" LEFT="31" NAME="doutb" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Block_RAM_0_Action_RAM_0_doutb">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="AGENT_PG_0" PORT="qA0"/>
-            <CONNECTION INSTANCE="AGENT_QA_0" PORT="next_qA0"/>
+            <CONNECTION INSTANCE="enabler4_32bit_0" PORT="in0"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="rsta_busy" SIGIS="undef"/>
@@ -864,7 +1053,7 @@
           <PARAMETER NAME="MEM_SIZE" VALUE="8192"/>
           <PARAMETER NAME="MEM_WIDTH" VALUE="32"/>
           <PARAMETER NAME="MEM_ECC" VALUE="NONE"/>
-          <PARAMETER NAME="MASTER_TYPE" VALUE="BRAM_CTRL"/>
+          <PARAMETER NAME="MASTER_TYPE" VALUE="OTHER"/>
           <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
           <PARAMETER NAME="READ_LATENCY" VALUE="1"/>
           <PORTMAPS>
@@ -881,7 +1070,7 @@
           <PARAMETER NAME="MEM_SIZE" VALUE="8192"/>
           <PARAMETER NAME="MEM_WIDTH" VALUE="32"/>
           <PARAMETER NAME="MEM_ECC" VALUE="NONE"/>
-          <PARAMETER NAME="MASTER_TYPE" VALUE="BRAM_CTRL"/>
+          <PARAMETER NAME="MASTER_TYPE" VALUE="OTHER"/>
           <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
           <PARAMETER NAME="READ_LATENCY" VALUE="1"/>
           <PORTMAPS>
@@ -1148,7 +1337,7 @@
         <PARAMETER NAME="C_INTERFACE_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_AXI_TYPE" VALUE="1"/>
         <PARAMETER NAME="C_AXI_SLAVE_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_USE_BRAM_BLOCK" VALUE="1"/>
+        <PARAMETER NAME="C_USE_BRAM_BLOCK" VALUE="0"/>
         <PARAMETER NAME="C_ENABLE_32BIT_ADDRESS" VALUE="1"/>
         <PARAMETER NAME="C_CTRL_ECC_ALGO" VALUE="NONE"/>
         <PARAMETER NAME="C_HAS_AXI_ID" VALUE="0"/>
@@ -1170,7 +1359,7 @@
         <PARAMETER NAME="C_HAS_REGCEA" VALUE="0"/>
         <PARAMETER NAME="C_USE_BYTE_WEA" VALUE="1"/>
         <PARAMETER NAME="C_WEA_WIDTH" VALUE="4"/>
-        <PARAMETER NAME="C_WRITE_MODE_A" VALUE="WRITE_FIRST"/>
+        <PARAMETER NAME="C_WRITE_MODE_A" VALUE="READ_FIRST"/>
         <PARAMETER NAME="C_WRITE_WIDTH_A" VALUE="32"/>
         <PARAMETER NAME="C_READ_WIDTH_A" VALUE="32"/>
         <PARAMETER NAME="C_WRITE_DEPTH_A" VALUE="2048"/>
@@ -1184,7 +1373,7 @@
         <PARAMETER NAME="C_HAS_REGCEB" VALUE="0"/>
         <PARAMETER NAME="C_USE_BYTE_WEB" VALUE="1"/>
         <PARAMETER NAME="C_WEB_WIDTH" VALUE="4"/>
-        <PARAMETER NAME="C_WRITE_MODE_B" VALUE="WRITE_FIRST"/>
+        <PARAMETER NAME="C_WRITE_MODE_B" VALUE="READ_FIRST"/>
         <PARAMETER NAME="C_WRITE_WIDTH_B" VALUE="32"/>
         <PARAMETER NAME="C_READ_WIDTH_B" VALUE="32"/>
         <PARAMETER NAME="C_WRITE_DEPTH_B" VALUE="2048"/>
@@ -1216,7 +1405,7 @@
         <PARAMETER NAME="C_DISABLE_WARN_BHV_RANGE" VALUE="0"/>
         <PARAMETER NAME="C_COUNT_36K_BRAM" VALUE="2"/>
         <PARAMETER NAME="C_COUNT_18K_BRAM" VALUE="0"/>
-        <PARAMETER NAME="C_EST_POWER_SUMMARY" VALUE="Estimated Power for IP     :     10.7492 mW"/>
+        <PARAMETER NAME="C_EST_POWER_SUMMARY" VALUE="Estimated Power for IP     :     11.415999 mW"/>
         <PARAMETER NAME="Component_Name" VALUE="testbench_Action_RAM_1_0"/>
         <PARAMETER NAME="Interface_Type" VALUE="Native"/>
         <PARAMETER NAME="AXI_Type" VALUE="AXI4_Full"/>
@@ -1245,11 +1434,11 @@
         <PARAMETER NAME="Write_Width_A" VALUE="32"/>
         <PARAMETER NAME="Write_Depth_A" VALUE="2048"/>
         <PARAMETER NAME="Read_Width_A" VALUE="32"/>
-        <PARAMETER NAME="Operating_Mode_A" VALUE="WRITE_FIRST"/>
+        <PARAMETER NAME="Operating_Mode_A" VALUE="READ_FIRST"/>
         <PARAMETER NAME="Enable_A" VALUE="Use_ENA_Pin"/>
         <PARAMETER NAME="Write_Width_B" VALUE="32"/>
         <PARAMETER NAME="Read_Width_B" VALUE="32"/>
-        <PARAMETER NAME="Operating_Mode_B" VALUE="WRITE_FIRST"/>
+        <PARAMETER NAME="Operating_Mode_B" VALUE="READ_FIRST"/>
         <PARAMETER NAME="Enable_B" VALUE="Use_ENB_Pin"/>
         <PARAMETER NAME="Register_PortA_Output_of_Memory_Primitives" VALUE="false"/>
         <PARAMETER NAME="Register_PortA_Output_of_Memory_Core" VALUE="false"/>
@@ -1283,7 +1472,7 @@
         <PARAMETER NAME="Collision_Warnings" VALUE="ALL"/>
         <PARAMETER NAME="Disable_Collision_Warnings" VALUE="false"/>
         <PARAMETER NAME="Disable_Out_of_Range_Warnings" VALUE="false"/>
-        <PARAMETER NAME="use_bram_block" VALUE="BRAM_Controller"/>
+        <PARAMETER NAME="use_bram_block" VALUE="Stand_Alone"/>
         <PARAMETER NAME="MEM_FILE" VALUE="NONE"/>
         <PARAMETER NAME="CTRL_ECC_ALGO" VALUE="NONE"/>
         <PARAMETER NAME="EN_SAFETY_CKT" VALUE="true"/>
@@ -1351,8 +1540,7 @@
         <PORT DIR="I" LEFT="31" NAME="dinb" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" LEFT="31" NAME="doutb" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Block_RAM_1_Action_RAM_1_doutb">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="AGENT_PG_0" PORT="qA1"/>
-            <CONNECTION INSTANCE="AGENT_QA_0" PORT="next_qA1"/>
+            <CONNECTION INSTANCE="enabler4_32bit_0" PORT="in1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="rsta_busy" SIGIS="undef"/>
@@ -1363,7 +1551,7 @@
           <PARAMETER NAME="MEM_SIZE" VALUE="8192"/>
           <PARAMETER NAME="MEM_WIDTH" VALUE="32"/>
           <PARAMETER NAME="MEM_ECC" VALUE="NONE"/>
-          <PARAMETER NAME="MASTER_TYPE" VALUE="BRAM_CTRL"/>
+          <PARAMETER NAME="MASTER_TYPE" VALUE="OTHER"/>
           <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
           <PARAMETER NAME="READ_LATENCY" VALUE="1"/>
           <PORTMAPS>
@@ -1380,7 +1568,7 @@
           <PARAMETER NAME="MEM_SIZE" VALUE="8192"/>
           <PARAMETER NAME="MEM_WIDTH" VALUE="32"/>
           <PARAMETER NAME="MEM_ECC" VALUE="NONE"/>
-          <PARAMETER NAME="MASTER_TYPE" VALUE="BRAM_CTRL"/>
+          <PARAMETER NAME="MASTER_TYPE" VALUE="OTHER"/>
           <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
           <PARAMETER NAME="READ_LATENCY" VALUE="1"/>
           <PORTMAPS>
@@ -1647,7 +1835,7 @@
         <PARAMETER NAME="C_INTERFACE_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_AXI_TYPE" VALUE="1"/>
         <PARAMETER NAME="C_AXI_SLAVE_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_USE_BRAM_BLOCK" VALUE="1"/>
+        <PARAMETER NAME="C_USE_BRAM_BLOCK" VALUE="0"/>
         <PARAMETER NAME="C_ENABLE_32BIT_ADDRESS" VALUE="1"/>
         <PARAMETER NAME="C_CTRL_ECC_ALGO" VALUE="NONE"/>
         <PARAMETER NAME="C_HAS_AXI_ID" VALUE="0"/>
@@ -1669,7 +1857,7 @@
         <PARAMETER NAME="C_HAS_REGCEA" VALUE="0"/>
         <PARAMETER NAME="C_USE_BYTE_WEA" VALUE="1"/>
         <PARAMETER NAME="C_WEA_WIDTH" VALUE="4"/>
-        <PARAMETER NAME="C_WRITE_MODE_A" VALUE="WRITE_FIRST"/>
+        <PARAMETER NAME="C_WRITE_MODE_A" VALUE="READ_FIRST"/>
         <PARAMETER NAME="C_WRITE_WIDTH_A" VALUE="32"/>
         <PARAMETER NAME="C_READ_WIDTH_A" VALUE="32"/>
         <PARAMETER NAME="C_WRITE_DEPTH_A" VALUE="2048"/>
@@ -1683,7 +1871,7 @@
         <PARAMETER NAME="C_HAS_REGCEB" VALUE="0"/>
         <PARAMETER NAME="C_USE_BYTE_WEB" VALUE="1"/>
         <PARAMETER NAME="C_WEB_WIDTH" VALUE="4"/>
-        <PARAMETER NAME="C_WRITE_MODE_B" VALUE="WRITE_FIRST"/>
+        <PARAMETER NAME="C_WRITE_MODE_B" VALUE="READ_FIRST"/>
         <PARAMETER NAME="C_WRITE_WIDTH_B" VALUE="32"/>
         <PARAMETER NAME="C_READ_WIDTH_B" VALUE="32"/>
         <PARAMETER NAME="C_WRITE_DEPTH_B" VALUE="2048"/>
@@ -1715,7 +1903,7 @@
         <PARAMETER NAME="C_DISABLE_WARN_BHV_RANGE" VALUE="0"/>
         <PARAMETER NAME="C_COUNT_36K_BRAM" VALUE="2"/>
         <PARAMETER NAME="C_COUNT_18K_BRAM" VALUE="0"/>
-        <PARAMETER NAME="C_EST_POWER_SUMMARY" VALUE="Estimated Power for IP     :     10.7492 mW"/>
+        <PARAMETER NAME="C_EST_POWER_SUMMARY" VALUE="Estimated Power for IP     :     11.415999 mW"/>
         <PARAMETER NAME="Component_Name" VALUE="testbench_Action_RAM_2_0"/>
         <PARAMETER NAME="Interface_Type" VALUE="Native"/>
         <PARAMETER NAME="AXI_Type" VALUE="AXI4_Full"/>
@@ -1744,11 +1932,11 @@
         <PARAMETER NAME="Write_Width_A" VALUE="32"/>
         <PARAMETER NAME="Write_Depth_A" VALUE="2048"/>
         <PARAMETER NAME="Read_Width_A" VALUE="32"/>
-        <PARAMETER NAME="Operating_Mode_A" VALUE="WRITE_FIRST"/>
+        <PARAMETER NAME="Operating_Mode_A" VALUE="READ_FIRST"/>
         <PARAMETER NAME="Enable_A" VALUE="Use_ENA_Pin"/>
         <PARAMETER NAME="Write_Width_B" VALUE="32"/>
         <PARAMETER NAME="Read_Width_B" VALUE="32"/>
-        <PARAMETER NAME="Operating_Mode_B" VALUE="WRITE_FIRST"/>
+        <PARAMETER NAME="Operating_Mode_B" VALUE="READ_FIRST"/>
         <PARAMETER NAME="Enable_B" VALUE="Use_ENB_Pin"/>
         <PARAMETER NAME="Register_PortA_Output_of_Memory_Primitives" VALUE="false"/>
         <PARAMETER NAME="Register_PortA_Output_of_Memory_Core" VALUE="false"/>
@@ -1782,7 +1970,7 @@
         <PARAMETER NAME="Collision_Warnings" VALUE="ALL"/>
         <PARAMETER NAME="Disable_Collision_Warnings" VALUE="false"/>
         <PARAMETER NAME="Disable_Out_of_Range_Warnings" VALUE="false"/>
-        <PARAMETER NAME="use_bram_block" VALUE="BRAM_Controller"/>
+        <PARAMETER NAME="use_bram_block" VALUE="Stand_Alone"/>
         <PARAMETER NAME="MEM_FILE" VALUE="NONE"/>
         <PARAMETER NAME="CTRL_ECC_ALGO" VALUE="NONE"/>
         <PARAMETER NAME="EN_SAFETY_CKT" VALUE="true"/>
@@ -1850,8 +2038,7 @@
         <PORT DIR="I" LEFT="31" NAME="dinb" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" LEFT="31" NAME="doutb" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Block_RAM_2_Action_RAM_2_doutb">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="AGENT_PG_0" PORT="qA2"/>
-            <CONNECTION INSTANCE="AGENT_QA_0" PORT="next_qA2"/>
+            <CONNECTION INSTANCE="enabler4_32bit_0" PORT="in2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="rsta_busy" SIGIS="undef"/>
@@ -1862,7 +2049,7 @@
           <PARAMETER NAME="MEM_SIZE" VALUE="8192"/>
           <PARAMETER NAME="MEM_WIDTH" VALUE="32"/>
           <PARAMETER NAME="MEM_ECC" VALUE="NONE"/>
-          <PARAMETER NAME="MASTER_TYPE" VALUE="BRAM_CTRL"/>
+          <PARAMETER NAME="MASTER_TYPE" VALUE="OTHER"/>
           <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
           <PARAMETER NAME="READ_LATENCY" VALUE="1"/>
           <PORTMAPS>
@@ -1879,7 +2066,7 @@
           <PARAMETER NAME="MEM_SIZE" VALUE="8192"/>
           <PARAMETER NAME="MEM_WIDTH" VALUE="32"/>
           <PARAMETER NAME="MEM_ECC" VALUE="NONE"/>
-          <PARAMETER NAME="MASTER_TYPE" VALUE="BRAM_CTRL"/>
+          <PARAMETER NAME="MASTER_TYPE" VALUE="OTHER"/>
           <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
           <PARAMETER NAME="READ_LATENCY" VALUE="1"/>
           <PORTMAPS>
@@ -2146,7 +2333,7 @@
         <PARAMETER NAME="C_INTERFACE_TYPE" VALUE="0"/>
         <PARAMETER NAME="C_AXI_TYPE" VALUE="1"/>
         <PARAMETER NAME="C_AXI_SLAVE_TYPE" VALUE="0"/>
-        <PARAMETER NAME="C_USE_BRAM_BLOCK" VALUE="1"/>
+        <PARAMETER NAME="C_USE_BRAM_BLOCK" VALUE="0"/>
         <PARAMETER NAME="C_ENABLE_32BIT_ADDRESS" VALUE="1"/>
         <PARAMETER NAME="C_CTRL_ECC_ALGO" VALUE="NONE"/>
         <PARAMETER NAME="C_HAS_AXI_ID" VALUE="0"/>
@@ -2168,7 +2355,7 @@
         <PARAMETER NAME="C_HAS_REGCEA" VALUE="0"/>
         <PARAMETER NAME="C_USE_BYTE_WEA" VALUE="1"/>
         <PARAMETER NAME="C_WEA_WIDTH" VALUE="4"/>
-        <PARAMETER NAME="C_WRITE_MODE_A" VALUE="WRITE_FIRST"/>
+        <PARAMETER NAME="C_WRITE_MODE_A" VALUE="READ_FIRST"/>
         <PARAMETER NAME="C_WRITE_WIDTH_A" VALUE="32"/>
         <PARAMETER NAME="C_READ_WIDTH_A" VALUE="32"/>
         <PARAMETER NAME="C_WRITE_DEPTH_A" VALUE="2048"/>
@@ -2182,7 +2369,7 @@
         <PARAMETER NAME="C_HAS_REGCEB" VALUE="0"/>
         <PARAMETER NAME="C_USE_BYTE_WEB" VALUE="1"/>
         <PARAMETER NAME="C_WEB_WIDTH" VALUE="4"/>
-        <PARAMETER NAME="C_WRITE_MODE_B" VALUE="WRITE_FIRST"/>
+        <PARAMETER NAME="C_WRITE_MODE_B" VALUE="READ_FIRST"/>
         <PARAMETER NAME="C_WRITE_WIDTH_B" VALUE="32"/>
         <PARAMETER NAME="C_READ_WIDTH_B" VALUE="32"/>
         <PARAMETER NAME="C_WRITE_DEPTH_B" VALUE="2048"/>
@@ -2214,7 +2401,7 @@
         <PARAMETER NAME="C_DISABLE_WARN_BHV_RANGE" VALUE="0"/>
         <PARAMETER NAME="C_COUNT_36K_BRAM" VALUE="2"/>
         <PARAMETER NAME="C_COUNT_18K_BRAM" VALUE="0"/>
-        <PARAMETER NAME="C_EST_POWER_SUMMARY" VALUE="Estimated Power for IP     :     10.7492 mW"/>
+        <PARAMETER NAME="C_EST_POWER_SUMMARY" VALUE="Estimated Power for IP     :     11.415999 mW"/>
         <PARAMETER NAME="Component_Name" VALUE="testbench_Action_RAM_3_0"/>
         <PARAMETER NAME="Interface_Type" VALUE="Native"/>
         <PARAMETER NAME="AXI_Type" VALUE="AXI4_Full"/>
@@ -2243,11 +2430,11 @@
         <PARAMETER NAME="Write_Width_A" VALUE="32"/>
         <PARAMETER NAME="Write_Depth_A" VALUE="2048"/>
         <PARAMETER NAME="Read_Width_A" VALUE="32"/>
-        <PARAMETER NAME="Operating_Mode_A" VALUE="WRITE_FIRST"/>
+        <PARAMETER NAME="Operating_Mode_A" VALUE="READ_FIRST"/>
         <PARAMETER NAME="Enable_A" VALUE="Use_ENA_Pin"/>
         <PARAMETER NAME="Write_Width_B" VALUE="32"/>
         <PARAMETER NAME="Read_Width_B" VALUE="32"/>
-        <PARAMETER NAME="Operating_Mode_B" VALUE="WRITE_FIRST"/>
+        <PARAMETER NAME="Operating_Mode_B" VALUE="READ_FIRST"/>
         <PARAMETER NAME="Enable_B" VALUE="Use_ENB_Pin"/>
         <PARAMETER NAME="Register_PortA_Output_of_Memory_Primitives" VALUE="false"/>
         <PARAMETER NAME="Register_PortA_Output_of_Memory_Core" VALUE="false"/>
@@ -2281,7 +2468,7 @@
         <PARAMETER NAME="Collision_Warnings" VALUE="ALL"/>
         <PARAMETER NAME="Disable_Collision_Warnings" VALUE="false"/>
         <PARAMETER NAME="Disable_Out_of_Range_Warnings" VALUE="false"/>
-        <PARAMETER NAME="use_bram_block" VALUE="BRAM_Controller"/>
+        <PARAMETER NAME="use_bram_block" VALUE="Stand_Alone"/>
         <PARAMETER NAME="MEM_FILE" VALUE="NONE"/>
         <PARAMETER NAME="CTRL_ECC_ALGO" VALUE="NONE"/>
         <PARAMETER NAME="EN_SAFETY_CKT" VALUE="true"/>
@@ -2349,8 +2536,7 @@
         <PORT DIR="I" LEFT="31" NAME="dinb" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="O" LEFT="31" NAME="doutb" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Block_RAM_3_Action_RAM_3_doutb">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="AGENT_PG_0" PORT="qA3"/>
-            <CONNECTION INSTANCE="AGENT_QA_0" PORT="next_qA3"/>
+            <CONNECTION INSTANCE="enabler4_32bit_0" PORT="in3"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="rsta_busy" SIGIS="undef"/>
@@ -2361,7 +2547,7 @@
           <PARAMETER NAME="MEM_SIZE" VALUE="8192"/>
           <PARAMETER NAME="MEM_WIDTH" VALUE="32"/>
           <PARAMETER NAME="MEM_ECC" VALUE="NONE"/>
-          <PARAMETER NAME="MASTER_TYPE" VALUE="BRAM_CTRL"/>
+          <PARAMETER NAME="MASTER_TYPE" VALUE="OTHER"/>
           <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
           <PARAMETER NAME="READ_LATENCY" VALUE="1"/>
           <PORTMAPS>
@@ -2378,7 +2564,7 @@
           <PARAMETER NAME="MEM_SIZE" VALUE="8192"/>
           <PARAMETER NAME="MEM_WIDTH" VALUE="32"/>
           <PARAMETER NAME="MEM_ECC" VALUE="NONE"/>
-          <PARAMETER NAME="MASTER_TYPE" VALUE="BRAM_CTRL"/>
+          <PARAMETER NAME="MASTER_TYPE" VALUE="OTHER"/>
           <PARAMETER NAME="READ_WRITE_MODE" VALUE="READ_WRITE"/>
           <PARAMETER NAME="READ_LATENCY" VALUE="1"/>
           <PORTMAPS>
@@ -2710,6 +2896,7 @@
             <CONNECTION INSTANCE="RAM_Block_RAM_1_Action_RAM_1" PORT="addrb"/>
             <CONNECTION INSTANCE="RAM_Block_RAM_3_Action_RAM_3" PORT="addrb"/>
             <CONNECTION INSTANCE="RAM_Block_RAM_0_Action_RAM_0" PORT="addrb"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="rd_addr"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="wr_addr" RIGHT="0" SIGIS="undef" SIGNAME="bram_interface_0_wr_addr">
@@ -2722,6 +2909,7 @@
             <CONNECTION INSTANCE="RAM_Block_RAM_3_Action_RAM_3" PORT="addra"/>
             <CONNECTION INSTANCE="RAM_Block_RAM_0_Action_RAM_0" PORT="addra"/>
             <CONNECTION INSTANCE="RAM_Block_RAM_0_PL_RAM_0" PORT="addra"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="wr_addr"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="1" NAME="act" RIGHT="0" SIGIS="undef" SIGNAME="AGENT_PG_0_act">
@@ -2733,24 +2921,91 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="RAM_Block_RAM_0_Action_RAM_0" PORT="wea"/>
             <CONNECTION INSTANCE="RAM_Block_RAM_0_PL_RAM_0" PORT="wea"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="en0"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="3" NAME="en1" RIGHT="0" SIGIS="undef" SIGNAME="bram_interface_0_en1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="RAM_Block_RAM_1_PL_RAM_1" PORT="wea"/>
             <CONNECTION INSTANCE="RAM_Block_RAM_1_Action_RAM_1" PORT="wea"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="en1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="3" NAME="en2" RIGHT="0" SIGIS="undef" SIGNAME="bram_interface_0_en2">
           <CONNECTIONS>
             <CONNECTION INSTANCE="RAM_Block_RAM_2_PL_RAM_2" PORT="wea"/>
             <CONNECTION INSTANCE="RAM_Block_RAM_2_Action_RAM_2" PORT="wea"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="en2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="3" NAME="en3" RIGHT="0" SIGIS="undef" SIGNAME="bram_interface_0_en3">
           <CONNECTIONS>
             <CONNECTION INSTANCE="RAM_Block_RAM_3_PL_RAM_3" PORT="wea"/>
             <CONNECTION INSTANCE="RAM_Block_RAM_3_Action_RAM_3" PORT="wea"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="en3"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/enabler4_32bit_0" HWVERSION="1.0" INSTANCE="enabler4_32bit_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="enabler4_32bit" VLNV="xilinx.com:module_ref:enabler4_32bit:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="testbench_enabler4_32bit_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="en" SIGIS="undef" SIGNAME="CU_0_SD">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="CU_0" PORT="SD"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="in0" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Block_RAM_0_Action_RAM_0_doutb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RAM_Block_RAM_0_Action_RAM_0" PORT="doutb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="in1" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Block_RAM_1_Action_RAM_1_doutb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RAM_Block_RAM_1_Action_RAM_1" PORT="doutb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="in2" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Block_RAM_2_Action_RAM_2_doutb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RAM_Block_RAM_2_Action_RAM_2" PORT="doutb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="in3" RIGHT="0" SIGIS="undef" SIGNAME="RAM_Block_RAM_3_Action_RAM_3_doutb">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="RAM_Block_RAM_3_Action_RAM_3" PORT="doutb"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="out0" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="AGENT_PG_0" PORT="qA0"/>
+            <CONNECTION INSTANCE="AGENT_QA_0" PORT="next_qA0"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="q_next_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="out1" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="AGENT_PG_0" PORT="qA1"/>
+            <CONNECTION INSTANCE="AGENT_QA_0" PORT="next_qA1"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="q_next_1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="out2" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out2">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="AGENT_PG_0" PORT="qA2"/>
+            <CONNECTION INSTANCE="AGENT_QA_0" PORT="next_qA2"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="q_next_2"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="out3" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out3">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="AGENT_PG_0" PORT="qA3"/>
+            <CONNECTION INSTANCE="AGENT_QA_0" PORT="next_qA3"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="q_next_3"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

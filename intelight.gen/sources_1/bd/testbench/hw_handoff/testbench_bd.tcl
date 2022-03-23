@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# CU, bram_interface, PG, QA, RD, SD
+# CU, bram_interface, enabler4_32bit, PG, QA, RD, SD
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -183,6 +183,8 @@ proc create_hier_cell_RAM_3 { parentCell nameHier } {
    CONFIG.Enable_32bit_Address {true} \
    CONFIG.Enable_B {Use_ENB_Pin} \
    CONFIG.Memory_Type {True_Dual_Port_RAM} \
+   CONFIG.Operating_Mode_A {READ_FIRST} \
+   CONFIG.Operating_Mode_B {READ_FIRST} \
    CONFIG.Port_B_Clock {100} \
    CONFIG.Port_B_Enable_Rate {100} \
    CONFIG.Port_B_Write_Rate {50} \
@@ -195,7 +197,7 @@ proc create_hier_cell_RAM_3 { parentCell nameHier } {
    CONFIG.Use_RSTB_Pin {true} \
    CONFIG.Write_Width_A {32} \
    CONFIG.Write_Width_B {32} \
-   CONFIG.use_bram_block {BRAM_Controller} \
+   CONFIG.use_bram_block {Stand_Alone} \
  ] $Action_RAM_3
 
   # Create instance: PL_RAM_3, and set properties
@@ -279,6 +281,8 @@ proc create_hier_cell_RAM_2 { parentCell nameHier } {
    CONFIG.Enable_32bit_Address {true} \
    CONFIG.Enable_B {Use_ENB_Pin} \
    CONFIG.Memory_Type {True_Dual_Port_RAM} \
+   CONFIG.Operating_Mode_A {READ_FIRST} \
+   CONFIG.Operating_Mode_B {READ_FIRST} \
    CONFIG.Port_B_Clock {100} \
    CONFIG.Port_B_Enable_Rate {100} \
    CONFIG.Port_B_Write_Rate {50} \
@@ -291,7 +295,7 @@ proc create_hier_cell_RAM_2 { parentCell nameHier } {
    CONFIG.Use_RSTB_Pin {true} \
    CONFIG.Write_Width_A {32} \
    CONFIG.Write_Width_B {32} \
-   CONFIG.use_bram_block {BRAM_Controller} \
+   CONFIG.use_bram_block {Stand_Alone} \
  ] $Action_RAM_2
 
   # Create instance: PL_RAM_2, and set properties
@@ -375,6 +379,8 @@ proc create_hier_cell_RAM_1 { parentCell nameHier } {
    CONFIG.Enable_32bit_Address {true} \
    CONFIG.Enable_B {Use_ENB_Pin} \
    CONFIG.Memory_Type {True_Dual_Port_RAM} \
+   CONFIG.Operating_Mode_A {READ_FIRST} \
+   CONFIG.Operating_Mode_B {READ_FIRST} \
    CONFIG.Port_B_Clock {100} \
    CONFIG.Port_B_Enable_Rate {100} \
    CONFIG.Port_B_Write_Rate {50} \
@@ -387,7 +393,7 @@ proc create_hier_cell_RAM_1 { parentCell nameHier } {
    CONFIG.Use_RSTB_Pin {true} \
    CONFIG.Write_Width_A {32} \
    CONFIG.Write_Width_B {32} \
-   CONFIG.use_bram_block {BRAM_Controller} \
+   CONFIG.use_bram_block {Stand_Alone} \
  ] $Action_RAM_1
 
   # Create instance: PL_RAM_1, and set properties
@@ -471,6 +477,8 @@ proc create_hier_cell_RAM_0 { parentCell nameHier } {
    CONFIG.Enable_32bit_Address {true} \
    CONFIG.Enable_B {Use_ENB_Pin} \
    CONFIG.Memory_Type {True_Dual_Port_RAM} \
+   CONFIG.Operating_Mode_A {READ_FIRST} \
+   CONFIG.Operating_Mode_B {READ_FIRST} \
    CONFIG.Port_B_Clock {100} \
    CONFIG.Port_B_Enable_Rate {100} \
    CONFIG.Port_B_Write_Rate {50} \
@@ -483,7 +491,7 @@ proc create_hier_cell_RAM_0 { parentCell nameHier } {
    CONFIG.Use_RSTB_Pin {true} \
    CONFIG.Write_Width_A {32} \
    CONFIG.Write_Width_B {32} \
-   CONFIG.use_bram_block {BRAM_Controller} \
+   CONFIG.use_bram_block {Stand_Alone} \
  ] $Action_RAM_0
 
   # Create instance: PL_RAM_0, and set properties
@@ -661,6 +669,18 @@ proc create_hier_cell_EV { parentCell nameHier } {
   create_bd_pin -dir I -from 31 -to 0 init_panjang_r1
   create_bd_pin -dir I -from 31 -to 0 init_panjang_r2
   create_bd_pin -dir I -from 31 -to 0 init_panjang_r3
+  create_bd_pin -dir O -from 7 -to 0 level_r0_0
+  create_bd_pin -dir O -from 7 -to 0 level_r1_0
+  create_bd_pin -dir O -from 7 -to 0 level_r2_0
+  create_bd_pin -dir O -from 7 -to 0 level_r3_0
+  create_bd_pin -dir O -from 31 -to 0 panjang_r0_0
+  create_bd_pin -dir O -from 31 -to 0 panjang_r1_0
+  create_bd_pin -dir O -from 31 -to 0 panjang_r2_0
+  create_bd_pin -dir O -from 31 -to 0 panjang_r3_0
+  create_bd_pin -dir O -from 31 -to 0 panjang_w0_0
+  create_bd_pin -dir O -from 31 -to 0 panjang_w1_0
+  create_bd_pin -dir O -from 31 -to 0 panjang_w2_0
+  create_bd_pin -dir O -from 31 -to 0 panjang_w3_0
   create_bd_pin -dir I -from 31 -to 0 reward_0
   create_bd_pin -dir I -from 31 -to 0 reward_1
   create_bd_pin -dir I -from 31 -to 0 reward_2
@@ -693,6 +713,18 @@ proc create_hier_cell_EV { parentCell nameHier } {
   # Create port connections
   connect_bd_net -net PG_0_act [get_bd_pins act] [get_bd_pins RD_0/act] [get_bd_pins SD_0/act]
   connect_bd_net -net RD_0_reward [get_bd_pins curr_reward] [get_bd_pins RD_0/reward]
+  connect_bd_net -net SD_0_level_r0 [get_bd_pins level_r0_0] [get_bd_pins SD_0/level_r0]
+  connect_bd_net -net SD_0_level_r1 [get_bd_pins level_r1_0] [get_bd_pins SD_0/level_r1]
+  connect_bd_net -net SD_0_level_r2 [get_bd_pins level_r2_0] [get_bd_pins SD_0/level_r2]
+  connect_bd_net -net SD_0_level_r3 [get_bd_pins level_r3_0] [get_bd_pins SD_0/level_r3]
+  connect_bd_net -net SD_0_panjang_r0 [get_bd_pins panjang_r0_0] [get_bd_pins SD_0/panjang_r0]
+  connect_bd_net -net SD_0_panjang_r1 [get_bd_pins panjang_r1_0] [get_bd_pins SD_0/panjang_r1]
+  connect_bd_net -net SD_0_panjang_r2 [get_bd_pins panjang_r2_0] [get_bd_pins SD_0/panjang_r2]
+  connect_bd_net -net SD_0_panjang_r3 [get_bd_pins panjang_r3_0] [get_bd_pins SD_0/panjang_r3]
+  connect_bd_net -net SD_0_panjang_w0 [get_bd_pins panjang_w0_0] [get_bd_pins SD_0/panjang_w0]
+  connect_bd_net -net SD_0_panjang_w1 [get_bd_pins panjang_w1_0] [get_bd_pins SD_0/panjang_w1]
+  connect_bd_net -net SD_0_panjang_w2 [get_bd_pins panjang_w2_0] [get_bd_pins SD_0/panjang_w2]
+  connect_bd_net -net SD_0_panjang_w3 [get_bd_pins panjang_w3_0] [get_bd_pins SD_0/panjang_w3]
   connect_bd_net -net SD_0_sig_goal [get_bd_pins goal_sig] [get_bd_pins SD_0/goal_sig]
   connect_bd_net -net batas_0_0_1 [get_bd_pins batas_0] [get_bd_pins SD_0/batas_0]
   connect_bd_net -net batas_1_0_1 [get_bd_pins batas_1] [get_bd_pins SD_0/batas_1]
@@ -758,6 +790,7 @@ proc create_hier_cell_AGENT { parentCell nameHier } {
 
   # Create pins
   create_bd_pin -dir O -from 1 -to 0 act
+  create_bd_pin -dir O -from 1 -to 0 act_greed_0
   create_bd_pin -dir I -from 1 -to 0 act_rand
   create_bd_pin -dir I -from 2 -to 0 alpha
   create_bd_pin -dir I -type clk clk
@@ -801,6 +834,7 @@ proc create_hier_cell_AGENT { parentCell nameHier } {
   connect_bd_net -net Action_RAM_q_next_2 [get_bd_pins q_next_2] [get_bd_pins PG_0/qA2] [get_bd_pins QA_0/next_qA2]
   connect_bd_net -net Action_RAM_q_next_3 [get_bd_pins q_next_3] [get_bd_pins PG_0/qA3] [get_bd_pins QA_0/next_qA3]
   connect_bd_net -net PG_0_act [get_bd_pins act] [get_bd_pins PG_0/act] [get_bd_pins QA_0/act]
+  connect_bd_net -net PG_0_act_greed [get_bd_pins act_greed_0] [get_bd_pins PG_0/act_greed]
   connect_bd_net -net QA_0_new_qA [get_bd_pins new_qA] [get_bd_pins QA_0/new_qA]
   connect_bd_net -net act_random_0_1 [get_bd_pins act_rand] [get_bd_pins PG_0/act_random]
   connect_bd_net -net alpha_1 [get_bd_pins alpha] [get_bd_pins QA_0/alpha]
@@ -856,6 +890,9 @@ proc create_root_design { parentCell } {
   set QA [ create_bd_port -dir O QA ]
   set RD [ create_bd_port -dir O RD ]
   set SD [ create_bd_port -dir O SD ]
+  set act [ create_bd_port -dir O -from 1 -to 0 act ]
+  set act_greed [ create_bd_port -dir O -from 1 -to 0 act_greed ]
+  set act_random [ create_bd_port -dir O -from 1 -to 0 act_random ]
   set alpha [ create_bd_port -dir I -from 2 -to 0 alpha ]
   set batas_0 [ create_bd_port -dir I -from 31 -to 0 batas_0 ]
   set batas_1 [ create_bd_port -dir I -from 31 -to 0 batas_1 ]
@@ -866,6 +903,10 @@ proc create_root_design { parentCell } {
   set debit_r2 [ create_bd_port -dir I -from 31 -to 0 debit_r2 ]
   set debit_r3 [ create_bd_port -dir I -from 31 -to 0 debit_r3 ]
   set delta_t [ create_bd_port -dir I -from 2 -to 0 delta_t ]
+  set en0 [ create_bd_port -dir O -from 3 -to 0 en0 ]
+  set en1 [ create_bd_port -dir O -from 3 -to 0 en1 ]
+  set en2 [ create_bd_port -dir O -from 3 -to 0 en2 ]
+  set en3 [ create_bd_port -dir O -from 3 -to 0 en3 ]
   set finish [ create_bd_port -dir O finish ]
   set gamma [ create_bd_port -dir I -from 2 -to 0 gamma ]
   set goal_sig [ create_bd_port -dir O goal_sig ]
@@ -873,8 +914,26 @@ proc create_root_design { parentCell } {
   set init_panjang_r1 [ create_bd_port -dir I -from 31 -to 0 init_panjang_r1 ]
   set init_panjang_r2 [ create_bd_port -dir I -from 31 -to 0 init_panjang_r2 ]
   set init_panjang_r3 [ create_bd_port -dir I -from 31 -to 0 init_panjang_r3 ]
+  set level_r0 [ create_bd_port -dir O -from 7 -to 0 level_r0 ]
+  set level_r1 [ create_bd_port -dir O -from 7 -to 0 level_r1 ]
+  set level_r2 [ create_bd_port -dir O -from 7 -to 0 level_r2 ]
+  set level_r3 [ create_bd_port -dir O -from 7 -to 0 level_r3 ]
   set max_episode [ create_bd_port -dir I -from 15 -to 0 max_episode ]
   set max_step [ create_bd_port -dir I -from 15 -to 0 max_step ]
+  set new_qA [ create_bd_port -dir O -from 31 -to 0 new_qA ]
+  set panjang_r0 [ create_bd_port -dir O -from 31 -to 0 panjang_r0 ]
+  set panjang_r1 [ create_bd_port -dir O -from 31 -to 0 panjang_r1 ]
+  set panjang_r2 [ create_bd_port -dir O -from 31 -to 0 panjang_r2 ]
+  set panjang_r3 [ create_bd_port -dir O -from 31 -to 0 panjang_r3 ]
+  set panjang_w0 [ create_bd_port -dir O -from 31 -to 0 panjang_w0 ]
+  set panjang_w1 [ create_bd_port -dir O -from 31 -to 0 panjang_w1 ]
+  set panjang_w2 [ create_bd_port -dir O -from 31 -to 0 panjang_w2 ]
+  set panjang_w3 [ create_bd_port -dir O -from 31 -to 0 panjang_w3 ]
+  set q_next_0 [ create_bd_port -dir O -from 31 -to 0 q_next_0 ]
+  set q_next_1 [ create_bd_port -dir O -from 31 -to 0 q_next_1 ]
+  set q_next_2 [ create_bd_port -dir O -from 31 -to 0 q_next_2 ]
+  set q_next_3 [ create_bd_port -dir O -from 31 -to 0 q_next_3 ]
+  set rd_addr [ create_bd_port -dir O -from 31 -to 0 rd_addr ]
   set reward_0 [ create_bd_port -dir I -from 31 -to 0 reward_0 ]
   set reward_1 [ create_bd_port -dir I -from 31 -to 0 reward_1 ]
   set reward_2 [ create_bd_port -dir I -from 31 -to 0 reward_2 ]
@@ -887,6 +946,7 @@ proc create_root_design { parentCell } {
   set wire_cs [ create_bd_port -dir O -from 3 -to 0 wire_cs ]
   set wire_ec [ create_bd_port -dir O -from 15 -to 0 wire_ec ]
   set wire_sc [ create_bd_port -dir O -from 15 -to 0 wire_sc ]
+  set wr_addr [ create_bd_port -dir O -from 31 -to 0 wr_addr ]
 
   # Create instance: AGENT
   create_hier_cell_AGENT [current_bd_instance .] AGENT
@@ -919,11 +979,23 @@ proc create_root_design { parentCell } {
      return 1
    }
   
+  # Create instance: enabler4_32bit_0, and set properties
+  set block_name enabler4_32bit
+  set block_cell_name enabler4_32bit_0
+  if { [catch {set enabler4_32bit_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $enabler4_32bit_0 eq "" } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create port connections
-  connect_bd_net -net AGENT_act [get_bd_pins AGENT/act] [get_bd_pins EV/act] [get_bd_pins bram_interface_0/act]
+  connect_bd_net -net AGENT_act [get_bd_ports act] [get_bd_pins AGENT/act] [get_bd_pins EV/act] [get_bd_pins bram_interface_0/act]
+  connect_bd_net -net AGENT_act_greed_0 [get_bd_ports act_greed] [get_bd_pins AGENT/act_greed_0]
   connect_bd_net -net CU_0_RD [get_bd_ports RD] [get_bd_pins CU_0/RD] [get_bd_pins EV/en_RD]
-  connect_bd_net -net CU_0_SD [get_bd_ports SD] [get_bd_pins CU_0/SD] [get_bd_pins EV/en_SD]
-  connect_bd_net -net CU_0_act_random [get_bd_pins AGENT/act_rand] [get_bd_pins CU_0/act_random]
+  connect_bd_net -net CU_0_SD [get_bd_ports SD] [get_bd_pins CU_0/SD] [get_bd_pins EV/en_SD] [get_bd_pins enabler4_32bit_0/en]
+  connect_bd_net -net CU_0_act_random [get_bd_ports act_random] [get_bd_pins AGENT/act_rand] [get_bd_pins CU_0/act_random]
   connect_bd_net -net CU_0_finish [get_bd_ports finish] [get_bd_pins CU_0/finish]
   connect_bd_net -net CU_0_sel_act [get_bd_ports sel_act] [get_bd_pins AGENT/sel_act] [get_bd_pins CU_0/sel_act]
   connect_bd_net -net CU_0_wire_cs [get_bd_ports wire_cs] [get_bd_pins CU_0/wire_cs]
@@ -931,13 +1003,29 @@ proc create_root_design { parentCell } {
   connect_bd_net -net CU_0_wire_sc [get_bd_ports wire_sc] [get_bd_pins CU_0/wire_sc]
   connect_bd_net -net EV_curr_reward [get_bd_pins AGENT/reward] [get_bd_pins EV/curr_reward]
   connect_bd_net -net EV_goal_sig [get_bd_ports goal_sig] [get_bd_pins CU_0/goal_sig] [get_bd_pins EV/goal_sig]
+  connect_bd_net -net EV_level_r0_0 [get_bd_ports level_r0] [get_bd_pins EV/level_r0_0]
+  connect_bd_net -net EV_level_r1_0 [get_bd_ports level_r1] [get_bd_pins EV/level_r1_0]
+  connect_bd_net -net EV_level_r2_0 [get_bd_ports level_r2] [get_bd_pins EV/level_r2_0]
+  connect_bd_net -net EV_level_r3_0 [get_bd_ports level_r3] [get_bd_pins EV/level_r3_0]
+  connect_bd_net -net EV_panjang_r0_0 [get_bd_ports panjang_r0] [get_bd_pins EV/panjang_r0_0]
+  connect_bd_net -net EV_panjang_r1_0 [get_bd_ports panjang_r1] [get_bd_pins EV/panjang_r1_0]
+  connect_bd_net -net EV_panjang_r2_0 [get_bd_ports panjang_r2] [get_bd_pins EV/panjang_r2_0]
+  connect_bd_net -net EV_panjang_r3_0 [get_bd_ports panjang_r3] [get_bd_pins EV/panjang_r3_0]
+  connect_bd_net -net EV_panjang_w0_0 [get_bd_ports panjang_w0] [get_bd_pins EV/panjang_w0_0]
+  connect_bd_net -net EV_panjang_w1_0 [get_bd_ports panjang_w1] [get_bd_pins EV/panjang_w1_0]
+  connect_bd_net -net EV_panjang_w2_0 [get_bd_ports panjang_w2] [get_bd_pins EV/panjang_w2_0]
+  connect_bd_net -net EV_panjang_w3_0 [get_bd_ports panjang_w3] [get_bd_pins EV/panjang_w3_0]
   connect_bd_net -net EV_state [get_bd_ports state] [get_bd_pins EV/state] [get_bd_pins bram_interface_0/next_state]
+  connect_bd_net -net RAM_Block_q_next_0 [get_bd_pins RAM_Block/q_next_0] [get_bd_pins enabler4_32bit_0/in0]
+  connect_bd_net -net RAM_Block_q_next_1 [get_bd_pins RAM_Block/q_next_1] [get_bd_pins enabler4_32bit_0/in1]
+  connect_bd_net -net RAM_Block_q_next_2 [get_bd_pins RAM_Block/q_next_2] [get_bd_pins enabler4_32bit_0/in2]
+  connect_bd_net -net RAM_Block_q_next_3 [get_bd_pins RAM_Block/q_next_3] [get_bd_pins enabler4_32bit_0/in3]
   connect_bd_net -net alpha_0_1 [get_bd_ports alpha] [get_bd_pins AGENT/alpha]
   connect_bd_net -net batas_0_0_1 [get_bd_ports batas_0] [get_bd_pins EV/batas_0]
   connect_bd_net -net batas_1_0_1 [get_bd_ports batas_1] [get_bd_pins EV/batas_1]
   connect_bd_net -net batas_2_0_1 [get_bd_ports batas_2] [get_bd_pins EV/batas_2]
-  connect_bd_net -net bram_interface_0_rd_addr [get_bd_pins RAM_Block/addrb] [get_bd_pins bram_interface_0/rd_addr]
-  connect_bd_net -net bram_interface_0_wr_addr [get_bd_pins RAM_Block/addra] [get_bd_pins bram_interface_0/wr_addr]
+  connect_bd_net -net bram_interface_0_rd_addr [get_bd_ports rd_addr] [get_bd_pins RAM_Block/addrb] [get_bd_pins bram_interface_0/rd_addr]
+  connect_bd_net -net bram_interface_0_wr_addr [get_bd_ports wr_addr] [get_bd_pins RAM_Block/addra] [get_bd_pins bram_interface_0/wr_addr]
   connect_bd_net -net clk_0_1 [get_bd_ports clk] [get_bd_pins AGENT/clk] [get_bd_pins CU_0/clk] [get_bd_pins EV/clk] [get_bd_pins RAM_Block/clk_bram] [get_bd_pins bram_interface_0/clk]
   connect_bd_net -net debit_r0_0_1 [get_bd_ports debit_r0] [get_bd_pins EV/debit_r0]
   connect_bd_net -net debit_r1_0_1 [get_bd_ports debit_r1] [get_bd_pins EV/debit_r1]
@@ -953,11 +1041,11 @@ proc create_root_design { parentCell } {
   connect_bd_net -net init_panjang_r3_0_1 [get_bd_ports init_panjang_r3] [get_bd_pins EV/init_panjang_r3]
   connect_bd_net -net max_episode_0_1 [get_bd_ports max_episode] [get_bd_pins CU_0/max_episode]
   connect_bd_net -net max_step_0_1 [get_bd_ports max_step] [get_bd_pins CU_0/max_step]
-  connect_bd_net -net q_new_1 [get_bd_pins AGENT/new_qA] [get_bd_pins RAM_Block/q_new]
-  connect_bd_net -net q_next_0_1 [get_bd_pins AGENT/q_next_0] [get_bd_pins RAM_Block/q_next_0]
-  connect_bd_net -net q_next_1_1 [get_bd_pins AGENT/q_next_1] [get_bd_pins RAM_Block/q_next_1]
-  connect_bd_net -net q_next_2_1 [get_bd_pins AGENT/q_next_2] [get_bd_pins RAM_Block/q_next_2]
-  connect_bd_net -net q_next_3_1 [get_bd_pins AGENT/q_next_3] [get_bd_pins RAM_Block/q_next_3]
+  connect_bd_net -net q_new_1 [get_bd_ports new_qA] [get_bd_pins AGENT/new_qA] [get_bd_pins RAM_Block/q_new]
+  connect_bd_net -net q_next_0_1 [get_bd_ports q_next_0] [get_bd_pins AGENT/q_next_0] [get_bd_pins enabler4_32bit_0/out0]
+  connect_bd_net -net q_next_1_1 [get_bd_ports q_next_1] [get_bd_pins AGENT/q_next_1] [get_bd_pins enabler4_32bit_0/out1]
+  connect_bd_net -net q_next_2_1 [get_bd_ports q_next_2] [get_bd_pins AGENT/q_next_2] [get_bd_pins enabler4_32bit_0/out2]
+  connect_bd_net -net q_next_3_1 [get_bd_ports q_next_3] [get_bd_pins AGENT/q_next_3] [get_bd_pins enabler4_32bit_0/out3]
   connect_bd_net -net reward_0_0_1 [get_bd_ports reward_0] [get_bd_pins EV/reward_0]
   connect_bd_net -net reward_1_0_1 [get_bd_ports reward_1] [get_bd_pins EV/reward_1]
   connect_bd_net -net reward_2_0_1 [get_bd_ports reward_2] [get_bd_pins EV/reward_2]
@@ -965,10 +1053,10 @@ proc create_root_design { parentCell } {
   connect_bd_net -net rst_0_1 [get_bd_ports rst] [get_bd_pins AGENT/rst] [get_bd_pins CU_0/rst] [get_bd_pins EV/rst] [get_bd_pins RAM_Block/rst_bram] [get_bd_pins bram_interface_0/rst]
   connect_bd_net -net seed_0_1 [get_bd_ports seed] [get_bd_pins CU_0/seed]
   connect_bd_net -net start_0_1 [get_bd_ports start] [get_bd_pins CU_0/start]
-  connect_bd_net -net wea_0_1 [get_bd_pins RAM_Block/wea_0] [get_bd_pins bram_interface_0/en0]
-  connect_bd_net -net wea_1_1 [get_bd_pins RAM_Block/wea_1] [get_bd_pins bram_interface_0/en1]
-  connect_bd_net -net wea_2_1 [get_bd_pins RAM_Block/wea_2] [get_bd_pins bram_interface_0/en2]
-  connect_bd_net -net wea_3_1 [get_bd_pins RAM_Block/wea_3] [get_bd_pins bram_interface_0/en3]
+  connect_bd_net -net wea_0_1 [get_bd_ports en0] [get_bd_pins RAM_Block/wea_0] [get_bd_pins bram_interface_0/en0]
+  connect_bd_net -net wea_1_1 [get_bd_ports en1] [get_bd_pins RAM_Block/wea_1] [get_bd_pins bram_interface_0/en1]
+  connect_bd_net -net wea_2_1 [get_bd_ports en2] [get_bd_pins RAM_Block/wea_2] [get_bd_pins bram_interface_0/en2]
+  connect_bd_net -net wea_3_1 [get_bd_ports en3] [get_bd_pins RAM_Block/wea_3] [get_bd_pins bram_interface_0/en3]
 
   # Create address segments
 

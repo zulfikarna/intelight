@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
--- Date        : Sun Mar 13 14:49:26 2022
+-- Date        : Tue Mar 22 20:27:44 2022
 -- Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_SD_0_0/system_SD_0_0_sim_netlist.vhdl
@@ -10,6 +10,33 @@
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xc7z020clg400-1
 -- --------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+library UNISIM;
+use UNISIM.VCOMPONENTS.ALL;
+entity system_SD_0_0_gsg is
+  port (
+    en : out STD_LOGIC;
+    next_state : in STD_LOGIC_VECTOR ( 3 downto 0 )
+  );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of system_SD_0_0_gsg : entity is "gsg";
+end system_SD_0_0_gsg;
+
+architecture STRUCTURE of system_SD_0_0_gsg is
+begin
+\sel/i_\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"8001"
+    )
+        port map (
+      I0 => next_state(2),
+      I1 => next_state(3),
+      I2 => next_state(0),
+      I3 => next_state(1),
+      O => en
+    );
+end STRUCTURE;
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
@@ -7685,6 +7712,7 @@ entity system_SD_0_0_plus_4 is
     next_state : out STD_LOGIC_VECTOR ( 1 downto 0 );
     D : out STD_LOGIC_VECTOR ( 27 downto 0 );
     panjang_r2 : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    goal_sig : out STD_LOGIC;
     en : in STD_LOGIC;
     init_panjang_r2 : in STD_LOGIC_VECTOR ( 27 downto 0 );
     rst : in STD_LOGIC;
@@ -7701,6 +7729,8 @@ entity system_SD_0_0_plus_4 is
     batas_0 : in STD_LOGIC_VECTOR ( 27 downto 0 );
     batas_2 : in STD_LOGIC_VECTOR ( 27 downto 0 );
     batas_1 : in STD_LOGIC_VECTOR ( 27 downto 0 );
+    goal_sig_0 : in STD_LOGIC_VECTOR ( 2 downto 0 );
+    goal_sig_1 : in STD_LOGIC;
     out0 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     Q : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
@@ -7714,6 +7744,7 @@ architecture STRUCTURE of system_SD_0_0_plus_4 is
   signal \comp/level_r235_in\ : STD_LOGIC;
   signal \comp/level_r24\ : STD_LOGIC;
   signal \comp/level_r243_in\ : STD_LOGIC;
+  signal \^next_state\ : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \next_state[4]_INST_0_i_10_n_0\ : STD_LOGIC;
   signal \next_state[4]_INST_0_i_11_n_0\ : STD_LOGIC;
   signal \next_state[4]_INST_0_i_12_n_0\ : STD_LOGIC;
@@ -8047,7 +8078,21 @@ architecture STRUCTURE of system_SD_0_0_plus_4 is
   attribute ADDER_THRESHOLD of \panjang_r2[8]_INST_0\ : label is 35;
 begin
   D(27 downto 0) <= \^d\(27 downto 0);
+  next_state(1 downto 0) <= \^next_state\(1 downto 0);
   panjang_r2(31 downto 0) <= \^panjang_r2\(31 downto 0);
+goal_sig_INST_0: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"8000000200000000"
+    )
+        port map (
+      I0 => en,
+      I1 => \^next_state\(0),
+      I2 => goal_sig_0(2),
+      I3 => goal_sig_0(0),
+      I4 => goal_sig_0(1),
+      I5 => goal_sig_1,
+      O => goal_sig
+    );
 \next_state[4]_INST_0\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"00000000AA2A2A2A"
@@ -8059,7 +8104,7 @@ begin
       I3 => \comp/level_r234_in\,
       I4 => \comp/level_r235_in\,
       I5 => \next_state[5]_INST_0_i_1_n_0\,
-      O => next_state(0)
+      O => \^next_state\(0)
     );
 \next_state[4]_INST_0_i_1\: unisim.vcomponents.CARRY4
      port map (
@@ -8826,7 +8871,7 @@ begin
       I1 => \next_state[5]_INST_0_i_1_n_0\,
       I2 => \comp/level_r235_in\,
       I3 => \comp/level_r234_in\,
-      O => next_state(1)
+      O => \^next_state\(1)
     );
 \next_state[5]_INST_0_i_1\: unisim.vcomponents.CARRY4
      port map (
@@ -20153,6 +20198,7 @@ entity system_SD_0_0_SD is
     panjang_w2 : out STD_LOGIC_VECTOR ( 30 downto 0 );
     panjang_r3 : out STD_LOGIC_VECTOR ( 31 downto 0 );
     panjang_w3 : out STD_LOGIC_VECTOR ( 30 downto 0 );
+    goal_sig : out STD_LOGIC;
     en : in STD_LOGIC;
     debit_r0 : in STD_LOGIC_VECTOR ( 30 downto 0 );
     act : in STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -20179,6 +20225,7 @@ architecture STRUCTURE of system_SD_0_0_SD is
   signal delta_panjang_r1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal delta_panjang_r2 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal delta_panjang_r3 : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal gsg0_n_0 : STD_LOGIC;
   signal init_panjang_r0_30_sn_1 : STD_LOGIC;
   signal init_panjang_r1_30_sn_1 : STD_LOGIC;
   signal init_panjang_r2_30_sn_1 : STD_LOGIC;
@@ -20263,6 +20310,7 @@ architecture STRUCTURE of system_SD_0_0_SD is
   signal mult3_n_7 : STD_LOGIC;
   signal mult3_n_8 : STD_LOGIC;
   signal mult3_n_9 : STD_LOGIC;
+  signal \^next_state\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \^panjang_r0\ : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal \^panjang_r1\ : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal \^panjang_r2\ : STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -20285,6 +20333,7 @@ begin
   init_panjang_r1_30_sp_1 <= init_panjang_r1_30_sn_1;
   init_panjang_r2_30_sp_1 <= init_panjang_r2_30_sn_1;
   init_panjang_r3_30_sp_1 <= init_panjang_r3_30_sn_1;
+  next_state(7 downto 0) <= \^next_state\(7 downto 0);
   panjang_r0(31 downto 0) <= \^panjang_r0\(31 downto 0);
   panjang_r1(31 downto 0) <= \^panjang_r1\(31 downto 0);
   panjang_r2(31 downto 0) <= \^panjang_r2\(31 downto 0);
@@ -20293,6 +20342,14 @@ begin
   panjang_w1(30 downto 0) <= \^panjang_w1\(30 downto 0);
   panjang_w2(30 downto 0) <= \^panjang_w2\(30 downto 0);
   panjang_w3(30 downto 0) <= \^panjang_w3\(30 downto 0);
+gsg0: entity work.system_SD_0_0_gsg
+     port map (
+      en => gsg0_n_0,
+      next_state(3) => \^next_state\(7),
+      next_state(2) => \^next_state\(5),
+      next_state(1) => \^next_state\(3),
+      next_state(0) => \^next_state\(1)
+    );
 mult0: entity work.system_SD_0_0_multiply
      port map (
       D(2) => init_panjang_r0_30_sn_1,
@@ -20482,7 +20539,7 @@ plus0: entity work.system_SD_0_0_plus
       batas_2(27 downto 0) => batas_2(27 downto 0),
       en => en,
       init_panjang_r0(27 downto 0) => init_panjang_r0(27 downto 0),
-      next_state(1 downto 0) => next_state(1 downto 0),
+      next_state(1 downto 0) => \^next_state\(1 downto 0),
       \next_state[0]\(1) => mult0_n_19,
       \next_state[0]\(0) => mult0_n_20,
       \next_state[0]_0\(1) => mult0_n_7,
@@ -20516,7 +20573,7 @@ plus1: entity work.system_SD_0_0_plus_3
       batas_2(27 downto 0) => batas_2(27 downto 0),
       en => en,
       init_panjang_r1(27 downto 0) => init_panjang_r1(27 downto 0),
-      next_state(1 downto 0) => next_state(3 downto 2),
+      next_state(1 downto 0) => \^next_state\(3 downto 2),
       \next_state[2]\(1) => mult1_n_19,
       \next_state[2]\(0) => mult1_n_20,
       \next_state[2]_0\(1) => mult1_n_7,
@@ -20549,8 +20606,13 @@ plus2: entity work.system_SD_0_0_plus_4
       batas_1(27 downto 0) => batas_1(27 downto 0),
       batas_2(27 downto 0) => batas_2(27 downto 0),
       en => en,
+      goal_sig => goal_sig,
+      goal_sig_0(2) => \^next_state\(6),
+      goal_sig_0(1) => \^next_state\(2),
+      goal_sig_0(0) => \^next_state\(0),
+      goal_sig_1 => gsg0_n_0,
       init_panjang_r2(27 downto 0) => init_panjang_r2(27 downto 0),
-      next_state(1 downto 0) => next_state(5 downto 4),
+      next_state(1 downto 0) => \^next_state\(5 downto 4),
       \next_state[4]\(1) => mult2_n_19,
       \next_state[4]\(0) => mult2_n_20,
       \next_state[4]_0\(1) => mult2_n_7,
@@ -20584,7 +20646,7 @@ plus3: entity work.system_SD_0_0_plus_5
       batas_2(27 downto 0) => batas_2(27 downto 0),
       en => en,
       init_panjang_r3(27 downto 0) => init_panjang_r3(27 downto 0),
-      next_state(1 downto 0) => next_state(7 downto 6),
+      next_state(1 downto 0) => \^next_state\(7 downto 6),
       \next_state[6]\(1) => mult3_n_15,
       \next_state[6]\(0) => mult3_n_16,
       \next_state[6]_0\(1) => mult3_n_7,
@@ -21685,7 +21747,6 @@ architecture STRUCTURE of system_SD_0_0 is
   attribute X_INTERFACE_INFO of rst : signal is "xilinx.com:signal:reset:1.0 rst RST";
   attribute X_INTERFACE_PARAMETER of rst : signal is "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0";
 begin
-  goal_sig <= \<const0>\;
   next_state(31) <= \<const0>\;
   next_state(30) <= \<const0>\;
   next_state(29) <= \<const0>\;
@@ -21728,6 +21789,7 @@ inst: entity work.system_SD_0_0_SD
       debit_r3(30 downto 0) => debit_r3(31 downto 1),
       delta_t(2 downto 0) => delta_t(2 downto 0),
       en => en,
+      goal_sig => goal_sig,
       init_panjang_r0(31 downto 0) => init_panjang_r0(31 downto 0),
       init_panjang_r0_30_sp_1 => panjang_w0(30),
       init_panjang_r1(31 downto 0) => init_panjang_r1(31 downto 0),

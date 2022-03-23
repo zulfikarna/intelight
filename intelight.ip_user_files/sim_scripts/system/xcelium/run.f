@@ -17,8 +17,8 @@
   "C:/Xilinx/Vivado/2021.1/data/ip/xpm/xpm_VCOMP.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/system/ip/system_SD_0_0/sim/system_SD_0_0.v" \
   "../../../bd/system/ip/system_RD_0_0/sim/system_RD_0_0.v" \
+  "../../../bd/system/ip/system_SD_0_0/sim/system_SD_0_0.v" \
   "../../../bd/system/ip/system_PG_0_0/sim/system_PG_0_0.v" \
   "../../../bd/system/ip/system_QA_0_0/sim/system_QA_0_0.v" \
 -endlib
@@ -66,9 +66,6 @@
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/system/ip/system_xbar_0/sim/system_xbar_0.v" \
-  "../../../bd/system/ipshared/15e4/hdl/intelight_mem_v1_0_S00_AXI.v" \
-  "../../../bd/system/ipshared/15e4/hdl/intelight_mem_v1_0.v" \
-  "../../../bd/system/ip/system_intelight_mem_0_0/sim/system_intelight_mem_0_0.v" \
 -endlib
 -makelib xcelium_lib/axi_lite_ipif_v3_0_4 \
   "../../../../intelight.gen/sources_1/bd/system/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd" \
@@ -80,7 +77,9 @@
   "../../../bd/system/ip/system_axi_intc_0_0/sim/system_axi_intc_0_0.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/system/ip/system_bram_interface_0_0/sim/system_bram_interface_0_0.v" \
+  "../../../bd/system/ipshared/15e4/hdl/intelight_mem_v1_0_S00_AXI.v" \
+  "../../../bd/system/ipshared/15e4/hdl/intelight_mem_v1_0.v" \
+  "../../../bd/system/ip/system_intelight_mem_0_0/sim/system_intelight_mem_0_0.v" \
 -endlib
 -makelib xcelium_lib/xlconstant_v1_1_7 \
   "../../../../intelight.gen/sources_1/bd/system/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v" \
@@ -124,6 +123,7 @@
   "../../../bd/system/ip/system_axi_bram_ctrl_0_4/sim/system_axi_bram_ctrl_0_4.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/system/ip/system_bram_interface_0_0/sim/system_bram_interface_0_0.v" \
   "../../../bd/system/ip/system_CU_0_0/sim/system_CU_0_0.v" \
   "../../../bd/system/sim/system.v" \
 -endlib

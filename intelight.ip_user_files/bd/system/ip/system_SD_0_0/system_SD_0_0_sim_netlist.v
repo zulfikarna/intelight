@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-// Date        : Sun Mar 13 14:49:26 2022
+// Date        : Tue Mar 22 20:27:44 2022
 // Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_SD_0_0/system_SD_0_0_sim_netlist.v
@@ -81,6 +81,7 @@ module system_SD_0_0
   wire [31:0]debit_r3;
   wire [2:0]delta_t;
   wire en;
+  wire goal_sig;
   wire [31:0]init_panjang_r0;
   wire [31:0]init_panjang_r1;
   wire [31:0]init_panjang_r2;
@@ -96,7 +97,6 @@ module system_SD_0_0
   wire [31:0]panjang_w3;
   wire rst;
 
-  assign goal_sig = \<const0> ;
   assign next_state[31] = \<const0> ;
   assign next_state[30] = \<const0> ;
   assign next_state[29] = \<const0> ;
@@ -136,6 +136,7 @@ module system_SD_0_0
         .debit_r3(debit_r3[31:1]),
         .delta_t(delta_t),
         .en(en),
+        .goal_sig(goal_sig),
         .init_panjang_r0(init_panjang_r0),
         .init_panjang_r0_30_sp_1(panjang_w0[30]),
         .init_panjang_r1(init_panjang_r1),
@@ -171,6 +172,7 @@ module system_SD_0_0_SD
     panjang_w2,
     panjang_r3,
     panjang_w3,
+    goal_sig,
     en,
     debit_r0,
     act,
@@ -200,6 +202,7 @@ module system_SD_0_0_SD
   output [30:0]panjang_w2;
   output [31:0]panjang_r3;
   output [30:0]panjang_w3;
+  output goal_sig;
   input en;
   input [30:0]debit_r0;
   input [1:0]act;
@@ -232,6 +235,8 @@ module system_SD_0_0_SD
   wire [31:0]delta_panjang_r3;
   wire [2:0]delta_t;
   wire en;
+  wire goal_sig;
+  wire gsg0_n_0;
   wire [31:0]init_panjang_r0;
   wire init_panjang_r0_30_sn_1;
   wire [31:0]init_panjang_r1;
@@ -339,6 +344,9 @@ module system_SD_0_0_SD
   assign init_panjang_r1_30_sp_1 = init_panjang_r1_30_sn_1;
   assign init_panjang_r2_30_sp_1 = init_panjang_r2_30_sn_1;
   assign init_panjang_r3_30_sp_1 = init_panjang_r3_30_sn_1;
+  system_SD_0_0_gsg gsg0
+       (.en(gsg0_n_0),
+        .next_state({next_state[7],next_state[5],next_state[3],next_state[1]}));
   system_SD_0_0_multiply mult0
        (.D({init_panjang_r0_30_sn_1,panjang_w0[29:28]}),
         .DI({mult0_n_13,mult0_n_14}),
@@ -508,6 +516,9 @@ module system_SD_0_0_SD
         .batas_1(batas_1[27:0]),
         .batas_2(batas_2[27:0]),
         .en(en),
+        .goal_sig(goal_sig),
+        .goal_sig_0({next_state[6],next_state[2],next_state[0]}),
+        .goal_sig_1(gsg0_n_0),
         .init_panjang_r2(init_panjang_r2[27:0]),
         .next_state(next_state[5:4]),
         .\next_state[4] ({mult2_n_19,mult2_n_20}),
@@ -1311,6 +1322,26 @@ module system_SD_0_0_SD
         .D(panjang_w3[9]),
         .Q(reg_panjang_w3[9]),
         .R(rst));
+endmodule
+
+(* ORIG_REF_NAME = "gsg" *) 
+module system_SD_0_0_gsg
+   (en,
+    next_state);
+  output en;
+  input [3:0]next_state;
+
+  wire en;
+  wire [3:0]next_state;
+
+  LUT4 #(
+    .INIT(16'h8001)) 
+    \sel/i_ 
+       (.I0(next_state[2]),
+        .I1(next_state[3]),
+        .I2(next_state[0]),
+        .I3(next_state[1]),
+        .O(en));
 endmodule
 
 (* ORIG_REF_NAME = "multiply" *) 
@@ -7233,6 +7264,7 @@ module system_SD_0_0_plus_4
    (next_state,
     D,
     panjang_r2,
+    goal_sig,
     en,
     init_panjang_r2,
     rst,
@@ -7249,11 +7281,14 @@ module system_SD_0_0_plus_4
     batas_0,
     batas_2,
     batas_1,
+    goal_sig_0,
+    goal_sig_1,
     out0,
     Q);
   output [1:0]next_state;
   output [27:0]D;
   output [31:0]panjang_r2;
+  output goal_sig;
   input en;
   input [27:0]init_panjang_r2;
   input rst;
@@ -7270,6 +7305,8 @@ module system_SD_0_0_plus_4
   input [27:0]batas_0;
   input [27:0]batas_2;
   input [27:0]batas_1;
+  input [2:0]goal_sig_0;
+  input goal_sig_1;
   input [31:0]out0;
   input [31:0]Q;
 
@@ -7285,6 +7322,9 @@ module system_SD_0_0_plus_4
   wire \comp/level_r24 ;
   wire \comp/level_r243_in ;
   wire en;
+  wire goal_sig;
+  wire [2:0]goal_sig_0;
+  wire goal_sig_1;
   wire [27:0]init_panjang_r2;
   wire [1:0]next_state;
   wire [1:0]\next_state[4] ;
@@ -7599,6 +7639,16 @@ module system_SD_0_0_plus_4
   wire [3:0]\NLW_next_state[5]_INST_0_i_76_O_UNCONNECTED ;
   wire [3:3]\NLW_panjang_r2[28]_INST_0_CO_UNCONNECTED ;
 
+  LUT6 #(
+    .INIT(64'h8000000200000000)) 
+    goal_sig_INST_0
+       (.I0(en),
+        .I1(next_state[0]),
+        .I2(goal_sig_0[2]),
+        .I3(goal_sig_0[0]),
+        .I4(goal_sig_0[1]),
+        .I5(goal_sig_1),
+        .O(goal_sig));
   LUT6 #(
     .INIT(64'h00000000AA2A2A2A)) 
     \next_state[4]_INST_0 

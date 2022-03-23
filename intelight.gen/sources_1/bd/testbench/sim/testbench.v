@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-//Date        : Tue Mar 22 16:41:01 2022
+//Date        : Wed Mar 23 19:23:59 2022
 //Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 //Command     : generate_target testbench.bd
 //Design      : testbench
@@ -11,6 +11,7 @@
 
 module AGENT_imp_N4KR90
    (act,
+    act_greed_0,
     act_rand,
     alpha,
     clk,
@@ -26,6 +27,7 @@ module AGENT_imp_N4KR90
     rst,
     sel_act);
   output [1:0]act;
+  output [1:0]act_greed_0;
   input [1:0]act_rand;
   input [2:0]alpha;
   input clk;
@@ -46,6 +48,7 @@ module AGENT_imp_N4KR90
   wire [31:0]Action_RAM_q_next_2;
   wire [31:0]Action_RAM_q_next_3;
   wire [1:0]PG_0_act;
+  wire [1:0]PG_0_act_greed;
   wire [31:0]QA_0_new_qA;
   wire [1:0]act_random_0_1;
   wire [2:0]alpha_1;
@@ -62,6 +65,7 @@ module AGENT_imp_N4KR90
   assign Action_RAM_q_next_2 = q_next_2[31:0];
   assign Action_RAM_q_next_3 = q_next_3[31:0];
   assign act[1:0] = PG_0_act;
+  assign act_greed_0[1:0] = PG_0_act_greed;
   assign act_random_0_1 = act_rand[1:0];
   assign alpha_1 = alpha[2:0];
   assign clk_1 = clk;
@@ -74,6 +78,7 @@ module AGENT_imp_N4KR90
   assign sel_0_1 = sel_act;
   testbench_PG_0_0 PG_0
        (.act(PG_0_act),
+        .act_greed(PG_0_act_greed),
         .act_random(act_random_0_1),
         .clk(clk_1),
         .en(en_1),
@@ -117,6 +122,18 @@ module EV_imp_1OQLYJF
     init_panjang_r1,
     init_panjang_r2,
     init_panjang_r3,
+    level_r0_0,
+    level_r1_0,
+    level_r2_0,
+    level_r3_0,
+    panjang_r0_0,
+    panjang_r1_0,
+    panjang_r2_0,
+    panjang_r3_0,
+    panjang_w0_0,
+    panjang_w1_0,
+    panjang_w2_0,
+    panjang_w3_0,
     reward_0,
     reward_1,
     reward_2,
@@ -141,6 +158,18 @@ module EV_imp_1OQLYJF
   input [31:0]init_panjang_r1;
   input [31:0]init_panjang_r2;
   input [31:0]init_panjang_r3;
+  output [7:0]level_r0_0;
+  output [7:0]level_r1_0;
+  output [7:0]level_r2_0;
+  output [7:0]level_r3_0;
+  output [31:0]panjang_r0_0;
+  output [31:0]panjang_r1_0;
+  output [31:0]panjang_r2_0;
+  output [31:0]panjang_r3_0;
+  output [31:0]panjang_w0_0;
+  output [31:0]panjang_w1_0;
+  output [31:0]panjang_w2_0;
+  output [31:0]panjang_w3_0;
   input [31:0]reward_0;
   input [31:0]reward_1;
   input [31:0]reward_2;
@@ -150,6 +179,18 @@ module EV_imp_1OQLYJF
 
   wire [1:0]PG_0_act;
   wire [31:0]RD_0_reward;
+  wire [7:0]SD_0_level_r0;
+  wire [7:0]SD_0_level_r1;
+  wire [7:0]SD_0_level_r2;
+  wire [7:0]SD_0_level_r3;
+  wire [31:0]SD_0_panjang_r0;
+  wire [31:0]SD_0_panjang_r1;
+  wire [31:0]SD_0_panjang_r2;
+  wire [31:0]SD_0_panjang_r3;
+  wire [31:0]SD_0_panjang_w0;
+  wire [31:0]SD_0_panjang_w1;
+  wire [31:0]SD_0_panjang_w2;
+  wire [31:0]SD_0_panjang_w3;
   wire SD_0_sig_goal;
   wire [31:0]batas_0_0_1;
   wire [31:0]batas_1_0_1;
@@ -191,6 +232,18 @@ module EV_imp_1OQLYJF
   assign init_panjang_r1_0_1 = init_panjang_r1[31:0];
   assign init_panjang_r2_0_1 = init_panjang_r2[31:0];
   assign init_panjang_r3_0_1 = init_panjang_r3[31:0];
+  assign level_r0_0[7:0] = SD_0_level_r0;
+  assign level_r1_0[7:0] = SD_0_level_r1;
+  assign level_r2_0[7:0] = SD_0_level_r2;
+  assign level_r3_0[7:0] = SD_0_level_r3;
+  assign panjang_r0_0[31:0] = SD_0_panjang_r0;
+  assign panjang_r1_0[31:0] = SD_0_panjang_r1;
+  assign panjang_r2_0[31:0] = SD_0_panjang_r2;
+  assign panjang_r3_0[31:0] = SD_0_panjang_r3;
+  assign panjang_w0_0[31:0] = SD_0_panjang_w0;
+  assign panjang_w1_0[31:0] = SD_0_panjang_w1;
+  assign panjang_w2_0[31:0] = SD_0_panjang_w2;
+  assign panjang_w3_0[31:0] = SD_0_panjang_w3;
   assign reward_0_0_1 = reward_0[31:0];
   assign reward_1_0_1 = reward_1[31:0];
   assign reward_2_0_1 = reward_2[31:0];
@@ -225,7 +278,19 @@ module EV_imp_1OQLYJF
         .init_panjang_r1(init_panjang_r1_0_1),
         .init_panjang_r2(init_panjang_r2_0_1),
         .init_panjang_r3(init_panjang_r3_0_1),
+        .level_r0(SD_0_level_r0),
+        .level_r1(SD_0_level_r1),
+        .level_r2(SD_0_level_r2),
+        .level_r3(SD_0_level_r3),
         .next_state(next_state_1),
+        .panjang_r0(SD_0_panjang_r0),
+        .panjang_r1(SD_0_panjang_r1),
+        .panjang_r2(SD_0_panjang_r2),
+        .panjang_r3(SD_0_panjang_r3),
+        .panjang_w0(SD_0_panjang_w0),
+        .panjang_w1(SD_0_panjang_w1),
+        .panjang_w2(SD_0_panjang_w2),
+        .panjang_w3(SD_0_panjang_w3),
         .rst(rst_1));
 endmodule
 
@@ -604,12 +669,15 @@ module RAM_Block_imp_QKQT90
        (.dout(cnst_1_1bit_dout));
 endmodule
 
-(* CORE_GENERATION_INFO = "testbench,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=testbench,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=23,numReposBlks=16,numNonXlnxBlks=0,numHierBlks=7,maxHierDepth=2,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=6,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=2,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "testbench.hwdef" *) 
+(* CORE_GENERATION_INFO = "testbench,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=testbench,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=24,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=7,maxHierDepth=2,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=2,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "testbench.hwdef" *) 
 module testbench
    (PG,
     QA,
     RD,
     SD,
+    act,
+    act_greed,
+    act_random,
     alpha,
     batas_0,
     batas_1,
@@ -620,6 +688,10 @@ module testbench
     debit_r2,
     debit_r3,
     delta_t,
+    en0,
+    en1,
+    en2,
+    en3,
     finish,
     gamma,
     goal_sig,
@@ -627,8 +699,26 @@ module testbench
     init_panjang_r1,
     init_panjang_r2,
     init_panjang_r3,
+    level_r0,
+    level_r1,
+    level_r2,
+    level_r3,
     max_episode,
     max_step,
+    new_qA,
+    panjang_r0,
+    panjang_r1,
+    panjang_r2,
+    panjang_r3,
+    panjang_w0,
+    panjang_w1,
+    panjang_w2,
+    panjang_w3,
+    q_next_0,
+    q_next_1,
+    q_next_2,
+    q_next_3,
+    rd_addr,
     reward_0,
     reward_1,
     reward_2,
@@ -640,11 +730,15 @@ module testbench
     state,
     wire_cs,
     wire_ec,
-    wire_sc);
+    wire_sc,
+    wr_addr);
   output PG;
   output QA;
   output RD;
   output SD;
+  output [1:0]act;
+  output [1:0]act_greed;
+  output [1:0]act_random;
   input [2:0]alpha;
   input [31:0]batas_0;
   input [31:0]batas_1;
@@ -655,6 +749,10 @@ module testbench
   input [31:0]debit_r2;
   input [31:0]debit_r3;
   input [2:0]delta_t;
+  output [3:0]en0;
+  output [3:0]en1;
+  output [3:0]en2;
+  output [3:0]en3;
   output finish;
   input [2:0]gamma;
   output goal_sig;
@@ -662,8 +760,26 @@ module testbench
   input [31:0]init_panjang_r1;
   input [31:0]init_panjang_r2;
   input [31:0]init_panjang_r3;
+  output [7:0]level_r0;
+  output [7:0]level_r1;
+  output [7:0]level_r2;
+  output [7:0]level_r3;
   input [15:0]max_episode;
   input [15:0]max_step;
+  output [31:0]new_qA;
+  output [31:0]panjang_r0;
+  output [31:0]panjang_r1;
+  output [31:0]panjang_r2;
+  output [31:0]panjang_r3;
+  output [31:0]panjang_w0;
+  output [31:0]panjang_w1;
+  output [31:0]panjang_w2;
+  output [31:0]panjang_w3;
+  output [31:0]q_next_0;
+  output [31:0]q_next_1;
+  output [31:0]q_next_2;
+  output [31:0]q_next_3;
+  output [31:0]rd_addr;
   input [31:0]reward_0;
   input [31:0]reward_1;
   input [31:0]reward_2;
@@ -676,8 +792,10 @@ module testbench
   output [3:0]wire_cs;
   output [15:0]wire_ec;
   output [15:0]wire_sc;
+  output [31:0]wr_addr;
 
   wire [1:0]AGENT_act;
+  wire [1:0]AGENT_act_greed_0;
   wire CU_0_RD;
   wire CU_0_SD;
   wire [1:0]CU_0_act_random;
@@ -688,7 +806,23 @@ module testbench
   wire [15:0]CU_0_wire_sc;
   wire [31:0]EV_curr_reward;
   wire EV_goal_sig;
+  wire [7:0]EV_level_r0_0;
+  wire [7:0]EV_level_r1_0;
+  wire [7:0]EV_level_r2_0;
+  wire [7:0]EV_level_r3_0;
+  wire [31:0]EV_panjang_r0_0;
+  wire [31:0]EV_panjang_r1_0;
+  wire [31:0]EV_panjang_r2_0;
+  wire [31:0]EV_panjang_r3_0;
+  wire [31:0]EV_panjang_w0_0;
+  wire [31:0]EV_panjang_w1_0;
+  wire [31:0]EV_panjang_w2_0;
+  wire [31:0]EV_panjang_w3_0;
   wire [31:0]EV_state;
+  wire [31:0]RAM_Block_q_next_0;
+  wire [31:0]RAM_Block_q_next_1;
+  wire [31:0]RAM_Block_q_next_2;
+  wire [31:0]RAM_Block_q_next_3;
   wire [2:0]alpha_0_1;
   wire [31:0]batas_0_0_1;
   wire [31:0]batas_1_0_1;
@@ -731,6 +865,9 @@ module testbench
   assign QA = en_QA_1;
   assign RD = CU_0_RD;
   assign SD = CU_0_SD;
+  assign act[1:0] = AGENT_act;
+  assign act_greed[1:0] = AGENT_act_greed_0;
+  assign act_random[1:0] = CU_0_act_random;
   assign alpha_0_1 = alpha[2:0];
   assign batas_0_0_1 = batas_0[31:0];
   assign batas_1_0_1 = batas_1[31:0];
@@ -741,6 +878,10 @@ module testbench
   assign debit_r2_0_1 = debit_r2[31:0];
   assign debit_r3_0_1 = debit_r3[31:0];
   assign delta_t_0_1 = delta_t[2:0];
+  assign en0[3:0] = wea_0_1;
+  assign en1[3:0] = wea_1_1;
+  assign en2[3:0] = wea_2_1;
+  assign en3[3:0] = wea_3_1;
   assign finish = CU_0_finish;
   assign gamma_0_1 = gamma[2:0];
   assign goal_sig = EV_goal_sig;
@@ -748,8 +889,26 @@ module testbench
   assign init_panjang_r1_0_1 = init_panjang_r1[31:0];
   assign init_panjang_r2_0_1 = init_panjang_r2[31:0];
   assign init_panjang_r3_0_1 = init_panjang_r3[31:0];
+  assign level_r0[7:0] = EV_level_r0_0;
+  assign level_r1[7:0] = EV_level_r1_0;
+  assign level_r2[7:0] = EV_level_r2_0;
+  assign level_r3[7:0] = EV_level_r3_0;
   assign max_episode_0_1 = max_episode[15:0];
   assign max_step_0_1 = max_step[15:0];
+  assign new_qA[31:0] = q_new_1;
+  assign panjang_r0[31:0] = EV_panjang_r0_0;
+  assign panjang_r1[31:0] = EV_panjang_r1_0;
+  assign panjang_r2[31:0] = EV_panjang_r2_0;
+  assign panjang_r3[31:0] = EV_panjang_r3_0;
+  assign panjang_w0[31:0] = EV_panjang_w0_0;
+  assign panjang_w1[31:0] = EV_panjang_w1_0;
+  assign panjang_w2[31:0] = EV_panjang_w2_0;
+  assign panjang_w3[31:0] = EV_panjang_w3_0;
+  assign q_next_0[31:0] = q_next_0_1;
+  assign q_next_1[31:0] = q_next_1_1;
+  assign q_next_2[31:0] = q_next_2_1;
+  assign q_next_3[31:0] = q_next_3_1;
+  assign rd_addr[31:0] = bram_interface_0_rd_addr;
   assign reward_0_0_1 = reward_0[31:0];
   assign reward_1_0_1 = reward_1[31:0];
   assign reward_2_0_1 = reward_2[31:0];
@@ -762,8 +921,10 @@ module testbench
   assign wire_cs[3:0] = CU_0_wire_cs;
   assign wire_ec[15:0] = CU_0_wire_ec;
   assign wire_sc[15:0] = CU_0_wire_sc;
+  assign wr_addr[31:0] = bram_interface_0_wr_addr;
   AGENT_imp_N4KR90 AGENT
        (.act(AGENT_act),
+        .act_greed_0(AGENT_act_greed_0),
         .act_rand(CU_0_act_random),
         .alpha(alpha_0_1),
         .clk(clk_0_1),
@@ -815,6 +976,18 @@ module testbench
         .init_panjang_r1(init_panjang_r1_0_1),
         .init_panjang_r2(init_panjang_r2_0_1),
         .init_panjang_r3(init_panjang_r3_0_1),
+        .level_r0_0(EV_level_r0_0),
+        .level_r1_0(EV_level_r1_0),
+        .level_r2_0(EV_level_r2_0),
+        .level_r3_0(EV_level_r3_0),
+        .panjang_r0_0(EV_panjang_r0_0),
+        .panjang_r1_0(EV_panjang_r1_0),
+        .panjang_r2_0(EV_panjang_r2_0),
+        .panjang_r3_0(EV_panjang_r3_0),
+        .panjang_w0_0(EV_panjang_w0_0),
+        .panjang_w1_0(EV_panjang_w1_0),
+        .panjang_w2_0(EV_panjang_w2_0),
+        .panjang_w3_0(EV_panjang_w3_0),
         .reward_0(reward_0_0_1),
         .reward_1(reward_1_0_1),
         .reward_2(reward_2_0_1),
@@ -826,10 +999,10 @@ module testbench
         .addrb(bram_interface_0_rd_addr),
         .clk_bram(clk_0_1),
         .q_new(q_new_1),
-        .q_next_0(q_next_0_1),
-        .q_next_1(q_next_1_1),
-        .q_next_2(q_next_2_1),
-        .q_next_3(q_next_3_1),
+        .q_next_0(RAM_Block_q_next_0),
+        .q_next_1(RAM_Block_q_next_1),
+        .q_next_2(RAM_Block_q_next_2),
+        .q_next_3(RAM_Block_q_next_3),
         .rst_bram(rst_0_1),
         .wea_0(wea_0_1),
         .wea_1(wea_1_1),
@@ -846,4 +1019,14 @@ module testbench
         .rd_addr(bram_interface_0_rd_addr),
         .rst(rst_0_1),
         .wr_addr(bram_interface_0_wr_addr));
+  testbench_enabler4_32bit_0_0 enabler4_32bit_0
+       (.en(CU_0_SD),
+        .in0(RAM_Block_q_next_0),
+        .in1(RAM_Block_q_next_1),
+        .in2(RAM_Block_q_next_2),
+        .in3(RAM_Block_q_next_3),
+        .out0(q_next_0_1),
+        .out1(q_next_1_1),
+        .out2(q_next_2_1),
+        .out3(q_next_3_1));
 endmodule

@@ -101,7 +101,7 @@ module CU(
             S_L2 :
                 ns <= S_L3;
             S_L3 :
-                if((sc > max_step) | goal_sig)
+                if((sc > max_step) | reg_goal_sig)
                     ns <= S_L4;
                 else 
                     ns <= S_L3;
@@ -182,6 +182,12 @@ module CU(
         end else begin
             finish = 1'b0;
         end
+    end
+    
+    // Goal signal handler 
+    reg reg_goal_sig;
+    always @(goal_sig) begin 
+        reg_goal_sig <= goal_sig;
     end
     
     // Random numbers for Policy Generator 

@@ -28,11 +28,11 @@ module PG(
                             (maxqA == qA2)? 2'd2:
                                             2'd3;
     reg_2bit reg0(.clk(clk), .rst(rst), .in0(w_act_greed), .out0(act_greed));
+    // assign act_greed = 2'd3; // for debugging
     
     // Block Action Decider
     wire [1:0] temp_act;
     mux2to1_2bit    action_decider(.in0(act_greed),  .in1(act_random),   .sel(sel),  .out0(temp_act));
-    
     // Enabling output
     enabler_2bit en0(.in0(temp_act), .out0(act), .en(en));
 endmodule

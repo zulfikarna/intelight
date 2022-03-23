@@ -80,7 +80,11 @@ module testbench_SD_0_0 (
   panjang_w0,
   panjang_w1,
   panjang_w2,
-  panjang_w3
+  panjang_w3,
+  level_r0,
+  level_r1,
+  level_r2,
+  level_r3
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN testbench_clk_0, INSERT_VIP 0" *)
@@ -113,6 +117,10 @@ output wire [31 : 0] panjang_w0;
 output wire [31 : 0] panjang_w1;
 output wire [31 : 0] panjang_w2;
 output wire [31 : 0] panjang_w3;
+output wire [7 : 0] level_r0;
+output wire [7 : 0] level_r1;
+output wire [7 : 0] level_r2;
+output wire [7 : 0] level_r3;
 
   SD inst (
     .clk(clk),
@@ -140,6 +148,10 @@ output wire [31 : 0] panjang_w3;
     .panjang_w0(panjang_w0),
     .panjang_w1(panjang_w1),
     .panjang_w2(panjang_w2),
-    .panjang_w3(panjang_w3)
+    .panjang_w3(panjang_w3),
+    .level_r0(level_r0),
+    .level_r1(level_r1),
+    .level_r2(level_r2),
+    .level_r3(level_r3)
   );
 endmodule

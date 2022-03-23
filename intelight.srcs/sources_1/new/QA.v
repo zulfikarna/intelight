@@ -52,15 +52,15 @@ module QA(
     wire [31:0] w_new_qA_1;
     //  Qnew = Q + alpha(reward+gamma(maxQ')-Q)
     // 1. gamma(maxQ')
-    multiply mult_gamma(.in0(max_next_qA),    .c(gamma), .out0(o_gamma));
+    multiply mult_gamma(.in0(max_next_qA),    .c(gamma), .out0(o_gamma), .rst(rst));
     // 2. calculating i_alpha = reward + gamma(maxQ') - Q
     assign i_alpha = reward + o_gamma - chos_curr_qA;
     // 3. calculating o_alpha = alpha(reward + gamma(maxQ') - Q)
-    multiply mult_alpha(.in0(i_alpha),    .c(alpha), .out0(o_alpha));
+    multiply mult_alpha(.in0(i_alpha),    .c(alpha), .out0(o_alpha), .rst(rst));
     // 4. calculating final value
     assign w_new_qA_0 = chos_curr_qA + o_alpha;
     reg_32bit reg6(.clk(clk), .rst(rst), .in0(w_new_qA_0), .out0(w_new_qA_1));
-   
+   // assign w_new_qA_1 = 32'hFFFF_FFFF; // for debugging
    // Enabling output 
    enabler_32bit en0(.in0(w_new_qA_1), .out0(new_qA), .en(en));
    

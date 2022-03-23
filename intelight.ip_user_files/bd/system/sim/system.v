@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-//Date        : Mon Mar 14 12:09:26 2022
+//Date        : Tue Mar 22 21:27:54 2022
 //Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 //Command     : generate_target system.bd
 //Design      : system
@@ -2514,10 +2514,10 @@ module RAM_Block_imp_N0OGGK
     q_next_2,
     q_next_3,
     rst_bram,
-    wea,
-    wea1,
-    wea2,
-    wea3);
+    wea_0,
+    wea_1,
+    wea_2,
+    wea_3);
   input [31:0]S_AXI_0_araddr;
   input [1:0]S_AXI_0_arburst;
   input [3:0]S_AXI_0_arcache;
@@ -2667,10 +2667,10 @@ module RAM_Block_imp_N0OGGK
   output [31:0]q_next_2;
   output [31:0]q_next_3;
   input rst_bram;
-  input [3:0]wea;
-  input [3:0]wea1;
-  input [3:0]wea2;
-  input [3:0]wea3;
+  input [3:0]wea_0;
+  input [3:0]wea_1;
+  input [3:0]wea_2;
+  input [3:0]wea_3;
 
   wire [31:0]Action_RAM_0_doutb;
   wire [31:0]Action_RAM_1_doutb;
@@ -2968,10 +2968,10 @@ module RAM_Block_imp_N0OGGK
   assign S_AXI_3_rresp[1:0] = Conn1_RRESP;
   assign S_AXI_3_rvalid = Conn1_RVALID;
   assign S_AXI_3_wready = Conn1_WREADY;
-  assign bram_interface_0_en0 = wea1[3:0];
-  assign bram_interface_0_en1 = wea2[3:0];
-  assign bram_interface_0_en2 = wea3[3:0];
-  assign bram_interface_0_en3 = wea[3:0];
+  assign bram_interface_0_en0 = wea_0[3:0];
+  assign bram_interface_0_en1 = wea_1[3:0];
+  assign bram_interface_0_en2 = wea_2[3:0];
+  assign bram_interface_0_en3 = wea_3[3:0];
   assign bram_interface_0_rd_addr = addrb[31:0];
   assign clk_0_1 = clk_bram;
   assign dina_0_1 = q_new[31:0];
@@ -5226,7 +5226,9 @@ module system
     FIXED_IO_mio,
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
-    FIXED_IO_ps_srstb);
+    FIXED_IO_ps_srstb,
+    finish,
+    start);
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR ADDR" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DDR, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250" *) inout [14:0]DDR_addr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR BA" *) inout [2:0]DDR_ba;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR CAS_N" *) inout DDR_cas_n;
@@ -5248,6 +5250,8 @@ module system
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_CLK" *) inout FIXED_IO_ps_clk;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_PORB" *) inout FIXED_IO_ps_porb;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_SRSTB" *) inout FIXED_IO_ps_srstb;
+  output finish;
+  output start;
 
   wire [31:0]Action_RAM_q_next_0;
   wire [31:0]Action_RAM_q_next_1;
@@ -5476,6 +5480,8 @@ module system
   wire [31:0]reg_32bit_0_out0;
   wire [0:0]rst_ps7_0_50M_peripheral_aresetn;
 
+  assign finish = CU_0_finish;
+  assign start = intelight_mem_0_start;
   AGENT_imp_YX08AZ AGENT
        (.act(PG_0_act),
         .act_rand(CU_0_act_random),
@@ -5866,10 +5872,10 @@ module system
         .q_next_2(Action_RAM_q_next_2),
         .q_next_3(Action_RAM_q_next_3),
         .rst_bram(rst_ps7_0_50M_peripheral_aresetn),
-        .wea(bram_interface_0_en3),
-        .wea1(bram_interface_0_en0),
-        .wea2(bram_interface_0_en1),
-        .wea3(bram_interface_0_en2));
+        .wea_0(bram_interface_0_en0),
+        .wea_1(bram_interface_0_en1),
+        .wea_2(bram_interface_0_en2),
+        .wea_3(bram_interface_0_en3));
   system_bram_interface_0_0 bram_interface_0
        (.act(PG_0_act),
         .clk(processing_system7_0_FCLK_CLK0),

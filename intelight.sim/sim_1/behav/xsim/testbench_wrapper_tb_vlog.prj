@@ -7,15 +7,14 @@ verilog xil_defaultlib  --include "../../../../intelight.gen/sources_1/bd/system
 "../../../../intelight.srcs/sources_1/new/PG.v" \
 "../../../../intelight.srcs/sources_1/new/arith_file.v" \
 "../../../../intelight.srcs/sources_1/new/QA.v" \
-"../../../../intelight.srcs/sources_1/new/CU.v" \
-"../../../../intelight.srcs/sources_1/new/SD.v" \
 "../../../../intelight.srcs/sources_1/new/RD.v" \
+"../../../../intelight.srcs/sources_1/new/SD.v" \
 "../../../../intelight.srcs/sources_1/new/bram_interface.v" \
+"../../../../intelight.srcs/sources_1/new/CU.v" \
 "../../../../intelight.ip_user_files/bd/testbench/ip/testbench_PG_0_0/sim/testbench_PG_0_0.v" \
 "../../../../intelight.ip_user_files/bd/testbench/ip/testbench_QA_0_0/sim/testbench_QA_0_0.v" \
-"../../../../intelight.ip_user_files/bd/testbench/ip/testbench_CU_0_0/sim/testbench_CU_0_0.v" \
-"../../../../intelight.ip_user_files/bd/testbench/ip/testbench_SD_0_0/sim/testbench_SD_0_0.v" \
 "../../../../intelight.ip_user_files/bd/testbench/ip/testbench_RD_0_0/sim/testbench_RD_0_0.v" \
+"../../../../intelight.ip_user_files/bd/testbench/ip/testbench_SD_0_0/sim/testbench_SD_0_0.v" \
 "../../../../intelight.ip_user_files/bd/testbench/ip/testbench_cnst_0_4bit_0/sim/testbench_cnst_0_4bit_0.v" \
 "../../../../intelight.ip_user_files/bd/testbench/ip/testbench_cnst_1_1bit_0/sim/testbench_cnst_1_1bit_0.v" \
 "../../../../intelight.ip_user_files/bd/testbench/ip/testbench_Action_RAM_2_0/sim/testbench_Action_RAM_2_0.v" \
@@ -27,6 +26,8 @@ verilog xil_defaultlib  --include "../../../../intelight.gen/sources_1/bd/system
 "../../../../intelight.ip_user_files/bd/testbench/ip/testbench_PL_RAM_0_0/sim/testbench_PL_RAM_0_0.v" \
 "../../../../intelight.ip_user_files/bd/testbench/ip/testbench_Action_RAM_0_0/sim/testbench_Action_RAM_0_0.v" \
 "../../../../intelight.ip_user_files/bd/testbench/ip/testbench_bram_interface_0_0/sim/testbench_bram_interface_0_0.v" \
+"../../../../intelight.ip_user_files/bd/testbench/ip/testbench_enabler4_32bit_0_0/sim/testbench_enabler4_32bit_0_0.v" \
+"../../../../intelight.ip_user_files/bd/testbench/ip/testbench_CU_0_0/sim/testbench_CU_0_0.v" \
 "../../../../intelight.ip_user_files/bd/testbench/sim/testbench.v" \
 "../../../../intelight.gen/sources_1/bd/testbench/hdl/testbench_wrapper.v" \
 "../../../../intelight.srcs/sim_1/new/testbench_wrapper_tb.v" \

@@ -1,0 +1,1 @@
+- tambah enabler di keluaran memory

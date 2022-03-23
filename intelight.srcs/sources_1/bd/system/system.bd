@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xCC6CFA533DC59CAD",
+      "boundary_crc": "0x73C51A28E22FEBEB",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../intelight.gen/sources_1/bd/system",
       "name": "system",
@@ -77,6 +77,14 @@
         "mode": "Master",
         "vlnv_bus_definition": "xilinx.com:display_processing_system7:fixedio:1.0",
         "vlnv": "xilinx.com:display_processing_system7:fixedio_rtl:1.0"
+      }
+    },
+    "ports": {
+      "finish": {
+        "direction": "O"
+      },
+      "start": {
+        "direction": "O"
       }
     },
     "components": {
@@ -400,6 +408,26 @@
               "panjang_w3": {
                 "direction": "O",
                 "left": "31",
+                "right": "0"
+              },
+              "level_r0": {
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              },
+              "level_r1": {
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              },
+              "level_r2": {
+                "direction": "O",
+                "left": "7",
+                "right": "0"
+              },
+              "level_r3": {
+                "direction": "O",
+                "left": "7",
                 "right": "0"
               }
             }
@@ -3556,7 +3584,8 @@
       "CU_0_finish": {
         "ports": [
           "CU_0/finish",
-          "PS/intr"
+          "PS/intr",
+          "finish"
         ]
       },
       "CU_0_sel_act": {
@@ -3749,6 +3778,7 @@
       "intelight_mem_0_start": {
         "ports": [
           "intelight_mem_0/start",
+          "start",
           "CU_0/start"
         ]
       },

@@ -46,7 +46,11 @@ module SD(
     output wire [31:0] panjang_w0,
     output wire [31:0] panjang_w1,
     output wire [31:0] panjang_w2,
-    output wire [31:0] panjang_w3
+    output wire [31:0] panjang_w3,
+    output wire [7:0] level_r0,
+    output wire [7:0] level_r1,
+    output wire [7:0] level_r2,
+    output wire [7:0] level_r3
     );
     
     // Block Decoder : menentukan debit kendaraan keluar (ketika lampu hijau)
@@ -77,21 +81,21 @@ module SD(
     wire [31:0] panjang_w2;
     wire [31:0] panjang_w3;
     // Block State Calc : Ruas 0
-    multiply        mult0   (.in0(debit_r0-debit_out_r0),           .c(delta_t),           .out0(delta_panjang_r0));
+    multiply        mult0   (.in0(debit_r0-debit_out_r0),           .c(delta_t),           .out0(delta_panjang_r0), .rst(rst));
     mux2to1_32bit_sd   mux0    (.in0(init_panjang_r0),    .in1(panjang_r0),      .out0(panjang_w0),        .sel(~rst));
-    plus            plus0   (.in0(delta_panjang_r0),   .in1(reg_panjang_w0),      .out0(panjang_r0));
+    plus            plus0   (.in0(delta_panjang_r0),   .in1(reg_panjang_w0),      .out0(panjang_r0),    .rst(rst));
     // Block State Calc : Ruas 1
-    multiply        mult1   (.in0(debit_r1-debit_out_r1),           .c(delta_t),           .out0(delta_panjang_r1));
+    multiply        mult1   (.in0(debit_r1-debit_out_r1),           .c(delta_t),           .out0(delta_panjang_r1), .rst(rst));
     mux2to1_32bit_sd   mux1    (.in0(init_panjang_r1),    .in1(panjang_r1),      .out0(panjang_w1),        .sel(~rst));
-    plus            plus1   (.in0(delta_panjang_r1),   .in1(reg_panjang_w1),      .out0(panjang_r1));
+    plus            plus1   (.in0(delta_panjang_r1),   .in1(reg_panjang_w1),      .out0(panjang_r1),    .rst(rst));
     // Block State Calc : Ruas 2
-    multiply        mult2   (.in0(debit_r2-debit_out_r2),           .c(delta_t),           .out0(delta_panjang_r2));
+    multiply        mult2   (.in0(debit_r2-debit_out_r2),           .c(delta_t),           .out0(delta_panjang_r2), .rst(rst));
     mux2to1_32bit_sd   mux2    (.in0(init_panjang_r2),    .in1(panjang_r2),      .out0(panjang_w2),        .sel(~rst));
-    plus            plus2   (.in0(delta_panjang_r2),   .in1(reg_panjang_w2),      .out0(panjang_r2));
+    plus            plus2   (.in0(delta_panjang_r2),   .in1(reg_panjang_w2),      .out0(panjang_r2),    .rst(rst));
     // Block State Calc : Ruas 3
-    multiply        mult3   (.in0(debit_r3-debit_out_r3),           .c(delta_t),           .out0(delta_panjang_r3));
+    multiply        mult3   (.in0(debit_r3-debit_out_r3),           .c(delta_t),           .out0(delta_panjang_r3), .rst(rst));
     mux2to1_32bit_sd   mux3    (.in0(init_panjang_r3),    .in1(panjang_r3),      .out0(panjang_w3),        .sel(~rst));
-    plus            plus3   (.in0(delta_panjang_r3),   .in1(reg_panjang_w3),      .out0(panjang_r3));
+    plus            plus3   (.in0(delta_panjang_r3),   .in1(reg_panjang_w3),      .out0(panjang_r3),    .rst(rst));
     // Previous panjang antrian kendaraan
     reg [31:0] reg_panjang_w0;
     reg [31:0] reg_panjang_w1;
@@ -155,28 +159,38 @@ module comp_SD(
     input wire [31:0] batas_1,
     input wire [31:0] batas_2,       
     //OUTPUT
-    output wire [7:0] level_r0,
-    output wire [7:0] level_r1,
-    output wire [7:0] level_r2,
-    output wire [7:0] level_r3    
+    output reg [7:0] level_r0,
+    output reg [7:0] level_r1,
+    output reg [7:0] level_r2,
+    output reg [7:0] level_r3    
     );
+    wire [7:0] w_level_r0;
+    wire [7:0] w_level_r1;
+    wire [7:0] w_level_r2;
+    wire [7:0] w_level_r3;
     
-    assign level_r0 =   (panjang_w0 < batas_0)                              ? 8'd0:
+    assign w_level_r0 =   (panjang_w0 < batas_0)                              ? 8'd0:
                         ((panjang_w0 >= batas_0)&&(panjang_w0 < batas_1))   ? 8'd1:
                         ((panjang_w0 >= batas_1)&&(panjang_w0 < batas_2))   ? 8'd2:
                                                                               8'd3;
-    assign level_r1 =   (panjang_w1 < batas_0)                              ? 8'd0:
+    assign w_level_r1 =   (panjang_w1 < batas_0)                              ? 8'd0:
                         ((panjang_w1 >= batas_0)&&(panjang_w1 < batas_1))   ? 8'd1:
                         ((panjang_w1 >= batas_1)&&(panjang_w1 < batas_2))   ? 8'd2:
                                                                               8'd3;
-    assign level_r2 =   (panjang_w2 < batas_0)                              ? 8'd0:
+    assign w_level_r2 =   (panjang_w2 < batas_0)                              ? 8'd0:
                         ((panjang_w2 >= batas_0)&&(panjang_w2 < batas_1))   ? 8'd1:
                         ((panjang_w2 >= batas_1)&&(panjang_w2 < batas_2))   ? 8'd2:
                                                                               8'd3;
-    assign level_r3 =   (panjang_w3 < batas_0)                              ? 8'd0:
+    assign w_level_r3 =   (panjang_w3 < batas_0)                              ? 8'd0:
                         ((panjang_w3 >= batas_0)&&(panjang_w3 < batas_1))   ? 8'd1:
                         ((panjang_w3 >= batas_1)&&(panjang_w3 < batas_2))   ? 8'd2:
                                                                               8'd3;
+    always @(*) begin
+        level_r0 = w_level_r0;
+        level_r1 = w_level_r1;
+        level_r2 = w_level_r2;
+        level_r3 = w_level_r3;
+    end
 endmodule
 
 module gsg(
@@ -189,5 +203,5 @@ module gsg(
     assign sel2 = (next_state[7:0]==8'hAA);
     assign sel3 = (next_state[7:0]==8'hFF);
     assign sel = sel0 | sel1 | sel2 | sel3 | 1'b0;
-    mux2to1_2bit mux0(.in0(0), .in1(1), .sel(sel), .out0(goal_sig));
+    mux2to1_1bit mux0(.in0(1'b0), .in1(1'b1), .sel(sel), .out0(goal_sig));
 endmodule
