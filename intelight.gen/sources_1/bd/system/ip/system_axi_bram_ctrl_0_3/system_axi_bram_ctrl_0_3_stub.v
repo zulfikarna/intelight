@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
 // Date        : Sun Mar 13 14:49:30 2022
 // Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_3/system_axi_bram_ctrl_0_3_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top system_axi_bram_ctrl_0_3 -prefix
+//               system_axi_bram_ctrl_0_3_ system_axi_bram_ctrl_0_3_stub.v
 // Design      : system_axi_bram_ctrl_0_3
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg400-1

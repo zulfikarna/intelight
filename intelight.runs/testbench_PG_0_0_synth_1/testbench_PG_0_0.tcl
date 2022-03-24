@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "testbench_PG_0_0_synth_1" START { ROLLUP_AUTO }
-set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
@@ -100,6 +99,7 @@ read_verilog -library xil_defaultlib {
   D:/intelight/intelight/intelight.srcs/sources_1/new/enable_file.v
   D:/intelight/intelight/intelight.srcs/sources_1/new/max_file.v
   D:/intelight/intelight/intelight.srcs/sources_1/new/mux_file.v
+  D:/intelight/intelight/intelight.srcs/sources_1/new/register_file.v
   D:/intelight/intelight/intelight.srcs/sources_1/new/PG.v
 }
 read_ip -quiet D:/intelight/intelight/intelight.srcs/sources_1/bd/testbench/ip/testbench_PG_0_0/testbench_PG_0_0.xci

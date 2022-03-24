@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Mar 23 19:24:00 2022" VIVADOVERSION="2021.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Mar 23 21:05:27 2022" VIVADOVERSION="2021.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="testbench" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -22,8 +22,8 @@
         <CONNECTION INSTANCE="RAM_Block_RAM_0_Action_RAM_0" PORT="clka"/>
         <CONNECTION INSTANCE="RAM_Block_RAM_0_PL_RAM_0" PORT="clka"/>
         <CONNECTION INSTANCE="RAM_Block_RAM_0_PL_RAM_0" PORT="clkb"/>
-        <CONNECTION INSTANCE="AGENT_PG_0" PORT="clk"/>
         <CONNECTION INSTANCE="AGENT_QA_0" PORT="clk"/>
+        <CONNECTION INSTANCE="AGENT_PG_0" PORT="clk"/>
         <CONNECTION INSTANCE="EV_RD_0" PORT="clk"/>
         <CONNECTION INSTANCE="EV_SD_0" PORT="clk"/>
         <CONNECTION INSTANCE="bram_interface_0" PORT="clk"/>
@@ -48,8 +48,8 @@
         <CONNECTION INSTANCE="RAM_Block_RAM_0_Action_RAM_0" PORT="rsta"/>
         <CONNECTION INSTANCE="RAM_Block_RAM_0_PL_RAM_0" PORT="rsta"/>
         <CONNECTION INSTANCE="RAM_Block_RAM_0_PL_RAM_0" PORT="rstb"/>
-        <CONNECTION INSTANCE="AGENT_PG_0" PORT="rst"/>
         <CONNECTION INSTANCE="AGENT_QA_0" PORT="rst"/>
+        <CONNECTION INSTANCE="AGENT_PG_0" PORT="rst"/>
         <CONNECTION INSTANCE="EV_RD_0" PORT="rst"/>
         <CONNECTION INSTANCE="EV_SD_0" PORT="rst"/>
         <CONNECTION INSTANCE="bram_interface_0" PORT="rst"/>
@@ -2982,29 +2982,29 @@
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="out0" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out0">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="AGENT_PG_0" PORT="qA0"/>
             <CONNECTION INSTANCE="AGENT_QA_0" PORT="next_qA0"/>
+            <CONNECTION INSTANCE="AGENT_PG_0" PORT="qA0"/>
             <CONNECTION INSTANCE="External_Ports" PORT="q_next_0"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="out1" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out1">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="AGENT_PG_0" PORT="qA1"/>
             <CONNECTION INSTANCE="AGENT_QA_0" PORT="next_qA1"/>
+            <CONNECTION INSTANCE="AGENT_PG_0" PORT="qA1"/>
             <CONNECTION INSTANCE="External_Ports" PORT="q_next_1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="out2" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out2">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="AGENT_PG_0" PORT="qA2"/>
             <CONNECTION INSTANCE="AGENT_QA_0" PORT="next_qA2"/>
+            <CONNECTION INSTANCE="AGENT_PG_0" PORT="qA2"/>
             <CONNECTION INSTANCE="External_Ports" PORT="q_next_2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="out3" RIGHT="0" SIGIS="undef" SIGNAME="enabler4_32bit_0_out3">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="AGENT_PG_0" PORT="qA3"/>
             <CONNECTION INSTANCE="AGENT_QA_0" PORT="next_qA3"/>
+            <CONNECTION INSTANCE="AGENT_PG_0" PORT="qA3"/>
             <CONNECTION INSTANCE="External_Ports" PORT="q_next_3"/>
           </CONNECTIONS>
         </PORT>

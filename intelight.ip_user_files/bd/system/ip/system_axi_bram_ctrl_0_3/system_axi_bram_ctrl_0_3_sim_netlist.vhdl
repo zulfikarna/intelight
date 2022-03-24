@@ -1,10 +1,10 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
--- Date        : Sun Mar 13 14:49:31 2022
+-- Date        : Sun Mar 13 14:49:30 2022
 -- Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_3/system_axi_bram_ctrl_0_3_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top system_axi_bram_ctrl_0_3 -prefix
+--               system_axi_bram_ctrl_0_3_ system_axi_bram_ctrl_0_3_sim_netlist.vhdl
 -- Design      : system_axi_bram_ctrl_0_3
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -39,8 +39,6 @@ entity system_axi_bram_ctrl_0_3_SRL_FIFO is
     s_axi_wvalid : in STD_LOGIC;
     AW2Arb_BVALID_Cnt : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_bram_ctrl_0_3_SRL_FIFO : entity is "SRL_FIFO";
 end system_axi_bram_ctrl_0_3_SRL_FIFO;
 
 architecture STRUCTURE of system_axi_bram_ctrl_0_3_SRL_FIFO is
@@ -727,8 +725,6 @@ entity system_axi_bram_ctrl_0_3_sng_port_arb is
     Q : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_aresetn : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_bram_ctrl_0_3_sng_port_arb : entity is "sng_port_arb";
 end system_axi_bram_ctrl_0_3_sng_port_arb;
 
 architecture STRUCTURE of system_axi_bram_ctrl_0_3_sng_port_arb is
@@ -1091,8 +1087,6 @@ entity system_axi_bram_ctrl_0_3_wrap_brst is
     \save_init_bram_addr_ld_reg[3]_0\ : in STD_LOGIC;
     s_axi_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_bram_ctrl_0_3_wrap_brst : entity is "wrap_brst";
 end system_axi_bram_ctrl_0_3_wrap_brst;
 
 architecture STRUCTURE of system_axi_bram_ctrl_0_3_wrap_brst is
@@ -2259,8 +2253,6 @@ entity system_axi_bram_ctrl_0_3_rd_chnl is
     s_axi_arid : in STD_LOGIC_VECTOR ( 11 downto 0 );
     bram_rddata_a : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_bram_ctrl_0_3_rd_chnl : entity is "rd_chnl";
 end system_axi_bram_ctrl_0_3_rd_chnl;
 
 architecture STRUCTURE of system_axi_bram_ctrl_0_3_rd_chnl is
@@ -5519,8 +5511,6 @@ entity system_axi_bram_ctrl_0_3_wr_chnl is
     s_axi_awburst : in STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_bram_ctrl_0_3_wr_chnl : entity is "wr_chnl";
 end system_axi_bram_ctrl_0_3_wr_chnl;
 
 architecture STRUCTURE of system_axi_bram_ctrl_0_3_wr_chnl is
@@ -6630,8 +6620,6 @@ entity system_axi_bram_ctrl_0_3_full_axi is
     s_axi_awlen : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_awburst : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_bram_ctrl_0_3_full_axi : entity is "full_axi";
 end system_axi_bram_ctrl_0_3_full_axi;
 
 architecture STRUCTURE of system_axi_bram_ctrl_0_3_full_axi is
@@ -7054,8 +7042,6 @@ entity system_axi_bram_ctrl_0_3_axi_bram_ctrl_top is
     s_axi_awlen : in STD_LOGIC_VECTOR ( 3 downto 0 );
     s_axi_awburst : in STD_LOGIC_VECTOR ( 1 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_bram_ctrl_0_3_axi_bram_ctrl_top : entity is "axi_bram_ctrl_top";
 end system_axi_bram_ctrl_0_3_axi_bram_ctrl_top;
 
 architecture STRUCTURE of system_axi_bram_ctrl_0_3_axi_bram_ctrl_top is
@@ -7210,8 +7196,6 @@ entity system_axi_bram_ctrl_0_3_axi_bram_ctrl is
   attribute C_S_AXI_PROTOCOL of system_axi_bram_ctrl_0_3_axi_bram_ctrl : entity is "AXI4";
   attribute C_S_AXI_SUPPORTS_NARROW_BURST : integer;
   attribute C_S_AXI_SUPPORTS_NARROW_BURST of system_axi_bram_ctrl_0_3_axi_bram_ctrl : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of system_axi_bram_ctrl_0_3_axi_bram_ctrl : entity is "axi_bram_ctrl";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of system_axi_bram_ctrl_0_3_axi_bram_ctrl : entity is "yes";
 end system_axi_bram_ctrl_0_3_axi_bram_ctrl;

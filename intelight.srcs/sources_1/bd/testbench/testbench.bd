@@ -12,8 +12,8 @@
     },
     "design_tree": {
       "AGENT": {
-        "PG_0": "",
-        "QA_0": ""
+        "QA_0": "",
+        "PG_0": ""
       },
       "EV": {
         "RD_0": "",
@@ -444,82 +444,6 @@
           }
         },
         "components": {
-          "PG_0": {
-            "vlnv": "xilinx.com:module_ref:PG:1.0",
-            "xci_name": "testbench_PG_0_0",
-            "xci_path": "ip\\testbench_PG_0_0\\testbench_PG_0_0.xci",
-            "inst_hier_path": "AGENT/PG_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "PG",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I",
-                "parameters": {
-                  "ASSOCIATED_RESET": {
-                    "value": "rst",
-                    "value_src": "constant"
-                  },
-                  "FREQ_HZ": {
-                    "value": "50000000",
-                    "value_src": "user_prop"
-                  },
-                  "CLK_DOMAIN": {
-                    "value": "testbench_clk_0",
-                    "value_src": "default_prop"
-                  }
-                }
-              },
-              "rst": {
-                "type": "rst",
-                "direction": "I"
-              },
-              "en": {
-                "direction": "I"
-              },
-              "qA0": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "qA1": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "qA2": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "qA3": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "sel": {
-                "direction": "I"
-              },
-              "act_random": {
-                "direction": "I",
-                "left": "1",
-                "right": "0"
-              },
-              "act": {
-                "direction": "O",
-                "left": "1",
-                "right": "0"
-              },
-              "act_greed": {
-                "direction": "O",
-                "left": "1",
-                "right": "0"
-              }
-            }
-          },
           "QA_0": {
             "vlnv": "xilinx.com:module_ref:QA:1.0",
             "xci_name": "testbench_QA_0_0",
@@ -602,35 +526,111 @@
                 "right": "0"
               }
             }
+          },
+          "PG_0": {
+            "vlnv": "xilinx.com:module_ref:PG:1.0",
+            "xci_name": "testbench_PG_0_0",
+            "xci_path": "ip\\testbench_PG_0_0\\testbench_PG_0_0.xci",
+            "inst_hier_path": "AGENT/PG_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "PG",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "rst",
+                    "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "50000000",
+                    "value_src": "user_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "testbench_clk_0",
+                    "value_src": "default_prop"
+                  }
+                }
+              },
+              "rst": {
+                "type": "rst",
+                "direction": "I"
+              },
+              "en": {
+                "direction": "I"
+              },
+              "qA0": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "qA1": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "qA2": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "qA3": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "sel": {
+                "direction": "I"
+              },
+              "act_random": {
+                "direction": "I",
+                "left": "1",
+                "right": "0"
+              },
+              "act": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "act_greed": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              }
+            }
           }
         },
         "nets": {
           "Action_RAM_q_next_0": {
             "ports": [
               "q_next_0",
-              "PG_0/qA0",
-              "QA_0/next_qA0"
+              "QA_0/next_qA0",
+              "PG_0/qA0"
             ]
           },
           "Action_RAM_q_next_1": {
             "ports": [
               "q_next_1",
-              "PG_0/qA1",
-              "QA_0/next_qA1"
+              "QA_0/next_qA1",
+              "PG_0/qA1"
             ]
           },
           "Action_RAM_q_next_2": {
             "ports": [
               "q_next_2",
-              "PG_0/qA2",
-              "QA_0/next_qA2"
+              "QA_0/next_qA2",
+              "PG_0/qA2"
             ]
           },
           "Action_RAM_q_next_3": {
             "ports": [
               "q_next_3",
-              "PG_0/qA3",
-              "QA_0/next_qA3"
+              "QA_0/next_qA3",
+              "PG_0/qA3"
             ]
           },
           "PG_0_act": {
@@ -667,8 +667,8 @@
           "clk_1": {
             "ports": [
               "clk",
-              "PG_0/clk",
-              "QA_0/clk"
+              "QA_0/clk",
+              "PG_0/clk"
             ]
           },
           "en_1": {
@@ -698,8 +698,8 @@
           "rst_bram_1": {
             "ports": [
               "rst",
-              "PG_0/rst",
-              "QA_0/rst"
+              "QA_0/rst",
+              "PG_0/rst"
             ]
           },
           "sel_0_1": {
