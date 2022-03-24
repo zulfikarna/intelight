@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg400-1" LaunchTime="1648068259">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg400-1" LaunchTime="1648115364">
   <File Type="ROUTE-PWR" Name="system_wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="system_wrapper.tcl"/>
   <File Type="BITSTR-MMI" Name="system_wrapper.mmi"/>
@@ -77,6 +77,27 @@
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/enable_file.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/register_file.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/bram_interface.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/arith_file.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -84,7 +105,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/enable_file.v">
+    <File Path="$PSRCDIR/sources_1/new/CU.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -105,13 +126,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/register_file.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/QA.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -126,13 +140,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/CU.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/RD.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -141,13 +148,6 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/SD.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/bram_interface.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -224,7 +224,9 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021">
+      <Desc>Default settings for Implementation.</Desc>
+    </StratHandle>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>
@@ -236,20 +238,17 @@
     <Step Id="write_bitstream"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="system_rst_ps7_0_50M_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="testbench_Action_RAM_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_intelight_mem_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="testbench_Action_RAM_3_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="testbench_QA_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_axi_intc_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="testbench_CU_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="testbench_RD_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="testbench_Action_RAM_1_0"/>
   <BlockFileSet Type="BlockSrcs" Name="testbench_bram_interface_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="testbench_enabler4_32bit_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="testbench_SD_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="testbench_Action_RAM_1_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="testbench_Action_RAM_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="testbench_CU_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="testbench_Action_RAM_2_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="testbench_PG_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_PG_0_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_RD_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_QA_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="system_SD_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_RD_0_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_PG_0_1"/>
 </GenRun>

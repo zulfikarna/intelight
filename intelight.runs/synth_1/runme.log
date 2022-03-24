@@ -11,11 +11,9 @@
 
 source system_wrapper.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-WARNING: [IP_Flow 19-3685] Ignored loading user repository 'd:/intelight/ip_repo/intelight_mem_1.0'. The path is contained within another repository.
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/intelight/ip_repo'.
-WARNING: [IP_Flow 19-3685] Ignored loading user repository 'd:/intelight/ip_repo/intelight_ip_1.0'. The path is contained within another repository.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2021.1/data/ip'.
-add_files: Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1351.207 ; gain = 0.000
+add_files: Time (s): cpu = 00:00:03 ; elapsed = 00:00:16 . Memory (MB): peak = 1353.699 ; gain = 0.000
 Command: synth_design -top system_wrapper -part xc7z020clg400-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
@@ -23,253 +21,230 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 6924
+INFO: [Synth 8-7075] Helper process launched with PID 15788
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1351.207 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1353.699 ; gain = 0.000
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'system_wrapper' [D:/intelight/intelight/intelight.gen/sources_1/bd/system/hdl/system_wrapper.v:12]
-INFO: [Synth 8-6157] synthesizing module 'system' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5273]
-INFO: [Synth 8-6157] synthesizing module 'AGENT_imp_YX08AZ' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:12]
-INFO: [Synth 8-6157] synthesizing module 'system_PG_0_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_PG_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_PG_0_1' (1#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_PG_0_1_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'system_QA_0_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_QA_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_QA_0_1' (2#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_QA_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'AGENT_imp_YX08AZ' (3#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:12]
-WARNING: [Synth 8-7071] port 'act_greed_0' of module 'AGENT_imp_YX08AZ' is unconnected for instance 'AGENT' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5560]
-WARNING: [Synth 8-7023] instance 'AGENT' of module 'AGENT_imp_YX08AZ' has 16 connections declared, but only 15 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5560]
-INFO: [Synth 8-6157] synthesizing module 'system_CU_0_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_CU_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_CU_0_1' (4#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_CU_0_1_stub.v:6]
-WARNING: [Synth 8-7071] port 'wire_sc' of module 'system_CU_0_1' is unconnected for instance 'CU_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5576]
-WARNING: [Synth 8-7071] port 'wire_ec' of module 'system_CU_0_1' is unconnected for instance 'CU_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5576]
-WARNING: [Synth 8-7071] port 'wire_cs' of module 'system_CU_0_1' is unconnected for instance 'CU_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5576]
-WARNING: [Synth 8-7023] instance 'CU_0' of module 'system_CU_0_1' has 17 connections declared, but only 14 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5576]
-INFO: [Synth 8-6157] synthesizing module 'EV_imp_1QWL980' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:106]
-INFO: [Synth 8-6157] synthesizing module 'system_RD_0_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_RD_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_RD_0_1' (5#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_RD_0_1_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'system_SD_0_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_SD_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_SD_0_1' (6#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_SD_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'EV_imp_1QWL980' (7#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:106]
-WARNING: [Synth 8-7071] port 'level_r0_0' of module 'EV_imp_1QWL980' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5591]
-WARNING: [Synth 8-7071] port 'level_r1_0' of module 'EV_imp_1QWL980' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5591]
-WARNING: [Synth 8-7071] port 'level_r2_0' of module 'EV_imp_1QWL980' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5591]
-WARNING: [Synth 8-7071] port 'level_r3_0' of module 'EV_imp_1QWL980' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5591]
-WARNING: [Synth 8-7071] port 'panjang_r0_0' of module 'EV_imp_1QWL980' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5591]
-WARNING: [Synth 8-7071] port 'panjang_r1_0' of module 'EV_imp_1QWL980' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5591]
-WARNING: [Synth 8-7071] port 'panjang_r2_0' of module 'EV_imp_1QWL980' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5591]
-WARNING: [Synth 8-7071] port 'panjang_r3_0' of module 'EV_imp_1QWL980' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5591]
-WARNING: [Synth 8-7071] port 'panjang_w0_0' of module 'EV_imp_1QWL980' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5591]
-WARNING: [Synth 8-7071] port 'panjang_w1_0' of module 'EV_imp_1QWL980' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5591]
-WARNING: [Synth 8-7071] port 'panjang_w2_0' of module 'EV_imp_1QWL980' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5591]
-WARNING: [Synth 8-7071] port 'panjang_w3_0' of module 'EV_imp_1QWL980' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5591]
-WARNING: [Synth 8-7023] instance 'EV' of module 'EV_imp_1QWL980' has 36 connections declared, but only 24 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5591]
-INFO: [Synth 8-6157] synthesizing module 'PS_imp_10UUVIW' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:297]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_intc_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_axi_intc_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_intc_0_0' (8#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_axi_intc_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'system_processing_system7_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_processing_system7_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_processing_system7_0_0' (9#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_processing_system7_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'system_ps7_0_axi_periph_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:6021]
-INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_YLMWV3' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3235]
-INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_YLMWV3' (10#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3235]
-INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_1MI8Z0U' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3493]
-INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_1MI8Z0U' (11#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3493]
-INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_1XNYRB0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3751]
-INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_1XNYRB0' (12#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3751]
-INFO: [Synth 8-6157] synthesizing module 'm03_couplers_imp_NPX0Z1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:4009]
-INFO: [Synth 8-6155] done synthesizing module 'm03_couplers_imp_NPX0Z1' (13#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:4009]
-INFO: [Synth 8-6157] synthesizing module 'm04_couplers_imp_1ARALW8' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:4267]
-INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_auto_pc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_0' (14#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_auto_pc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'm04_couplers_imp_1ARALW8' (15#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:4267]
-INFO: [Synth 8-6157] synthesizing module 'm05_couplers_imp_1X79OP' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:4577]
-INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_auto_pc_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_1' (16#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_auto_pc_1_stub.v:6]
-WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'system_auto_pc_1' is unconnected for instance 'auto_pc' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:4816]
-WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'system_auto_pc_1' is unconnected for instance 'auto_pc' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:4816]
-WARNING: [Synth 8-7023] instance 'auto_pc' of module 'system_auto_pc_1' has 60 connections declared, but only 58 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:4816]
-INFO: [Synth 8-6155] done synthesizing module 'm05_couplers_imp_1X79OP' (17#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:4577]
-INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_KVF13I' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:4877]
-INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_2' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_auto_pc_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_2' (18#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_auto_pc_2_stub.v:6]
-WARNING: [Synth 8-7071] port 'm_axi_awregion' of module 'system_auto_pc_2' is unconnected for instance 'auto_pc' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5192]
-WARNING: [Synth 8-7071] port 'm_axi_arregion' of module 'system_auto_pc_2' is unconnected for instance 'auto_pc' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5192]
-WARNING: [Synth 8-7023] instance 'auto_pc' of module 'system_auto_pc_2' has 79 connections declared, but only 77 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5192]
-INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_KVF13I' (19#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:4877]
-INFO: [Synth 8-6157] synthesizing module 'system_xbar_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_xbar_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_xbar_0' (20#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_xbar_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_ps7_0_axi_periph_1' (21#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:6021]
-INFO: [Synth 8-6157] synthesizing module 'system_rst_ps7_0_50M_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_rst_ps7_0_50M_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_rst_ps7_0_50M_1' (22#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_rst_ps7_0_50M_1_stub.v:6]
-WARNING: [Synth 8-7071] port 'mb_reset' of module 'system_rst_ps7_0_50M_1' is unconnected for instance 'rst_ps7_0_50M' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1387]
-WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'system_rst_ps7_0_50M_1' is unconnected for instance 'rst_ps7_0_50M' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1387]
-WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'system_rst_ps7_0_50M_1' is unconnected for instance 'rst_ps7_0_50M' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1387]
-WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'system_rst_ps7_0_50M_1' is unconnected for instance 'rst_ps7_0_50M' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1387]
-WARNING: [Synth 8-7023] instance 'rst_ps7_0_50M' of module 'system_rst_ps7_0_50M_1' has 10 connections declared, but only 6 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1387]
-INFO: [Synth 8-6155] done synthesizing module 'PS_imp_10UUVIW' (23#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:297]
-INFO: [Synth 8-6157] synthesizing module 'RAM_Block_imp_N0OGGK' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2432]
-INFO: [Synth 8-6157] synthesizing module 'RAM_0_imp_1H0JBHN' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1396]
-INFO: [Synth 8-6157] synthesizing module 'system_Action_RAM_0_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_Action_RAM_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_Action_RAM_0_1' (24#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_Action_RAM_0_1_stub.v:6]
-WARNING: [Synth 8-7071] port 'douta' of module 'system_Action_RAM_0_1' is unconnected for instance 'Action_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1580]
-WARNING: [Synth 8-7071] port 'rsta_busy' of module 'system_Action_RAM_0_1' is unconnected for instance 'Action_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1580]
-WARNING: [Synth 8-7071] port 'rstb_busy' of module 'system_Action_RAM_0_1' is unconnected for instance 'Action_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1580]
-WARNING: [Synth 8-7023] instance 'Action_RAM_0' of module 'system_Action_RAM_0_1' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1580]
-INFO: [Synth 8-6157] synthesizing module 'system_PL_RAM_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_PL_RAM_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_PL_RAM_0_0' (25#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_PL_RAM_0_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'douta' of module 'system_PL_RAM_0_0' is unconnected for instance 'PL_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1594]
-WARNING: [Synth 8-7071] port 'rsta_busy' of module 'system_PL_RAM_0_0' is unconnected for instance 'PL_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1594]
-WARNING: [Synth 8-7071] port 'rstb_busy' of module 'system_PL_RAM_0_0' is unconnected for instance 'PL_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1594]
-WARNING: [Synth 8-7023] instance 'PL_RAM_0' of module 'system_PL_RAM_0_0' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1594]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_bram_ctrl_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_axi_bram_ctrl_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_bram_ctrl_0_0' (26#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_axi_bram_ctrl_0_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'bram_rst_a' of module 'system_axi_bram_ctrl_0_0' is unconnected for instance 'axi_bram_ctrl_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1610]
-WARNING: [Synth 8-7071] port 'bram_clk_a' of module 'system_axi_bram_ctrl_0_0' is unconnected for instance 'axi_bram_ctrl_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1610]
-WARNING: [Synth 8-7023] instance 'axi_bram_ctrl_0' of module 'system_axi_bram_ctrl_0_0' has 44 connections declared, but only 42 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1610]
-INFO: [Synth 8-6155] done synthesizing module 'RAM_0_imp_1H0JBHN' (27#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1396]
-INFO: [Synth 8-6157] synthesizing module 'RAM_1_imp_71Q6AN' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1655]
-INFO: [Synth 8-6157] synthesizing module 'system_Action_RAM_1_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_Action_RAM_1_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_Action_RAM_1_1' (28#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_Action_RAM_1_1_stub.v:6]
-WARNING: [Synth 8-7071] port 'douta' of module 'system_Action_RAM_1_1' is unconnected for instance 'Action_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1839]
-WARNING: [Synth 8-7071] port 'rsta_busy' of module 'system_Action_RAM_1_1' is unconnected for instance 'Action_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1839]
-WARNING: [Synth 8-7071] port 'rstb_busy' of module 'system_Action_RAM_1_1' is unconnected for instance 'Action_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1839]
-WARNING: [Synth 8-7023] instance 'Action_RAM_1' of module 'system_Action_RAM_1_1' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1839]
-INFO: [Synth 8-6157] synthesizing module 'system_PL_RAM_1_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_PL_RAM_1_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_PL_RAM_1_1' (29#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_PL_RAM_1_1_stub.v:6]
-WARNING: [Synth 8-7071] port 'douta' of module 'system_PL_RAM_1_1' is unconnected for instance 'PL_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1853]
-WARNING: [Synth 8-7071] port 'rsta_busy' of module 'system_PL_RAM_1_1' is unconnected for instance 'PL_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1853]
-WARNING: [Synth 8-7071] port 'rstb_busy' of module 'system_PL_RAM_1_1' is unconnected for instance 'PL_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1853]
-WARNING: [Synth 8-7023] instance 'PL_RAM_1' of module 'system_PL_RAM_1_1' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1853]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_bram_ctrl_0_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_axi_bram_ctrl_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_bram_ctrl_0_1' (30#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_axi_bram_ctrl_0_1_stub.v:6]
-WARNING: [Synth 8-7071] port 'bram_rst_a' of module 'system_axi_bram_ctrl_0_1' is unconnected for instance 'axi_bram_ctrl_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1869]
-WARNING: [Synth 8-7071] port 'bram_clk_a' of module 'system_axi_bram_ctrl_0_1' is unconnected for instance 'axi_bram_ctrl_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1869]
-WARNING: [Synth 8-7023] instance 'axi_bram_ctrl_1' of module 'system_axi_bram_ctrl_0_1' has 44 connections declared, but only 42 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1869]
-INFO: [Synth 8-6155] done synthesizing module 'RAM_1_imp_71Q6AN' (31#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1655]
-INFO: [Synth 8-6157] synthesizing module 'RAM_2_imp_B944OY' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1914]
-INFO: [Synth 8-6157] synthesizing module 'system_Action_RAM_2_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_Action_RAM_2_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_Action_RAM_2_1' (32#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_Action_RAM_2_1_stub.v:6]
-WARNING: [Synth 8-7071] port 'douta' of module 'system_Action_RAM_2_1' is unconnected for instance 'Action_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2098]
-WARNING: [Synth 8-7071] port 'rsta_busy' of module 'system_Action_RAM_2_1' is unconnected for instance 'Action_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2098]
-WARNING: [Synth 8-7071] port 'rstb_busy' of module 'system_Action_RAM_2_1' is unconnected for instance 'Action_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2098]
-WARNING: [Synth 8-7023] instance 'Action_RAM_2' of module 'system_Action_RAM_2_1' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2098]
-INFO: [Synth 8-6157] synthesizing module 'system_PL_RAM_2_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_PL_RAM_2_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_PL_RAM_2_1' (33#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_PL_RAM_2_1_stub.v:6]
-WARNING: [Synth 8-7071] port 'douta' of module 'system_PL_RAM_2_1' is unconnected for instance 'PL_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2112]
-WARNING: [Synth 8-7071] port 'rsta_busy' of module 'system_PL_RAM_2_1' is unconnected for instance 'PL_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2112]
-WARNING: [Synth 8-7071] port 'rstb_busy' of module 'system_PL_RAM_2_1' is unconnected for instance 'PL_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2112]
-WARNING: [Synth 8-7023] instance 'PL_RAM_2' of module 'system_PL_RAM_2_1' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2112]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_bram_ctrl_0_2' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_axi_bram_ctrl_0_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_bram_ctrl_0_2' (34#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_axi_bram_ctrl_0_2_stub.v:6]
-WARNING: [Synth 8-7071] port 'bram_rst_a' of module 'system_axi_bram_ctrl_0_2' is unconnected for instance 'axi_bram_ctrl_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2128]
-WARNING: [Synth 8-7071] port 'bram_clk_a' of module 'system_axi_bram_ctrl_0_2' is unconnected for instance 'axi_bram_ctrl_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2128]
-WARNING: [Synth 8-7023] instance 'axi_bram_ctrl_2' of module 'system_axi_bram_ctrl_0_2' has 44 connections declared, but only 42 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2128]
-INFO: [Synth 8-6155] done synthesizing module 'RAM_2_imp_B944OY' (35#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1914]
-INFO: [Synth 8-6157] synthesizing module 'RAM_3_imp_13O527Q' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2173]
-INFO: [Synth 8-6157] synthesizing module 'system_Action_RAM_3_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_Action_RAM_3_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_Action_RAM_3_1' (36#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_Action_RAM_3_1_stub.v:6]
-WARNING: [Synth 8-7071] port 'douta' of module 'system_Action_RAM_3_1' is unconnected for instance 'Action_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2357]
-WARNING: [Synth 8-7071] port 'rsta_busy' of module 'system_Action_RAM_3_1' is unconnected for instance 'Action_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2357]
-WARNING: [Synth 8-7071] port 'rstb_busy' of module 'system_Action_RAM_3_1' is unconnected for instance 'Action_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2357]
-WARNING: [Synth 8-7023] instance 'Action_RAM_3' of module 'system_Action_RAM_3_1' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2357]
-INFO: [Synth 8-6157] synthesizing module 'system_PL_RAM_3_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_PL_RAM_3_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_PL_RAM_3_1' (37#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_PL_RAM_3_1_stub.v:6]
-WARNING: [Synth 8-7071] port 'douta' of module 'system_PL_RAM_3_1' is unconnected for instance 'PL_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2371]
-WARNING: [Synth 8-7071] port 'rsta_busy' of module 'system_PL_RAM_3_1' is unconnected for instance 'PL_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2371]
-WARNING: [Synth 8-7071] port 'rstb_busy' of module 'system_PL_RAM_3_1' is unconnected for instance 'PL_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2371]
-WARNING: [Synth 8-7023] instance 'PL_RAM_3' of module 'system_PL_RAM_3_1' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2371]
-INFO: [Synth 8-6157] synthesizing module 'system_axi_bram_ctrl_0_3' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_axi_bram_ctrl_0_3_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_axi_bram_ctrl_0_3' (38#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_axi_bram_ctrl_0_3_stub.v:6]
-WARNING: [Synth 8-7071] port 'bram_rst_a' of module 'system_axi_bram_ctrl_0_3' is unconnected for instance 'axi_bram_ctrl_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2387]
-WARNING: [Synth 8-7071] port 'bram_clk_a' of module 'system_axi_bram_ctrl_0_3' is unconnected for instance 'axi_bram_ctrl_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2387]
-WARNING: [Synth 8-7023] instance 'axi_bram_ctrl_3' of module 'system_axi_bram_ctrl_0_3' has 44 connections declared, but only 42 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2387]
-INFO: [Synth 8-6155] done synthesizing module 'RAM_3_imp_13O527Q' (39#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2173]
+INFO: [Synth 8-6157] synthesizing module 'system' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2575]
+INFO: [Synth 8-6157] synthesizing module 'system_Action_RAM_0_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_Action_RAM_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_Action_RAM_0_1' (1#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_Action_RAM_0_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'system_Action_RAM_0_1' is unconnected for instance 'Action_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2936]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'system_Action_RAM_0_1' is unconnected for instance 'Action_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2936]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'system_Action_RAM_0_1' is unconnected for instance 'Action_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2936]
+WARNING: [Synth 8-7023] instance 'Action_RAM_0' of module 'system_Action_RAM_0_1' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2936]
+INFO: [Synth 8-6157] synthesizing module 'system_Action_RAM_1_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_Action_RAM_1_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_Action_RAM_1_1' (2#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_Action_RAM_1_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'system_Action_RAM_1_1' is unconnected for instance 'Action_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2950]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'system_Action_RAM_1_1' is unconnected for instance 'Action_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2950]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'system_Action_RAM_1_1' is unconnected for instance 'Action_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2950]
+WARNING: [Synth 8-7023] instance 'Action_RAM_1' of module 'system_Action_RAM_1_1' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2950]
+INFO: [Synth 8-6157] synthesizing module 'system_Action_RAM_2_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_Action_RAM_2_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_Action_RAM_2_1' (3#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_Action_RAM_2_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'system_Action_RAM_2_1' is unconnected for instance 'Action_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2964]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'system_Action_RAM_2_1' is unconnected for instance 'Action_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2964]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'system_Action_RAM_2_1' is unconnected for instance 'Action_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2964]
+WARNING: [Synth 8-7023] instance 'Action_RAM_2' of module 'system_Action_RAM_2_1' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2964]
+INFO: [Synth 8-6157] synthesizing module 'system_Action_RAM_3_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_Action_RAM_3_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_Action_RAM_3_1' (4#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_Action_RAM_3_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'system_Action_RAM_3_1' is unconnected for instance 'Action_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2978]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'system_Action_RAM_3_1' is unconnected for instance 'Action_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2978]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'system_Action_RAM_3_1' is unconnected for instance 'Action_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2978]
+WARNING: [Synth 8-7023] instance 'Action_RAM_3' of module 'system_Action_RAM_3_1' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2978]
+INFO: [Synth 8-6157] synthesizing module 'system_PL_RAM_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_PL_RAM_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_PL_RAM_0_0' (5#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_PL_RAM_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'system_PL_RAM_0_0' is unconnected for instance 'PL_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2992]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'system_PL_RAM_0_0' is unconnected for instance 'PL_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2992]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'system_PL_RAM_0_0' is unconnected for instance 'PL_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2992]
+WARNING: [Synth 8-7023] instance 'PL_RAM_0' of module 'system_PL_RAM_0_0' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2992]
+INFO: [Synth 8-6157] synthesizing module 'system_PL_RAM_1_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_PL_RAM_1_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_PL_RAM_1_1' (6#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_PL_RAM_1_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'system_PL_RAM_1_1' is unconnected for instance 'PL_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3006]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'system_PL_RAM_1_1' is unconnected for instance 'PL_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3006]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'system_PL_RAM_1_1' is unconnected for instance 'PL_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3006]
+WARNING: [Synth 8-7023] instance 'PL_RAM_1' of module 'system_PL_RAM_1_1' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3006]
+INFO: [Synth 8-6157] synthesizing module 'system_PL_RAM_2_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_PL_RAM_2_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_PL_RAM_2_1' (7#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_PL_RAM_2_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'system_PL_RAM_2_1' is unconnected for instance 'PL_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3020]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'system_PL_RAM_2_1' is unconnected for instance 'PL_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3020]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'system_PL_RAM_2_1' is unconnected for instance 'PL_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3020]
+WARNING: [Synth 8-7023] instance 'PL_RAM_2' of module 'system_PL_RAM_2_1' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3020]
+INFO: [Synth 8-6157] synthesizing module 'system_PL_RAM_3_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_PL_RAM_3_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_PL_RAM_3_1' (8#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_PL_RAM_3_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'system_PL_RAM_3_1' is unconnected for instance 'PL_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3034]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'system_PL_RAM_3_1' is unconnected for instance 'PL_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3034]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'system_PL_RAM_3_1' is unconnected for instance 'PL_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3034]
+WARNING: [Synth 8-7023] instance 'PL_RAM_3' of module 'system_PL_RAM_3_1' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3034]
+INFO: [Synth 8-6157] synthesizing module 'PL_Section_imp_ZAD24G' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:297]
+INFO: [Synth 8-6157] synthesizing module 'AGENT_imp_1J40VM5' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:12]
+INFO: [Synth 8-6157] synthesizing module 'system_PG_0_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_PG_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_PG_0_1' (9#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_PG_0_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_QA_0_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_QA_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_QA_0_1' (10#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_QA_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'AGENT_imp_1J40VM5' (11#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:12]
+WARNING: [Synth 8-7071] port 'act_greed_0' of module 'AGENT_imp_1J40VM5' is unconnected for instance 'AGENT' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:458]
+WARNING: [Synth 8-7023] instance 'AGENT' of module 'AGENT_imp_1J40VM5' has 16 connections declared, but only 15 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:458]
+INFO: [Synth 8-6157] synthesizing module 'system_CU_0_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_CU_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_CU_0_1' (12#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_CU_0_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'wire_sc' of module 'system_CU_0_1' is unconnected for instance 'CU_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:474]
+WARNING: [Synth 8-7071] port 'wire_ec' of module 'system_CU_0_1' is unconnected for instance 'CU_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:474]
+WARNING: [Synth 8-7071] port 'wire_cs' of module 'system_CU_0_1' is unconnected for instance 'CU_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:474]
+WARNING: [Synth 8-7023] instance 'CU_0' of module 'system_CU_0_1' has 17 connections declared, but only 14 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:474]
+INFO: [Synth 8-6157] synthesizing module 'EV_imp_1FQZRKN' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:106]
+INFO: [Synth 8-6157] synthesizing module 'system_RD_0_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_RD_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_RD_0_1' (13#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_RD_0_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_SD_0_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_SD_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_SD_0_1' (14#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_SD_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'EV_imp_1FQZRKN' (15#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:106]
+WARNING: [Synth 8-7071] port 'level_r0_0' of module 'EV_imp_1FQZRKN' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:489]
+WARNING: [Synth 8-7071] port 'level_r1_0' of module 'EV_imp_1FQZRKN' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:489]
+WARNING: [Synth 8-7071] port 'level_r2_0' of module 'EV_imp_1FQZRKN' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:489]
+WARNING: [Synth 8-7071] port 'level_r3_0' of module 'EV_imp_1FQZRKN' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:489]
+WARNING: [Synth 8-7071] port 'panjang_r0_0' of module 'EV_imp_1FQZRKN' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:489]
+WARNING: [Synth 8-7071] port 'panjang_r1_0' of module 'EV_imp_1FQZRKN' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:489]
+WARNING: [Synth 8-7071] port 'panjang_r2_0' of module 'EV_imp_1FQZRKN' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:489]
+WARNING: [Synth 8-7071] port 'panjang_r3_0' of module 'EV_imp_1FQZRKN' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:489]
+WARNING: [Synth 8-7071] port 'panjang_w0_0' of module 'EV_imp_1FQZRKN' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:489]
+WARNING: [Synth 8-7071] port 'panjang_w1_0' of module 'EV_imp_1FQZRKN' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:489]
+WARNING: [Synth 8-7071] port 'panjang_w2_0' of module 'EV_imp_1FQZRKN' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:489]
+WARNING: [Synth 8-7071] port 'panjang_w3_0' of module 'EV_imp_1FQZRKN' is unconnected for instance 'EV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:489]
+WARNING: [Synth 8-7023] instance 'EV' of module 'EV_imp_1FQZRKN' has 36 connections declared, but only 24 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:489]
+INFO: [Synth 8-6157] synthesizing module 'system_bram_interface_0_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_bram_interface_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_bram_interface_0_1' (16#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_bram_interface_0_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_enabler4_32bit_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_enabler4_32bit_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_enabler4_32bit_0_0' (17#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_enabler4_32bit_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'PL_Section_imp_ZAD24G' (18#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:297]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_bram_ctrl_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_axi_bram_ctrl_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_bram_ctrl_0_0' (19#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_axi_bram_ctrl_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_bram_ctrl_0_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_axi_bram_ctrl_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_bram_ctrl_0_1' (20#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_axi_bram_ctrl_0_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_bram_ctrl_0_2' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_axi_bram_ctrl_0_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_bram_ctrl_0_2' (21#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_axi_bram_ctrl_0_2_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_bram_ctrl_0_3' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_axi_bram_ctrl_0_3_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_bram_ctrl_0_3' (22#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_axi_bram_ctrl_0_3_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_axi_intc_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_axi_intc_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_axi_intc_0_0' (23#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_axi_intc_0_0_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'system_cnst_0_4bit_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_cnst_0_4bit_1/synth/system_cnst_0_4bit_1.v:57]
 INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_7_xlconstant' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant' (40#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'system_cnst_0_4bit_1' (41#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_cnst_0_4bit_1/synth/system_cnst_0_4bit_1.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant' (24#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'system_cnst_0_4bit_1' (25#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_cnst_0_4bit_1/synth/system_cnst_0_4bit_1.v:57]
 INFO: [Synth 8-6157] synthesizing module 'system_cnst_1_1bit_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_cnst_1_1bit_1/synth/system_cnst_1_1bit_1.v:57]
 INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_7_xlconstant__parameterized0' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant__parameterized0' (41#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'system_cnst_1_1bit_1' (42#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_cnst_1_1bit_1/synth/system_cnst_1_1bit_1.v:57]
-INFO: [Synth 8-6155] done synthesizing module 'RAM_Block_imp_N0OGGK' (43#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2432]
-INFO: [Synth 8-6157] synthesizing module 'system_bram_interface_0_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_bram_interface_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_bram_interface_0_1' (44#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_bram_interface_0_1_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'system_enabler4_32bit_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_enabler4_32bit_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_enabler4_32bit_0_0' (45#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_enabler4_32bit_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'system_intelight_mem_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_intelight_mem_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system_intelight_mem_0_0' (46#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-18972-DESKTOP-LNFBGQQ/realtime/system_intelight_mem_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'system' (47#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:5273]
-INFO: [Synth 8-6155] done synthesizing module 'system_wrapper' (48#1) [D:/intelight/intelight/intelight.gen/sources_1/bd/system/hdl/system_wrapper.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant__parameterized0' (25#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'system_cnst_1_1bit_1' (26#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_cnst_1_1bit_1/synth/system_cnst_1_1bit_1.v:57]
+INFO: [Synth 8-6157] synthesizing module 'system_intelight_mem_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_intelight_mem_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_intelight_mem_0_0' (27#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_intelight_mem_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_processing_system7_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_processing_system7_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_processing_system7_0_0' (28#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_processing_system7_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'system_ps7_0_axi_periph_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3650]
+INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_1H7AUOX' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:537]
+INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_1H7AUOX' (29#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:537]
+INFO: [Synth 8-6157] synthesizing module 'm01_couplers_imp_4Y7TYO' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:795]
+INFO: [Synth 8-6155] done synthesizing module 'm01_couplers_imp_4Y7TYO' (30#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:795]
+INFO: [Synth 8-6157] synthesizing module 'm02_couplers_imp_FKL2TE' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1053]
+INFO: [Synth 8-6155] done synthesizing module 'm02_couplers_imp_FKL2TE' (31#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1053]
+INFO: [Synth 8-6157] synthesizing module 'm03_couplers_imp_15QZ4LV' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1311]
+INFO: [Synth 8-6155] done synthesizing module 'm03_couplers_imp_15QZ4LV' (32#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1311]
+INFO: [Synth 8-6157] synthesizing module 'm04_couplers_imp_TUCI1Y' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1569]
+INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_0' (33#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'm04_couplers_imp_TUCI1Y' (34#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1569]
+INFO: [Synth 8-6157] synthesizing module 'm05_couplers_imp_1IWS6WN' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1879]
+INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_auto_pc_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_1' (35#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_auto_pc_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'system_auto_pc_1' is unconnected for instance 'auto_pc' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2118]
+WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'system_auto_pc_1' is unconnected for instance 'auto_pc' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2118]
+WARNING: [Synth 8-7023] instance 'auto_pc' of module 'system_auto_pc_1' has 60 connections declared, but only 58 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2118]
+INFO: [Synth 8-6155] done synthesizing module 'm05_couplers_imp_1IWS6WN' (36#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:1879]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_11SE3QO' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2179]
+INFO: [Synth 8-6157] synthesizing module 'system_auto_pc_2' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_auto_pc_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_auto_pc_2' (37#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_auto_pc_2_stub.v:6]
+WARNING: [Synth 8-7071] port 'm_axi_awregion' of module 'system_auto_pc_2' is unconnected for instance 'auto_pc' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2494]
+WARNING: [Synth 8-7071] port 'm_axi_arregion' of module 'system_auto_pc_2' is unconnected for instance 'auto_pc' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2494]
+WARNING: [Synth 8-7023] instance 'auto_pc' of module 'system_auto_pc_2' has 79 connections declared, but only 77 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2494]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_11SE3QO' (38#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2179]
+INFO: [Synth 8-6157] synthesizing module 'system_xbar_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_xbar_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_xbar_0' (39#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_xbar_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_ps7_0_axi_periph_1' (40#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3650]
+INFO: [Synth 8-6157] synthesizing module 'system_rst_ps7_0_50M_1' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_rst_ps7_0_50M_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'system_rst_ps7_0_50M_1' (41#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-17936-DESKTOP-LNFBGQQ/realtime/system_rst_ps7_0_50M_1_stub.v:6]
+WARNING: [Synth 8-7071] port 'mb_reset' of module 'system_rst_ps7_0_50M_1' is unconnected for instance 'rst_ps7_0_50M' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3640]
+WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'system_rst_ps7_0_50M_1' is unconnected for instance 'rst_ps7_0_50M' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3640]
+WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'system_rst_ps7_0_50M_1' is unconnected for instance 'rst_ps7_0_50M' [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3640]
+WARNING: [Synth 8-7023] instance 'rst_ps7_0_50M' of module 'system_rst_ps7_0_50M_1' has 10 connections declared, but only 7 given [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:3640]
+INFO: [Synth 8-6155] done synthesizing module 'system' (42#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/system/synth/system.v:2575]
+INFO: [Synth 8-6155] done synthesizing module 'system_wrapper' (43#1) [D:/intelight/intelight/intelight.gen/sources_1/bd/system/hdl/system_wrapper.v:12]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1351.207 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1353.699 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1351.207 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1353.699 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1351.207 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1353.699 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.123 . Memory (MB): peak = 1351.207 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.097 . Memory (MB): peak = 1353.699 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_rst_ps7_0_50M_1/system_rst_ps7_0_50M_1/system_rst_ps7_0_50M_1_in_context.xdc] for cell 'system_i/PS/rst_ps7_0_50M'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_rst_ps7_0_50M_1/system_rst_ps7_0_50M_1/system_rst_ps7_0_50M_1_in_context.xdc] for cell 'system_i/PS/rst_ps7_0_50M'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0/system_processing_system7_0_0_in_context.xdc] for cell 'system_i/PS/processing_system7_0'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0/system_processing_system7_0_0_in_context.xdc] for cell 'system_i/PS/processing_system7_0'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_xbar_0/system_xbar_0/system_xbar_0_in_context.xdc] for cell 'system_i/PS/ps7_0_axi_periph/xbar'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_xbar_0/system_xbar_0/system_xbar_0_in_context.xdc] for cell 'system_i/PS/ps7_0_axi_periph/xbar'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_auto_pc_2/system_auto_pc_2/system_auto_pc_1_in_context.xdc] for cell 'system_i/PS/ps7_0_axi_periph/s00_couplers/auto_pc'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_auto_pc_2/system_auto_pc_2/system_auto_pc_1_in_context.xdc] for cell 'system_i/PS/ps7_0_axi_periph/s00_couplers/auto_pc'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0/system_auto_pc_0_in_context.xdc] for cell 'system_i/PS/ps7_0_axi_periph/m04_couplers/auto_pc'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0/system_auto_pc_0_in_context.xdc] for cell 'system_i/PS/ps7_0_axi_periph/m04_couplers/auto_pc'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_auto_pc_1/system_auto_pc_1/system_auto_pc_0_in_context.xdc] for cell 'system_i/PS/ps7_0_axi_periph/m05_couplers/auto_pc'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_auto_pc_1/system_auto_pc_1/system_auto_pc_0_in_context.xdc] for cell 'system_i/PS/ps7_0_axi_periph/m05_couplers/auto_pc'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_intc_0_0/system_axi_intc_0_0/system_axi_intc_0_0_in_context.xdc] for cell 'system_i/PS/axi_intc_0'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_intc_0_0/system_axi_intc_0_0/system_axi_intc_0_0_in_context.xdc] for cell 'system_i/PS/axi_intc_0'
 Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_intelight_mem_0_0/system_intelight_mem_0_0/system_intelight_mem_0_0_in_context.xdc] for cell 'system_i/intelight_mem_0'
 Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_intelight_mem_0_0/system_intelight_mem_0_0/system_intelight_mem_0_0_in_context.xdc] for cell 'system_i/intelight_mem_0'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_QA_0_1/system_QA_0_1/testbench_QA_0_0_in_context.xdc] for cell 'system_i/AGENT/QA_0'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_QA_0_1/system_QA_0_1/testbench_QA_0_0_in_context.xdc] for cell 'system_i/AGENT/QA_0'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PG_0_1/system_PG_0_1/system_PG_0_1_in_context.xdc] for cell 'system_i/AGENT/PG_0'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PG_0_1/system_PG_0_1/system_PG_0_1_in_context.xdc] for cell 'system_i/AGENT/PG_0'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_CU_0_1/system_CU_0_1/testbench_CU_0_0_in_context.xdc] for cell 'system_i/CU_0'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_CU_0_1/system_CU_0_1/testbench_CU_0_0_in_context.xdc] for cell 'system_i/CU_0'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_RD_0_1/system_RD_0_1/system_RD_0_1_in_context.xdc] for cell 'system_i/EV/RD_0'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_RD_0_1/system_RD_0_1/system_RD_0_1_in_context.xdc] for cell 'system_i/EV/RD_0'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_SD_0_1/system_SD_0_1/system_SD_0_1_in_context.xdc] for cell 'system_i/EV/SD_0'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_SD_0_1/system_SD_0_1/system_SD_0_1_in_context.xdc] for cell 'system_i/EV/SD_0'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_Action_RAM_2_1/system_Action_RAM_2_1/testbench_Action_RAM_3_0_in_context.xdc] for cell 'system_i/RAM_Block/RAM_2/Action_RAM_2'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_Action_RAM_2_1/system_Action_RAM_2_1/testbench_Action_RAM_3_0_in_context.xdc] for cell 'system_i/RAM_Block/RAM_2/Action_RAM_2'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PL_RAM_2_1/system_PL_RAM_2_1/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'system_i/RAM_Block/RAM_2/PL_RAM_2'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PL_RAM_2_1/system_PL_RAM_2_1/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'system_i/RAM_Block/RAM_2/PL_RAM_2'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_2/system_axi_bram_ctrl_0_2/system_axi_bram_ctrl_0_3_in_context.xdc] for cell 'system_i/RAM_Block/RAM_2/axi_bram_ctrl_2'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_2/system_axi_bram_ctrl_0_2/system_axi_bram_ctrl_0_3_in_context.xdc] for cell 'system_i/RAM_Block/RAM_2/axi_bram_ctrl_2'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_Action_RAM_1_1/system_Action_RAM_1_1/testbench_Action_RAM_3_0_in_context.xdc] for cell 'system_i/RAM_Block/RAM_1/Action_RAM_1'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_Action_RAM_1_1/system_Action_RAM_1_1/testbench_Action_RAM_3_0_in_context.xdc] for cell 'system_i/RAM_Block/RAM_1/Action_RAM_1'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PL_RAM_1_1/system_PL_RAM_1_1/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'system_i/RAM_Block/RAM_1/PL_RAM_1'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PL_RAM_1_1/system_PL_RAM_1_1/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'system_i/RAM_Block/RAM_1/PL_RAM_1'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_1/system_axi_bram_ctrl_0_1/system_axi_bram_ctrl_0_3_in_context.xdc] for cell 'system_i/RAM_Block/RAM_1/axi_bram_ctrl_1'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_1/system_axi_bram_ctrl_0_1/system_axi_bram_ctrl_0_3_in_context.xdc] for cell 'system_i/RAM_Block/RAM_1/axi_bram_ctrl_1'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_Action_RAM_3_1/system_Action_RAM_3_1/testbench_Action_RAM_3_0_in_context.xdc] for cell 'system_i/RAM_Block/RAM_3/Action_RAM_3'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_Action_RAM_3_1/system_Action_RAM_3_1/testbench_Action_RAM_3_0_in_context.xdc] for cell 'system_i/RAM_Block/RAM_3/Action_RAM_3'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PL_RAM_3_1/system_PL_RAM_3_1/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'system_i/RAM_Block/RAM_3/PL_RAM_3'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PL_RAM_3_1/system_PL_RAM_3_1/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'system_i/RAM_Block/RAM_3/PL_RAM_3'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_3/system_axi_bram_ctrl_0_3/system_axi_bram_ctrl_0_3_in_context.xdc] for cell 'system_i/RAM_Block/RAM_3/axi_bram_ctrl_3'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_3/system_axi_bram_ctrl_0_3/system_axi_bram_ctrl_0_3_in_context.xdc] for cell 'system_i/RAM_Block/RAM_3/axi_bram_ctrl_3'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PL_RAM_0_0/system_PL_RAM_0_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'system_i/RAM_Block/RAM_0/PL_RAM_0'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PL_RAM_0_0/system_PL_RAM_0_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'system_i/RAM_Block/RAM_0/PL_RAM_0'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_Action_RAM_0_1/system_Action_RAM_0_1/testbench_Action_RAM_3_0_in_context.xdc] for cell 'system_i/RAM_Block/RAM_0/Action_RAM_0'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_Action_RAM_0_1/system_Action_RAM_0_1/testbench_Action_RAM_3_0_in_context.xdc] for cell 'system_i/RAM_Block/RAM_0/Action_RAM_0'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_0/system_axi_bram_ctrl_0_0/system_axi_bram_ctrl_0_3_in_context.xdc] for cell 'system_i/RAM_Block/RAM_0/axi_bram_ctrl_0'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_0/system_axi_bram_ctrl_0_0/system_axi_bram_ctrl_0_3_in_context.xdc] for cell 'system_i/RAM_Block/RAM_0/axi_bram_ctrl_0'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_bram_interface_0_1/system_bram_interface_0_1/testbench_bram_interface_0_0_in_context.xdc] for cell 'system_i/bram_interface_0'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_bram_interface_0_1/system_bram_interface_0_1/testbench_bram_interface_0_0_in_context.xdc] for cell 'system_i/bram_interface_0'
-Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_enabler4_32bit_0_0/system_enabler4_32bit_0_0/testbench_enabler4_32bit_0_0_in_context.xdc] for cell 'system_i/enabler4_32bit_0'
-Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_enabler4_32bit_0_0/system_enabler4_32bit_0_0/testbench_enabler4_32bit_0_0_in_context.xdc] for cell 'system_i/enabler4_32bit_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_bram_interface_0_1/system_bram_interface_0_1/testbench_bram_interface_0_0_in_context.xdc] for cell 'system_i/PL_Section/bram_interface_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_bram_interface_0_1/system_bram_interface_0_1/testbench_bram_interface_0_0_in_context.xdc] for cell 'system_i/PL_Section/bram_interface_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_CU_0_1/system_CU_0_1/testbench_CU_0_0_in_context.xdc] for cell 'system_i/PL_Section/CU_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_CU_0_1/system_CU_0_1/testbench_CU_0_0_in_context.xdc] for cell 'system_i/PL_Section/CU_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_enabler4_32bit_0_0/system_enabler4_32bit_0_0/testbench_enabler4_32bit_0_0_in_context.xdc] for cell 'system_i/PL_Section/enabler4_32bit_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_enabler4_32bit_0_0/system_enabler4_32bit_0_0/testbench_enabler4_32bit_0_0_in_context.xdc] for cell 'system_i/PL_Section/enabler4_32bit_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_QA_0_1/system_QA_0_1/system_QA_0_1_in_context.xdc] for cell 'system_i/PL_Section/AGENT/QA_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_QA_0_1/system_QA_0_1/system_QA_0_1_in_context.xdc] for cell 'system_i/PL_Section/AGENT/QA_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PG_0_1/system_PG_0_1/system_PG_0_1_in_context.xdc] for cell 'system_i/PL_Section/AGENT/PG_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PG_0_1/system_PG_0_1/system_PG_0_1_in_context.xdc] for cell 'system_i/PL_Section/AGENT/PG_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_RD_0_1/system_RD_0_1/system_RD_0_1_in_context.xdc] for cell 'system_i/PL_Section/EV/RD_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_RD_0_1/system_RD_0_1/system_RD_0_1_in_context.xdc] for cell 'system_i/PL_Section/EV/RD_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_SD_0_1/system_SD_0_1/system_SD_0_1_in_context.xdc] for cell 'system_i/PL_Section/EV/SD_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_SD_0_1/system_SD_0_1/system_SD_0_1_in_context.xdc] for cell 'system_i/PL_Section/EV/SD_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_Action_RAM_0_1/system_Action_RAM_0_1/testbench_Action_RAM_3_0_in_context.xdc] for cell 'system_i/Action_RAM_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_Action_RAM_0_1/system_Action_RAM_0_1/testbench_Action_RAM_3_0_in_context.xdc] for cell 'system_i/Action_RAM_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PL_RAM_0_0/system_PL_RAM_0_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'system_i/PL_RAM_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PL_RAM_0_0/system_PL_RAM_0_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'system_i/PL_RAM_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_0/system_axi_bram_ctrl_0_0/system_axi_bram_ctrl_0_3_in_context.xdc] for cell 'system_i/axi_bram_ctrl_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_0/system_axi_bram_ctrl_0_0/system_axi_bram_ctrl_0_3_in_context.xdc] for cell 'system_i/axi_bram_ctrl_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PL_RAM_1_1/system_PL_RAM_1_1/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'system_i/PL_RAM_1'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PL_RAM_1_1/system_PL_RAM_1_1/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'system_i/PL_RAM_1'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_1/system_axi_bram_ctrl_0_1/system_axi_bram_ctrl_0_3_in_context.xdc] for cell 'system_i/axi_bram_ctrl_1'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_1/system_axi_bram_ctrl_0_1/system_axi_bram_ctrl_0_3_in_context.xdc] for cell 'system_i/axi_bram_ctrl_1'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_Action_RAM_1_1/system_Action_RAM_1_1/testbench_Action_RAM_3_0_in_context.xdc] for cell 'system_i/Action_RAM_1'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_Action_RAM_1_1/system_Action_RAM_1_1/testbench_Action_RAM_3_0_in_context.xdc] for cell 'system_i/Action_RAM_1'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_2/system_axi_bram_ctrl_0_2/system_axi_bram_ctrl_0_3_in_context.xdc] for cell 'system_i/axi_bram_ctrl_2'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_2/system_axi_bram_ctrl_0_2/system_axi_bram_ctrl_0_3_in_context.xdc] for cell 'system_i/axi_bram_ctrl_2'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PL_RAM_2_1/system_PL_RAM_2_1/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'system_i/PL_RAM_2'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PL_RAM_2_1/system_PL_RAM_2_1/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'system_i/PL_RAM_2'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_Action_RAM_2_1/system_Action_RAM_2_1/testbench_Action_RAM_3_0_in_context.xdc] for cell 'system_i/Action_RAM_2'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_Action_RAM_2_1/system_Action_RAM_2_1/testbench_Action_RAM_3_0_in_context.xdc] for cell 'system_i/Action_RAM_2'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_Action_RAM_3_1/system_Action_RAM_3_1/testbench_Action_RAM_3_0_in_context.xdc] for cell 'system_i/Action_RAM_3'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_Action_RAM_3_1/system_Action_RAM_3_1/testbench_Action_RAM_3_0_in_context.xdc] for cell 'system_i/Action_RAM_3'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PL_RAM_3_1/system_PL_RAM_3_1/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'system_i/PL_RAM_3'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_PL_RAM_3_1/system_PL_RAM_3_1/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'system_i/PL_RAM_3'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_3/system_axi_bram_ctrl_0_3/system_axi_bram_ctrl_0_3_in_context.xdc] for cell 'system_i/axi_bram_ctrl_3'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_bram_ctrl_0_3/system_axi_bram_ctrl_0_3/system_axi_bram_ctrl_0_3_in_context.xdc] for cell 'system_i/axi_bram_ctrl_3'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0/system_processing_system7_0_0_in_context.xdc] for cell 'system_i/processing_system7_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0/system_processing_system7_0_0_in_context.xdc] for cell 'system_i/processing_system7_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_intc_0_0/system_axi_intc_0_0/system_axi_intc_0_0_in_context.xdc] for cell 'system_i/axi_intc_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_axi_intc_0_0/system_axi_intc_0_0/system_axi_intc_0_0_in_context.xdc] for cell 'system_i/axi_intc_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_rst_ps7_0_50M_1/system_rst_ps7_0_50M_1/system_rst_ps7_0_50M_1_in_context.xdc] for cell 'system_i/rst_ps7_0_50M'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_rst_ps7_0_50M_1/system_rst_ps7_0_50M_1/system_rst_ps7_0_50M_1_in_context.xdc] for cell 'system_i/rst_ps7_0_50M'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_xbar_0/system_xbar_0/system_xbar_0_in_context.xdc] for cell 'system_i/ps7_0_axi_periph/xbar'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_xbar_0/system_xbar_0/system_xbar_0_in_context.xdc] for cell 'system_i/ps7_0_axi_periph/xbar'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_auto_pc_2/system_auto_pc_2/system_auto_pc_1_in_context.xdc] for cell 'system_i/ps7_0_axi_periph/s00_couplers/auto_pc'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_auto_pc_2/system_auto_pc_2/system_auto_pc_1_in_context.xdc] for cell 'system_i/ps7_0_axi_periph/s00_couplers/auto_pc'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0/system_auto_pc_0_in_context.xdc] for cell 'system_i/ps7_0_axi_periph/m04_couplers/auto_pc'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_auto_pc_0/system_auto_pc_0/system_auto_pc_0_in_context.xdc] for cell 'system_i/ps7_0_axi_periph/m04_couplers/auto_pc'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_auto_pc_1/system_auto_pc_1/system_auto_pc_0_in_context.xdc] for cell 'system_i/ps7_0_axi_periph/m05_couplers/auto_pc'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_auto_pc_1/system_auto_pc_1/system_auto_pc_0_in_context.xdc] for cell 'system_i/ps7_0_axi_periph/m05_couplers/auto_pc'
 Parsing XDC File [D:/intelight/PYNQ-Z1_C.xdc]
 Finished Parsing XDC File [D:/intelight/PYNQ-Z1_C.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/intelight/PYNQ-Z1_C.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/system_wrapper_propImpl.xdc].
@@ -278,20 +253,20 @@ Parsing XDC File [D:/intelight/intelight/intelight.runs/synth_1/dont_touch.xdc]
 Finished Parsing XDC File [D:/intelight/intelight/intelight.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1351.207 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1353.699 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1351.207 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1353.699 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1351.207 ; gain = 0.000
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1353.699 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1351.207 ; gain = 0.000
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1353.699 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -557,41 +532,41 @@ Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_ps_porb. (constraint 
 Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_ps_srstb. (constraint file  d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0/system_processing_system7_0_0_in_context.xdc, line 260).
 Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_ps_srstb. (constraint file  d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_processing_system7_0_0/system_processing_system7_0_0/system_processing_system7_0_0_in_context.xdc, line 261).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/PS/rst_ps7_0_50M. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/PS/processing_system7_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/PS/ps7_0_axi_periph/xbar. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/PS/ps7_0_axi_periph/s00_couplers/auto_pc. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/PS/ps7_0_axi_periph/m04_couplers/auto_pc. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/PS/ps7_0_axi_periph/m05_couplers/auto_pc. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/PS/ps7_0_axi_periph. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/PS/axi_intc_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for system_i/intelight_mem_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/AGENT/QA_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/AGENT/PG_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/CU_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/EV/RD_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/EV/SD_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/RAM_Block/cnst_0_4bit. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/RAM_Block/cnst_1_1bit. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/RAM_Block/RAM_2/Action_RAM_2. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/RAM_Block/RAM_2/PL_RAM_2. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/RAM_Block/RAM_2/axi_bram_ctrl_2. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/RAM_Block/RAM_1/Action_RAM_1. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/RAM_Block/RAM_1/PL_RAM_1. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/RAM_Block/RAM_1/axi_bram_ctrl_1. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/RAM_Block/RAM_3/Action_RAM_3. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/RAM_Block/RAM_3/PL_RAM_3. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/RAM_Block/RAM_3/axi_bram_ctrl_3. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/RAM_Block/RAM_0/PL_RAM_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/RAM_Block/RAM_0/Action_RAM_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/RAM_Block/RAM_0/axi_bram_ctrl_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/bram_interface_0. (constraint file  auto generated constraint).
-Applied set_property KEEP_HIERARCHY = SOFT for system_i/enabler4_32bit_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/PL_Section/bram_interface_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/PL_Section/CU_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/PL_Section/enabler4_32bit_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/PL_Section/AGENT/QA_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/PL_Section/AGENT/PG_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/PL_Section/EV/RD_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/PL_Section/EV/SD_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/cnst_0_4bit. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/cnst_1_1bit. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/Action_RAM_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/PL_RAM_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/axi_bram_ctrl_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/PL_RAM_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/axi_bram_ctrl_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/Action_RAM_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/axi_bram_ctrl_2. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/PL_RAM_2. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/Action_RAM_2. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/Action_RAM_3. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/PL_RAM_3. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/axi_bram_ctrl_3. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/processing_system7_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/axi_intc_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/rst_ps7_0_50M. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/ps7_0_axi_periph/xbar. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/ps7_0_axi_periph/s00_couplers/auto_pc. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/ps7_0_axi_periph/m04_couplers/auto_pc. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/ps7_0_axi_periph/m05_couplers/auto_pc. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for system_i/ps7_0_axi_periph. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1351.207 ; gain = 0.000
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 1353.699 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1351.207 ; gain = 0.000
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1353.699 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -613,25 +588,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1351.207 ; gain = 0.000
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1353.699 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1352.930 ; gain = 1.723
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1356.355 ; gain = 2.656
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1353.922 ; gain = 2.715
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1357.352 ; gain = 3.652
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1373.672 ; gain = 22.465
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1377.082 ; gain = 23.383
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -649,37 +624,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1379.035 ; gain = 27.828
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1381.637 ; gain = 27.938
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1379.035 ; gain = 27.828
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1381.637 ; gain = 27.938
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1379.035 ; gain = 27.828
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1381.637 ; gain = 27.938
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1379.035 ; gain = 27.828
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1381.637 ; gain = 27.938
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1379.035 ; gain = 27.828
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1381.637 ; gain = 27.938
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1379.035 ; gain = 27.828
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1381.637 ; gain = 27.938
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -689,33 +664,33 @@ Report BlackBoxes:
 +------+------------------------------+----------+
 |      |BlackBox name                 |Instances |
 +------+------------------------------+----------+
-|1     |system_CU_0_1                 |         1|
-|2     |system_bram_interface_0_1     |         1|
-|3     |system_enabler4_32bit_0_0     |         1|
-|4     |system_intelight_mem_0_0      |         1|
-|5     |system_PG_0_1                 |         1|
-|6     |system_QA_0_1                 |         1|
-|7     |system_RD_0_1                 |         1|
-|8     |system_SD_0_1                 |         1|
-|9     |system_xbar_0                 |         1|
-|10    |system_auto_pc_0              |         1|
-|11    |system_auto_pc_1              |         1|
-|12    |system_auto_pc_2              |         1|
-|13    |system_axi_intc_0_0           |         1|
-|14    |system_processing_system7_0_0 |         1|
-|15    |system_rst_ps7_0_50M_1        |         1|
-|16    |system_Action_RAM_0_1         |         1|
-|17    |system_PL_RAM_0_0             |         1|
-|18    |system_axi_bram_ctrl_0_0      |         1|
-|19    |system_Action_RAM_1_1         |         1|
-|20    |system_PL_RAM_1_1             |         1|
-|21    |system_axi_bram_ctrl_0_1      |         1|
-|22    |system_Action_RAM_2_1         |         1|
-|23    |system_PL_RAM_2_1             |         1|
-|24    |system_axi_bram_ctrl_0_2      |         1|
-|25    |system_Action_RAM_3_1         |         1|
-|26    |system_PL_RAM_3_1             |         1|
-|27    |system_axi_bram_ctrl_0_3      |         1|
+|1     |system_xbar_0                 |         1|
+|2     |system_auto_pc_0              |         1|
+|3     |system_auto_pc_1              |         1|
+|4     |system_auto_pc_2              |         1|
+|5     |system_Action_RAM_0_1         |         1|
+|6     |system_Action_RAM_1_1         |         1|
+|7     |system_Action_RAM_2_1         |         1|
+|8     |system_Action_RAM_3_1         |         1|
+|9     |system_PL_RAM_0_0             |         1|
+|10    |system_PL_RAM_1_1             |         1|
+|11    |system_PL_RAM_2_1             |         1|
+|12    |system_PL_RAM_3_1             |         1|
+|13    |system_axi_bram_ctrl_0_0      |         1|
+|14    |system_axi_bram_ctrl_0_1      |         1|
+|15    |system_axi_bram_ctrl_0_2      |         1|
+|16    |system_axi_bram_ctrl_0_3      |         1|
+|17    |system_axi_intc_0_0           |         1|
+|18    |system_intelight_mem_0_0      |         1|
+|19    |system_processing_system7_0_0 |         1|
+|20    |system_rst_ps7_0_50M_1        |         1|
+|21    |system_CU_0_1                 |         1|
+|22    |system_bram_interface_0_1     |         1|
+|23    |system_enabler4_32bit_0_0     |         1|
+|24    |system_PG_0_1                 |         1|
+|25    |system_QA_0_1                 |         1|
+|26    |system_RD_0_1                 |         1|
+|27    |system_SD_0_1                 |         1|
 +------+------------------------------+----------+
 
 Report Cell Usage: 
@@ -747,24 +722,24 @@ Report Cell Usage:
 |28    |OBUF                        |     4|
 +------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1379.035 ; gain = 27.828
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1381.637 ; gain = 27.938
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:00:24 . Memory (MB): peak = 1379.035 ; gain = 27.828
-Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1379.035 ; gain = 27.828
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:23 . Memory (MB): peak = 1381.637 ; gain = 27.938
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1381.637 ; gain = 27.938
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.102 . Memory (MB): peak = 1391.113 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.085 . Memory (MB): peak = 1393.684 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1411.285 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1418.629 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete, checksum: bd600b02
+Synth Design complete, checksum: 584fc9f9
 INFO: [Common 17-83] Releasing license: Synthesis
-114 Infos, 76 Warnings, 0 Critical Warnings and 0 Errors encountered.
+104 Infos, 61 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 1411.285 ; gain = 60.078
+synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1418.629 ; gain = 64.930
 INFO: [Common 17-1381] The checkpoint 'D:/intelight/intelight/intelight.runs/synth_1/system_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file system_wrapper_utilization_synth.rpt -pb system_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Mar 24 03:45:11 2022...
+INFO: [Common 17-206] Exiting Vivado at Thu Mar 24 16:51:38 2022...

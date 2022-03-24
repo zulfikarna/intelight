@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-//Date        : Thu Mar 24 03:20:04 2022
+//Date        : Thu Mar 24 16:48:50 2022
 //Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 //Command     : generate_target system_wrapper.bd
 //Design      : system_wrapper
@@ -31,9 +31,9 @@ module system_wrapper
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
-    SD,
     finish,
-    rst,
+    mem_rst,
+    rtl_rst,
     start);
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
@@ -56,9 +56,9 @@ module system_wrapper
   inout FIXED_IO_ps_clk;
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
-  output SD;
   output finish;
-  output [0:0]rst;
+  output [0:0]mem_rst;
+  output [0:0]rtl_rst;
   output start;
 
   wire [14:0]DDR_addr;
@@ -82,9 +82,9 @@ module system_wrapper
   wire FIXED_IO_ps_clk;
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
-  wire SD;
   wire finish;
-  wire [0:0]rst;
+  wire [0:0]mem_rst;
+  wire [0:0]rtl_rst;
   wire start;
 
   system system_i
@@ -109,8 +109,8 @@ module system_wrapper
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
-        .SD(SD),
         .finish(finish),
-        .rst(rst),
+        .mem_rst(mem_rst),
+        .rtl_rst(rtl_rst),
         .start(start));
 endmodule

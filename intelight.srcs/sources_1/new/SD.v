@@ -70,16 +70,16 @@ module SD(
     wire [31:0] delta_panjang_r1;
     wire [31:0] delta_panjang_r2;
     wire [31:0] delta_panjang_r3;
-    // Panjang antrian kendaraan
-    wire [31:0] panjang_r0;
-    wire [31:0] panjang_r1;
-    wire [31:0] panjang_r2;
-    wire [31:0] panjang_r3;
-    // Wire untuk multiplexer
-    wire [31:0] panjang_w0;
-    wire [31:0] panjang_w1;
-    wire [31:0] panjang_w2;
-    wire [31:0] panjang_w3;
+//    // Panjang antrian kendaraan
+//    wire [31:0] panjang_r0;
+//    wire [31:0] panjang_r1;
+//    wire [31:0] panjang_r2;
+//    wire [31:0] panjang_r3;
+//    // Wire untuk multiplexer
+//    wire [31:0] panjang_w0;
+//    wire [31:0] panjang_w1;
+//    wire [31:0] panjang_w2;
+//    wire [31:0] panjang_w3;
     // Block State Calc : Ruas 0
     multiply        mult0   (.in0(debit_r0-debit_out_r0),           .c(delta_t),           .out0(delta_panjang_r0), .rst(rst));
     mux2to1_32bit_sd   mux0    (.in0(init_panjang_r0),    .in1(panjang_r0),      .out0(panjang_w0),        .sel(~rst));
@@ -117,10 +117,10 @@ module SD(
     end
     
     // Block Comparator : untuk menentukan state berdasarkan panjang antrian kendaraan 
-    wire [7:0] level_r0;
-    wire [7:0] level_r1;
-    wire [7:0] level_r2;
-    wire [7:0] level_r3;
+//    wire [7:0] level_r0;
+//    wire [7:0] level_r1;
+//    wire [7:0] level_r2;
+//    wire [7:0] level_r3;
     wire [31:0]w_next_state;
     comp_SD comp(
         .panjang_w0(panjang_w0),

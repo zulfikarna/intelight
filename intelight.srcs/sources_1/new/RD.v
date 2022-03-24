@@ -39,9 +39,9 @@ endmodule
 
 module analyzer(
     // For debugging 
-    output wire [1:0] w_max,
-    output wire [1:0] w_mid,
-    output wire [1:0] w_min,
+//    output wire [1:0] w_max,
+//    output wire [1:0] w_mid,
+//    output wire [1:0] w_min,
     // -----
     input clk, rst,
     input wire [31:0] state,

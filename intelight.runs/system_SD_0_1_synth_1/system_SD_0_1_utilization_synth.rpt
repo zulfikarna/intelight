@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Wed Mar 23 22:26:51 2022
+| Date         : Thu Mar 24 16:50:35 2022
 | Host         : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_SD_0_1_utilization_synth.rpt -pb system_SD_0_1_utilization_synth.pb
 | Design       : system_SD_0_1

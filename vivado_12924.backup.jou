@@ -1,0 +1,81 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Thu Mar 24 08:17:45 2022
+# Process ID: 12924
+# Current directory: D:/intelight/intelight
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15564 D:\intelight\intelight\intelight.xpr
+# Log file: D:/intelight/intelight/vivado.log
+# Journal file: D:/intelight/intelight\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/intelight/intelight/intelight.xpr
+update_compile_order -fileset sources_1
+open_bd_design {D:/intelight/intelight/intelight.srcs/sources_1/bd/system/system.bd}
+disconnect_bd_net /PS/rst_ps7_0_50M_peripheral_aresetn [get_bd_pins PS/rst_ps7_0_50M/peripheral_aresetn]
+connect_bd_net [get_bd_pins PS/rst_ps7_0_50M/peripheral_reset] [get_bd_pins PS/axi_intc_0/s_axi_aresetn]
+save_bd_design
+ungroup_bd_cells [get_bd_cells PS]
+ungroup_bd_cells [get_bd_cells RAM_Block]
+ungroup_bd_cells [get_bd_cells RAM_0]
+ungroup_bd_cells [get_bd_cells RAM_1]
+ungroup_bd_cells [get_bd_cells RAM_2]
+ungroup_bd_cells [get_bd_cells RAM_3]
+regenerate_bd_layout
+save_bd_design
+generate_target all [get_files  D:/intelight/intelight/intelight.srcs/sources_1/bd/system/system.bd]
+group_bd_cells RAM_0 [get_bd_cells Action_RAM_0] [get_bd_cells PL_RAM_0]
+move_bd_cells [get_bd_cells RAM_0] [get_bd_cells axi_bram_ctrl_0]
+group_bd_cells RAM_1 [get_bd_cells Action_RAM_1] [get_bd_cells PL_RAM_1]
+move_bd_cells [get_bd_cells RAM_1] [get_bd_cells axi_bram_ctrl_1]
+group_bd_cells RAM_2 [get_bd_cells axi_bram_ctrl_2] [get_bd_cells PL_RAM_2] [get_bd_cells Action_RAM_2]
+group_bd_cells RAM_3 [get_bd_cells Action_RAM_3] [get_bd_cells PL_RAM_3] [get_bd_cells axi_bram_ctrl_3]
+group_bd_cells RAM_Block [get_bd_cells cnst_0_4bit] [get_bd_cells cnst_1_1bit] [get_bd_cells RAM_0] [get_bd_cells RAM_2] [get_bd_cells RAM_3] [get_bd_cells RAM_1]
+regenerate_bd_layout
+group_bd_cells PS [get_bd_cells processing_system7_0] [get_bd_cells axi_intc_0] [get_bd_cells rst_ps7_0_50M] [get_bd_cells ps7_0_axi_periph]
+regenerate_bd_layout
+regenerate_bd_layout
+regenerate_bd_layout
+make_wrapper -files [get_files D:/intelight/intelight/intelight.srcs/sources_1/bd/system/system.bd] -top
+disconnect_bd_net /PS/rst_ps7_0_50M_peripheral_aresetn [get_bd_pins PS/rst_ps7_0_50M/peripheral_reset]
+connect_bd_net [get_bd_pins PS/rst_ps7_0_50M/peripheral_aresetn] [get_bd_pins PS/axi_intc_0/s_axi_aresetn]
+regenerate_bd_layout
+save_bd_design
+make_wrapper -files [get_files D:/intelight/intelight/intelight.srcs/sources_1/bd/system/system.bd] -top
+set_property name active_low_rst [get_bd_pins PS/rst]
+startgroup
+make_bd_pins_external  [get_bd_pins PS/rst_ps7_0_50M/peripheral_reset]
+endgroup
+delete_bd_objs [get_bd_nets PS_peripheral_reset_0] [get_bd_ports peripheral_reset_0]
+set_property name active_high_rst [get_bd_pins PS/peripheral_reset_0]
+disconnect_bd_net /rst_ps7_0_50M_peripheral_aresetn [get_bd_pins CU_0/rst]
+disconnect_bd_net /rst_ps7_0_50M_peripheral_aresetn [get_bd_pins bram_interface_0/rst]
+disconnect_bd_net /rst_ps7_0_50M_peripheral_aresetn [get_bd_pins AGENT/rst]
+disconnect_bd_net /rst_ps7_0_50M_peripheral_aresetn [get_bd_pins EV/rst]
+startgroup
+connect_bd_net [get_bd_pins PS/active_high_rst] [get_bd_pins CU_0/rst]
+connect_bd_net [get_bd_pins PS/active_high_rst] [get_bd_pins EV/rst] -boundary_type upper
+endgroup
+connect_bd_net [get_bd_pins bram_interface_0/rst] [get_bd_pins PS/active_high_rst]
+connect_bd_net [get_bd_pins AGENT/rst] [get_bd_pins PS/active_high_rst] -boundary_type upper
+set_property name mem_rst [get_bd_ports rst]
+startgroup
+create_bd_port -dir O -from 0 -to 0 -type rst rtl_rst
+connect_bd_net [get_bd_pins /PS/active_high_rst] [get_bd_ports rtl_rst]
+endgroup
+delete_bd_objs [get_bd_ports SD]
+save_bd_design
+make_wrapper -files [get_files D:/intelight/intelight/intelight.srcs/sources_1/bd/system/system.bd] -top
+generate_target all [get_files  D:/intelight/intelight/intelight.srcs/sources_1/bd/system/system.bd]
+catch { config_ip_cache -export [get_ips -all system_auto_pc_2] }
+catch { config_ip_cache -export [get_ips -all system_auto_pc_0] }
+catch { config_ip_cache -export [get_ips -all system_auto_pc_1] }
+export_ip_user_files -of_objects [get_files D:/intelight/intelight/intelight.srcs/sources_1/bd/system/system.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/intelight/intelight/intelight.srcs/sources_1/bd/system/system.bd]
+export_simulation -of_objects [get_files D:/intelight/intelight/intelight.srcs/sources_1/bd/system/system.bd] -directory D:/intelight/intelight/intelight.ip_user_files/sim_scripts -ip_user_files_dir D:/intelight/intelight/intelight.ip_user_files -ipstatic_source_dir D:/intelight/intelight/intelight.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/intelight/intelight/intelight.cache/compile_simlib/modelsim} {questa=D:/intelight/intelight/intelight.cache/compile_simlib/questa} {riviera=D:/intelight/intelight/intelight.cache/compile_simlib/riviera} {activehdl=D:/intelight/intelight/intelight.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_run impl_1
+open_bd_design {D:/intelight/intelight/intelight.srcs/sources_1/bd/system/system.bd}
