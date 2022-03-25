@@ -1,0 +1,27 @@
+Vivado Simulator v2021.1
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2021.1/bin/unwrapped/win64.o/xelab.exe -wto b00e1b8b0c4a4a169364327d9be69cf7 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L xilinx_vip -L unisims_ver -L secureip --snapshot system_wrapper_tb_func_impl xil_defaultlib.system_wrapper_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-3180] cannot find port 'next_state' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:97]
+ERROR: [VRFC 10-3180] cannot find port 'act_greed' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:96]
+ERROR: [VRFC 10-3180] cannot find port 'wire_sc' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:95]
+ERROR: [VRFC 10-3180] cannot find port 'wire_ec' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:94]
+ERROR: [VRFC 10-3180] cannot find port 'seed' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:92]
+ERROR: [VRFC 10-3180] cannot find port 'rst' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:91]
+ERROR: [VRFC 10-3180] cannot find port 'reward_3' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:90]
+ERROR: [VRFC 10-3180] cannot find port 'reward_2' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:89]
+ERROR: [VRFC 10-3180] cannot find port 'reward_1' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:88]
+ERROR: [VRFC 10-3180] cannot find port 'reward_0' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:87]
+ERROR: [VRFC 10-3180] cannot find port 'q_next_3' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:86]
+ERROR: [VRFC 10-3180] cannot find port 'q_next_2' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:85]
+ERROR: [VRFC 10-3180] cannot find port 'q_next_1' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:84]
+ERROR: [VRFC 10-3180] cannot find port 'q_next_0' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:83]
+ERROR: [VRFC 10-3180] cannot find port 'new_qA' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:82]
+ERROR: [VRFC 10-3180] cannot find port 'max_step' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:81]
+ERROR: [VRFC 10-3180] cannot find port 'max_episode' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:80]
+ERROR: [VRFC 10-3180] cannot find port 'init_panjang_r3_0' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:79]
+ERROR: [VRFC 10-3180] cannot find port 'init_panjang_r2_0' on this module [D:/intelight/intelight/intelight.srcs/sim_1/new/system_wrapper_tb.v:78]
+INFO: [#UNDEF] Sorry, too many errors..
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
