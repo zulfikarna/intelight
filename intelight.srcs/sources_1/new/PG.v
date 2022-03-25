@@ -27,8 +27,8 @@ module PG(
                             (maxqA == qA1)? 2'd1:
                             (maxqA == qA2)? 2'd2:
                                             2'd3;
-    // reg_2bit reg0(.clk(clk), .rst(rst), .in0(w_act_greed), .out0(act_greed));
-    assign act_greed = 2'd3; // for debugging
+    reg_2bit reg0(.clk(clk), .rst(rst), .in0(w_act_greed), .out0(act_greed));
+    // assign act_greed = 2'd3; // for debugging
     
     // Block Action Decider
     wire [1:0] temp_act;

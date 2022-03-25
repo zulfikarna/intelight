@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-//Date        : Wed Mar 23 17:54:44 2022
+//Date        : Sat Mar 26 03:00:52 2022
 //Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 //Command     : generate_target testbench.bd
 //Design      : testbench
@@ -298,7 +298,8 @@ module RAM_0_imp_1JHO79W
    (addra,
     addrb,
     clk_bram,
-    ena,
+    en0_rd,
+    en0_wr,
     q_new,
     q_next_0,
     rst_bram,
@@ -307,7 +308,8 @@ module RAM_0_imp_1JHO79W
   input [31:0]addra;
   input [31:0]addrb;
   input clk_bram;
-  input ena;
+  input en0_rd;
+  input en0_wr;
   input [31:0]q_new;
   output [31:0]q_next_0;
   input rst_bram;
@@ -319,8 +321,9 @@ module RAM_0_imp_1JHO79W
   wire [31:0]bram_interface_0_rd_addr;
   wire clk_0_1;
   wire [3:0]cnst_0_4bit_dout;
-  wire cnst_1_1bit_dout;
   wire [31:0]dina_0_1;
+  wire ena_0_1;
+  wire enb_0_1;
   wire [31:0]reg_32bit_0_out0;
   wire rsta_0_1;
 
@@ -328,8 +331,9 @@ module RAM_0_imp_1JHO79W
   assign bram_interface_0_rd_addr = addrb[31:0];
   assign clk_0_1 = clk_bram;
   assign cnst_0_4bit_dout = web[3:0];
-  assign cnst_1_1bit_dout = ena;
   assign dina_0_1 = q_new[31:0];
+  assign ena_0_1 = en0_wr;
+  assign enb_0_1 = en0_rd;
   assign q_next_0[31:0] = Action_RAM_0_doutb;
   assign reg_32bit_0_out0 = addra[31:0];
   assign rsta_0_1 = rst_bram;
@@ -341,8 +345,8 @@ module RAM_0_imp_1JHO79W
         .dina(dina_0_1),
         .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0}),
         .doutb(Action_RAM_0_doutb),
-        .ena(cnst_1_1bit_dout),
-        .enb(cnst_1_1bit_dout),
+        .ena(ena_0_1),
+        .enb(enb_0_1),
         .rsta(rsta_0_1),
         .rstb(rsta_0_1),
         .wea(bram_interface_0_en0),
@@ -354,7 +358,7 @@ module RAM_0_imp_1JHO79W
         .clkb(clk_0_1),
         .dina(dina_0_1),
         .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0}),
-        .ena(cnst_1_1bit_dout),
+        .ena(1'b0),
         .enb(1'b0),
         .rsta(rsta_0_1),
         .rstb(rsta_0_1),
@@ -366,7 +370,8 @@ module RAM_1_imp_B5WGKQ
    (addra,
     addrb,
     clk_bram,
-    enb,
+    en1_rd,
+    en1_wr,
     q_new,
     q_next_1,
     rst_bram,
@@ -375,7 +380,8 @@ module RAM_1_imp_B5WGKQ
   input [31:0]addra;
   input [31:0]addrb;
   input clk_bram;
-  input enb;
+  input en1_rd;
+  input en1_wr;
   input [31:0]q_new;
   output [31:0]q_next_1;
   input rst_bram;
@@ -387,8 +393,9 @@ module RAM_1_imp_B5WGKQ
   wire [31:0]bram_interface_0_rd_addr;
   wire clk_0_1;
   wire [3:0]cnst_0_4bit_dout;
-  wire cnst_1_1bit_dout;
   wire [31:0]dina_0_1;
+  wire ena_1_1;
+  wire enb_1_1;
   wire [31:0]reg_32bit_0_out0;
   wire rsta_0_1;
 
@@ -396,8 +403,9 @@ module RAM_1_imp_B5WGKQ
   assign bram_interface_0_rd_addr = addrb[31:0];
   assign clk_0_1 = clk_bram;
   assign cnst_0_4bit_dout = web[3:0];
-  assign cnst_1_1bit_dout = enb;
   assign dina_0_1 = q_new[31:0];
+  assign ena_1_1 = en1_wr;
+  assign enb_1_1 = en1_rd;
   assign q_next_1[31:0] = Action_RAM_1_doutb;
   assign reg_32bit_0_out0 = addra[31:0];
   assign rsta_0_1 = rst_bram;
@@ -409,8 +417,8 @@ module RAM_1_imp_B5WGKQ
         .dina(dina_0_1),
         .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0}),
         .doutb(Action_RAM_1_doutb),
-        .ena(cnst_1_1bit_dout),
-        .enb(cnst_1_1bit_dout),
+        .ena(ena_1_1),
+        .enb(enb_1_1),
         .rsta(rsta_0_1),
         .rstb(rsta_0_1),
         .wea(bram_interface_0_en1),
@@ -422,7 +430,7 @@ module RAM_1_imp_B5WGKQ
         .clkb(clk_0_1),
         .dina(dina_0_1),
         .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0}),
-        .ena(cnst_1_1bit_dout),
+        .ena(1'b0),
         .enb(1'b0),
         .rsta(rsta_0_1),
         .rstb(rsta_0_1),
@@ -434,7 +442,8 @@ module RAM_2_imp_1I49MUH
    (addra,
     addrb,
     clk_bram,
-    enb,
+    en2_rd,
+    en2_wr,
     q_new,
     q_next_2,
     rst_bram,
@@ -443,7 +452,8 @@ module RAM_2_imp_1I49MUH
   input [31:0]addra;
   input [31:0]addrb;
   input clk_bram;
-  input enb;
+  input en2_rd;
+  input en2_wr;
   input [31:0]q_new;
   output [31:0]q_next_2;
   input rst_bram;
@@ -455,8 +465,9 @@ module RAM_2_imp_1I49MUH
   wire [31:0]bram_interface_0_rd_addr;
   wire clk_0_1;
   wire [3:0]cnst_0_4bit_dout;
-  wire cnst_1_1bit_dout;
   wire [31:0]dina_0_1;
+  wire ena_2_1;
+  wire enb_2_1;
   wire [31:0]reg_32bit_0_out0;
   wire rsta_0_1;
 
@@ -464,8 +475,9 @@ module RAM_2_imp_1I49MUH
   assign bram_interface_0_rd_addr = addrb[31:0];
   assign clk_0_1 = clk_bram;
   assign cnst_0_4bit_dout = web[3:0];
-  assign cnst_1_1bit_dout = enb;
   assign dina_0_1 = q_new[31:0];
+  assign ena_2_1 = en2_wr;
+  assign enb_2_1 = en2_rd;
   assign q_next_2[31:0] = Action_RAM_2_doutb;
   assign reg_32bit_0_out0 = addra[31:0];
   assign rsta_0_1 = rst_bram;
@@ -477,8 +489,8 @@ module RAM_2_imp_1I49MUH
         .dina(dina_0_1),
         .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0}),
         .doutb(Action_RAM_2_doutb),
-        .ena(cnst_1_1bit_dout),
-        .enb(cnst_1_1bit_dout),
+        .ena(ena_2_1),
+        .enb(enb_2_1),
         .rsta(rsta_0_1),
         .rstb(rsta_0_1),
         .wea(bram_interface_0_en2),
@@ -490,7 +502,7 @@ module RAM_2_imp_1I49MUH
         .clkb(clk_0_1),
         .dina(dina_0_1),
         .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0}),
-        .ena(cnst_1_1bit_dout),
+        .ena(1'b0),
         .enb(1'b0),
         .rsta(rsta_0_1),
         .rstb(rsta_0_1),
@@ -502,7 +514,8 @@ module RAM_3_imp_CFDBYV
    (addra,
     addrb,
     clk_bram,
-    enb,
+    en3_rd,
+    en3_wr,
     q_new,
     q_next_3,
     rst_bram,
@@ -511,7 +524,8 @@ module RAM_3_imp_CFDBYV
   input [31:0]addra;
   input [31:0]addrb;
   input clk_bram;
-  input enb;
+  input en3_rd;
+  input en3_wr;
   input [31:0]q_new;
   output [31:0]q_next_3;
   input rst_bram;
@@ -523,8 +537,9 @@ module RAM_3_imp_CFDBYV
   wire [31:0]bram_interface_0_rd_addr;
   wire clk_0_1;
   wire [3:0]cnst_0_4bit_dout;
-  wire cnst_1_1bit_dout;
   wire [31:0]dina_0_1;
+  wire ena_3_1;
+  wire enb_3_1;
   wire [31:0]reg_32bit_0_out0;
   wire rsta_0_1;
 
@@ -532,8 +547,9 @@ module RAM_3_imp_CFDBYV
   assign bram_interface_0_rd_addr = addrb[31:0];
   assign clk_0_1 = clk_bram;
   assign cnst_0_4bit_dout = web[3:0];
-  assign cnst_1_1bit_dout = enb;
   assign dina_0_1 = q_new[31:0];
+  assign ena_3_1 = en3_wr;
+  assign enb_3_1 = en3_rd;
   assign q_next_3[31:0] = Action_RAM_3_doutb;
   assign reg_32bit_0_out0 = addra[31:0];
   assign rsta_0_1 = rst_bram;
@@ -545,8 +561,8 @@ module RAM_3_imp_CFDBYV
         .dina(dina_0_1),
         .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0}),
         .doutb(Action_RAM_3_doutb),
-        .ena(cnst_1_1bit_dout),
-        .enb(cnst_1_1bit_dout),
+        .ena(ena_3_1),
+        .enb(enb_3_1),
         .rsta(rsta_0_1),
         .rstb(rsta_0_1),
         .wea(bram_interface_0_en3),
@@ -558,7 +574,7 @@ module RAM_3_imp_CFDBYV
         .clkb(clk_0_1),
         .dina(dina_0_1),
         .dinb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b1,1'b0,1'b0,1'b0}),
-        .ena(cnst_1_1bit_dout),
+        .ena(1'b0),
         .enb(1'b0),
         .rsta(rsta_0_1),
         .rstb(rsta_0_1),
@@ -567,32 +583,48 @@ module RAM_3_imp_CFDBYV
 endmodule
 
 module RAM_Block_imp_QKQT90
-   (addra,
-    addrb,
-    clk_bram,
+   (clk_bram,
+    en0_rd,
+    en0_wr,
+    en1_rd,
+    en1_wr,
+    en2_rd,
+    en2_wr,
+    en3_rd,
+    en3_wr,
     q_new,
     q_next_0,
     q_next_1,
     q_next_2,
     q_next_3,
+    rd_addr,
     rst_bram,
     wea_0,
     wea_1,
     wea_2,
-    wea_3);
-  input [31:0]addra;
-  input [31:0]addrb;
+    wea_3,
+    wr_addr);
   input clk_bram;
+  input en0_rd;
+  input en0_wr;
+  input en1_rd;
+  input en1_wr;
+  input en2_rd;
+  input en2_wr;
+  input en3_rd;
+  input en3_wr;
   input [31:0]q_new;
   output [31:0]q_next_0;
   output [31:0]q_next_1;
   output [31:0]q_next_2;
   output [31:0]q_next_3;
+  input [31:0]rd_addr;
   input rst_bram;
   input [3:0]wea_0;
   input [3:0]wea_1;
   input [3:0]wea_2;
   input [3:0]wea_3;
+  input [31:0]wr_addr;
 
   wire [31:0]Action_RAM_0_doutb;
   wire [31:0]Action_RAM_1_doutb;
@@ -605,8 +637,15 @@ module RAM_Block_imp_QKQT90
   wire [31:0]bram_interface_0_rd_addr;
   wire clk_0_1;
   wire [3:0]cnst_0_4bit_dout;
-  wire [0:0]cnst_1_1bit_dout;
   wire [31:0]dina_0_1;
+  wire ena_0_1;
+  wire ena_1_1;
+  wire ena_2_1;
+  wire ena_3_1;
+  wire enb_0_1;
+  wire enb_1_1;
+  wire enb_2_1;
+  wire enb_3_1;
   wire [31:0]reg_32bit_0_out0;
   wire rsta_0_1;
 
@@ -614,20 +653,29 @@ module RAM_Block_imp_QKQT90
   assign bram_interface_0_en1 = wea_1[3:0];
   assign bram_interface_0_en2 = wea_2[3:0];
   assign bram_interface_0_en3 = wea_3[3:0];
-  assign bram_interface_0_rd_addr = addrb[31:0];
+  assign bram_interface_0_rd_addr = rd_addr[31:0];
   assign clk_0_1 = clk_bram;
   assign dina_0_1 = q_new[31:0];
+  assign ena_0_1 = en0_wr;
+  assign ena_1_1 = en1_wr;
+  assign ena_2_1 = en2_wr;
+  assign ena_3_1 = en3_wr;
+  assign enb_0_1 = en0_rd;
+  assign enb_1_1 = en1_rd;
+  assign enb_2_1 = en2_rd;
+  assign enb_3_1 = en3_rd;
   assign q_next_0[31:0] = Action_RAM_0_doutb;
   assign q_next_1[31:0] = Action_RAM_1_doutb;
   assign q_next_2[31:0] = Action_RAM_2_doutb;
   assign q_next_3[31:0] = Action_RAM_3_doutb;
-  assign reg_32bit_0_out0 = addra[31:0];
+  assign reg_32bit_0_out0 = wr_addr[31:0];
   assign rsta_0_1 = rst_bram;
   RAM_0_imp_1JHO79W RAM_0
        (.addra(reg_32bit_0_out0),
         .addrb(bram_interface_0_rd_addr),
         .clk_bram(clk_0_1),
-        .ena(cnst_1_1bit_dout),
+        .en0_rd(enb_0_1),
+        .en0_wr(ena_0_1),
         .q_new(dina_0_1),
         .q_next_0(Action_RAM_0_doutb),
         .rst_bram(rsta_0_1),
@@ -637,7 +685,8 @@ module RAM_Block_imp_QKQT90
        (.addra(reg_32bit_0_out0),
         .addrb(bram_interface_0_rd_addr),
         .clk_bram(clk_0_1),
-        .enb(cnst_1_1bit_dout),
+        .en1_rd(enb_1_1),
+        .en1_wr(ena_1_1),
         .q_new(dina_0_1),
         .q_next_1(Action_RAM_1_doutb),
         .rst_bram(rsta_0_1),
@@ -647,7 +696,8 @@ module RAM_Block_imp_QKQT90
        (.addra(reg_32bit_0_out0),
         .addrb(bram_interface_0_rd_addr),
         .clk_bram(clk_0_1),
-        .enb(cnst_1_1bit_dout),
+        .en2_rd(enb_2_1),
+        .en2_wr(ena_2_1),
         .q_new(dina_0_1),
         .q_next_2(Action_RAM_2_doutb),
         .rst_bram(rsta_0_1),
@@ -657,7 +707,8 @@ module RAM_Block_imp_QKQT90
        (.addra(reg_32bit_0_out0),
         .addrb(bram_interface_0_rd_addr),
         .clk_bram(clk_0_1),
-        .enb(cnst_1_1bit_dout),
+        .en3_rd(enb_3_1),
+        .en3_wr(ena_3_1),
         .q_new(dina_0_1),
         .q_next_3(Action_RAM_3_doutb),
         .rst_bram(rsta_0_1),
@@ -665,11 +716,9 @@ module RAM_Block_imp_QKQT90
         .web(cnst_0_4bit_dout));
   testbench_cnst_0_4bit_0 cnst_0_4bit
        (.dout(cnst_0_4bit_dout));
-  testbench_cnst_1_1bit_0 cnst_1_1bit
-       (.dout(cnst_1_1bit_dout));
 endmodule
 
-(* CORE_GENERATION_INFO = "testbench,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=testbench,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=24,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=7,maxHierDepth=2,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=2,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "testbench.hwdef" *) 
+(* CORE_GENERATION_INFO = "testbench,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=testbench,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=23,numReposBlks=16,numNonXlnxBlks=0,numHierBlks=7,maxHierDepth=2,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,da_clkrst_cnt=2,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "testbench.hwdef" *) 
 module testbench
    (PG,
     QA,
@@ -683,15 +732,27 @@ module testbench
     batas_1,
     batas_2,
     clk,
+    dataout0,
+    dataout1,
+    dataout2,
+    dataout3,
     debit_r0,
     debit_r1,
     debit_r2,
     debit_r3,
     delta_t,
     en0,
+    en0_rd,
+    en0_wr,
     en1,
+    en1_rd,
+    en1_wr,
     en2,
+    en2_rd,
+    en2_wr,
     en3,
+    en3_rd,
+    en3_wr,
     finish,
     gamma,
     goal_sig,
@@ -743,16 +804,28 @@ module testbench
   input [31:0]batas_0;
   input [31:0]batas_1;
   input [31:0]batas_2;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK, ASSOCIATED_RESET rst, CLK_DOMAIN testbench_clk_0, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK, ASSOCIATED_RESET rst, CLK_DOMAIN testbench_clk, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk;
+  output [31:0]dataout0;
+  output [31:0]dataout1;
+  output [31:0]dataout2;
+  output [31:0]dataout3;
   input [31:0]debit_r0;
   input [31:0]debit_r1;
   input [31:0]debit_r2;
   input [31:0]debit_r3;
   input [2:0]delta_t;
   output [3:0]en0;
+  output en0_rd;
+  output en0_wr;
   output [3:0]en1;
+  output en1_rd;
+  output en1_wr;
   output [3:0]en2;
+  output en2_rd;
+  output en2_wr;
   output [3:0]en3;
+  output en3_rd;
+  output en3_wr;
   output finish;
   input [2:0]gamma;
   output goal_sig;
@@ -827,6 +900,14 @@ module testbench
   wire [31:0]batas_0_0_1;
   wire [31:0]batas_1_0_1;
   wire [31:0]batas_2_0_1;
+  wire bram_input_interface_0_en0_rd;
+  wire bram_input_interface_0_en0_wr;
+  wire bram_input_interface_0_en1_rd;
+  wire bram_input_interface_0_en1_wr;
+  wire bram_input_interface_0_en2_rd;
+  wire bram_input_interface_0_en2_wr;
+  wire bram_input_interface_0_en3_rd;
+  wire bram_input_interface_0_en3_wr;
   wire [31:0]bram_interface_0_rd_addr;
   wire [31:0]bram_interface_0_wr_addr;
   wire clk_0_1;
@@ -873,15 +954,27 @@ module testbench
   assign batas_1_0_1 = batas_1[31:0];
   assign batas_2_0_1 = batas_2[31:0];
   assign clk_0_1 = clk;
+  assign dataout0[31:0] = RAM_Block_q_next_0;
+  assign dataout1[31:0] = RAM_Block_q_next_1;
+  assign dataout2[31:0] = RAM_Block_q_next_2;
+  assign dataout3[31:0] = RAM_Block_q_next_3;
   assign debit_r0_0_1 = debit_r0[31:0];
   assign debit_r1_0_1 = debit_r1[31:0];
   assign debit_r2_0_1 = debit_r2[31:0];
   assign debit_r3_0_1 = debit_r3[31:0];
   assign delta_t_0_1 = delta_t[2:0];
   assign en0[3:0] = wea_0_1;
+  assign en0_rd = bram_input_interface_0_en0_rd;
+  assign en0_wr = bram_input_interface_0_en0_wr;
   assign en1[3:0] = wea_1_1;
+  assign en1_rd = bram_input_interface_0_en1_rd;
+  assign en1_wr = bram_input_interface_0_en1_wr;
   assign en2[3:0] = wea_2_1;
+  assign en2_rd = bram_input_interface_0_en2_rd;
+  assign en2_wr = bram_input_interface_0_en2_wr;
   assign en3[3:0] = wea_3_1;
+  assign en3_rd = bram_input_interface_0_en3_rd;
+  assign en3_wr = bram_input_interface_0_en3_wr;
   assign finish = CU_0_finish;
   assign gamma_0_1 = gamma[2:0];
   assign goal_sig = EV_goal_sig;
@@ -995,38 +1088,58 @@ module testbench
         .rst(rst_0_1),
         .state(EV_state));
   RAM_Block_imp_QKQT90 RAM_Block
-       (.addra(bram_interface_0_wr_addr),
-        .addrb(bram_interface_0_rd_addr),
-        .clk_bram(clk_0_1),
+       (.clk_bram(clk_0_1),
+        .en0_rd(bram_input_interface_0_en0_rd),
+        .en0_wr(bram_input_interface_0_en0_wr),
+        .en1_rd(bram_input_interface_0_en1_rd),
+        .en1_wr(bram_input_interface_0_en1_wr),
+        .en2_rd(bram_input_interface_0_en2_rd),
+        .en2_wr(bram_input_interface_0_en2_wr),
+        .en3_rd(bram_input_interface_0_en3_rd),
+        .en3_wr(bram_input_interface_0_en3_wr),
         .q_new(q_new_1),
         .q_next_0(RAM_Block_q_next_0),
         .q_next_1(RAM_Block_q_next_1),
         .q_next_2(RAM_Block_q_next_2),
         .q_next_3(RAM_Block_q_next_3),
+        .rd_addr(bram_interface_0_rd_addr),
         .rst_bram(rst_0_1),
         .wea_0(wea_0_1),
         .wea_1(wea_1_1),
         .wea_2(wea_2_1),
-        .wea_3(wea_3_1));
-  testbench_bram_interface_0_0 bram_interface_0
+        .wea_3(wea_3_1),
+        .wr_addr(bram_interface_0_wr_addr));
+  testbench_bram_input_interface_0_0 bram_input_interface_0
        (.act(AGENT_act),
         .clk(clk_0_1),
-        .en0(wea_0_1),
-        .en1(wea_1_1),
-        .en2(wea_2_1),
-        .en3(wea_3_1),
+        .en(CU_0_SD),
+        .en0_rd(bram_input_interface_0_en0_rd),
+        .en0_wr(bram_input_interface_0_en0_wr),
+        .en1_rd(bram_input_interface_0_en1_rd),
+        .en1_wr(bram_input_interface_0_en1_wr),
+        .en2_rd(bram_input_interface_0_en2_rd),
+        .en2_wr(bram_input_interface_0_en2_wr),
+        .en3_rd(bram_input_interface_0_en3_rd),
+        .en3_wr(bram_input_interface_0_en3_wr),
         .next_state(EV_state),
         .rd_addr(bram_interface_0_rd_addr),
         .rst(rst_0_1),
+        .wen0(wea_0_1),
+        .wen1(wea_1_1),
+        .wen2(wea_2_1),
+        .wen3(wea_3_1),
         .wr_addr(bram_interface_0_wr_addr));
-  testbench_enabler4_32bit_0_0 enabler4_32bit_0
-       (.en(CU_0_SD),
-        .in0(RAM_Block_q_next_0),
-        .in1(RAM_Block_q_next_1),
-        .in2(RAM_Block_q_next_2),
-        .in3(RAM_Block_q_next_3),
-        .out0(q_next_0_1),
-        .out1(q_next_1_1),
-        .out2(q_next_2_1),
-        .out3(q_next_3_1));
+  testbench_bram_output_interface_0_0 bram_output_interface_0
+       (.act(AGENT_act),
+        .clk(clk_0_1),
+        .data0(RAM_Block_q_next_0),
+        .data1(RAM_Block_q_next_1),
+        .data2(RAM_Block_q_next_2),
+        .data3(RAM_Block_q_next_3),
+        .en(CU_0_SD),
+        .q0(q_next_0_1),
+        .q1(q_next_1_1),
+        .q2(q_next_2_1),
+        .q3(q_next_3_1),
+        .rst(rst_0_1));
 endmodule

@@ -42,15 +42,7 @@ module enabler_32bit(
     assign out0 = (en)? in0 : 32'h0000_0000;
 endmodule
 
-module wen_decoder(
-    input wire  [1:0] act,
-    output wire [3:0] en0, en1, en2, en3
-    );
-    assign en0 = (act==0)? 4'b1111 : 4'b0000;
-    assign en1 = (act==1)? 4'b1111 : 4'b0000;
-    assign en2 = (act==2)? 4'b1111 : 4'b0000;
-    assign en3 = (act==3)? 4'b1111 : 4'b0000;
-endmodule
+
 
 module debit_decoder(
     input wire [1:0] act,

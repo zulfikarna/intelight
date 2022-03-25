@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.39318",
-   "Default View_TopLeft":"-168,-21",
+   "Default View_TopLeft":"-167,-21",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
@@ -10,35 +10,35 @@ preplace port port-id_rst -pg 1 -lvl 0 -x -20 -y 90 -defaultsOSRD
 preplace portBus q_new -pg 1 -lvl 0 -x -20 -y 300 -defaultsOSRD
 preplace portBus next_state -pg 1 -lvl 0 -x -20 -y 200 -defaultsOSRD
 preplace portBus act -pg 1 -lvl 0 -x -20 -y 230 -defaultsOSRD
-preplace portBus q_next_3 -pg 1 -lvl 3 -x 660 -y 90 -defaultsOSRD
-preplace portBus q_next_0 -pg 1 -lvl 3 -x 660 -y 120 -defaultsOSRD
-preplace portBus q_next_1 -pg 1 -lvl 3 -x 660 -y 150 -defaultsOSRD
-preplace portBus q_next_2 -pg 1 -lvl 3 -x 660 -y 180 -defaultsOSRD
-preplace portBus rd_addr -pg 1 -lvl 3 -x 660 -y 0 -defaultsOSRD
-preplace portBus wr_addr -pg 1 -lvl 3 -x 660 -y 30 -defaultsOSRD
-preplace portBus en0 -pg 1 -lvl 3 -x 660 -y 60 -defaultsOSRD
-preplace portBus en1 -pg 1 -lvl 3 -x 660 -y 210 -defaultsOSRD
-preplace portBus en2 -pg 1 -lvl 3 -x 660 -y 240 -defaultsOSRD
-preplace portBus en3 -pg 1 -lvl 3 -x 660 -y 270 -defaultsOSRD
+preplace portBus q_next_3 -pg 1 -lvl 3 -x 670 -y 90 -defaultsOSRD
+preplace portBus q_next_0 -pg 1 -lvl 3 -x 670 -y 120 -defaultsOSRD
+preplace portBus q_next_1 -pg 1 -lvl 3 -x 670 -y 150 -defaultsOSRD
+preplace portBus q_next_2 -pg 1 -lvl 3 -x 670 -y 180 -defaultsOSRD
+preplace portBus rd_addr -pg 1 -lvl 3 -x 670 -y 0 -defaultsOSRD
+preplace portBus wr_addr -pg 1 -lvl 3 -x 670 -y 30 -defaultsOSRD
+preplace portBus en0 -pg 1 -lvl 3 -x 670 -y 60 -defaultsOSRD
+preplace portBus en1 -pg 1 -lvl 3 -x 670 -y 210 -defaultsOSRD
+preplace portBus en2 -pg 1 -lvl 3 -x 670 -y 240 -defaultsOSRD
+preplace portBus en3 -pg 1 -lvl 3 -x 670 -y 270 -defaultsOSRD
 preplace inst RAM_Block -pg 1 -lvl 2 -x 480 -y 140 -defaultsOSRD
 preplace inst bram_interface_0 -pg 1 -lvl 1 -x 170 -y 190 -defaultsOSRD
-preplace netloc RAM_Block_q_next_0 1 2 1 640J 120n
+preplace netloc RAM_Block_q_next_0 1 2 1 600J 120n
 preplace netloc RAM_Block_q_next_1 1 2 1 NJ 150
-preplace netloc RAM_Block_q_next_2 1 2 1 640J 170n
-preplace netloc RAM_Block_q_next_3 1 2 1 600J 90n
+preplace netloc RAM_Block_q_next_2 1 2 1 610J 170n
+preplace netloc RAM_Block_q_next_3 1 2 1 610J 90n
 preplace netloc act_0_1 1 0 1 10J 220n
-preplace netloc bram_interface_0_en0 1 1 2 330 270 610
-preplace netloc bram_interface_0_en1 1 1 2 320 280 620
-preplace netloc bram_interface_0_en2 1 1 2 310 290 630
-preplace netloc bram_interface_0_en3 1 1 2 340 300 640
+preplace netloc bram_interface_0_en0 1 1 1 N 180
+preplace netloc bram_interface_0_en1 1 1 1 N 200
+preplace netloc bram_interface_0_en2 1 1 1 N 220
+preplace netloc bram_interface_0_en3 1 1 1 N 100
 preplace netloc bram_interface_0_rd_addr 1 1 2 320 -10 610
-preplace netloc bram_interface_0_wr_addr 1 1 2 310 0 600
-preplace netloc clk_0_1 1 0 2 10 60 NJ
+preplace netloc bram_interface_0_wr_addr 1 1 2 340 0 600
+preplace netloc clk_0_1 1 0 2 10 0 330J
 preplace netloc next_state_0_1 1 0 1 NJ 200
-preplace netloc q_new_0_1 1 0 2 0J 70 330J
-preplace netloc rst_0_1 1 0 2 20 80 NJ
-levelinfo -pg 1 -20 170 480 660
-pagesize -pg 1 -db -bbox -sgen -170 -20 800 320
+preplace netloc q_new_0_1 1 0 2 0J 380 340J
+preplace netloc rst_0_1 1 0 2 0 -10 310J
+levelinfo -pg 1 -20 170 480 670
+pagesize -pg 1 -db -bbox -sgen -170 -20 810 390
 "
 }
 0

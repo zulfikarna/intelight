@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-//Date        : Thu Mar 24 03:42:59 2022
+//Date        : Sat Mar 26 03:13:40 2022
 //Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 //Command     : generate_target testbench_wrapper.bd
 //Design      : testbench_wrapper
@@ -22,15 +22,27 @@ module testbench_wrapper
     batas_1,
     batas_2,
     clk,
+    dataout0,
+    dataout1,
+    dataout2,
+    dataout3,
     debit_r0,
     debit_r1,
     debit_r2,
     debit_r3,
     delta_t,
     en0,
+    en0_rd,
+    en0_wr,
     en1,
+    en1_rd,
+    en1_wr,
     en2,
+    en2_rd,
+    en2_wr,
     en3,
+    en3_rd,
+    en3_wr,
     finish,
     gamma,
     goal_sig,
@@ -83,15 +95,27 @@ module testbench_wrapper
   input [31:0]batas_1;
   input [31:0]batas_2;
   input clk;
+  output [31:0]dataout0;
+  output [31:0]dataout1;
+  output [31:0]dataout2;
+  output [31:0]dataout3;
   input [31:0]debit_r0;
   input [31:0]debit_r1;
   input [31:0]debit_r2;
   input [31:0]debit_r3;
   input [2:0]delta_t;
   output [3:0]en0;
+  output en0_rd;
+  output en0_wr;
   output [3:0]en1;
+  output en1_rd;
+  output en1_wr;
   output [3:0]en2;
+  output en2_rd;
+  output en2_wr;
   output [3:0]en3;
+  output en3_rd;
+  output en3_wr;
   output finish;
   input [2:0]gamma;
   output goal_sig;
@@ -145,15 +169,27 @@ module testbench_wrapper
   wire [31:0]batas_1;
   wire [31:0]batas_2;
   wire clk;
+  wire [31:0]dataout0;
+  wire [31:0]dataout1;
+  wire [31:0]dataout2;
+  wire [31:0]dataout3;
   wire [31:0]debit_r0;
   wire [31:0]debit_r1;
   wire [31:0]debit_r2;
   wire [31:0]debit_r3;
   wire [2:0]delta_t;
   wire [3:0]en0;
+  wire en0_rd;
+  wire en0_wr;
   wire [3:0]en1;
+  wire en1_rd;
+  wire en1_wr;
   wire [3:0]en2;
+  wire en2_rd;
+  wire en2_wr;
   wire [3:0]en3;
+  wire en3_rd;
+  wire en3_wr;
   wire finish;
   wire [2:0]gamma;
   wire goal_sig;
@@ -208,15 +244,27 @@ module testbench_wrapper
         .batas_1(batas_1),
         .batas_2(batas_2),
         .clk(clk),
+        .dataout0(dataout0),
+        .dataout1(dataout1),
+        .dataout2(dataout2),
+        .dataout3(dataout3),
         .debit_r0(debit_r0),
         .debit_r1(debit_r1),
         .debit_r2(debit_r2),
         .debit_r3(debit_r3),
         .delta_t(delta_t),
         .en0(en0),
+        .en0_rd(en0_rd),
+        .en0_wr(en0_wr),
         .en1(en1),
+        .en1_rd(en1_rd),
+        .en1_wr(en1_wr),
         .en2(en2),
+        .en2_rd(en2_rd),
+        .en2_wr(en2_wr),
         .en3(en3),
+        .en3_rd(en3_rd),
+        .en3_wr(en3_wr),
         .finish(finish),
         .gamma(gamma),
         .goal_sig(goal_sig),

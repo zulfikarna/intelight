@@ -59,8 +59,8 @@ module QA(
     multiply mult_alpha(.in0(i_alpha),    .c(alpha), .out0(o_alpha), .rst(rst));
     // 4. calculating final value
     assign w_new_qA_0 = chos_curr_qA + o_alpha;
-    // reg_32bit reg6(.clk(clk), .rst(rst), .in0(w_new_qA_0), .out0(w_new_qA_1));
-   assign w_new_qA_1 = 32'hFFFF_FFFF; // for debugging
+    reg_32bit reg6(.clk(clk), .rst(rst), .in0(w_new_qA_0), .out0(w_new_qA_1));
+   // assign w_new_qA_1 = 32'hFFFF_FFFF; // for debugging
    // Enabling output 
    enabler_32bit en0(.in0(w_new_qA_1), .out0(new_qA), .en(en));
    

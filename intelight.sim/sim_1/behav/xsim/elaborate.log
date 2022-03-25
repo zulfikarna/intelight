@@ -1,6 +1,6 @@
 Vivado Simulator v2021.1
 Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2021.1/bin/unwrapped/win64.o/xelab.exe -wto b00e1b8b0c4a4a169364327d9be69cf7 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L xlconstant_v1_1_7 -L blk_mem_gen_v8_4_4 -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot testbench_wrapper_tb_behav xil_defaultlib.testbench_wrapper_tb xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2021.1/bin/unwrapped/win64.o/xelab.exe -wto b00e1b8b0c4a4a169364327d9be69cf7 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot bram_interface_tb_behav xil_defaultlib.bram_interface_tb xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
@@ -8,72 +8,7 @@ Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.max2to1_32bit
-Compiling module xil_defaultlib.max4to1_32bit
-Compiling module xil_defaultlib.reg_2bit
-Compiling module xil_defaultlib.mux2to1_2bit
-Compiling module xil_defaultlib.enabler_2bit
-Compiling module xil_defaultlib.PG
-Compiling module xil_defaultlib.testbench_PG_0_0
-Compiling module xil_defaultlib.reg_32bit
-Compiling module xil_defaultlib.mux4to1_32bit
-Compiling module xil_defaultlib.r_shift
-Compiling module xil_defaultlib.plus
-Compiling module xil_defaultlib.multiply
-Compiling module xil_defaultlib.enabler_32bit
-Compiling module xil_defaultlib.QA
-Compiling module xil_defaultlib.testbench_QA_0_0
-Compiling module xil_defaultlib.AGENT_imp_N4KR90
-Compiling module xil_defaultlib.lsfr_16bit
-Compiling module xil_defaultlib.CU
-Compiling module xil_defaultlib.testbench_CU_0_0
-Compiling module xil_defaultlib.max4to1_2bit
-Compiling module xil_defaultlib.comp_2bit
-Compiling module xil_defaultlib.min2to1_2bit
-Compiling module xil_defaultlib.min4to2_2bit
-Compiling module xil_defaultlib.mux4to1_2bit
-Compiling module xil_defaultlib.analyzer
-Compiling module xil_defaultlib.RD
-Compiling module xil_defaultlib.testbench_RD_0_0
-Compiling module xil_defaultlib.debit_decoder
-Compiling module xil_defaultlib.mux2to1_32bit_sd
-Compiling module xil_defaultlib.comp_SD
-Compiling module xil_defaultlib.mux2to1_1bit
-Compiling module xil_defaultlib.gsg
-Compiling module xil_defaultlib.enabler_1bit
-Compiling module xil_defaultlib.SD
-Compiling module xil_defaultlib.testbench_SD_0_0
-Compiling module xil_defaultlib.EV_imp_1OQLYJF
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="zyn...
-Compiling module xil_defaultlib.testbench_Action_RAM_0_0
-Compiling module xil_defaultlib.testbench_PL_RAM_0_0
-Compiling module xil_defaultlib.RAM_0_imp_1JHO79W
-Compiling module xil_defaultlib.testbench_Action_RAM_1_0
-Compiling module xil_defaultlib.testbench_PL_RAM_1_0
-Compiling module xil_defaultlib.RAM_1_imp_B5WGKQ
-Compiling module xil_defaultlib.testbench_Action_RAM_2_0
-Compiling module xil_defaultlib.testbench_PL_RAM_2_0
-Compiling module xil_defaultlib.RAM_2_imp_1I49MUH
-Compiling module xil_defaultlib.testbench_Action_RAM_3_0
-Compiling module xil_defaultlib.testbench_PL_RAM_3_0
-Compiling module xil_defaultlib.RAM_3_imp_CFDBYV
-Compiling module xlconstant_v1_1_7.xlconstant_v1_1_7_xlconstant(CON...
-Compiling module xil_defaultlib.testbench_cnst_0_4bit_0
-Compiling module xlconstant_v1_1_7.xlconstant_v1_1_7_xlconstant
-Compiling module xil_defaultlib.testbench_cnst_1_1bit_0
-Compiling module xil_defaultlib.RAM_Block_imp_QKQT90
-Compiling module xil_defaultlib.reg3_32bit
-Compiling module xil_defaultlib.reg2_2bit
-Compiling module xil_defaultlib.wen_decoder
-Compiling module xil_defaultlib.bram_interface
-Compiling module xil_defaultlib.testbench_bram_interface_0_0
-Compiling module xil_defaultlib.enabler4_32bit
-Compiling module xil_defaultlib.testbench_enabler4_32bit_0_0
-Compiling module xil_defaultlib.testbench
-Compiling module xil_defaultlib.testbench_wrapper
-Compiling module xil_defaultlib.testbench_wrapper_tb
+Compiling module xil_defaultlib.en_decoder
+Compiling module xil_defaultlib.bram_interface_tb
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot testbench_wrapper_tb_behav
+Built simulation snapshot bram_interface_tb_behav

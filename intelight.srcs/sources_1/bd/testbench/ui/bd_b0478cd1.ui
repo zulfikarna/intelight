@@ -1,0 +1,34 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.05909",
+   "Default View_TopLeft":"-574,-10",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_clk_bram -pg 1 -lvl 0 -x -10 -y 80 -defaultsOSRD
+preplace port port-id_rst_bram -pg 1 -lvl 0 -x -10 -y 430 -defaultsOSRD
+preplace port port-id_en3_wr -pg 1 -lvl 0 -x -10 -y 400 -defaultsOSRD
+preplace port port-id_en3_rd -pg 1 -lvl 0 -x -10 -y 550 -defaultsOSRD
+preplace portBus wea -pg 1 -lvl 0 -x -10 -y 150 -defaultsOSRD
+preplace portBus addra -pg 1 -lvl 0 -x -10 -y 50 -defaultsOSRD
+preplace portBus q_new -pg 1 -lvl 0 -x -10 -y 110 -defaultsOSRD
+preplace portBus web -pg 1 -lvl 0 -x -10 -y 590 -defaultsOSRD
+preplace portBus addrb -pg 1 -lvl 0 -x -10 -y 490 -defaultsOSRD
+preplace portBus q_next_3 -pg 1 -lvl 2 -x 330 -y 270 -defaultsOSRD
+preplace inst Action_RAM_3 -pg 1 -lvl 1 -x 190 -y 460 -defaultsOSRD
+preplace inst PL_RAM_3 -pg 1 -lvl 1 -x 190 -y 130 -defaultsOSRD
+preplace netloc Action_RAM_3_doutb 1 0 2 70 270 NJ
+preplace netloc bram_interface_0_en3 1 0 1 30 150n
+preplace netloc bram_interface_0_rd_addr 1 0 1 NJ 490
+preplace netloc clk_0_1 1 0 1 10 80n
+preplace netloc cnst_0_4bit_dout 1 0 1 NJ 590
+preplace netloc dina_0_1 1 0 1 60 110n
+preplace netloc reg_32bit_0_out0 1 0 1 50 50n
+preplace netloc rsta_0_1 1 0 1 40 130n
+preplace netloc ena_3_1 1 0 1 20J 400n
+preplace netloc enb_3_1 1 0 1 NJ 550
+levelinfo -pg 1 -10 190 330
+pagesize -pg 1 -db -bbox -sgen -140 -10 470 650
+"
+}
+

@@ -1,11 +1,11 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
--- Date        : Wed Mar 23 19:16:36 2022
--- Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub
---               d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_Action_RAM_3_0/testbench_Action_RAM_3_0_stub.vhdl
--- Design      : testbench_Action_RAM_3_0
+-- Date        : Sat Mar  5 17:37:14 2022
+-- Host        : DESKTOP-JVERO04 running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode synth_stub -rename_top testbench_Action_RAM_3_0 -prefix
+--               testbench_Action_RAM_3_0_ bram_blk_mem_gen_1_0_stub.vhdl
+-- Design      : bram_blk_mem_gen_1_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg400-1
 -- --------------------------------------------------------------------------------

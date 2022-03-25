@@ -1,13 +1,14 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x726656AFA4C3E93E",
+      "boundary_crc": "0x193C513C4220F266",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../intelight.gen/sources_1/bd/testbench",
       "name": "testbench",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2021.1"
+      "tool_version": "2021.1",
+      "validated": "true"
     },
     "design_tree": {
       "AGENT": {
@@ -15,12 +16,11 @@
         "PG_0": ""
       },
       "EV": {
-        "RD_0": "",
-        "SD_0": ""
+        "SD_0": "",
+        "RD_0": ""
       },
       "RAM_Block": {
         "cnst_0_4bit": "",
-        "cnst_1_1bit": "",
         "RAM_2": {
           "Action_RAM_2": "",
           "PL_RAM_2": ""
@@ -38,23 +38,53 @@
           "Action_RAM_0": ""
         }
       },
-      "bram_interface_0": "",
-      "enabler4_32bit_0": "",
-      "CU_0": ""
+      "CU_0": "",
+      "bram_input_interface_0": "",
+      "bram_output_interface_0": ""
     },
     "ports": {
       "clk": {
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "rst",
+            "value_src": "default"
+          },
+          "CLK_DOMAIN": {
+            "value": "testbench_clk",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "50000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
           }
         }
       },
       "rst": {
         "type": "rst",
-        "direction": "I"
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
       },
       "alpha": {
         "direction": "I",
@@ -334,6 +364,50 @@
         "direction": "O",
         "left": "1",
         "right": "0"
+      },
+      "dataout3": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "dataout0": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "dataout1": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "dataout2": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "en0_wr": {
+        "direction": "O"
+      },
+      "en0_rd": {
+        "direction": "O"
+      },
+      "en1_wr": {
+        "direction": "O"
+      },
+      "en1_rd": {
+        "direction": "O"
+      },
+      "en2_wr": {
+        "direction": "O"
+      },
+      "en2_rd": {
+        "direction": "O"
+      },
+      "en3_wr": {
+        "direction": "O"
+      },
+      "en3_rd": {
+        "direction": "O"
       }
     },
     "components": {
@@ -431,6 +505,14 @@
                   "ASSOCIATED_RESET": {
                     "value": "rst",
                     "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "50000000",
+                    "value_src": "user_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "testbench_clk",
+                    "value_src": "default_prop"
                   }
                 }
               },
@@ -506,6 +588,14 @@
                   "ASSOCIATED_RESET": {
                     "value": "rst",
                     "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "50000000",
+                    "value_src": "user_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "testbench_clk",
+                    "value_src": "default_prop"
                   }
                 }
               },
@@ -839,71 +929,6 @@
           }
         },
         "components": {
-          "RD_0": {
-            "vlnv": "xilinx.com:module_ref:RD:1.0",
-            "xci_name": "testbench_RD_0_0",
-            "xci_path": "ip\\testbench_RD_0_0\\testbench_RD_0_0.xci",
-            "inst_hier_path": "EV/RD_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "RD",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I",
-                "parameters": {
-                  "ASSOCIATED_RESET": {
-                    "value": "rst",
-                    "value_src": "constant"
-                  }
-                }
-              },
-              "rst": {
-                "type": "rst",
-                "direction": "I"
-              },
-              "en": {
-                "direction": "I"
-              },
-              "act": {
-                "direction": "I",
-                "left": "1",
-                "right": "0"
-              },
-              "state": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward_0": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward_1": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward_2": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward_3": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward": {
-                "direction": "O",
-                "left": "31",
-                "right": "0"
-              }
-            }
-          },
           "SD_0": {
             "vlnv": "xilinx.com:module_ref:SD:1.0",
             "xci_name": "testbench_SD_0_0",
@@ -922,6 +947,14 @@
                   "ASSOCIATED_RESET": {
                     "value": "rst",
                     "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "50000000",
+                    "value_src": "user_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "testbench_clk",
+                    "value_src": "default_prop"
                   }
                 }
               },
@@ -1066,14 +1099,87 @@
                 "right": "0"
               }
             }
+          },
+          "RD_0": {
+            "vlnv": "xilinx.com:module_ref:RD:1.0",
+            "xci_name": "testbench_RD_0_0",
+            "xci_path": "ip\\testbench_RD_0_0\\testbench_RD_0_0.xci",
+            "inst_hier_path": "EV/RD_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "RD",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "rst",
+                    "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "50000000",
+                    "value_src": "user_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "testbench_clk",
+                    "value_src": "default_prop"
+                  }
+                }
+              },
+              "rst": {
+                "type": "rst",
+                "direction": "I"
+              },
+              "en": {
+                "direction": "I"
+              },
+              "act": {
+                "direction": "I",
+                "left": "1",
+                "right": "0"
+              },
+              "state": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward_0": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward_1": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward_2": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward_3": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              }
+            }
           }
         },
         "nets": {
           "PG_0_act": {
             "ports": [
               "act",
-              "RD_0/act",
-              "SD_0/act"
+              "SD_0/act",
+              "RD_0/act"
             ]
           },
           "RD_0_reward": {
@@ -1181,8 +1287,8 @@
           "clk_1": {
             "ports": [
               "clk",
-              "RD_0/clk",
-              "SD_0/clk"
+              "SD_0/clk",
+              "RD_0/clk"
             ]
           },
           "debit_r0_0_1": {
@@ -1285,8 +1391,8 @@
           "rst_1": {
             "ports": [
               "rst",
-              "RD_0/rst",
-              "SD_0/rst"
+              "SD_0/rst",
+              "RD_0/rst"
             ]
           }
         }
@@ -1306,7 +1412,7 @@
             "left": "3",
             "right": "0"
           },
-          "addra": {
+          "wr_addr": {
             "direction": "I",
             "left": "31",
             "right": "0"
@@ -1316,7 +1422,7 @@
             "left": "31",
             "right": "0"
           },
-          "addrb": {
+          "rd_addr": {
             "direction": "I",
             "left": "31",
             "right": "0"
@@ -1355,6 +1461,30 @@
             "direction": "O",
             "left": "31",
             "right": "0"
+          },
+          "en0_wr": {
+            "direction": "I"
+          },
+          "en0_rd": {
+            "direction": "I"
+          },
+          "en1_wr": {
+            "direction": "I"
+          },
+          "en1_rd": {
+            "direction": "I"
+          },
+          "en2_wr": {
+            "direction": "I"
+          },
+          "en2_rd": {
+            "direction": "I"
+          },
+          "en3_wr": {
+            "direction": "I"
+          },
+          "en3_rd": {
+            "direction": "I"
           }
         },
         "components": {
@@ -1372,12 +1502,6 @@
               }
             }
           },
-          "cnst_1_1bit": {
-            "vlnv": "xilinx.com:ip:xlconstant:1.1",
-            "xci_name": "testbench_cnst_1_1bit_0",
-            "xci_path": "ip\\testbench_cnst_1_1bit_0\\testbench_cnst_1_1bit_0.xci",
-            "inst_hier_path": "RAM_Block/cnst_1_1bit"
-          },
           "RAM_2": {
             "ports": {
               "clk_bram": {
@@ -1386,9 +1510,6 @@
               },
               "rst_bram": {
                 "type": "rst",
-                "direction": "I"
-              },
-              "enb": {
                 "direction": "I"
               },
               "wea3": {
@@ -1420,6 +1541,12 @@
                 "direction": "O",
                 "left": "31",
                 "right": "0"
+              },
+              "en2_wr": {
+                "direction": "I"
+              },
+              "en2_rd": {
+                "direction": "I"
               }
             },
             "components": {
@@ -1442,10 +1569,10 @@
                     "value": "True_Dual_Port_RAM"
                   },
                   "Operating_Mode_A": {
-                    "value": "READ_FIRST"
+                    "value": "WRITE_FIRST"
                   },
                   "Operating_Mode_B": {
-                    "value": "READ_FIRST"
+                    "value": "WRITE_FIRST"
                   },
                   "Port_B_Clock": {
                     "value": "100"
@@ -1481,7 +1608,7 @@
                     "value": "32"
                   },
                   "use_bram_block": {
-                    "value": "Stand_Alone"
+                    "value": "BRAM_Controller"
                   }
                 }
               },
@@ -1547,19 +1674,23 @@
                   "Action_RAM_2/web"
                 ]
               },
-              "cnst_1_1bit_dout": {
-                "ports": [
-                  "enb",
-                  "Action_RAM_2/enb",
-                  "PL_RAM_2/ena",
-                  "Action_RAM_2/ena"
-                ]
-              },
               "dina_0_1": {
                 "ports": [
                   "q_new",
                   "PL_RAM_2/dina",
                   "Action_RAM_2/dina"
+                ]
+              },
+              "ena_2_1": {
+                "ports": [
+                  "en2_wr",
+                  "Action_RAM_2/ena"
+                ]
+              },
+              "enb_2_1": {
+                "ports": [
+                  "en2_rd",
+                  "Action_RAM_2/enb"
                 ]
               },
               "reg_32bit_0_out0": {
@@ -1588,9 +1719,6 @@
               },
               "rst_bram": {
                 "type": "rst",
-                "direction": "I"
-              },
-              "enb": {
                 "direction": "I"
               },
               "wea2": {
@@ -1622,6 +1750,12 @@
                 "direction": "O",
                 "left": "31",
                 "right": "0"
+              },
+              "en1_wr": {
+                "direction": "I"
+              },
+              "en1_rd": {
+                "direction": "I"
               }
             },
             "components": {
@@ -1644,10 +1778,10 @@
                     "value": "True_Dual_Port_RAM"
                   },
                   "Operating_Mode_A": {
-                    "value": "READ_FIRST"
+                    "value": "WRITE_FIRST"
                   },
                   "Operating_Mode_B": {
-                    "value": "READ_FIRST"
+                    "value": "WRITE_FIRST"
                   },
                   "Port_B_Clock": {
                     "value": "100"
@@ -1683,7 +1817,7 @@
                     "value": "32"
                   },
                   "use_bram_block": {
-                    "value": "Stand_Alone"
+                    "value": "BRAM_Controller"
                   }
                 }
               },
@@ -1749,19 +1883,23 @@
                   "Action_RAM_1/web"
                 ]
               },
-              "cnst_1_1bit_dout": {
-                "ports": [
-                  "enb",
-                  "Action_RAM_1/enb",
-                  "PL_RAM_1/ena",
-                  "Action_RAM_1/ena"
-                ]
-              },
               "dina_0_1": {
                 "ports": [
                   "q_new",
                   "PL_RAM_1/dina",
                   "Action_RAM_1/dina"
+                ]
+              },
+              "ena_1_1": {
+                "ports": [
+                  "en1_wr",
+                  "Action_RAM_1/ena"
+                ]
+              },
+              "enb_1_1": {
+                "ports": [
+                  "en1_rd",
+                  "Action_RAM_1/enb"
                 ]
               },
               "reg_32bit_0_out0": {
@@ -1790,9 +1928,6 @@
               },
               "rst_bram": {
                 "type": "rst",
-                "direction": "I"
-              },
-              "enb": {
                 "direction": "I"
               },
               "wea": {
@@ -1824,6 +1959,12 @@
                 "direction": "O",
                 "left": "31",
                 "right": "0"
+              },
+              "en3_wr": {
+                "direction": "I"
+              },
+              "en3_rd": {
+                "direction": "I"
               }
             },
             "components": {
@@ -1846,10 +1987,10 @@
                     "value": "True_Dual_Port_RAM"
                   },
                   "Operating_Mode_A": {
-                    "value": "READ_FIRST"
+                    "value": "WRITE_FIRST"
                   },
                   "Operating_Mode_B": {
-                    "value": "READ_FIRST"
+                    "value": "WRITE_FIRST"
                   },
                   "Port_B_Clock": {
                     "value": "100"
@@ -1885,7 +2026,7 @@
                     "value": "32"
                   },
                   "use_bram_block": {
-                    "value": "Stand_Alone"
+                    "value": "BRAM_Controller"
                   }
                 }
               },
@@ -1951,19 +2092,23 @@
                   "Action_RAM_3/web"
                 ]
               },
-              "cnst_1_1bit_dout": {
-                "ports": [
-                  "enb",
-                  "Action_RAM_3/enb",
-                  "PL_RAM_3/ena",
-                  "Action_RAM_3/ena"
-                ]
-              },
               "dina_0_1": {
                 "ports": [
                   "q_new",
                   "PL_RAM_3/dina",
                   "Action_RAM_3/dina"
+                ]
+              },
+              "ena_3_1": {
+                "ports": [
+                  "en3_wr",
+                  "Action_RAM_3/ena"
+                ]
+              },
+              "enb_3_1": {
+                "ports": [
+                  "en3_rd",
+                  "Action_RAM_3/enb"
                 ]
               },
               "reg_32bit_0_out0": {
@@ -1992,9 +2137,6 @@
               },
               "rst_bram": {
                 "type": "rst",
-                "direction": "I"
-              },
-              "ena": {
                 "direction": "I"
               },
               "wea1": {
@@ -2026,6 +2168,12 @@
                 "direction": "O",
                 "left": "31",
                 "right": "0"
+              },
+              "en0_wr": {
+                "direction": "I"
+              },
+              "en0_rd": {
+                "direction": "I"
               }
             },
             "components": {
@@ -2074,10 +2222,10 @@
                     "value": "True_Dual_Port_RAM"
                   },
                   "Operating_Mode_A": {
-                    "value": "READ_FIRST"
+                    "value": "WRITE_FIRST"
                   },
                   "Operating_Mode_B": {
-                    "value": "READ_FIRST"
+                    "value": "WRITE_FIRST"
                   },
                   "Port_B_Clock": {
                     "value": "100"
@@ -2113,7 +2261,7 @@
                     "value": "32"
                   },
                   "use_bram_block": {
-                    "value": "Stand_Alone"
+                    "value": "BRAM_Controller"
                   }
                 }
               }
@@ -2153,19 +2301,23 @@
                   "Action_RAM_0/web"
                 ]
               },
-              "cnst_1_1bit_dout": {
-                "ports": [
-                  "ena",
-                  "Action_RAM_0/ena",
-                  "Action_RAM_0/enb",
-                  "PL_RAM_0/ena"
-                ]
-              },
               "dina_0_1": {
                 "ports": [
                   "q_new",
                   "Action_RAM_0/dina",
                   "PL_RAM_0/dina"
+                ]
+              },
+              "ena_0_1": {
+                "ports": [
+                  "en0_wr",
+                  "Action_RAM_0/ena"
+                ]
+              },
+              "enb_0_1": {
+                "ports": [
+                  "en0_rd",
+                  "Action_RAM_0/enb"
                 ]
               },
               "reg_32bit_0_out0": {
@@ -2238,7 +2390,7 @@
           },
           "bram_interface_0_rd_addr": {
             "ports": [
-              "addrb",
+              "rd_addr",
               "RAM_2/addrb",
               "RAM_1/addrb",
               "RAM_3/addrb",
@@ -2263,15 +2415,6 @@
               "RAM_0/web"
             ]
           },
-          "cnst_1_1bit_dout": {
-            "ports": [
-              "cnst_1_1bit/dout",
-              "RAM_2/enb",
-              "RAM_1/enb",
-              "RAM_3/enb",
-              "RAM_0/ena"
-            ]
-          },
           "dina_0_1": {
             "ports": [
               "q_new",
@@ -2281,9 +2424,57 @@
               "RAM_0/q_new"
             ]
           },
+          "ena_0_1": {
+            "ports": [
+              "en0_wr",
+              "RAM_0/en0_wr"
+            ]
+          },
+          "ena_1_1": {
+            "ports": [
+              "en1_wr",
+              "RAM_1/en1_wr"
+            ]
+          },
+          "ena_2_1": {
+            "ports": [
+              "en2_wr",
+              "RAM_2/en2_wr"
+            ]
+          },
+          "ena_3_1": {
+            "ports": [
+              "en3_wr",
+              "RAM_3/en3_wr"
+            ]
+          },
+          "enb_0_1": {
+            "ports": [
+              "en0_rd",
+              "RAM_0/en0_rd"
+            ]
+          },
+          "enb_1_1": {
+            "ports": [
+              "en1_rd",
+              "RAM_1/en1_rd"
+            ]
+          },
+          "enb_2_1": {
+            "ports": [
+              "en2_rd",
+              "RAM_2/en2_rd"
+            ]
+          },
+          "enb_3_1": {
+            "ports": [
+              "en3_rd",
+              "RAM_3/en3_rd"
+            ]
+          },
           "reg_32bit_0_out0": {
             "ports": [
-              "addra",
+              "wr_addr",
               "RAM_2/addra",
               "RAM_1/addra",
               "RAM_3/addra",
@@ -2298,137 +2489,6 @@
               "RAM_3/rst_bram",
               "RAM_0/rst_bram"
             ]
-          }
-        }
-      },
-      "bram_interface_0": {
-        "vlnv": "xilinx.com:module_ref:bram_interface:1.0",
-        "xci_name": "testbench_bram_interface_0_0",
-        "xci_path": "ip\\testbench_bram_interface_0_0\\testbench_bram_interface_0_0.xci",
-        "inst_hier_path": "bram_interface_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "bram_interface",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "50000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "testbench_clk_0",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "rst": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "next_state": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "rd_addr": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "wr_addr": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "act": {
-            "direction": "I",
-            "left": "1",
-            "right": "0"
-          },
-          "en0": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "en1": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "en2": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "en3": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          }
-        }
-      },
-      "enabler4_32bit_0": {
-        "vlnv": "xilinx.com:module_ref:enabler4_32bit:1.0",
-        "xci_name": "testbench_enabler4_32bit_0_0",
-        "xci_path": "ip\\testbench_enabler4_32bit_0_0\\testbench_enabler4_32bit_0_0.xci",
-        "inst_hier_path": "enabler4_32bit_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "enabler4_32bit",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "en": {
-            "direction": "I"
-          },
-          "in0": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "in1": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "in2": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "in3": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "out0": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "out1": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "out2": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "out3": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
           }
         }
       },
@@ -2456,7 +2516,7 @@
                 "value_src": "user_prop"
               },
               "CLK_DOMAIN": {
-                "value": "testbench_clk_0",
+                "value": "testbench_clk",
                 "value_src": "default_prop"
               }
             }
@@ -2525,6 +2585,191 @@
             "direction": "O"
           }
         }
+      },
+      "bram_input_interface_0": {
+        "vlnv": "xilinx.com:module_ref:bram_input_interface:1.0",
+        "xci_name": "testbench_bram_input_interface_0_0",
+        "xci_path": "ip\\testbench_bram_input_interface_0_0\\testbench_bram_input_interface_0_0.xci",
+        "inst_hier_path": "bram_input_interface_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "bram_input_interface",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "testbench_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "en": {
+            "direction": "I"
+          },
+          "next_state": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "rd_addr": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "wr_addr": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "act": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "wen0": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "wen1": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "wen2": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "wen3": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "en0_wr": {
+            "direction": "O"
+          },
+          "en0_rd": {
+            "direction": "O"
+          },
+          "en1_wr": {
+            "direction": "O"
+          },
+          "en1_rd": {
+            "direction": "O"
+          },
+          "en2_wr": {
+            "direction": "O"
+          },
+          "en2_rd": {
+            "direction": "O"
+          },
+          "en3_wr": {
+            "direction": "O"
+          },
+          "en3_rd": {
+            "direction": "O"
+          }
+        }
+      },
+      "bram_output_interface_0": {
+        "vlnv": "xilinx.com:module_ref:bram_output_interface:1.0",
+        "xci_name": "testbench_bram_output_interface_0_0",
+        "xci_path": "ip\\testbench_bram_output_interface_0_0\\testbench_bram_output_interface_0_0.xci",
+        "inst_hier_path": "bram_output_interface_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "bram_output_interface",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "testbench_clk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "en": {
+            "direction": "I"
+          },
+          "act": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "data0": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "data1": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "data2": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "data3": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "q0": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "q1": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "q2": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "q3": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          }
+        }
       }
     },
     "nets": {
@@ -2533,7 +2778,8 @@
           "AGENT/act",
           "EV/act",
           "act",
-          "bram_interface_0/act"
+          "bram_input_interface_0/act",
+          "bram_output_interface_0/act"
         ]
       },
       "AGENT_act_greed_0": {
@@ -2554,7 +2800,8 @@
           "CU_0/SD",
           "EV/en_SD",
           "SD",
-          "enabler4_32bit_0/en"
+          "bram_input_interface_0/en",
+          "bram_output_interface_0/en"
         ]
       },
       "CU_0_act_random": {
@@ -2684,31 +2931,35 @@
         "ports": [
           "EV/state",
           "state",
-          "bram_interface_0/next_state"
+          "bram_input_interface_0/next_state"
         ]
       },
       "RAM_Block_q_next_0": {
         "ports": [
           "RAM_Block/q_next_0",
-          "enabler4_32bit_0/in0"
+          "dataout0",
+          "bram_output_interface_0/data0"
         ]
       },
       "RAM_Block_q_next_1": {
         "ports": [
           "RAM_Block/q_next_1",
-          "enabler4_32bit_0/in1"
+          "dataout1",
+          "bram_output_interface_0/data1"
         ]
       },
       "RAM_Block_q_next_2": {
         "ports": [
           "RAM_Block/q_next_2",
-          "enabler4_32bit_0/in2"
+          "dataout2",
+          "bram_output_interface_0/data2"
         ]
       },
       "RAM_Block_q_next_3": {
         "ports": [
           "RAM_Block/q_next_3",
-          "enabler4_32bit_0/in3"
+          "dataout3",
+          "bram_output_interface_0/data3"
         ]
       },
       "alpha_0_1": {
@@ -2735,17 +2986,73 @@
           "EV/batas_2"
         ]
       },
+      "bram_input_interface_0_en0_rd": {
+        "ports": [
+          "bram_input_interface_0/en0_rd",
+          "RAM_Block/en0_rd",
+          "en0_rd"
+        ]
+      },
+      "bram_input_interface_0_en0_wr": {
+        "ports": [
+          "bram_input_interface_0/en0_wr",
+          "RAM_Block/en0_wr",
+          "en0_wr"
+        ]
+      },
+      "bram_input_interface_0_en1_rd": {
+        "ports": [
+          "bram_input_interface_0/en1_rd",
+          "RAM_Block/en1_rd",
+          "en1_rd"
+        ]
+      },
+      "bram_input_interface_0_en1_wr": {
+        "ports": [
+          "bram_input_interface_0/en1_wr",
+          "RAM_Block/en1_wr",
+          "en1_wr"
+        ]
+      },
+      "bram_input_interface_0_en2_rd": {
+        "ports": [
+          "bram_input_interface_0/en2_rd",
+          "RAM_Block/en2_rd",
+          "en2_rd"
+        ]
+      },
+      "bram_input_interface_0_en2_wr": {
+        "ports": [
+          "bram_input_interface_0/en2_wr",
+          "RAM_Block/en2_wr",
+          "en2_wr"
+        ]
+      },
+      "bram_input_interface_0_en3_rd": {
+        "ports": [
+          "bram_input_interface_0/en3_rd",
+          "RAM_Block/en3_rd",
+          "en3_rd"
+        ]
+      },
+      "bram_input_interface_0_en3_wr": {
+        "ports": [
+          "bram_input_interface_0/en3_wr",
+          "RAM_Block/en3_wr",
+          "en3_wr"
+        ]
+      },
       "bram_interface_0_rd_addr": {
         "ports": [
-          "bram_interface_0/rd_addr",
-          "RAM_Block/addrb",
+          "bram_input_interface_0/rd_addr",
+          "RAM_Block/rd_addr",
           "rd_addr"
         ]
       },
       "bram_interface_0_wr_addr": {
         "ports": [
-          "bram_interface_0/wr_addr",
-          "RAM_Block/addra",
+          "bram_input_interface_0/wr_addr",
+          "RAM_Block/wr_addr",
           "wr_addr"
         ]
       },
@@ -2755,8 +3062,9 @@
           "RAM_Block/clk_bram",
           "AGENT/clk",
           "EV/clk",
-          "bram_interface_0/clk",
-          "CU_0/clk"
+          "CU_0/clk",
+          "bram_input_interface_0/clk",
+          "bram_output_interface_0/clk"
         ]
       },
       "debit_r0_0_1": {
@@ -2854,28 +3162,28 @@
       },
       "q_next_0_1": {
         "ports": [
-          "enabler4_32bit_0/out0",
+          "bram_output_interface_0/q0",
           "AGENT/q_next_0",
           "q_next_0"
         ]
       },
       "q_next_1_1": {
         "ports": [
-          "enabler4_32bit_0/out1",
+          "bram_output_interface_0/q1",
           "AGENT/q_next_1",
           "q_next_1"
         ]
       },
       "q_next_2_1": {
         "ports": [
-          "enabler4_32bit_0/out2",
+          "bram_output_interface_0/q2",
           "AGENT/q_next_2",
           "q_next_2"
         ]
       },
       "q_next_3_1": {
         "ports": [
-          "enabler4_32bit_0/out3",
+          "bram_output_interface_0/q3",
           "AGENT/q_next_3",
           "q_next_3"
         ]
@@ -2910,8 +3218,9 @@
           "RAM_Block/rst_bram",
           "AGENT/rst",
           "EV/rst",
-          "bram_interface_0/rst",
-          "CU_0/rst"
+          "CU_0/rst",
+          "bram_input_interface_0/rst",
+          "bram_output_interface_0/rst"
         ]
       },
       "seed_0_1": {
@@ -2928,28 +3237,28 @@
       },
       "wea_0_1": {
         "ports": [
-          "bram_interface_0/en0",
+          "bram_input_interface_0/wen0",
           "RAM_Block/wea_0",
           "en0"
         ]
       },
       "wea_1_1": {
         "ports": [
-          "bram_interface_0/en1",
+          "bram_input_interface_0/wen1",
           "RAM_Block/wea_1",
           "en1"
         ]
       },
       "wea_2_1": {
         "ports": [
-          "bram_interface_0/en2",
+          "bram_input_interface_0/wen2",
           "RAM_Block/wea_2",
           "en2"
         ]
       },
       "wea_3_1": {
         "ports": [
-          "bram_interface_0/en3",
+          "bram_input_interface_0/wen3",
           "RAM_Block/wea_3",
           "en3"
         ]

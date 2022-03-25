@@ -67,6 +67,18 @@ module testbench_wrapper_tb();
   wire [3:0] en2;
   wire [3:0] en3;
   wire [1:0] act_random;
+  wire en0_wr;
+  wire en0_rd;
+  wire en1_wr;
+  wire en1_rd;
+  wire en2_wr;
+  wire en2_rd;
+  wire en3_wr;  
+  wire en3_rd;
+  wire [31:0] dataout0;
+  wire [31:0] dataout1;
+  wire [31:0] dataout2;
+  wire [31:0] dataout3;
   
   testbench_wrapper dut(
       .alpha(alpha),
@@ -128,8 +140,20 @@ module testbench_wrapper_tb();
       .en1(en1),
       .en2(en2),
       .en3(en3),
+      .act_random(act_random),
       .finish(finish),
-      .act_random(act_random)
+      .en0_wr(en0_wr),
+      .en0_rd(en0_rd),
+      .en1_wr(en1_wr),
+      .en1_rd(en1_rd),
+      .en2_wr(en2_wr),
+      .en2_rd(en2_rd),
+      .en3_wr(en3_wr),
+      .en3_rd(en3_rd),
+      .dataout0(dataout0),
+      .dataout1(dataout1),
+      .dataout2(dataout2),
+      .dataout3(dataout3)
   );
   
   always begin
@@ -160,14 +184,13 @@ module testbench_wrapper_tb();
     debit_r2 = 32'h000F_0000;
     debit_r3 = 32'h00014_0000;
     max_episode = 16'd800;
-    max_step = 16'd20;   
-    #100;
+    max_step = 16'd20;  
     rst = 1'b1;
-    start = 1'b0; 
-    #100;
+    start = 1'b0;  
+    #500;
     rst = 1'b0;
-    #400;
-    start = 1'b1;
+    #1000;
+    start = 1'b1;  
   end
   
 endmodule

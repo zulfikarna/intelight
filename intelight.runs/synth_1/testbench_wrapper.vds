@@ -1,0 +1,371 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Sat Mar 26 03:14:46 2022
+# Process ID: 23656
+# Current directory: D:/intelight/intelight/intelight.runs/synth_1
+# Command line: vivado.exe -log testbench_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source testbench_wrapper.tcl
+# Log file: D:/intelight/intelight/intelight.runs/synth_1/testbench_wrapper.vds
+# Journal file: D:/intelight/intelight/intelight.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source testbench_wrapper.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/intelight/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2021.1/data/ip'.
+add_files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:10 . Memory (MB): peak = 1329.227 ; gain = 0.000
+Command: synth_design -top testbench_wrapper -part xc7z020clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 15804
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1329.227 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'testbench_wrapper' [D:/intelight/intelight/intelight.gen/sources_1/bd/testbench/hdl/testbench_wrapper.v:12]
+INFO: [Synth 8-6157] synthesizing module 'testbench' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:722]
+INFO: [Synth 8-6157] synthesizing module 'AGENT_imp_N4KR90' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:12]
+INFO: [Synth 8-6157] synthesizing module 'testbench_PG_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_PG_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'testbench_PG_0_0' (1#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_PG_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'testbench_QA_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_QA_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'testbench_QA_0_0' (2#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_QA_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'AGENT_imp_N4KR90' (3#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:12]
+INFO: [Synth 8-6157] synthesizing module 'testbench_CU_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_CU_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'testbench_CU_0_0' (4#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_CU_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'EV_imp_1OQLYJF' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:106]
+INFO: [Synth 8-6157] synthesizing module 'testbench_RD_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_RD_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'testbench_RD_0_0' (5#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_RD_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'testbench_SD_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_SD_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'testbench_SD_0_0' (6#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_SD_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'EV_imp_1OQLYJF' (7#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:106]
+INFO: [Synth 8-6157] synthesizing module 'RAM_Block_imp_QKQT90' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:585]
+INFO: [Synth 8-6157] synthesizing module 'RAM_0_imp_1JHO79W' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:297]
+INFO: [Synth 8-6157] synthesizing module 'testbench_Action_RAM_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_Action_RAM_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'testbench_Action_RAM_0_0' (8#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_Action_RAM_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'testbench_Action_RAM_0_0' is unconnected for instance 'Action_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:340]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'testbench_Action_RAM_0_0' is unconnected for instance 'Action_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:340]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'testbench_Action_RAM_0_0' is unconnected for instance 'Action_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:340]
+WARNING: [Synth 8-7023] instance 'Action_RAM_0' of module 'testbench_Action_RAM_0_0' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:340]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:354]
+INFO: [Synth 8-6157] synthesizing module 'testbench_PL_RAM_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_PL_RAM_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'testbench_PL_RAM_0_0' (9#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_PL_RAM_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'testbench_PL_RAM_0_0' is unconnected for instance 'PL_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:354]
+WARNING: [Synth 8-7071] port 'doutb' of module 'testbench_PL_RAM_0_0' is unconnected for instance 'PL_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:354]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'testbench_PL_RAM_0_0' is unconnected for instance 'PL_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:354]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'testbench_PL_RAM_0_0' is unconnected for instance 'PL_RAM_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:354]
+WARNING: [Synth 8-7023] instance 'PL_RAM_0' of module 'testbench_PL_RAM_0_0' has 16 connections declared, but only 12 given [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:354]
+INFO: [Synth 8-6155] done synthesizing module 'RAM_0_imp_1JHO79W' (10#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:297]
+INFO: [Synth 8-6157] synthesizing module 'RAM_1_imp_B5WGKQ' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:369]
+INFO: [Synth 8-6157] synthesizing module 'testbench_Action_RAM_1_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_Action_RAM_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'testbench_Action_RAM_1_0' (11#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_Action_RAM_1_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'testbench_Action_RAM_1_0' is unconnected for instance 'Action_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:412]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'testbench_Action_RAM_1_0' is unconnected for instance 'Action_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:412]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'testbench_Action_RAM_1_0' is unconnected for instance 'Action_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:412]
+WARNING: [Synth 8-7023] instance 'Action_RAM_1' of module 'testbench_Action_RAM_1_0' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:412]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:426]
+INFO: [Synth 8-6157] synthesizing module 'testbench_PL_RAM_1_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_PL_RAM_1_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'testbench_PL_RAM_1_0' (12#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_PL_RAM_1_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'testbench_PL_RAM_1_0' is unconnected for instance 'PL_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:426]
+WARNING: [Synth 8-7071] port 'doutb' of module 'testbench_PL_RAM_1_0' is unconnected for instance 'PL_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:426]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'testbench_PL_RAM_1_0' is unconnected for instance 'PL_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:426]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'testbench_PL_RAM_1_0' is unconnected for instance 'PL_RAM_1' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:426]
+WARNING: [Synth 8-7023] instance 'PL_RAM_1' of module 'testbench_PL_RAM_1_0' has 16 connections declared, but only 12 given [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:426]
+INFO: [Synth 8-6155] done synthesizing module 'RAM_1_imp_B5WGKQ' (13#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:369]
+INFO: [Synth 8-6157] synthesizing module 'RAM_2_imp_1I49MUH' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:441]
+INFO: [Synth 8-6157] synthesizing module 'testbench_Action_RAM_2_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_Action_RAM_2_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'testbench_Action_RAM_2_0' (14#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_Action_RAM_2_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'testbench_Action_RAM_2_0' is unconnected for instance 'Action_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:484]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'testbench_Action_RAM_2_0' is unconnected for instance 'Action_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:484]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'testbench_Action_RAM_2_0' is unconnected for instance 'Action_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:484]
+WARNING: [Synth 8-7023] instance 'Action_RAM_2' of module 'testbench_Action_RAM_2_0' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:484]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:498]
+INFO: [Synth 8-6157] synthesizing module 'testbench_PL_RAM_2_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_PL_RAM_2_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'testbench_PL_RAM_2_0' (15#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_PL_RAM_2_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'testbench_PL_RAM_2_0' is unconnected for instance 'PL_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:498]
+WARNING: [Synth 8-7071] port 'doutb' of module 'testbench_PL_RAM_2_0' is unconnected for instance 'PL_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:498]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'testbench_PL_RAM_2_0' is unconnected for instance 'PL_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:498]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'testbench_PL_RAM_2_0' is unconnected for instance 'PL_RAM_2' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:498]
+WARNING: [Synth 8-7023] instance 'PL_RAM_2' of module 'testbench_PL_RAM_2_0' has 16 connections declared, but only 12 given [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:498]
+INFO: [Synth 8-6155] done synthesizing module 'RAM_2_imp_1I49MUH' (16#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:441]
+INFO: [Synth 8-6157] synthesizing module 'RAM_3_imp_CFDBYV' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:513]
+INFO: [Synth 8-6157] synthesizing module 'testbench_Action_RAM_3_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_Action_RAM_3_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'testbench_Action_RAM_3_0' (17#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_Action_RAM_3_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'testbench_Action_RAM_3_0' is unconnected for instance 'Action_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:556]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'testbench_Action_RAM_3_0' is unconnected for instance 'Action_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:556]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'testbench_Action_RAM_3_0' is unconnected for instance 'Action_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:556]
+WARNING: [Synth 8-7023] instance 'Action_RAM_3' of module 'testbench_Action_RAM_3_0' has 16 connections declared, but only 13 given [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:556]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:570]
+INFO: [Synth 8-6157] synthesizing module 'testbench_PL_RAM_3_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_PL_RAM_3_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'testbench_PL_RAM_3_0' (18#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_PL_RAM_3_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'douta' of module 'testbench_PL_RAM_3_0' is unconnected for instance 'PL_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:570]
+WARNING: [Synth 8-7071] port 'doutb' of module 'testbench_PL_RAM_3_0' is unconnected for instance 'PL_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:570]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'testbench_PL_RAM_3_0' is unconnected for instance 'PL_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:570]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'testbench_PL_RAM_3_0' is unconnected for instance 'PL_RAM_3' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:570]
+WARNING: [Synth 8-7023] instance 'PL_RAM_3' of module 'testbench_PL_RAM_3_0' has 16 connections declared, but only 12 given [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:570]
+INFO: [Synth 8-6155] done synthesizing module 'RAM_3_imp_CFDBYV' (19#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:513]
+INFO: [Synth 8-6157] synthesizing module 'testbench_cnst_0_4bit_0' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_cnst_0_4bit_0/synth/testbench_cnst_0_4bit_0.v:57]
+INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_7_xlconstant' [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant' (20#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'testbench_cnst_0_4bit_0' (21#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_cnst_0_4bit_0/synth/testbench_cnst_0_4bit_0.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'RAM_Block_imp_QKQT90' (22#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:585]
+INFO: [Synth 8-6157] synthesizing module 'testbench_bram_input_interface_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_bram_input_interface_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'testbench_bram_input_interface_0_0' (23#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_bram_input_interface_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'testbench_bram_output_interface_0_0' [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_bram_output_interface_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'testbench_bram_output_interface_0_0' (24#1) [D:/intelight/intelight/intelight.runs/synth_1/.Xil/Vivado-23656-DESKTOP-LNFBGQQ/realtime/testbench_bram_output_interface_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'testbench' (25#1) [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/synth/testbench.v:722]
+INFO: [Synth 8-6155] done synthesizing module 'testbench_wrapper' (26#1) [D:/intelight/intelight/intelight.gen/sources_1/bd/testbench/hdl/testbench_wrapper.v:12]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1329.227 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1329.227 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1329.227 ; gain = 0.000
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 1329.227 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_QA_0_0/testbench_QA_0_0/testbench_QA_0_0_in_context.xdc] for cell 'testbench_i/AGENT/QA_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_QA_0_0/testbench_QA_0_0/testbench_QA_0_0_in_context.xdc] for cell 'testbench_i/AGENT/QA_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_PG_0_0/testbench_PG_0_0/testbench_PG_0_0_in_context.xdc] for cell 'testbench_i/AGENT/PG_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_PG_0_0/testbench_PG_0_0/testbench_PG_0_0_in_context.xdc] for cell 'testbench_i/AGENT/PG_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_SD_0_0/testbench_SD_0_0/testbench_SD_0_0_in_context.xdc] for cell 'testbench_i/EV/SD_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_SD_0_0/testbench_SD_0_0/testbench_SD_0_0_in_context.xdc] for cell 'testbench_i/EV/SD_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_RD_0_0/testbench_RD_0_0/testbench_RD_0_0_in_context.xdc] for cell 'testbench_i/EV/RD_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_RD_0_0/testbench_RD_0_0/testbench_RD_0_0_in_context.xdc] for cell 'testbench_i/EV/RD_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_Action_RAM_2_0/testbench_Action_RAM_2_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'testbench_i/RAM_Block/RAM_2/Action_RAM_2'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_Action_RAM_2_0/testbench_Action_RAM_2_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'testbench_i/RAM_Block/RAM_2/Action_RAM_2'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_PL_RAM_2_0/testbench_PL_RAM_2_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'testbench_i/RAM_Block/RAM_2/PL_RAM_2'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_PL_RAM_2_0/testbench_PL_RAM_2_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'testbench_i/RAM_Block/RAM_2/PL_RAM_2'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_Action_RAM_1_0/testbench_Action_RAM_1_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'testbench_i/RAM_Block/RAM_1/Action_RAM_1'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_Action_RAM_1_0/testbench_Action_RAM_1_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'testbench_i/RAM_Block/RAM_1/Action_RAM_1'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_PL_RAM_1_0/testbench_PL_RAM_1_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'testbench_i/RAM_Block/RAM_1/PL_RAM_1'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_PL_RAM_1_0/testbench_PL_RAM_1_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'testbench_i/RAM_Block/RAM_1/PL_RAM_1'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_Action_RAM_3_0/testbench_Action_RAM_3_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'testbench_i/RAM_Block/RAM_3/Action_RAM_3'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_Action_RAM_3_0/testbench_Action_RAM_3_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'testbench_i/RAM_Block/RAM_3/Action_RAM_3'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_PL_RAM_3_0/testbench_PL_RAM_3_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'testbench_i/RAM_Block/RAM_3/PL_RAM_3'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_PL_RAM_3_0/testbench_PL_RAM_3_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'testbench_i/RAM_Block/RAM_3/PL_RAM_3'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_PL_RAM_0_0/testbench_PL_RAM_0_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'testbench_i/RAM_Block/RAM_0/PL_RAM_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_PL_RAM_0_0/testbench_PL_RAM_0_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'testbench_i/RAM_Block/RAM_0/PL_RAM_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_Action_RAM_0_0/testbench_Action_RAM_0_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'testbench_i/RAM_Block/RAM_0/Action_RAM_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_Action_RAM_0_0/testbench_Action_RAM_0_0/bram_blk_mem_gen_1_0_in_context.xdc] for cell 'testbench_i/RAM_Block/RAM_0/Action_RAM_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_CU_0_0/testbench_CU_0_0/testbench_CU_0_0_in_context.xdc] for cell 'testbench_i/CU_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_CU_0_0/testbench_CU_0_0/testbench_CU_0_0_in_context.xdc] for cell 'testbench_i/CU_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_bram_input_interface_0_0/testbench_bram_input_interface_0_0/testbench_bram_input_interface_0_0_in_context.xdc] for cell 'testbench_i/bram_input_interface_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_bram_input_interface_0_0/testbench_bram_input_interface_0_0/testbench_bram_input_interface_0_0_in_context.xdc] for cell 'testbench_i/bram_input_interface_0'
+Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_bram_output_interface_0_0/testbench_bram_output_interface_0_0/testbench_bram_output_interface_0_0_in_context.xdc] for cell 'testbench_i/bram_output_interface_0'
+Finished Parsing XDC File [d:/intelight/intelight/intelight.gen/sources_1/bd/testbench/ip/testbench_bram_output_interface_0_0/testbench_bram_output_interface_0_0/testbench_bram_output_interface_0_0_in_context.xdc] for cell 'testbench_i/bram_output_interface_0'
+Parsing XDC File [D:/intelight/PYNQ-Z1_C.xdc]
+Finished Parsing XDC File [D:/intelight/PYNQ-Z1_C.xdc]
+Parsing XDC File [D:/intelight/intelight/intelight.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [D:/intelight/intelight/intelight.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1329.227 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1329.227 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1329.227 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1329.227 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for testbench_i. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for testbench_i/AGENT/QA_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for testbench_i/AGENT/PG_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for testbench_i/EV/SD_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for testbench_i/EV/RD_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for testbench_i/RAM_Block/cnst_0_4bit. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for testbench_i/RAM_Block/RAM_2/Action_RAM_2. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for testbench_i/RAM_Block/RAM_2/PL_RAM_2. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for testbench_i/RAM_Block/RAM_1/Action_RAM_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for testbench_i/RAM_Block/RAM_1/PL_RAM_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for testbench_i/RAM_Block/RAM_3/Action_RAM_3. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for testbench_i/RAM_Block/RAM_3/PL_RAM_3. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for testbench_i/RAM_Block/RAM_0/PL_RAM_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for testbench_i/RAM_Block/RAM_0/Action_RAM_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for testbench_i/CU_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for testbench_i/bram_input_interface_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for testbench_i/bram_output_interface_0. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1329.227 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1329.227 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1329.227 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1330.301 ; gain = 1.074
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1330.898 ; gain = 1.672
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 1350.523 ; gain = 21.297
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1355.195 ; gain = 25.969
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1355.195 ; gain = 25.969
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1355.195 ; gain = 25.969
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1355.195 ; gain = 25.969
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1355.195 ; gain = 25.969
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1355.195 ; gain = 25.969
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+------------------------------------+----------+
+|      |BlackBox name                       |Instances |
++------+------------------------------------+----------+
+|1     |testbench_CU_0_0                    |         1|
+|2     |testbench_bram_input_interface_0_0  |         1|
+|3     |testbench_bram_output_interface_0_0 |         1|
+|4     |testbench_PG_0_0                    |         1|
+|5     |testbench_QA_0_0                    |         1|
+|6     |testbench_RD_0_0                    |         1|
+|7     |testbench_SD_0_0                    |         1|
+|8     |testbench_Action_RAM_0_0            |         1|
+|9     |testbench_PL_RAM_0_0                |         1|
+|10    |testbench_Action_RAM_1_0            |         1|
+|11    |testbench_PL_RAM_1_0                |         1|
+|12    |testbench_Action_RAM_2_0            |         1|
+|13    |testbench_PL_RAM_2_0                |         1|
+|14    |testbench_Action_RAM_3_0            |         1|
+|15    |testbench_PL_RAM_3_0                |         1|
++------+------------------------------------+----------+
+
+Report Cell Usage: 
++------+----------------------------------+------+
+|      |Cell                              |Count |
++------+----------------------------------+------+
+|1     |testbench_Action_RAM_0            |     1|
+|2     |testbench_Action_RAM_1            |     1|
+|3     |testbench_Action_RAM_2            |     1|
+|4     |testbench_Action_RAM_3            |     1|
+|5     |testbench_CU_0                    |     1|
+|6     |testbench_PG_0                    |     1|
+|7     |testbench_PL_RAM_0                |     1|
+|8     |testbench_PL_RAM_1                |     1|
+|9     |testbench_PL_RAM_2                |     1|
+|10    |testbench_PL_RAM_3                |     1|
+|11    |testbench_QA_0                    |     1|
+|12    |testbench_RD_0                    |     1|
+|13    |testbench_SD_0                    |     1|
+|14    |testbench_bram_input_interface_0  |     1|
+|15    |testbench_bram_output_interface_0 |     1|
+|16    |IBUF                              |   540|
+|17    |OBUF                              |   745|
++------+----------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1355.195 ; gain = 25.969
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:33 . Memory (MB): peak = 1355.195 ; gain = 25.969
+Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1355.195 ; gain = 25.969
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.073 . Memory (MB): peak = 1368.305 ; gain = 0.000
+WARNING: [Netlist 29-101] Netlist 'testbench_wrapper' is not ideal for floorplanning, since the cellview 'testbench_wrapper' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1383.637 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: 3cfd9b85
+INFO: [Common 17-83] Releasing license: Synthesis
+67 Infos, 41 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:41 ; elapsed = 00:00:45 . Memory (MB): peak = 1383.637 ; gain = 54.410
+INFO: [Common 17-1381] The checkpoint 'D:/intelight/intelight/intelight.runs/synth_1/testbench_wrapper.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file testbench_wrapper_utilization_synth.rpt -pb testbench_wrapper_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sat Mar 26 03:15:50 2022...
