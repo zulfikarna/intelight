@@ -54,8 +54,8 @@
       },
       "CU_0": "",
       "AGENT": {
-        "QA_0": "",
-        "PG_0": ""
+        "PG_0": "",
+        "QA_0": ""
       },
       "EV": {
         "SD_0": "",
@@ -2602,81 +2602,6 @@
           }
         },
         "components": {
-          "QA_0": {
-            "vlnv": "xilinx.com:module_ref:QA:1.0",
-            "xci_name": "system_QA_0_1",
-            "xci_path": "ip\\system_QA_0_1\\system_QA_0_1.xci",
-            "inst_hier_path": "AGENT/QA_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "QA",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I",
-                "parameters": {
-                  "ASSOCIATED_RESET": {
-                    "value": "rst",
-                    "value_src": "constant"
-                  }
-                }
-              },
-              "rst": {
-                "type": "rst",
-                "direction": "I"
-              },
-              "en": {
-                "direction": "I"
-              },
-              "next_qA0": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "next_qA1": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "next_qA2": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "next_qA3": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "new_qA": {
-                "direction": "O",
-                "left": "31",
-                "right": "0"
-              },
-              "act": {
-                "direction": "I",
-                "left": "1",
-                "right": "0"
-              },
-              "alpha": {
-                "direction": "I",
-                "left": "2",
-                "right": "0"
-              },
-              "gamma": {
-                "direction": "I",
-                "left": "2",
-                "right": "0"
-              },
-              "reward": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              }
-            }
-          },
           "PG_0": {
             "vlnv": "xilinx.com:module_ref:PG:1.0",
             "xci_name": "system_PG_0_1",
@@ -2744,35 +2669,140 @@
                 "right": "0"
               }
             }
+          },
+          "QA_0": {
+            "vlnv": "xilinx.com:module_ref:QA:1.0",
+            "xci_name": "system_QA_0_1",
+            "xci_path": "ip\\system_QA_0_1\\system_QA_0_1.xci",
+            "inst_hier_path": "AGENT/QA_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "QA",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "debug_max_next_qA": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "debug_chos_curr_qA": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "debug_curr_qA0": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "debug_curr_qA1": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "debug_curr_qA2": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "debug_curr_qA3": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "rst",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "rst": {
+                "type": "rst",
+                "direction": "I"
+              },
+              "en": {
+                "direction": "I"
+              },
+              "next_qA0": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "next_qA1": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "next_qA2": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "next_qA3": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "new_qA": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "act": {
+                "direction": "I",
+                "left": "1",
+                "right": "0"
+              },
+              "alpha": {
+                "direction": "I",
+                "left": "2",
+                "right": "0"
+              },
+              "gamma": {
+                "direction": "I",
+                "left": "2",
+                "right": "0"
+              },
+              "reward": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              }
+            }
           }
         },
         "nets": {
           "Action_RAM_q_next_0": {
             "ports": [
               "q_next_0",
-              "QA_0/next_qA0",
-              "PG_0/qA0"
+              "PG_0/qA0",
+              "QA_0/next_qA0"
             ]
           },
           "Action_RAM_q_next_1": {
             "ports": [
               "q_next_1",
-              "QA_0/next_qA1",
-              "PG_0/qA1"
+              "PG_0/qA1",
+              "QA_0/next_qA1"
             ]
           },
           "Action_RAM_q_next_2": {
             "ports": [
               "q_next_2",
-              "QA_0/next_qA2",
-              "PG_0/qA2"
+              "PG_0/qA2",
+              "QA_0/next_qA2"
             ]
           },
           "Action_RAM_q_next_3": {
             "ports": [
               "q_next_3",
-              "QA_0/next_qA3",
-              "PG_0/qA3"
+              "PG_0/qA3",
+              "QA_0/next_qA3"
             ]
           },
           "PG_0_act": {
@@ -2809,8 +2839,8 @@
           "clk_1": {
             "ports": [
               "clk",
-              "QA_0/clk",
-              "PG_0/clk"
+              "PG_0/clk",
+              "QA_0/clk"
             ]
           },
           "en_1": {
@@ -2840,8 +2870,8 @@
           "rst_bram_1": {
             "ports": [
               "rst",
-              "QA_0/rst",
-              "PG_0/rst"
+              "PG_0/rst",
+              "QA_0/rst"
             ]
           },
           "sel_0_1": {

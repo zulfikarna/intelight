@@ -2,11 +2,11 @@
 # Vivado v2021.1 (64-bit)
 # SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
 # IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
-# Start of session at: Sat Mar 26 03:14:46 2022
-# Process ID: 23656
+# Start of session at: Fri Apr  1 00:38:11 2022
+# Process ID: 17900
 # Current directory: D:/intelight/intelight/intelight.runs/synth_1
-# Command line: vivado.exe -log testbench_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source testbench_wrapper.tcl
-# Log file: D:/intelight/intelight/intelight.runs/synth_1/testbench_wrapper.vds
+# Command line: vivado.exe -log QA.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source QA.tcl
+# Log file: D:/intelight/intelight/intelight.runs/synth_1/QA.vds
 # Journal file: D:/intelight/intelight/intelight.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source testbench_wrapper.tcl -notrace
+source QA.tcl -notrace

@@ -7,13 +7,12 @@
       "name": "testbench",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2021.1",
-      "validated": "true"
+      "tool_version": "2021.1"
     },
     "design_tree": {
       "AGENT": {
-        "QA_0": "",
-        "PG_0": ""
+        "PG_0": "",
+        "QA_0": ""
       },
       "EV": {
         "SD_0": "",
@@ -39,52 +38,22 @@
         }
       },
       "CU_0": "",
-      "bram_input_interface_0": "",
-      "bram_output_interface_0": ""
+      "bram_output_interface_0": "",
+      "bram_input_interface_0": ""
     },
     "ports": {
       "clk": {
         "type": "clk",
         "direction": "I",
         "parameters": {
-          "ASSOCIATED_RESET": {
-            "value": "rst",
-            "value_src": "default"
-          },
-          "CLK_DOMAIN": {
-            "value": "testbench_clk",
-            "value_src": "default"
-          },
           "FREQ_HZ": {
             "value": "50000000"
-          },
-          "FREQ_TOLERANCE_HZ": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "PHASE": {
-            "value": "0.0",
-            "value_src": "default"
           }
         }
       },
       "rst": {
         "type": "rst",
-        "direction": "I",
-        "parameters": {
-          "INSERT_VIP": {
-            "value": "0",
-            "value_src": "default"
-          },
-          "POLARITY": {
-            "value": "ACTIVE_LOW",
-            "value_src": "default"
-          }
-        }
+        "direction": "I"
       },
       "alpha": {
         "direction": "I",
@@ -487,6 +456,74 @@
           }
         },
         "components": {
+          "PG_0": {
+            "vlnv": "xilinx.com:module_ref:PG:1.0",
+            "xci_name": "testbench_PG_0_0",
+            "xci_path": "ip\\testbench_PG_0_0\\testbench_PG_0_0.xci",
+            "inst_hier_path": "AGENT/PG_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "PG",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "rst",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "rst": {
+                "type": "rst",
+                "direction": "I"
+              },
+              "en": {
+                "direction": "I"
+              },
+              "qA0": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "qA1": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "qA2": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "qA3": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "sel": {
+                "direction": "I"
+              },
+              "act_random": {
+                "direction": "I",
+                "left": "1",
+                "right": "0"
+              },
+              "act": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "act_greed": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              }
+            }
+          },
           "QA_0": {
             "vlnv": "xilinx.com:module_ref:QA:1.0",
             "xci_name": "testbench_QA_0_0",
@@ -498,6 +535,36 @@
               "boundary_crc": "0x0"
             },
             "ports": {
+              "debug_max_next_qA": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "debug_chos_curr_qA": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "debug_curr_qA0": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "debug_curr_qA1": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "debug_curr_qA2": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "debug_curr_qA3": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
               "clk": {
                 "type": "clk",
                 "direction": "I",
@@ -505,14 +572,6 @@
                   "ASSOCIATED_RESET": {
                     "value": "rst",
                     "value_src": "constant"
-                  },
-                  "FREQ_HZ": {
-                    "value": "50000000",
-                    "value_src": "user_prop"
-                  },
-                  "CLK_DOMAIN": {
-                    "value": "testbench_clk",
-                    "value_src": "default_prop"
                   }
                 }
               },
@@ -569,111 +628,35 @@
                 "right": "0"
               }
             }
-          },
-          "PG_0": {
-            "vlnv": "xilinx.com:module_ref:PG:1.0",
-            "xci_name": "testbench_PG_0_0",
-            "xci_path": "ip\\testbench_PG_0_0\\testbench_PG_0_0.xci",
-            "inst_hier_path": "AGENT/PG_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "PG",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I",
-                "parameters": {
-                  "ASSOCIATED_RESET": {
-                    "value": "rst",
-                    "value_src": "constant"
-                  },
-                  "FREQ_HZ": {
-                    "value": "50000000",
-                    "value_src": "user_prop"
-                  },
-                  "CLK_DOMAIN": {
-                    "value": "testbench_clk",
-                    "value_src": "default_prop"
-                  }
-                }
-              },
-              "rst": {
-                "type": "rst",
-                "direction": "I"
-              },
-              "en": {
-                "direction": "I"
-              },
-              "qA0": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "qA1": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "qA2": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "qA3": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "sel": {
-                "direction": "I"
-              },
-              "act_random": {
-                "direction": "I",
-                "left": "1",
-                "right": "0"
-              },
-              "act": {
-                "direction": "O",
-                "left": "1",
-                "right": "0"
-              },
-              "act_greed": {
-                "direction": "O",
-                "left": "1",
-                "right": "0"
-              }
-            }
           }
         },
         "nets": {
           "Action_RAM_q_next_0": {
             "ports": [
               "q_next_0",
-              "QA_0/next_qA0",
-              "PG_0/qA0"
+              "PG_0/qA0",
+              "QA_0/next_qA0"
             ]
           },
           "Action_RAM_q_next_1": {
             "ports": [
               "q_next_1",
-              "QA_0/next_qA1",
-              "PG_0/qA1"
+              "PG_0/qA1",
+              "QA_0/next_qA1"
             ]
           },
           "Action_RAM_q_next_2": {
             "ports": [
               "q_next_2",
-              "QA_0/next_qA2",
-              "PG_0/qA2"
+              "PG_0/qA2",
+              "QA_0/next_qA2"
             ]
           },
           "Action_RAM_q_next_3": {
             "ports": [
               "q_next_3",
-              "QA_0/next_qA3",
-              "PG_0/qA3"
+              "PG_0/qA3",
+              "QA_0/next_qA3"
             ]
           },
           "PG_0_act": {
@@ -710,8 +693,8 @@
           "clk_1": {
             "ports": [
               "clk",
-              "QA_0/clk",
-              "PG_0/clk"
+              "PG_0/clk",
+              "QA_0/clk"
             ]
           },
           "en_1": {
@@ -741,8 +724,8 @@
           "rst_bram_1": {
             "ports": [
               "rst",
-              "QA_0/rst",
-              "PG_0/rst"
+              "PG_0/rst",
+              "QA_0/rst"
             ]
           },
           "sel_0_1": {
@@ -1118,14 +1101,6 @@
                   "ASSOCIATED_RESET": {
                     "value": "rst",
                     "value_src": "constant"
-                  },
-                  "FREQ_HZ": {
-                    "value": "50000000",
-                    "value_src": "user_prop"
-                  },
-                  "CLK_DOMAIN": {
-                    "value": "testbench_clk",
-                    "value_src": "default_prop"
                   }
                 }
               },
@@ -2586,108 +2561,6 @@
           }
         }
       },
-      "bram_input_interface_0": {
-        "vlnv": "xilinx.com:module_ref:bram_input_interface:1.0",
-        "xci_name": "testbench_bram_input_interface_0_0",
-        "xci_path": "ip\\testbench_bram_input_interface_0_0\\testbench_bram_input_interface_0_0.xci",
-        "inst_hier_path": "bram_input_interface_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "bram_input_interface",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              },
-              "FREQ_HZ": {
-                "value": "50000000",
-                "value_src": "user_prop"
-              },
-              "CLK_DOMAIN": {
-                "value": "testbench_clk",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "rst": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "en": {
-            "direction": "I"
-          },
-          "next_state": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "rd_addr": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "wr_addr": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "act": {
-            "direction": "I",
-            "left": "1",
-            "right": "0"
-          },
-          "wen0": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "wen1": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "wen2": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "wen3": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "en0_wr": {
-            "direction": "O"
-          },
-          "en0_rd": {
-            "direction": "O"
-          },
-          "en1_wr": {
-            "direction": "O"
-          },
-          "en1_rd": {
-            "direction": "O"
-          },
-          "en2_wr": {
-            "direction": "O"
-          },
-          "en2_rd": {
-            "direction": "O"
-          },
-          "en3_wr": {
-            "direction": "O"
-          },
-          "en3_rd": {
-            "direction": "O"
-          }
-        }
-      },
       "bram_output_interface_0": {
         "vlnv": "xilinx.com:module_ref:bram_output_interface:1.0",
         "xci_name": "testbench_bram_output_interface_0_0",
@@ -2770,6 +2643,100 @@
             "right": "0"
           }
         }
+      },
+      "bram_input_interface_0": {
+        "vlnv": "xilinx.com:module_ref:bram_input_interface:1.0",
+        "xci_name": "testbench_bram_input_interface_0_0",
+        "xci_path": "ip\\testbench_bram_input_interface_0_0\\testbench_bram_input_interface_0_0.xci",
+        "inst_hier_path": "bram_input_interface_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "bram_input_interface",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "en": {
+            "direction": "I"
+          },
+          "next_state": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "rd_addr": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "wr_addr": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "act": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "wen0": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "wen1": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "wen2": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "wen3": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "en0_wr": {
+            "direction": "O"
+          },
+          "en0_rd": {
+            "direction": "O"
+          },
+          "en1_wr": {
+            "direction": "O"
+          },
+          "en1_rd": {
+            "direction": "O"
+          },
+          "en2_wr": {
+            "direction": "O"
+          },
+          "en2_rd": {
+            "direction": "O"
+          },
+          "en3_wr": {
+            "direction": "O"
+          },
+          "en3_rd": {
+            "direction": "O"
+          }
+        }
       }
     },
     "nets": {
@@ -2778,8 +2745,8 @@
           "AGENT/act",
           "EV/act",
           "act",
-          "bram_input_interface_0/act",
-          "bram_output_interface_0/act"
+          "bram_output_interface_0/act",
+          "bram_input_interface_0/act"
         ]
       },
       "AGENT_act_greed_0": {
@@ -2800,8 +2767,8 @@
           "CU_0/SD",
           "EV/en_SD",
           "SD",
-          "bram_input_interface_0/en",
-          "bram_output_interface_0/en"
+          "bram_output_interface_0/en",
+          "bram_input_interface_0/en"
         ]
       },
       "CU_0_act_random": {
@@ -3063,8 +3030,8 @@
           "AGENT/clk",
           "EV/clk",
           "CU_0/clk",
-          "bram_input_interface_0/clk",
-          "bram_output_interface_0/clk"
+          "bram_output_interface_0/clk",
+          "bram_input_interface_0/clk"
         ]
       },
       "debit_r0_0_1": {
@@ -3219,8 +3186,8 @@
           "AGENT/rst",
           "EV/rst",
           "CU_0/rst",
-          "bram_input_interface_0/rst",
-          "bram_output_interface_0/rst"
+          "bram_output_interface_0/rst",
+          "bram_input_interface_0/rst"
         ]
       },
       "seed_0_1": {

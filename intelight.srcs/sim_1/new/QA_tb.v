@@ -8,7 +8,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module QA_tb();
-    localparam INC = 32'd5;
+    localparam INC = 32'h0005_0000;
     //clk dan rst
     reg clk, rst, en;
     //Input
@@ -20,14 +20,25 @@ module QA_tb();
     //Output
     wire [31:0] new_qA;
     // For debugging
-    wire [31:0] max_next_qA;
-    wire [31:0] chos_curr_qA;
+    wire [31:0] debug_max_next_qA;
+    wire [31:0] debug_chos_curr_qA;
+    wire [31:0] debug_curr_qA0;
+    wire [31:0] debug_curr_qA1;
+    wire [31:0] debug_curr_qA2;
+    wire [31:0] debug_curr_qA3;
+    
+    
     
     //dut
     QA dut(
         // for debugging
-        //.max_next_qA(max_next_qA),
-        //.chos_curr_qA(chos_curr_qA),
+        .debug_max_next_qA(debug_max_next_qA),
+        .debug_chos_curr_qA(debug_chos_curr_qA),
+        .debug_curr_qA0(debug_curr_qA0),
+        .debug_curr_qA1(debug_curr_qA1),
+        .debug_curr_qA2(debug_curr_qA2),
+        .debug_curr_qA3(debug_curr_qA3),
+        
         //----
         .clk(clk),
         .rst(rst),
@@ -43,41 +54,42 @@ module QA_tb();
         .reward(reward)
     );
     
-//    //clock
-//    always begin
-//        clk = 1'b0;
-//        #10;
-//        clk = 1'b1;
-//        #10;
-//    end
+    //clock
+    always begin
+        clk = 1'b0;
+        #10;
+        clk = 1'b1;
+        #10;
+    end
     
-//    //initial rst
-//    initial begin
-//        en = 1'b1;
-//        rst = 1'b1;
-//        #10;
-//        rst = 1'b0;
-//    end
+    //initial rst
+    initial begin
+        en = 1'b0;
+        rst = 1'b1;
+        #50;
+        rst = 1'b0;
+        #50;
+        en = 1'b1;
+    end
     
-//    // initial next Q value 
-//    initial begin
-//        act = 2'd2;
-//        alpha = 3'd4; // alpha = 100 = 0.5
-//        gamma = 3'd5; // gamma = 101 = 0.5 + 0.125 = 0.625
-//        reward = -31'd50;
-//        #1;
-//        next_qA0 = 32'd1;
-//        next_qA1 = 32'd60;
-//        next_qA2 = -32'd70;
-//        next_qA3 = 32'd80;
-//    end
+    // initial next Q value 
+    initial begin
+        act = 2'd2;
+        alpha = 3'd4; // alpha = 100 = 0.5
+        gamma = 3'd5; // gamma = 101 = 0.5 + 0.125 = 0.625
+        reward      = -32'h0032_0000; // -50
+        next_qA0    =  32'h0001_0000; // 1
+        next_qA1    =  32'h003C_0000; // 60
+        next_qA2    = -32'h0046_0000; // -70
+        next_qA3    =  32'h0050_0000; // 80
+    end
     
-//    // data updating
-//    always @(posedge clk) begin
-//        #1;
-//        next_qA0 = next_qA0<<1;
-//        next_qA1 = next_qA1-INC;
-//        next_qA2 = next_qA2+INC;
-//        next_qA3 = next_qA3>>1;        
-//    end
+    // data updating
+    always @(posedge clk) begin
+        #2;
+        next_qA0 = next_qA0<<1;
+        next_qA1 = next_qA1-INC;
+        next_qA2 = next_qA2+INC;
+        next_qA3 = next_qA3>>1;        
+    end
 endmodule
