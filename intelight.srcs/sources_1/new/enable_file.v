@@ -44,17 +44,5 @@ endmodule
 
 
 
-module debit_decoder(
-    input wire [1:0] act,
-    output wire [31:0] out0, out1, out2, out3
-    );
-    
-    localparam DEBIT_OUT = 32'h0051_0000;
-    
-    assign out0 = (act==0)? DEBIT_OUT : 1'h0000_0000;
-    assign out1 = (act==1)? DEBIT_OUT : 1'h0000_0000;
-    assign out2 = (act==2)? DEBIT_OUT : 1'h0000_0000;
-    assign out3 = (act==3)? DEBIT_OUT : 1'h0000_0000;
 
-endmodule
 

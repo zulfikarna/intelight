@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1648779589">
-  <File Type="PA-TCL" Name="PG.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="PG_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="PG_reports.tcl"/>
-  <File Type="RDS-RDS" Name="PG.vds"/>
-  <File Type="RDS-UTIL" Name="PG_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="PG_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="PG.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="PG_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="PG_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1648853437">
+  <File Type="PA-TCL" Name="SD.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="SD_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="SD_reports.tcl"/>
+  <File Type="RDS-RDS" Name="SD.vds"/>
+  <File Type="RDS-UTIL" Name="SD_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="SD_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="SD.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="SD_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="SD_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/new/enable_file.v">
+    <File Path="$PSRCDIR/sources_1/new/arith_file.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/max_file.v">
+    <File Path="$PSRCDIR/sources_1/new/enable_file.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -39,30 +39,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/PG.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/arith_file.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/QA.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/SD.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/max_file.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -71,6 +55,22 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/RD.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/PG.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/QA.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -144,9 +144,9 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="PG"/>
+      <Option Name="TopModule" Val="SD"/>
       <Option Name="TopLib" Val="xil_defaultlib"/>
-      <Option Name="TopRTLFile" Val="$PSRCDIR/sources_1/new/PG.v"/>
+      <Option Name="TopRTLFile" Val="$PSRCDIR/sources_1/new/SD.v"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -175,6 +175,4 @@
   <BlockFileSet Type="BlockSrcs" Name="system_intelight_mem_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_axi_intc_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="testbench_CU_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="testbench_SD_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="testbench_bram_output_interface_0_0"/>
 </GenRun>

@@ -1,11 +1,20 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/intelight/intelight/intelight.sim/sim_1/synth/timing/xsim/PG_tb_time_synth.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module PG
-INFO: [VRFC 10-311] analyzing module enabler_2bit
-INFO: [VRFC 10-311] analyzing module max2to1_32bit
-INFO: [VRFC 10-311] analyzing module max2to1_32bit_0
-INFO: [VRFC 10-311] analyzing module max2to1_32bit_1
-INFO: [VRFC 10-311] analyzing module max4to1_32bit
-INFO: [VRFC 10-311] analyzing module reg_2bit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/intelight/intelight/intelight.sim/sim_1/synth/timing/xsim/SD_tb_time_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SD
+INFO: [VRFC 10-311] analyzing module gsg
+INFO: [VRFC 10-311] analyzing module multiply
+INFO: [VRFC 10-311] analyzing module multiply_0
+INFO: [VRFC 10-311] analyzing module multiply_1
+INFO: [VRFC 10-311] analyzing module multiply_2
+INFO: [VRFC 10-311] analyzing module plus
+INFO: [VRFC 10-311] analyzing module plus_3
+INFO: [VRFC 10-311] analyzing module plus_4
+INFO: [VRFC 10-311] analyzing module plus_5
+INFO: [VRFC 10-311] analyzing module plus_6
+INFO: [VRFC 10-311] analyzing module plus_7
+INFO: [VRFC 10-311] analyzing module plus_8
+INFO: [VRFC 10-311] analyzing module plus_9
+INFO: [VRFC 10-311] analyzing module reg_32bit
+INFO: [VRFC 10-311] analyzing module reg_32bit_10
 INFO: [VRFC 10-311] analyzing module glbl
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/intelight/intelight/intelight.srcs/sim_1/new/PG_tb.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module PG_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/intelight/intelight/intelight.srcs/sim_1/new/SD_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SD_tb

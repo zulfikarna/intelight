@@ -21,6 +21,16 @@ module max4to1_2bit(
     assign out0 = (w1>w0)   ?  w1 : w0;
 endmodule
 
+module min4to1_2bit(
+    input wire [1:0] in0, in1, in2, in3,
+    output wire [1:0] out0
+    );
+    wire [1:0] w0, w1;
+    assign w0   = (in0<in1) ? in0 : in1;
+    assign w1   = (in2<in3) ? in2 : in3;
+    assign out0 = (w1<w0)   ?  w1 : w0;
+endmodule
+
 module min4to2_2bit(
     input wire [1:0] in0, in1, in2, in3,
     output wire [1:0] out0, out1

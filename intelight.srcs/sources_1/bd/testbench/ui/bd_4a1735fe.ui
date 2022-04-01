@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.394915",
-   "Default View_TopLeft":"-929,-56",
+   "Default View_ScaleFactor":"0.39548",
+   "Default View_TopLeft":"-925,-61",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
@@ -82,8 +82,8 @@ preplace inst AGENT -pg 1 -lvl 4 -x 1992 -y 1200 -defaultsOSRD
 preplace inst EV -pg 1 -lvl 3 -x 1552 -y 750 -defaultsOSRD
 preplace inst RAM_Block -pg 1 -lvl 2 -x 910 -y 350 -defaultsOSRD
 preplace inst CU_0 -pg 1 -lvl 3 -x 1552 -y 1560 -defaultsOSRD
-preplace inst bram_output_interface_0 -pg 1 -lvl 3 -x 1552 -y 1140 -defaultsOSRD
 preplace inst bram_input_interface_0 -pg 1 -lvl 1 -x 200 -y 380 -defaultsOSRD
+preplace inst bram_output_interface_0 -pg 1 -lvl 3 -x 1552 -y 1140 -defaultsOSRD
 preplace netloc AGENT_act 1 0 5 0 70 NJ 70 1120 1010 1760J 990 2130
 preplace netloc AGENT_act_greed_0 1 4 1 NJ 1220
 preplace netloc CU_0_RD 1 2 3 1180 1340 1730 1560 NJ

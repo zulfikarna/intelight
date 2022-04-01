@@ -14,6 +14,7 @@ module SD_tb;
     // Input untuk perhitungan panjang kemacetan 
     reg [1:0] act;
     reg [2:0] delta_t;
+    reg [31:0] debit_out;
     reg [31:0] debit_r0;
     reg [31:0] debit_r1;
     reg [31:0] debit_r2;
@@ -34,10 +35,14 @@ module SD_tb;
     wire [31:0] panjang_r1;
     wire [31:0] panjang_r2;
     wire [31:0] panjang_r3;
-    wire [31:0] panjang_w0;
-    wire [31:0] panjang_w1;
-    wire [31:0] panjang_w2;
-    wire [31:0] panjang_w3;
+    wire [31:0] panjang_r0_temp0;
+    wire [31:0] panjang_r1_temp0;
+    wire [31:0] panjang_r2_temp0;
+    wire [31:0] panjang_r3_temp0;
+    wire [7:0] level_r0;
+    wire [7:0] level_r1;
+    wire [7:0] level_r2;
+    wire [7:0] level_r3;
     
     SD dut(
         .en(en),
@@ -45,6 +50,7 @@ module SD_tb;
         .clk(clk),
         .act(act),
         .delta_t(delta_t),
+        .debit_out(debit_out),
         .debit_r0(debit_r0),
         .debit_r1(debit_r1),
         .debit_r2(debit_r2),
@@ -62,10 +68,15 @@ module SD_tb;
         .panjang_r1(panjang_r1),
         .panjang_r2(panjang_r2),
         .panjang_r3(panjang_r3),
-        .panjang_w0(panjang_w0),
-        .panjang_w1(panjang_w1),
-        .panjang_w2(panjang_w2),
-        .panjang_w3(panjang_w3)
+        .panjang_r0_temp0(panjang_r0_temp0),
+        .panjang_r1_temp0(panjang_r1_temp0),
+        .panjang_r2_temp0(panjang_r2_temp0),
+        .panjang_r3_temp0(panjang_r3_temp0),
+        .level_r0(level_r0),
+        .level_r1(level_r1),
+        .level_r2(level_r2),
+        .level_r3(level_r3)
+        
     );
     
     //Clock
@@ -78,23 +89,26 @@ module SD_tb;
     
     //initial reset
     initial begin
-        en = 1'b1;
+        en = 1'b0;
         rst = 1'b1;
         act = 2'd0;
         delta_t = 3'd1; // dikali 0.125
-        debit_r0 = 32'h0050_0000;
-        debit_r1 = 32'h0050_0000;
-        debit_r2 = 32'h0050_0000;
-        debit_r3 = 32'h0050_0000;
-        init_panjang_r0 = 32'h0005_0000;
-        init_panjang_r1 = 32'h0010_0000;
-        init_panjang_r2 = 32'h0020_0000;
-        init_panjang_r3 = 32'h0015_0000;
-        batas_0 = 32'h0010_0000;
-        batas_1 = 32'h0015_0000;
-        batas_2 = 32'h0020_0000;
-        #10;
+        debit_out = 32'h0002_0000;
+        debit_r0 = 32'h0001_0000;
+        debit_r1 = 32'h0001_0000;
+        debit_r2 = 32'h0001_0000;
+        debit_r3 = 32'h0001_0000;
+        init_panjang_r0 = 32'h000D_0000;
+        init_panjang_r1 = 32'h000E_0000;
+        init_panjang_r2 = 32'h000D_0000;
+        init_panjang_r3 = 32'h000D_0000;
+        batas_0 = 32'h000A_0000;
+        batas_1 = 32'h000F_0000;
+        batas_2 = 32'h0014_0000;
+        #50;
         rst = 1'b0;
+        #1000;
+        en = 1'b1;
     end
     
     // Action handling

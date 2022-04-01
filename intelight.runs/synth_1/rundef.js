@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log PG.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source PG.tcl" );
+         "-log SD.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source SD.tcl" );
 
 
 

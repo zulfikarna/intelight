@@ -54,12 +54,12 @@
       },
       "CU_0": "",
       "AGENT": {
-        "QA_0": "",
-        "PG_0": ""
+        "PG_0": "",
+        "QA_0": ""
       },
       "EV": {
-        "SD_0": "",
-        "RD_0": ""
+        "RD_0": "",
+        "SD_0": ""
       },
       "bram_interface_0": "",
       "enabler4_32bit_0": ""
@@ -2602,6 +2602,74 @@
           }
         },
         "components": {
+          "PG_0": {
+            "vlnv": "xilinx.com:module_ref:PG:1.0",
+            "xci_name": "system_PG_0_1",
+            "xci_path": "ip\\system_PG_0_1\\system_PG_0_1.xci",
+            "inst_hier_path": "AGENT/PG_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "PG",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "rst",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "rst": {
+                "type": "rst",
+                "direction": "I"
+              },
+              "en": {
+                "direction": "I"
+              },
+              "qA0": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "qA1": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "qA2": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "qA3": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "sel": {
+                "direction": "I"
+              },
+              "act_random": {
+                "direction": "I",
+                "left": "1",
+                "right": "0"
+              },
+              "act": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "act_greed": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              }
+            }
+          },
           "QA_0": {
             "vlnv": "xilinx.com:module_ref:QA:1.0",
             "xci_name": "system_QA_0_1",
@@ -2706,103 +2774,35 @@
                 "right": "0"
               }
             }
-          },
-          "PG_0": {
-            "vlnv": "xilinx.com:module_ref:PG:1.0",
-            "xci_name": "system_PG_0_1",
-            "xci_path": "ip\\system_PG_0_1\\system_PG_0_1.xci",
-            "inst_hier_path": "AGENT/PG_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "PG",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I",
-                "parameters": {
-                  "ASSOCIATED_RESET": {
-                    "value": "rst",
-                    "value_src": "constant"
-                  }
-                }
-              },
-              "rst": {
-                "type": "rst",
-                "direction": "I"
-              },
-              "en": {
-                "direction": "I"
-              },
-              "qA0": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "qA1": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "qA2": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "qA3": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "sel": {
-                "direction": "I"
-              },
-              "act_random": {
-                "direction": "I",
-                "left": "1",
-                "right": "0"
-              },
-              "act": {
-                "direction": "O",
-                "left": "1",
-                "right": "0"
-              },
-              "act_greed": {
-                "direction": "O",
-                "left": "1",
-                "right": "0"
-              }
-            }
           }
         },
         "nets": {
           "Action_RAM_q_next_0": {
             "ports": [
               "q_next_0",
-              "QA_0/next_qA0",
-              "PG_0/qA0"
+              "PG_0/qA0",
+              "QA_0/next_qA0"
             ]
           },
           "Action_RAM_q_next_1": {
             "ports": [
               "q_next_1",
-              "QA_0/next_qA1",
-              "PG_0/qA1"
+              "PG_0/qA1",
+              "QA_0/next_qA1"
             ]
           },
           "Action_RAM_q_next_2": {
             "ports": [
               "q_next_2",
-              "QA_0/next_qA2",
-              "PG_0/qA2"
+              "PG_0/qA2",
+              "QA_0/next_qA2"
             ]
           },
           "Action_RAM_q_next_3": {
             "ports": [
               "q_next_3",
-              "QA_0/next_qA3",
-              "PG_0/qA3"
+              "PG_0/qA3",
+              "QA_0/next_qA3"
             ]
           },
           "PG_0_act": {
@@ -2839,8 +2839,8 @@
           "clk_1": {
             "ports": [
               "clk",
-              "QA_0/clk",
-              "PG_0/clk"
+              "PG_0/clk",
+              "QA_0/clk"
             ]
           },
           "en_1": {
@@ -2870,8 +2870,8 @@
           "rst_bram_1": {
             "ports": [
               "rst",
-              "QA_0/rst",
-              "PG_0/rst"
+              "PG_0/rst",
+              "QA_0/rst"
             ]
           },
           "sel_0_1": {
@@ -3058,6 +3058,86 @@
           }
         },
         "components": {
+          "RD_0": {
+            "vlnv": "xilinx.com:module_ref:RD:1.0",
+            "xci_name": "system_RD_0_1",
+            "xci_path": "ip\\system_RD_0_1\\system_RD_0_1.xci",
+            "inst_hier_path": "EV/RD_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "RD",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "sel": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "w_min": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "w_max": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "w_act": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "rst",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "rst": {
+                "type": "rst",
+                "direction": "I"
+              },
+              "en": {
+                "direction": "I"
+              },
+              "act": {
+                "direction": "I",
+                "left": "1",
+                "right": "0"
+              },
+              "state": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward_0": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward_1": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward_2": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
           "SD_0": {
             "vlnv": "xilinx.com:module_ref:SD:1.0",
             "xci_name": "system_SD_0_1",
@@ -3094,6 +3174,11 @@
               "delta_t": {
                 "direction": "I",
                 "left": "2",
+                "right": "0"
+              },
+              "debit_out": {
+                "direction": "I",
+                "left": "31",
                 "right": "0"
               },
               "debit_r0": {
@@ -3179,22 +3264,22 @@
                 "left": "31",
                 "right": "0"
               },
-              "panjang_w0": {
+              "panjang_r0_temp0": {
                 "direction": "O",
                 "left": "31",
                 "right": "0"
               },
-              "panjang_w1": {
+              "panjang_r1_temp0": {
                 "direction": "O",
                 "left": "31",
                 "right": "0"
               },
-              "panjang_w2": {
+              "panjang_r2_temp0": {
                 "direction": "O",
                 "left": "31",
                 "right": "0"
               },
-              "panjang_w3": {
+              "panjang_r3_temp0": {
                 "direction": "O",
                 "left": "31",
                 "right": "0"
@@ -3220,79 +3305,14 @@
                 "right": "0"
               }
             }
-          },
-          "RD_0": {
-            "vlnv": "xilinx.com:module_ref:RD:1.0",
-            "xci_name": "system_RD_0_1",
-            "xci_path": "ip\\system_RD_0_1\\system_RD_0_1.xci",
-            "inst_hier_path": "EV/RD_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "RD",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "clk": {
-                "type": "clk",
-                "direction": "I",
-                "parameters": {
-                  "ASSOCIATED_RESET": {
-                    "value": "rst",
-                    "value_src": "constant"
-                  }
-                }
-              },
-              "rst": {
-                "type": "rst",
-                "direction": "I"
-              },
-              "en": {
-                "direction": "I"
-              },
-              "act": {
-                "direction": "I",
-                "left": "1",
-                "right": "0"
-              },
-              "state": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward_0": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward_1": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward_2": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward_3": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward": {
-                "direction": "O",
-                "left": "31",
-                "right": "0"
-              }
-            }
           }
         },
         "nets": {
           "PG_0_act": {
             "ports": [
               "act",
-              "SD_0/act",
-              "RD_0/act"
+              "RD_0/act",
+              "SD_0/act"
             ]
           },
           "RD_0_reward": {
@@ -3351,25 +3371,21 @@
           },
           "SD_0_panjang_w0": {
             "ports": [
-              "SD_0/panjang_w0",
               "panjang_w0_0"
             ]
           },
           "SD_0_panjang_w1": {
             "ports": [
-              "SD_0/panjang_w1",
               "panjang_w1_0"
             ]
           },
           "SD_0_panjang_w2": {
             "ports": [
-              "SD_0/panjang_w2",
               "panjang_w2_0"
             ]
           },
           "SD_0_panjang_w3": {
             "ports": [
-              "SD_0/panjang_w3",
               "panjang_w3_0"
             ]
           },
@@ -3400,8 +3416,8 @@
           "clk_1": {
             "ports": [
               "clk",
-              "SD_0/clk",
-              "RD_0/clk"
+              "RD_0/clk",
+              "SD_0/clk"
             ]
           },
           "debit_r0_0_1": {
@@ -3497,15 +3513,14 @@
           },
           "reward_3_0_1": {
             "ports": [
-              "reward_3",
-              "RD_0/reward_3"
+              "reward_3"
             ]
           },
           "rst_1": {
             "ports": [
               "rst",
-              "SD_0/rst",
-              "RD_0/rst"
+              "RD_0/rst",
+              "SD_0/rst"
             ]
           }
         }
