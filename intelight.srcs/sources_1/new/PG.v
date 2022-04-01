@@ -19,22 +19,24 @@ module PG(
     );
     
     // Block Greed Action
-    wire [1:0] w_act_greed;
+    wire [1:0] act_greed_temp0;
 //    wire [1:0] act_greed;
     wire [31:0] maxqA;
     max4to1_32bit   greed_action(.in0(qA0), .in1(qA1),  .in2(qA2),  .in3(qA3),  .out0(maxqA));
-    assign w_act_greed =    (maxqA == qA0)? 2'd0:
+    assign act_greed =    (maxqA == qA0)? 2'd0:
                             (maxqA == qA1)? 2'd1:
                             (maxqA == qA2)? 2'd2:
                                             2'd3;
-    reg_2bit reg0(.clk(clk), .rst(rst), .in0(w_act_greed), .out0(act_greed));
+    // reg_2bit reg0(.clk(clk), .rst(rst), .in0(act_greed_temp0), .out0(act_greed));
     // assign act_greed = 2'd3; // for debugging
     
     // Block Action Decider
-    wire [1:0] temp_act;
-    mux2to1_2bit    action_decider(.in0(act_greed),  .in1(act_random),   .sel(sel),  .out0(temp_act));
+    wire [1:0] act_temp0;
+    wire [1:0] act_temp1;
+    mux2to1_2bit    action_decider(.in0(act_greed),  .in1(act_random),   .sel(sel),  .out0(act_temp0));
+    reg_2bit reg0(.clk(clk), .rst(rst), .in0(act_temp0), .out0(act_temp1));
     // Enabling output
-    enabler_2bit en0(.in0(temp_act), .out0(act), .en(en));
+    enabler_2bit en0(.in0(act_temp1), .out0(act), .en(en));
 endmodule
 
 

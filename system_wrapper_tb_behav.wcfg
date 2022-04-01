@@ -3,99 +3,65 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="QA_tb_time_synth.wdb" id="1">
+      <db_ref path="PG_tb_time_synth.wdb" id="1">
          <top_modules>
-            <top_module name="QA_tb" />
+            <top_module name="PG_tb" />
             <top_module name="glbl" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="176.401 ns"></ZoomEndTime>
-      <Cursor1Time time="0.000 ns"></Cursor1Time>
+      <ZoomEndTime time="479.943 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="196"></NameColumnWidth>
+      <NameColumnWidth column_width="191"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="14" />
-   <wvobject fp_name="/QA_tb/clk" type="logic">
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/PG_tb/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/QA_tb/rst" type="logic">
+   <wvobject fp_name="/PG_tb/rst" type="logic">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
-   <wvobject fp_name="/QA_tb/en" type="logic">
+   <wvobject fp_name="/PG_tb/en" type="logic">
       <obj_property name="ElementShortName">en</obj_property>
       <obj_property name="ObjectShortName">en</obj_property>
    </wvobject>
-   <wvobject fp_name="/QA_tb/act" type="array">
+   <wvobject fp_name="/PG_tb/qA0" type="array">
+      <obj_property name="ElementShortName">qA0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">qA0[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PG_tb/qA1" type="array">
+      <obj_property name="ElementShortName">qA1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">qA1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PG_tb/qA2" type="array">
+      <obj_property name="ElementShortName">qA2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">qA2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PG_tb/qA3" type="array">
+      <obj_property name="ElementShortName">qA3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">qA3[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PG_tb/sel" type="logic">
+      <obj_property name="ElementShortName">sel</obj_property>
+      <obj_property name="ObjectShortName">sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PG_tb/act_random" type="array">
+      <obj_property name="ElementShortName">act_random[1:0]</obj_property>
+      <obj_property name="ObjectShortName">act_random[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/PG_tb/act" type="array">
       <obj_property name="ElementShortName">act[1:0]</obj_property>
       <obj_property name="ObjectShortName">act[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/QA_tb/alpha" type="array">
-      <obj_property name="ElementShortName">alpha[2:0]</obj_property>
-      <obj_property name="ObjectShortName">alpha[2:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/QA_tb/gamma" type="array">
-      <obj_property name="ElementShortName">gamma[2:0]</obj_property>
-      <obj_property name="ObjectShortName">gamma[2:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/QA_tb/reward" type="array">
-      <obj_property name="ElementShortName">reward[31:0]</obj_property>
-      <obj_property name="ObjectShortName">reward[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/QA_tb/next_qA0" type="array">
-      <obj_property name="ElementShortName">next_qA0[31:0]</obj_property>
-      <obj_property name="ObjectShortName">next_qA0[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/QA_tb/next_qA1" type="array">
-      <obj_property name="ElementShortName">next_qA1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">next_qA1[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/QA_tb/next_qA2" type="array">
-      <obj_property name="ElementShortName">next_qA2[31:0]</obj_property>
-      <obj_property name="ObjectShortName">next_qA2[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/QA_tb/next_qA3" type="array">
-      <obj_property name="ElementShortName">next_qA3[31:0]</obj_property>
-      <obj_property name="ObjectShortName">next_qA3[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/QA_tb/debug_max_next_qA" type="array">
-      <obj_property name="ElementShortName">debug_max_next_qA[31:0]</obj_property>
-      <obj_property name="ObjectShortName">debug_max_next_qA[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFD700</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">16</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/QA_tb/debug_chos_curr_qA" type="array">
-      <obj_property name="ElementShortName">debug_chos_curr_qA[31:0]</obj_property>
-      <obj_property name="ObjectShortName">debug_chos_curr_qA[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFD700</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">16</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
-   </wvobject>
-   <wvobject fp_name="/QA_tb/new_qA" type="array">
-      <obj_property name="ElementShortName">new_qA[31:0]</obj_property>
-      <obj_property name="ObjectShortName">new_qA[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFD700</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
-      <obj_property name="radix_fractionWidth">16</obj_property>
-      <obj_property name="radix_otherWidth">0</obj_property>
+   <wvobject fp_name="/PG_tb/act_greed" type="array">
+      <obj_property name="ElementShortName">act_greed[1:0]</obj_property>
+      <obj_property name="ObjectShortName">act_greed[1:0]</obj_property>
    </wvobject>
 </wave_config>
