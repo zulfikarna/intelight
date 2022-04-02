@@ -106,7 +106,6 @@ module system_xbar_0 (
   output bit [0 : 0] s_axi_rlast,
   output bit [0 : 0] s_axi_rvalid,
   input bit [0 : 0] s_axi_rready,
-  output bit [71 : 0] m_axi_awid,
   output bit [191 : 0] m_axi_awaddr,
   output bit [47 : 0] m_axi_awlen,
   output bit [17 : 0] m_axi_awsize,
@@ -123,11 +122,9 @@ module system_xbar_0 (
   output bit [5 : 0] m_axi_wlast,
   output bit [5 : 0] m_axi_wvalid,
   input bit [5 : 0] m_axi_wready,
-  input bit [71 : 0] m_axi_bid,
   input bit [11 : 0] m_axi_bresp,
   input bit [5 : 0] m_axi_bvalid,
   output bit [5 : 0] m_axi_bready,
-  output bit [71 : 0] m_axi_arid,
   output bit [191 : 0] m_axi_araddr,
   output bit [47 : 0] m_axi_arlen,
   output bit [17 : 0] m_axi_arsize,
@@ -139,7 +136,6 @@ module system_xbar_0 (
   output bit [23 : 0] m_axi_arqos,
   output bit [5 : 0] m_axi_arvalid,
   input bit [5 : 0] m_axi_arready,
-  input bit [71 : 0] m_axi_rid,
   input bit [191 : 0] m_axi_rdata,
   input bit [11 : 0] m_axi_rresp,
   input bit [5 : 0] m_axi_rlast,
@@ -151,7 +147,7 @@ endmodule
 
 `ifdef XCELIUM
 (* XMSC_MODULE_EXPORT *)
-module system_xbar_0 (aclk,aresetn,s_axi_awid,s_axi_awaddr,s_axi_awlen,s_axi_awsize,s_axi_awburst,s_axi_awlock,s_axi_awcache,s_axi_awprot,s_axi_awqos,s_axi_awvalid,s_axi_awready,s_axi_wdata,s_axi_wstrb,s_axi_wlast,s_axi_wvalid,s_axi_wready,s_axi_bid,s_axi_bresp,s_axi_bvalid,s_axi_bready,s_axi_arid,s_axi_araddr,s_axi_arlen,s_axi_arsize,s_axi_arburst,s_axi_arlock,s_axi_arcache,s_axi_arprot,s_axi_arqos,s_axi_arvalid,s_axi_arready,s_axi_rid,s_axi_rdata,s_axi_rresp,s_axi_rlast,s_axi_rvalid,s_axi_rready,m_axi_awid,m_axi_awaddr,m_axi_awlen,m_axi_awsize,m_axi_awburst,m_axi_awlock,m_axi_awcache,m_axi_awprot,m_axi_awregion,m_axi_awqos,m_axi_awvalid,m_axi_awready,m_axi_wdata,m_axi_wstrb,m_axi_wlast,m_axi_wvalid,m_axi_wready,m_axi_bid,m_axi_bresp,m_axi_bvalid,m_axi_bready,m_axi_arid,m_axi_araddr,m_axi_arlen,m_axi_arsize,m_axi_arburst,m_axi_arlock,m_axi_arcache,m_axi_arprot,m_axi_arregion,m_axi_arqos,m_axi_arvalid,m_axi_arready,m_axi_rid,m_axi_rdata,m_axi_rresp,m_axi_rlast,m_axi_rvalid,m_axi_rready)
+module system_xbar_0 (aclk,aresetn,s_axi_awid,s_axi_awaddr,s_axi_awlen,s_axi_awsize,s_axi_awburst,s_axi_awlock,s_axi_awcache,s_axi_awprot,s_axi_awqos,s_axi_awvalid,s_axi_awready,s_axi_wdata,s_axi_wstrb,s_axi_wlast,s_axi_wvalid,s_axi_wready,s_axi_bid,s_axi_bresp,s_axi_bvalid,s_axi_bready,s_axi_arid,s_axi_araddr,s_axi_arlen,s_axi_arsize,s_axi_arburst,s_axi_arlock,s_axi_arcache,s_axi_arprot,s_axi_arqos,s_axi_arvalid,s_axi_arready,s_axi_rid,s_axi_rdata,s_axi_rresp,s_axi_rlast,s_axi_rvalid,s_axi_rready,m_axi_awaddr,m_axi_awlen,m_axi_awsize,m_axi_awburst,m_axi_awlock,m_axi_awcache,m_axi_awprot,m_axi_awregion,m_axi_awqos,m_axi_awvalid,m_axi_awready,m_axi_wdata,m_axi_wstrb,m_axi_wlast,m_axi_wvalid,m_axi_wready,m_axi_bresp,m_axi_bvalid,m_axi_bready,m_axi_araddr,m_axi_arlen,m_axi_arsize,m_axi_arburst,m_axi_arlock,m_axi_arcache,m_axi_arprot,m_axi_arregion,m_axi_arqos,m_axi_arvalid,m_axi_arready,m_axi_rdata,m_axi_rresp,m_axi_rlast,m_axi_rvalid,m_axi_rready)
 (* integer foreign = "SystemC";
 *);
   input bit aclk;
@@ -193,7 +189,6 @@ module system_xbar_0 (aclk,aresetn,s_axi_awid,s_axi_awaddr,s_axi_awlen,s_axi_aws
   output wire [0 : 0] s_axi_rlast;
   output wire [0 : 0] s_axi_rvalid;
   input bit [0 : 0] s_axi_rready;
-  output wire [71 : 0] m_axi_awid;
   output wire [191 : 0] m_axi_awaddr;
   output wire [47 : 0] m_axi_awlen;
   output wire [17 : 0] m_axi_awsize;
@@ -210,11 +205,9 @@ module system_xbar_0 (aclk,aresetn,s_axi_awid,s_axi_awaddr,s_axi_awlen,s_axi_aws
   output wire [5 : 0] m_axi_wlast;
   output wire [5 : 0] m_axi_wvalid;
   input bit [5 : 0] m_axi_wready;
-  input bit [71 : 0] m_axi_bid;
   input bit [11 : 0] m_axi_bresp;
   input bit [5 : 0] m_axi_bvalid;
   output wire [5 : 0] m_axi_bready;
-  output wire [71 : 0] m_axi_arid;
   output wire [191 : 0] m_axi_araddr;
   output wire [47 : 0] m_axi_arlen;
   output wire [17 : 0] m_axi_arsize;
@@ -226,7 +219,6 @@ module system_xbar_0 (aclk,aresetn,s_axi_awid,s_axi_awaddr,s_axi_awlen,s_axi_aws
   output wire [23 : 0] m_axi_arqos;
   output wire [5 : 0] m_axi_arvalid;
   input bit [5 : 0] m_axi_arready;
-  input bit [71 : 0] m_axi_rid;
   input bit [191 : 0] m_axi_rdata;
   input bit [11 : 0] m_axi_rresp;
   input bit [5 : 0] m_axi_rlast;
@@ -237,7 +229,7 @@ endmodule
 
 `ifdef RIVIERA
 (* SC_MODULE_EXPORT *)
-module system_xbar_0 (aclk,aresetn,s_axi_awid,s_axi_awaddr,s_axi_awlen,s_axi_awsize,s_axi_awburst,s_axi_awlock,s_axi_awcache,s_axi_awprot,s_axi_awqos,s_axi_awvalid,s_axi_awready,s_axi_wdata,s_axi_wstrb,s_axi_wlast,s_axi_wvalid,s_axi_wready,s_axi_bid,s_axi_bresp,s_axi_bvalid,s_axi_bready,s_axi_arid,s_axi_araddr,s_axi_arlen,s_axi_arsize,s_axi_arburst,s_axi_arlock,s_axi_arcache,s_axi_arprot,s_axi_arqos,s_axi_arvalid,s_axi_arready,s_axi_rid,s_axi_rdata,s_axi_rresp,s_axi_rlast,s_axi_rvalid,s_axi_rready,m_axi_awid,m_axi_awaddr,m_axi_awlen,m_axi_awsize,m_axi_awburst,m_axi_awlock,m_axi_awcache,m_axi_awprot,m_axi_awregion,m_axi_awqos,m_axi_awvalid,m_axi_awready,m_axi_wdata,m_axi_wstrb,m_axi_wlast,m_axi_wvalid,m_axi_wready,m_axi_bid,m_axi_bresp,m_axi_bvalid,m_axi_bready,m_axi_arid,m_axi_araddr,m_axi_arlen,m_axi_arsize,m_axi_arburst,m_axi_arlock,m_axi_arcache,m_axi_arprot,m_axi_arregion,m_axi_arqos,m_axi_arvalid,m_axi_arready,m_axi_rid,m_axi_rdata,m_axi_rresp,m_axi_rlast,m_axi_rvalid,m_axi_rready)
+module system_xbar_0 (aclk,aresetn,s_axi_awid,s_axi_awaddr,s_axi_awlen,s_axi_awsize,s_axi_awburst,s_axi_awlock,s_axi_awcache,s_axi_awprot,s_axi_awqos,s_axi_awvalid,s_axi_awready,s_axi_wdata,s_axi_wstrb,s_axi_wlast,s_axi_wvalid,s_axi_wready,s_axi_bid,s_axi_bresp,s_axi_bvalid,s_axi_bready,s_axi_arid,s_axi_araddr,s_axi_arlen,s_axi_arsize,s_axi_arburst,s_axi_arlock,s_axi_arcache,s_axi_arprot,s_axi_arqos,s_axi_arvalid,s_axi_arready,s_axi_rid,s_axi_rdata,s_axi_rresp,s_axi_rlast,s_axi_rvalid,s_axi_rready,m_axi_awaddr,m_axi_awlen,m_axi_awsize,m_axi_awburst,m_axi_awlock,m_axi_awcache,m_axi_awprot,m_axi_awregion,m_axi_awqos,m_axi_awvalid,m_axi_awready,m_axi_wdata,m_axi_wstrb,m_axi_wlast,m_axi_wvalid,m_axi_wready,m_axi_bresp,m_axi_bvalid,m_axi_bready,m_axi_araddr,m_axi_arlen,m_axi_arsize,m_axi_arburst,m_axi_arlock,m_axi_arcache,m_axi_arprot,m_axi_arregion,m_axi_arqos,m_axi_arvalid,m_axi_arready,m_axi_rdata,m_axi_rresp,m_axi_rlast,m_axi_rvalid,m_axi_rready)
   input bit aclk;
   input bit aresetn;
   input bit [11 : 0] s_axi_awid;
@@ -277,7 +269,6 @@ module system_xbar_0 (aclk,aresetn,s_axi_awid,s_axi_awaddr,s_axi_awlen,s_axi_aws
   output wire [0 : 0] s_axi_rlast;
   output wire [0 : 0] s_axi_rvalid;
   input bit [0 : 0] s_axi_rready;
-  output wire [71 : 0] m_axi_awid;
   output wire [191 : 0] m_axi_awaddr;
   output wire [47 : 0] m_axi_awlen;
   output wire [17 : 0] m_axi_awsize;
@@ -294,11 +285,9 @@ module system_xbar_0 (aclk,aresetn,s_axi_awid,s_axi_awaddr,s_axi_awlen,s_axi_aws
   output wire [5 : 0] m_axi_wlast;
   output wire [5 : 0] m_axi_wvalid;
   input bit [5 : 0] m_axi_wready;
-  input bit [71 : 0] m_axi_bid;
   input bit [11 : 0] m_axi_bresp;
   input bit [5 : 0] m_axi_bvalid;
   output wire [5 : 0] m_axi_bready;
-  output wire [71 : 0] m_axi_arid;
   output wire [191 : 0] m_axi_araddr;
   output wire [47 : 0] m_axi_arlen;
   output wire [17 : 0] m_axi_arsize;
@@ -310,7 +299,6 @@ module system_xbar_0 (aclk,aresetn,s_axi_awid,s_axi_awaddr,s_axi_awlen,s_axi_aws
   output wire [23 : 0] m_axi_arqos;
   output wire [5 : 0] m_axi_arvalid;
   input bit [5 : 0] m_axi_arready;
-  input bit [71 : 0] m_axi_rid;
   input bit [191 : 0] m_axi_rdata;
   input bit [11 : 0] m_axi_rresp;
   input bit [5 : 0] m_axi_rlast;

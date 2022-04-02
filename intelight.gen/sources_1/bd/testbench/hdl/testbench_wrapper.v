@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-//Date        : Sat Mar 26 03:13:40 2022
+//Date        : Sat Apr  2 13:33:10 2022
 //Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 //Command     : generate_target testbench_wrapper.bd
 //Design      : testbench_wrapper
@@ -26,6 +26,7 @@ module testbench_wrapper
     dataout1,
     dataout2,
     dataout3,
+    debit_out,
     debit_r0,
     debit_r1,
     debit_r2,
@@ -73,7 +74,6 @@ module testbench_wrapper
     reward_0,
     reward_1,
     reward_2,
-    reward_3,
     rst,
     seed,
     sel_act,
@@ -99,6 +99,7 @@ module testbench_wrapper
   output [31:0]dataout1;
   output [31:0]dataout2;
   output [31:0]dataout3;
+  input [31:0]debit_out;
   input [31:0]debit_r0;
   input [31:0]debit_r1;
   input [31:0]debit_r2;
@@ -146,7 +147,6 @@ module testbench_wrapper
   input [31:0]reward_0;
   input [31:0]reward_1;
   input [31:0]reward_2;
-  input [31:0]reward_3;
   input rst;
   input [15:0]seed;
   output sel_act;
@@ -173,6 +173,7 @@ module testbench_wrapper
   wire [31:0]dataout1;
   wire [31:0]dataout2;
   wire [31:0]dataout3;
+  wire [31:0]debit_out;
   wire [31:0]debit_r0;
   wire [31:0]debit_r1;
   wire [31:0]debit_r2;
@@ -220,7 +221,6 @@ module testbench_wrapper
   wire [31:0]reward_0;
   wire [31:0]reward_1;
   wire [31:0]reward_2;
-  wire [31:0]reward_3;
   wire rst;
   wire [15:0]seed;
   wire sel_act;
@@ -248,6 +248,7 @@ module testbench_wrapper
         .dataout1(dataout1),
         .dataout2(dataout2),
         .dataout3(dataout3),
+        .debit_out(debit_out),
         .debit_r0(debit_r0),
         .debit_r1(debit_r1),
         .debit_r2(debit_r2),
@@ -295,7 +296,6 @@ module testbench_wrapper
         .reward_0(reward_0),
         .reward_1(reward_1),
         .reward_2(reward_2),
-        .reward_3(reward_3),
         .rst(rst),
         .seed(seed),
         .sel_act(sel_act),

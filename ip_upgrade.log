@@ -1,6 +1,61 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Sat Apr  2 08:10:41 2022
+| Host         : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_intelight_mem_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_intelight_mem_0_0 (xilinx.com:user:intelight_mem:1.0) from (Rev. 5) to (Rev. 6)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Sat Apr  2 07:20:57 2022
+| Host         : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_intelight_mem_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_intelight_mem_0_0 (xilinx.com:user:intelight_mem:1.0) from (Rev. 4) to (Rev. 5)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'system_intelight_mem_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'reward_3'
+
+-Upgrade has added port 'debit_out'
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
 | Date         : Sun Mar 13 15:11:38 2022
 | Host         : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 | Command      : upgrade_ip

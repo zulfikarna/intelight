@@ -31,10 +31,10 @@ vcom -work xpm  -93 \
 "C:/Xilinx/Vivado/2021.1/data/ip/xpm/xpm_VCOMP.vhd" \
 
 vlog -work xil_defaultlib  -incr -mfcu "+incdir+C:/Xilinx/Vivado/2021.1/data/xilinx_vip/include" \
-"../../../bd/testbench/ip/testbench_QA_0_0/sim/testbench_QA_0_0.v" \
 "../../../bd/testbench/ip/testbench_PG_0_0/sim/testbench_PG_0_0.v" \
-"../../../bd/testbench/ip/testbench_RD_0_0/sim/testbench_RD_0_0.v" \
+"../../../bd/testbench/ip/testbench_QA_0_0/sim/testbench_QA_0_0.v" \
 "../../../bd/testbench/ip/testbench_SD_0_0/sim/testbench_SD_0_0.v" \
+"../../../bd/testbench/ip/testbench_RD_0_0/sim/testbench_RD_0_0.v" \
 
 vlog -work xlconstant_v1_1_7  -incr -mfcu "+incdir+C:/Xilinx/Vivado/2021.1/data/xilinx_vip/include" \
 "../../../../intelight.gen/sources_1/bd/testbench/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v" \
@@ -55,8 +55,8 @@ vlog -work xil_defaultlib  -incr -mfcu "+incdir+C:/Xilinx/Vivado/2021.1/data/xil
 "../../../bd/testbench/ip/testbench_PL_RAM_0_0/sim/testbench_PL_RAM_0_0.v" \
 "../../../bd/testbench/ip/testbench_Action_RAM_0_0/sim/testbench_Action_RAM_0_0.v" \
 "../../../bd/testbench/ip/testbench_CU_0_0/sim/testbench_CU_0_0.v" \
-"../../../bd/testbench/ip/testbench_bram_output_interface_0_0/sim/testbench_bram_output_interface_0_0.v" \
 "../../../bd/testbench/ip/testbench_bram_input_interface_0_0/sim/testbench_bram_input_interface_0_0.v" \
+"../../../bd/testbench/ip/testbench_bram_output_interface_0_0/sim/testbench_bram_output_interface_0_0.v" \
 "../../../bd/testbench/sim/testbench.v" \
 
 vlog -work xil_defaultlib \

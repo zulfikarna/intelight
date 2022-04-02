@@ -196,7 +196,7 @@ BEGIN
       C_HAS_CIE => 1,
       C_HAS_IVR => 1,
       C_HAS_ILR => 0,
-      C_IRQ_IS_LEVEL => 0,
+      C_IRQ_IS_LEVEL => 1,
       C_IRQ_ACTIVE => '1',
       C_DISABLE_SYNCHRONIZERS => 0,
       C_MB_CLK_NOT_CONNECTED => 1,

@@ -10,6 +10,7 @@ module testbench_wrapper_tb();
   reg [31:0]batas_1;
   reg [31:0]batas_2;
   reg clk;
+  reg [31:0]debit_out;
   reg [31:0]debit_r0;
   reg [31:0]debit_r1;
   reg [31:0]debit_r2;
@@ -25,7 +26,6 @@ module testbench_wrapper_tb();
   reg [31:0]reward_0;
   reg [31:0]reward_1;
   reg [31:0]reward_2;
-  reg [31:0]reward_3;
   reg rst;
   reg [15:0]seed;
   reg start;
@@ -86,6 +86,7 @@ module testbench_wrapper_tb();
       .batas_1(batas_1),
       .batas_2(batas_2),
       .clk(clk),
+      .debit_out(debit_out),
       .debit_r0(debit_r0),
       .debit_r1(debit_r1),
       .debit_r2(debit_r2),
@@ -101,7 +102,6 @@ module testbench_wrapper_tb();
       .reward_0(reward_0),
       .reward_1(reward_1),
       .reward_2(reward_2),
-      .reward_3(reward_3),
       .rst(rst),
       .seed(seed),
       .start(start),
@@ -171,7 +171,6 @@ module testbench_wrapper_tb();
     reward_0 = -32'h0032_0000; // -50
     reward_1 = 32'h0014_0000; // 10
     reward_2 = 32'h0046_0000; // 75
-    reward_3 = 32'h0064_0000; // 100
     alpha = 3'd4; // 0.5
     gamma = 3'd4;
     delta_t = 3'd4;
@@ -179,10 +178,11 @@ module testbench_wrapper_tb();
     batas_0 = 32'h000A_0000; // 10
     batas_1 = 32'h0014_0000; // 20
     batas_2 = 32'h001E_0000; // 30
-    debit_r0 = 32'h0005_0000;
-    debit_r1 = 32'h000A_0000;
-    debit_r2 = 32'h000F_0000;
-    debit_r3 = 32'h00014_0000;
+    debit_out = 32'h001F_0000;
+    debit_r0  = 32'h0005_0000;
+    debit_r1  = 32'h000A_0000;
+    debit_r2  = 32'h000F_0000;
+    debit_r3  = 32'h0014_0000;
     max_episode = 16'd800;
     max_step = 16'd20;  
     rst = 1'b1;

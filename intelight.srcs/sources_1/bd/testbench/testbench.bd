@@ -1,13 +1,14 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x193C513C4220F266",
+      "boundary_crc": "0x1787A4C2E2EDB06B",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../intelight.gen/sources_1/bd/testbench",
       "name": "testbench",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2021.1"
+      "tool_version": "2021.1",
+      "validated": "true"
     },
     "design_tree": {
       "AGENT": {
@@ -15,8 +16,8 @@
         "QA_0": ""
       },
       "EV": {
-        "RD_0": "",
-        "SD_0": ""
+        "SD_0": "",
+        "RD_0": ""
       },
       "RAM_Block": {
         "cnst_0_4bit": "",
@@ -46,14 +47,44 @@
         "type": "clk",
         "direction": "I",
         "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "rst",
+            "value_src": "default"
+          },
+          "CLK_DOMAIN": {
+            "value": "testbench_clk",
+            "value_src": "default"
+          },
           "FREQ_HZ": {
             "value": "50000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
           }
         }
       },
       "rst": {
         "type": "rst",
-        "direction": "I"
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
       },
       "alpha": {
         "direction": "I",
@@ -97,11 +128,6 @@
         "right": "0"
       },
       "reward_2": {
-        "direction": "I",
-        "left": "31",
-        "right": "0"
-      },
-      "reward_3": {
         "direction": "I",
         "left": "31",
         "right": "0"
@@ -377,6 +403,11 @@
       },
       "en3_rd": {
         "direction": "O"
+      },
+      "debit_out": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
       }
     },
     "components": {
@@ -474,6 +505,14 @@
                   "ASSOCIATED_RESET": {
                     "value": "rst",
                     "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "50000000",
+                    "value_src": "user_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "testbench_clk",
+                    "value_src": "default_prop"
                   }
                 }
               },
@@ -572,6 +611,14 @@
                   "ASSOCIATED_RESET": {
                     "value": "rst",
                     "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "50000000",
+                    "value_src": "user_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "testbench_clk",
+                    "value_src": "default_prop"
                   }
                 }
               },
@@ -827,11 +874,6 @@
             "left": "31",
             "right": "0"
           },
-          "reward_3": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
           "curr_reward": {
             "direction": "O",
             "left": "31",
@@ -909,89 +951,14 @@
             "direction": "O",
             "left": "31",
             "right": "0"
+          },
+          "debit_out": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
           }
         },
         "components": {
-          "RD_0": {
-            "vlnv": "xilinx.com:module_ref:RD:1.0",
-            "xci_name": "testbench_RD_0_0",
-            "xci_path": "ip\\testbench_RD_0_0\\testbench_RD_0_0.xci",
-            "inst_hier_path": "EV/RD_0",
-            "reference_info": {
-              "ref_type": "hdl",
-              "ref_name": "RD",
-              "boundary_crc": "0x0"
-            },
-            "ports": {
-              "sel": {
-                "direction": "O",
-                "left": "1",
-                "right": "0"
-              },
-              "w_min": {
-                "direction": "O",
-                "left": "1",
-                "right": "0"
-              },
-              "w_max": {
-                "direction": "O",
-                "left": "1",
-                "right": "0"
-              },
-              "w_act": {
-                "direction": "O",
-                "left": "1",
-                "right": "0"
-              },
-              "clk": {
-                "type": "clk",
-                "direction": "I",
-                "parameters": {
-                  "ASSOCIATED_RESET": {
-                    "value": "rst",
-                    "value_src": "constant"
-                  }
-                }
-              },
-              "rst": {
-                "type": "rst",
-                "direction": "I"
-              },
-              "en": {
-                "direction": "I"
-              },
-              "act": {
-                "direction": "I",
-                "left": "1",
-                "right": "0"
-              },
-              "state": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward_0": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward_1": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward_2": {
-                "direction": "I",
-                "left": "31",
-                "right": "0"
-              },
-              "reward": {
-                "direction": "O",
-                "left": "31",
-                "right": "0"
-              }
-            }
-          },
           "SD_0": {
             "vlnv": "xilinx.com:module_ref:SD:1.0",
             "xci_name": "testbench_SD_0_0",
@@ -1010,6 +977,14 @@
                   "ASSOCIATED_RESET": {
                     "value": "rst",
                     "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "50000000",
+                    "value_src": "user_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "testbench_clk",
+                    "value_src": "default_prop"
                   }
                 }
               },
@@ -1159,14 +1134,102 @@
                 "right": "0"
               }
             }
+          },
+          "RD_0": {
+            "vlnv": "xilinx.com:module_ref:RD:1.0",
+            "xci_name": "testbench_RD_0_0",
+            "xci_path": "ip\\testbench_RD_0_0\\testbench_RD_0_0.xci",
+            "inst_hier_path": "EV/RD_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "RD",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "sel": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "w_min": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "w_max": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "w_act": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "rst",
+                    "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "50000000",
+                    "value_src": "user_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "testbench_clk",
+                    "value_src": "default_prop"
+                  }
+                }
+              },
+              "rst": {
+                "type": "rst",
+                "direction": "I"
+              },
+              "en": {
+                "direction": "I"
+              },
+              "act": {
+                "direction": "I",
+                "left": "1",
+                "right": "0"
+              },
+              "state": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward_0": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward_1": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward_2": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              }
+            }
           }
         },
         "nets": {
           "PG_0_act": {
             "ports": [
               "act",
-              "RD_0/act",
-              "SD_0/act"
+              "SD_0/act",
+              "RD_0/act"
             ]
           },
           "RD_0_reward": {
@@ -1225,21 +1288,25 @@
           },
           "SD_0_panjang_w0": {
             "ports": [
+              "SD_0/panjang_r0_temp0",
               "panjang_w0_0"
             ]
           },
           "SD_0_panjang_w1": {
             "ports": [
+              "SD_0/panjang_r1_temp0",
               "panjang_w1_0"
             ]
           },
           "SD_0_panjang_w2": {
             "ports": [
+              "SD_0/panjang_r2_temp0",
               "panjang_w2_0"
             ]
           },
           "SD_0_panjang_w3": {
             "ports": [
+              "SD_0/panjang_r3_temp0",
               "panjang_w3_0"
             ]
           },
@@ -1270,8 +1337,14 @@
           "clk_1": {
             "ports": [
               "clk",
-              "RD_0/clk",
-              "SD_0/clk"
+              "SD_0/clk",
+              "RD_0/clk"
+            ]
+          },
+          "debit_out_0_1": {
+            "ports": [
+              "debit_out",
+              "SD_0/debit_out"
             ]
           },
           "debit_r0_0_1": {
@@ -1365,16 +1438,11 @@
               "RD_0/reward_2"
             ]
           },
-          "reward_3_0_1": {
-            "ports": [
-              "reward_3"
-            ]
-          },
           "rst_1": {
             "ports": [
               "rst",
-              "RD_0/rst",
-              "SD_0/rst"
+              "SD_0/rst",
+              "RD_0/rst"
             ]
           }
         }
@@ -2586,6 +2654,14 @@
               "ASSOCIATED_RESET": {
                 "value": "rst",
                 "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "testbench_clk",
+                "value_src": "default_prop"
               }
             }
           },
@@ -2684,6 +2760,14 @@
               "ASSOCIATED_RESET": {
                 "value": "rst",
                 "value_src": "constant"
+              },
+              "FREQ_HZ": {
+                "value": "50000000",
+                "value_src": "user_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "testbench_clk",
+                "value_src": "default_prop"
               }
             }
           },
@@ -3033,6 +3117,12 @@
           "bram_output_interface_0/clk"
         ]
       },
+      "debit_out_0_1": {
+        "ports": [
+          "debit_out",
+          "EV/debit_out"
+        ]
+      },
       "debit_r0_0_1": {
         "ports": [
           "debit_r0",
@@ -3170,12 +3260,6 @@
         "ports": [
           "reward_2",
           "EV/reward_2"
-        ]
-      },
-      "reward_3_0_1": {
-        "ports": [
-          "reward_3",
-          "EV/reward_3"
         ]
       },
       "rst_0_1": {
