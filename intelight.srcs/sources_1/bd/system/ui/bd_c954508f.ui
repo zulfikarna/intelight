@@ -1,98 +1,137 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.604677",
-   "Default View_TopLeft":"1063,642",
+   "Default View_ScaleFactor":"0.717936",
+   "Default View_TopLeft":"777,539",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port DDR -pg 1 -lvl 7 -x 2700 -y 60 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -lvl 7 -x 2700 -y 90 -defaultsOSRD
-preplace port port-id_finish -pg 1 -lvl 7 -x 2700 -y 1450 -defaultsOSRD
-preplace port port-id_start -pg 1 -lvl 7 -x 2700 -y 970 -defaultsOSRD
-preplace port port-id_read_sig -pg 1 -lvl 7 -x 2700 -y 730 -defaultsOSRD
-preplace port port-id_finish_adapt -pg 1 -lvl 7 -x 2700 -y 1780 -defaultsOSRD
-preplace inst PS -pg 1 -lvl 5 -x 1840 -y 170 -defaultsOSRD
-preplace inst AGENT -pg 1 -lvl 2 -x 570 -y 1630 -defaultsOSRD
-preplace inst EV -pg 1 -lvl 3 -x 1010 -y 1010 -defaultsOSRD
-preplace inst RAM_Block -pg 1 -lvl 6 -x 2310 -y 360 -defaultsOSRD
+preplace port DDR -pg 1 -lvl 7 -x 4350 -y 60 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 7 -x 4350 -y 90 -defaultsOSRD
+preplace port port-id_finish -pg 1 -lvl 7 -x 4350 -y 1450 -defaultsOSRD
+preplace port port-id_start -pg 1 -lvl 7 -x 4350 -y 970 -defaultsOSRD
+preplace port port-id_read_sig -pg 1 -lvl 7 -x 4350 -y 630 -defaultsOSRD
+preplace port port-id_finish_adapt -pg 1 -lvl 7 -x 4350 -y 1780 -defaultsOSRD
+preplace portBus act_adapt -pg 1 -lvl 7 -x 4350 -y 10 -defaultsOSRD
+preplace inst PS -pg 1 -lvl 5 -x 3438 -y 170 -defaultsOSRD
+preplace inst AGENT -pg 1 -lvl 2 -x 650 -y 1630 -defaultsOSRD
+preplace inst EV -pg 1 -lvl 3 -x 1250 -y 1028 -defaultsOSRD
+preplace inst RAM_Block -pg 1 -lvl 6 -x 3998 -y 360 -defaultsOSRD
 preplace inst bram_output_interface_0 -pg 1 -lvl 1 -x 200 -y 1500 -defaultsOSRD
-preplace inst bram_input_interface_0 -pg 1 -lvl 5 -x 1840 -y 530 -defaultsOSRD
-preplace inst CU_0 -pg 1 -lvl 4 -x 1390 -y 1640 -defaultsOSRD
-preplace inst adapt_mem_0 -pg 1 -lvl 6 -x 2310 -y 720 -defaultsOSRD
-preplace inst intelight_mem_v2_0 -pg 1 -lvl 6 -x 2310 -y 1100 -defaultsOSRD
-preplace netloc AGENT_act 1 0 6 50 1800 NJ 1800 700 690 NJ 690 1700 720 2170J
-preplace netloc AGENT_act_SD 1 2 1 720 1080n
-preplace netloc CU_0_BRAM_rd 1 0 5 40 1290 NJ 1290 NJ 1290 NJ 1290 1660
-preplace netloc CU_0_BRAM_wr 1 4 1 1650 520n
-preplace netloc CU_0_RD 1 2 3 830 1300 NJ 1300 1570
-preplace netloc CU_0_SD 1 2 3 820 1270 NJ 1270 1580
-preplace netloc CU_0_act_random 1 1 4 420 1870 NJ 1870 NJ 1870 1560
-preplace netloc CU_0_finish1 1 2 5 840 1350 NJ 1350 1630 1410 NJ 1410 2680J
+preplace inst bram_input_interface_0 -pg 1 -lvl 5 -x 3438 -y 530 -defaultsOSRD
+preplace inst CU_0 -pg 1 -lvl 4 -x 2880 -y 1640 -defaultsOSRD
+preplace inst intelight_mem_v2_0 -pg 1 -lvl 6 -x 3998 -y 1100 -defaultsOSRD
+preplace inst adapt_mem_0 -pg 1 -lvl 6 -x 3998 -y 720 -defaultsOSRD
+preplace inst EV|RD_0 -pg 1 -lvl 3 -x 2200 -y 1018 -defaultsOSRD
+preplace inst EV|SD_0 -pg 1 -lvl 2 -x 1830 -y 1268 -defaultsOSRD
+preplace inst EV|EG_0 -pg 1 -lvl 1 -x 1350 -y 1238 -defaultsOSRD
+preplace netloc AGENT_act 1 0 7 80 1360 NJ 1360 810 578 2720J 580 3290 720 3620J 10 N
+preplace netloc AGENT_act_SD 1 2 1 880 1098n
+preplace netloc CU_0_BRAM_rd 1 0 5 70 1290 NJ 1290 870J 1600 2520J 1290 3190
+preplace netloc CU_0_BRAM_wr 1 4 1 3180 520n
+preplace netloc CU_0_RD 1 2 3 920 608 2680J 610 3090
+preplace netloc CU_0_SD 1 2 3 950 628 2710J 630 3080
+preplace netloc CU_0_act_random 1 1 4 410 1280 890J 1590 2510J 1280 3070
+preplace netloc CU_0_finish1 1 2 5 930 638 2680J 640 3170 1470 NJ 1470 4330J
 preplace netloc CU_0_finish_adapt 1 4 3 NJ 1780 NJ 1780 NJ
-preplace netloc CU_0_sel_act 1 1 4 380 1890 NJ 1890 NJ 1890 1600
-preplace netloc EV_curr_reward 1 1 3 410 1330 NJ 1330 1150
-preplace netloc EV_goal_sig 1 3 1 1160 1030n
-preplace netloc EV_state 1 3 2 1180 560 NJ
-preplace netloc PS_FCLK_CLK0 1 0 6 80 1350 360 800 710 700 1200 490 1570 340 2120
-preplace netloc PS_active_high_rst 1 0 6 50 1330 370 980 720 740 1170 740 1670 740 2080
-preplace netloc RAM_Block_q_next_0 1 0 7 60 1360 NJ 1360 710J 1380 NJ 1380 NJ 1380 NJ 1380 2610
-preplace netloc RAM_Block_q_next_1 1 0 7 70 1370 NJ 1370 NJ 1370 NJ 1370 NJ 1370 NJ 1370 2600
-preplace netloc RAM_Block_q_next_2 1 0 7 20 1310 NJ 1310 NJ 1310 NJ 1310 NJ 1310 2130J 1360 2580
-preplace netloc RAM_Block_q_next_3 1 0 7 30 1340 NJ 1340 NJ 1340 NJ 1340 NJ 1340 2000J 1390 2640
-preplace netloc adapt_mem_0_read_sig 1 3 4 1210 730 NJ 730 2000J 630 2680
-preplace netloc batas_0_1 1 2 5 740 1410 NJ 1410 1610J 1420 NJ 1420 2490
-preplace netloc batas_1_1 1 2 5 750 1390 NJ 1390 1640J 1430 NJ 1430 2480
-preplace netloc batas_2_1 1 2 5 800 1360 NJ 1360 1700J 1400 NJ 1400 2470
-preplace netloc batas_3_1 1 2 5 770 1900 NJ 1900 NJ 1900 NJ 1900 2540
-preplace netloc batas_4_1 1 2 5 780 1910 NJ 1910 NJ 1910 NJ 1910 2530
-preplace netloc batas_5_1 1 2 5 790 1920 NJ 1920 NJ 1920 NJ 1920 2520
-preplace netloc batas_6_1 1 2 5 810 1430 NJ 1430 1610J 1440 NJ 1440 2460
-preplace netloc bram_input_interface_0_en0_rd 1 5 1 2090 430n
-preplace netloc bram_input_interface_0_en0_wr 1 5 1 2060 410n
-preplace netloc bram_input_interface_0_en1_rd 1 5 1 2130 470n
-preplace netloc bram_input_interface_0_en1_wr 1 5 1 2110 450n
-preplace netloc bram_input_interface_0_en2_rd 1 5 1 2150 510n
-preplace netloc bram_input_interface_0_en2_wr 1 5 1 2140 490n
-preplace netloc bram_input_interface_0_en3_rd 1 5 1 2170 550n
-preplace netloc bram_input_interface_0_en3_wr 1 5 1 2160 530n
-preplace netloc bram_interface_0_rd_addr 1 5 1 2000 330n
-preplace netloc bram_interface_0_wr_addr 1 5 1 1990 290n
-preplace netloc debit_out_1 1 2 5 760 1440 NJ 1440 1590J 1450 NJ 1450 2560
-preplace netloc en_PG_1 1 1 4 430 1930 NJ 1930 NJ 1930 1590
-preplace netloc en_QA_1 1 1 4 440 1840 NJ 1840 NJ 1840 1550
-preplace netloc intelight_mem_v2_0_alpha 1 1 6 390 1940 NJ 1940 NJ 1940 NJ 1940 NJ 1940 2670
-preplace netloc intelight_mem_v2_0_delta_t 1 2 5 870 720 NJ 720 1680J 830 NJ 830 2450
-preplace netloc intelight_mem_v2_0_gamma 1 1 6 400 1950 NJ 1950 NJ 1950 NJ 1950 NJ 1950 2660
-preplace netloc intelight_mem_v2_0_max_episode 1 3 4 1210 1850 NJ 1850 NJ 1850 2590
-preplace netloc intelight_mem_v2_0_max_step 1 3 4 1190 1880 NJ 1880 NJ 1880 2620
-preplace netloc intelight_mem_v2_0_seed 1 3 4 1220 1860 NJ 1860 NJ 1860 2630
-preplace netloc intelight_mem_v2_0_start 1 3 4 1220 850 NJ 850 NJ 850 2680
-preplace netloc q_new_1 1 2 4 690J 340 NJ 340 1560J 330 1980
-preplace netloc q_next_0_1 1 1 1 350 1470n
-preplace netloc q_next_1_1 1 1 1 340 1490n
-preplace netloc q_next_2_1 1 1 1 330 1510n
+preplace netloc CU_0_sel_act 1 1 4 420 1300 860J 1610 2530J 1300 3040
+preplace netloc EV_curr_reward 1 1 3 380 650 820J 648 2490
+preplace netloc EV_goal_sig 1 3 1 2500 1188n
+preplace netloc EV_state 1 3 2 2500 560 NJ
+preplace netloc PS_FCLK_CLK0 1 0 6 60 1630 330 810 820 678 2550 680 3260 860 3830
+preplace netloc PS_active_high_rst 1 0 6 30 1640 360 990 840 618 2600 500 3250 340 3590
+preplace netloc RAM_Block_q_next_0 1 0 7 40 1310 NJ 1310 850J 1620 2560J 1310 3160J 1330 3800J 1350 4300
+preplace netloc RAM_Block_q_next_1 1 0 7 50 1320 NJ 1320 840J 1630 2570J 1320 3150J 1340 3740J 1360 4290
+preplace netloc RAM_Block_q_next_2 1 0 7 10 590 NJ 590 770J 588 2710J 590 3280J 730 3660J 30 4220
+preplace netloc RAM_Block_q_next_3 1 0 7 20 600 NJ 600 780J 598 2690J 600 3270J 740 3650J 20 4230
+preplace netloc adapt_mem_0_read_sig 1 3 4 2680 790 NJ 790 3840J 630 4330
+preplace netloc batas_0_1 1 2 5 980 658 2710J 660 3250J 810 NJ 810 4140
+preplace netloc batas_1_1 1 2 5 990 688 2540J 690 3240J 780 3740J 70 4240
+preplace netloc batas_2_1 1 2 5 1010 728 2520J 730 3200J 820 NJ 820 4150
+preplace netloc batas_3_1 1 2 5 900 0 NJ 0 NJ 0 NJ 0 4320
+preplace netloc batas_4_1 1 2 5 960 718 2540J 720 3210J 830 NJ 830 4190
+preplace netloc batas_5_1 1 2 5 980 1640 2580J 1330 3140J 1350 3650J 1450 4220
+preplace netloc batas_6_1 1 2 5 990 1650 2590J 1340 3130J 1360 3590J 1420 4190
+preplace netloc bram_input_interface_0_en0_rd 1 5 1 3720 430n
+preplace netloc bram_input_interface_0_en0_wr 1 5 1 3700 410n
+preplace netloc bram_input_interface_0_en1_rd 1 5 1 3780 470n
+preplace netloc bram_input_interface_0_en1_wr 1 5 1 3750 450n
+preplace netloc bram_input_interface_0_en2_rd 1 5 1 3590 510n
+preplace netloc bram_input_interface_0_en2_wr 1 5 1 3800 490n
+preplace netloc bram_input_interface_0_en3_rd 1 5 1 3820 550n
+preplace netloc bram_input_interface_0_en3_wr 1 5 1 3810 530n
+preplace netloc bram_interface_0_rd_addr 1 5 1 3610 330n
+preplace netloc bram_interface_0_wr_addr 1 5 1 3600 290n
+preplace netloc debit_out_1 1 2 5 910 330 NJ 330 NJ 330 3580J 40 4250
+preplace netloc en_PG_1 1 1 4 390 1370 800J 1680 2630J 1370 3060
+preplace netloc en_QA_1 1 1 4 400 1390 790J 1700 2640J 1390 3050
+preplace netloc intelight_mem_v2_0_alpha 1 1 6 430 1420 780J 1730 2650J 1420 3140J 1430 NJ 1430 4270
+preplace netloc intelight_mem_v2_0_delta_t 1 2 5 1020 698 2530J 770 NJ 770 3710J 50 4210
+preplace netloc intelight_mem_v2_0_gamma 1 1 6 440 1430 770J 1740 2660J 1430 3120J 1460 NJ 1460 4310
+preplace netloc intelight_mem_v2_0_max_episode 1 3 4 2700 1380 NJ 1380 3820J 1370 4170
+preplace netloc intelight_mem_v2_0_max_step 1 3 4 2690 800 NJ 800 3770J 90 4200
+preplace netloc intelight_mem_v2_0_seed 1 3 4 2710 1410 NJ 1410 NJ 1410 4230
+preplace netloc intelight_mem_v2_0_start 1 3 4 2720 840 NJ 840 NJ 840 4330
+preplace netloc q_new_1 1 2 4 830J 708 2560J 710 3230J 760 3790
+preplace netloc q_next_0_1 1 1 1 370 1470n
+preplace netloc q_next_1_1 1 1 1 350 1490n
+preplace netloc q_next_2_1 1 1 1 340 1510n
 preplace netloc q_next_3_1 1 1 1 320 1530n
-preplace netloc reward_0_1 1 2 5 850 710 NJ 710 1690J 810 NJ 810 2510
-preplace netloc reward_1_1 1 2 5 730 1960 NJ 1960 NJ 1960 NJ 1960 2570
-preplace netloc reward_2_1 1 2 5 860 730 1190J 820 NJ 820 NJ 820 2500
-preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 5 1 2050 260n
-preplace netloc state_sim_1 1 2 5 860 1400 NJ 1400 1620J 1470 NJ 1470 2650
-preplace netloc wea_0_1 1 5 1 2020 350n
-preplace netloc wea_1_1 1 5 1 2030 370n
-preplace netloc wea_2_1 1 5 1 2040 390n
-preplace netloc wea_3_1 1 5 1 2010 270n
-preplace netloc intelight_mem_v2_0_seed_EG0 1 2 5 850 1420 NJ 1420 1600J 1460 NJ 1460 2550
-preplace netloc intelight_mem_v2_0_seed_EG1 1 2 5 870 1320 NJ 1320 NJ 1320 2050J 1350 2450
-preplace netloc PS_M06_AXI 1 5 1 2100 200n
-preplace netloc PS_M07_AXI 1 5 1 2070 220n
-preplace netloc S_AXI_0_1 1 5 1 2150 120n
-preplace netloc S_AXI_1_1 1 5 1 2140 140n
-preplace netloc S_AXI_2_1 1 5 1 2130 160n
-preplace netloc S_AXI_3_1 1 5 1 2120 180n
+preplace netloc reward_0_1 1 2 5 940 1750 2670J 1440 NJ 1440 NJ 1440 4200
+preplace netloc reward_1_1 1 2 5 970 668 2560J 670 3220J 850 NJ 850 4180
+preplace netloc reward_2_1 1 2 5 1000 738 2510J 750 NJ 750 3610J 620 4260
+preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 5 1 3690 260n
+preplace netloc state_sim_1 1 2 5 1000 1660 2610J 1350 3120J 1370 3580J 1380 4280
+preplace netloc wea_0_1 1 5 1 3640 350n
+preplace netloc wea_1_1 1 5 1 3670 370n
+preplace netloc wea_2_1 1 5 1 3680 390n
+preplace netloc wea_3_1 1 5 1 3630 270n
+preplace netloc intelight_mem_v2_0_seed_EG0 1 2 5 1010 1670 2620J 1360 3110J 1400 NJ 1400 4210
+preplace netloc intelight_mem_v2_0_seed_EG1 1 2 5 1020 1710 2490J 1400 3100J 1390 NJ 1390 4160
+preplace netloc PS_M06_AXI 1 5 1 3760 200n
+preplace netloc PS_M07_AXI 1 5 1 3730 220n
+preplace netloc S_AXI_0_1 1 5 1 3830 120n
+preplace netloc S_AXI_1_1 1 5 1 3810 140n
+preplace netloc S_AXI_2_1 1 5 1 3800 160n
+preplace netloc S_AXI_3_1 1 5 1 3790 180n
 preplace netloc processing_system7_0_DDR 1 5 2 NJ 60 NJ
-preplace netloc processing_system7_0_FIXED_IO 1 5 2 NJ 80 2650J
-levelinfo -pg 1 0 200 570 1010 1390 1840 2310 2700
-pagesize -pg 1 -db -bbox -sgen 0 0 2830 1980
+preplace netloc processing_system7_0_FIXED_IO 1 5 2 NJ 80 4330J
+preplace netloc EV|EG_0_debit_r0 1 1 1 1510 1208n
+preplace netloc EV|EG_0_debit_r1 1 1 1 1540 1228n
+preplace netloc EV|EG_0_debit_r2 1 1 1 1490 1248n
+preplace netloc EV|EG_0_debit_r3 1 1 1 1520 1268n
+preplace netloc EV|EG_0_init_r0 1 1 1 1550 1188n
+preplace netloc EV|EG_0_init_r1 1 1 1 1500 1208n
+preplace netloc EV|EG_0_init_r2 1 1 1 1530 1228n
+preplace netloc EV|EG_0_init_r3 1 1 1 1480 1248n
+preplace netloc EV|PG_0_act 1 0 3 NJ 828 NJ 828 2060
+preplace netloc EV|RD_0_reward 1 3 1 2340 1058n
+preplace netloc EV|SD_0_sig_goal 1 2 2 2040 1188 NJ
+preplace netloc EV|act_0_1 1 0 2 1180J 1088 1570
+preplace netloc EV|batas_0_0_1 1 0 2 NJ 868 1560
+preplace netloc EV|batas_1_0_1 1 0 2 1200J 1388 N
+preplace netloc EV|batas_2_0_1 1 0 2 1170J 1408 N
+preplace netloc EV|batas_3_0_1 1 0 2 NJ 1428 N
+preplace netloc EV|batas_4_0_1 1 0 2 NJ 1448 N
+preplace netloc EV|batas_5_0_1 1 0 2 NJ 1468 N
+preplace netloc EV|batas_6_0_1 1 0 2 NJ 1488 N
+preplace netloc EV|clk_1 1 0 3 1220 818 1630 958 2040J
+preplace netloc EV|debit_out_0_1 1 0 2 NJ 1058 1580
+preplace netloc EV|delta_t_0_1 1 0 2 NJ 848 1610
+preplace netloc EV|en_1 1 0 2 NJ 1018 1620
+preplace netloc EV|en_2 1 0 3 NJ 1038 1550J 988 N
+preplace netloc EV|finish_0_1 1 0 2 NJ 1078 1600
+preplace netloc EV|next_state_1 1 2 2 2060 1148 NJ
+preplace netloc EV|reward_0_0_1 1 0 3 NJ 928 NJ 928 2050
+preplace netloc EV|reward_1_0_1 1 0 3 NJ 948 NJ 948 2030
+preplace netloc EV|reward_2_0_1 1 0 3 NJ 978 NJ 978 2020
+preplace netloc EV|rst_1 1 0 3 1190 1008 1640 968 NJ
+preplace netloc EV|seed1_0_1 1 0 1 1220 1268n
+preplace netloc EV|seed_0_1 1 0 1 1210 1248n
+preplace netloc EV|state_sim_0_1 1 0 2 NJ 1508 1590
+levelinfo -pg 1 -10 200 650 1250 2880 3438 3998 4350
+levelinfo -hier EV * 1350 1830 2200 *
+pagesize -pg 1 -db -bbox -sgen -10 -10 4490 2280
+pagesize -hier EV -db -bbox -sgen 1140 788 2370 1558
 "
 }
 {

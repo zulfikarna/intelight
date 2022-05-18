@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-//Date        : Wed May 18 19:02:35 2022
+//Date        : Thu May 19 00:55:56 2022
 //Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 //Command     : generate_target system.bd
 //Design      : system
@@ -5787,6 +5787,7 @@ module system
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
+    act_adapt,
     finish,
     finish_adapt,
     read_sig,
@@ -5812,6 +5813,7 @@ module system
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_CLK" *) inout FIXED_IO_ps_clk;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_PORB" *) inout FIXED_IO_ps_porb;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_SRSTB" *) inout FIXED_IO_ps_srstb;
+  output [1:0]act_adapt;
   output finish;
   output finish_adapt;
   output read_sig;
@@ -6064,6 +6066,7 @@ module system
   wire [3:0]wea_2_1;
   wire [3:0]wea_3_1;
 
+  assign act_adapt[1:0] = AGENT_act;
   assign finish = CU_0_finish1;
   assign finish_adapt = CU_0_finish_adapt;
   assign read_sig = adapt_mem_0_read_sig;

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed May 18 19:02:38 2022" VIVADOVERSION="2021.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May 19 00:55:59 2022" VIVADOVERSION="2021.1">
 
   <SYSTEMINFO ARCH="zynq" DEVICE="7z020" NAME="system" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -129,6 +129,11 @@
         <CONNECTION INSTANCE="PS_processing_system7_0" PORT="PS_PORB"/>
       </CONNECTIONS>
     </PORT>
+    <PORT DIR="O" LEFT="1" NAME="act_adapt" RIGHT="0" SIGIS="undef" SIGNAME="AGENT_PG_0_act">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="AGENT_PG_0" PORT="act"/>
+      </CONNECTIONS>
+    </PORT>
   </EXTERNALPORTS>
 
   <EXTERNALINTERFACES>
@@ -236,6 +241,7 @@
             <CONNECTION INSTANCE="EV_RD_0" PORT="act"/>
             <CONNECTION INSTANCE="bram_output_interface_0" PORT="act"/>
             <CONNECTION INSTANCE="bram_input_interface_0" PORT="act"/>
+            <CONNECTION INSTANCE="External_Ports" PORT="act_adapt"/>
             <CONNECTION INSTANCE="adapt_mem_0" PORT="act_adapt"/>
             <CONNECTION INSTANCE="AGENT_QA_0" PORT="act"/>
           </CONNECTIONS>
@@ -3587,8 +3593,8 @@
             <CONNECTION INSTANCE="bram_output_interface_0" PORT="clk"/>
             <CONNECTION INSTANCE="bram_input_interface_0" PORT="clk"/>
             <CONNECTION INSTANCE="CU_0" PORT="clk"/>
-            <CONNECTION INSTANCE="adapt_mem_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="intelight_mem_v2_0" PORT="s00_axi_aclk"/>
+            <CONNECTION INSTANCE="adapt_mem_0" PORT="s00_axi_aclk"/>
             <CONNECTION INSTANCE="PS_ps7_0_axi_periph" PORT="S00_ACLK"/>
             <CONNECTION INSTANCE="PS_ps7_0_axi_periph" PORT="M00_ACLK"/>
             <CONNECTION INSTANCE="PS_ps7_0_axi_periph" PORT="ACLK"/>
@@ -5790,8 +5796,8 @@
             <CONNECTION INSTANCE="RAM_Block_RAM_0_axi_bram_ctrl_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="RAM_Block_RAM_1_axi_bram_ctrl_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="RAM_Block_RAM_2_axi_bram_ctrl_0" PORT="s_axi_aresetn"/>
-            <CONNECTION INSTANCE="adapt_mem_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="intelight_mem_v2_0" PORT="s00_axi_aresetn"/>
+            <CONNECTION INSTANCE="adapt_mem_0" PORT="s00_axi_aresetn"/>
             <CONNECTION INSTANCE="PS_ps7_0_axi_periph" PORT="S00_ARESETN"/>
             <CONNECTION INSTANCE="PS_ps7_0_axi_periph" PORT="M00_ARESETN"/>
             <CONNECTION INSTANCE="PS_ps7_0_axi_periph" PORT="ARESETN"/>
@@ -10444,7 +10450,7 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
-    <MODULE COREREVISION="4" FULLNAME="/adapt_mem_0" HWVERSION="1.0" INSTANCE="adapt_mem_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="adapt_mem" VLNV="xilinx.com:user:adapt_mem:1.0">
+    <MODULE COREREVISION="5" FULLNAME="/adapt_mem_0" HWVERSION="1.0" INSTANCE="adapt_mem_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="adapt_mem" VLNV="xilinx.com:user:adapt_mem:1.0">
       <DOCUMENTS/>
       <ADDRESSBLOCKS>
         <ADDRESSBLOCK ACCESS="" INTERFACE="S00_AXI" NAME="S00_AXI_reg" RANGE="4096" USAGE="register"/>

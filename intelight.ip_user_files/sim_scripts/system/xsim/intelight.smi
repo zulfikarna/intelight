@@ -10,9 +10,9 @@
 
 <MemInfoSimulation Version="1" Minor="1">
   <Processor Endianness="Little" InstPath="system/PS/processing_system7_0">
-    <AddressSpace Name="system_PS_processing_system7_0.system_RAM_Block_RAM_0_PL_RAM_0_64K_3_ADDR_SPACE" ECC="NONE" Begin="1073741824" End="1073807359">
+    <AddressSpace Name="system_PS_processing_system7_0.system_RAM_Block_RAM_0_PL_RAM_0_64K_5_ADDR_SPACE" ECC="NONE" Begin="1073741824" End="1073807359">
       <BusBlock>
-        <BitLane MemType="RAM_Block_RAM_0_PL_RAM_0_64K_3_MEM_DEVICE" MemType_DataWidth="32" MemType_AddressDepth="1073807359">
+        <BitLane MemType="RAM_Block_RAM_0_PL_RAM_0_64K_5_MEM_DEVICE" MemType_DataWidth="32" MemType_AddressDepth="1073807359">
           <DataWidth MSB="31" LSB="0"/>
           <AddressRange Begin="0" End="16383"/>
           <Parity ON="false" NumBits="0"/>
@@ -20,9 +20,9 @@
         </BitLane>
       </BusBlock>
     </AddressSpace>
-    <AddressSpace Name="system_PS_processing_system7_0.system_RAM_Block_RAM_1_PL_RAM_1_64K_3_ADDR_SPACE" ECC="NONE" Begin="1107296256" End="1107361791">
+    <AddressSpace Name="system_PS_processing_system7_0.system_RAM_Block_RAM_1_PL_RAM_1_64K_5_ADDR_SPACE" ECC="NONE" Begin="1107296256" End="1107361791">
       <BusBlock>
-        <BitLane MemType="RAM_Block_RAM_1_PL_RAM_1_64K_3_MEM_DEVICE" MemType_DataWidth="32" MemType_AddressDepth="1107361791">
+        <BitLane MemType="RAM_Block_RAM_1_PL_RAM_1_64K_5_MEM_DEVICE" MemType_DataWidth="32" MemType_AddressDepth="1107361791">
           <DataWidth MSB="31" LSB="0"/>
           <AddressRange Begin="0" End="16383"/>
           <Parity ON="false" NumBits="0"/>
@@ -30,9 +30,9 @@
         </BitLane>
       </BusBlock>
     </AddressSpace>
-    <AddressSpace Name="system_PS_processing_system7_0.system_RAM_Block_RAM_2_PL_RAM_2_64K_3_ADDR_SPACE" ECC="NONE" Begin="1140850688" End="1140916223">
+    <AddressSpace Name="system_PS_processing_system7_0.system_RAM_Block_RAM_2_PL_RAM_2_64K_5_ADDR_SPACE" ECC="NONE" Begin="1140850688" End="1140916223">
       <BusBlock>
-        <BitLane MemType="RAM_Block_RAM_2_PL_RAM_2_64K_3_MEM_DEVICE" MemType_DataWidth="32" MemType_AddressDepth="1140916223">
+        <BitLane MemType="RAM_Block_RAM_2_PL_RAM_2_64K_5_MEM_DEVICE" MemType_DataWidth="32" MemType_AddressDepth="1140916223">
           <DataWidth MSB="31" LSB="0"/>
           <AddressRange Begin="0" End="16383"/>
           <Parity ON="false" NumBits="0"/>
@@ -40,9 +40,9 @@
         </BitLane>
       </BusBlock>
     </AddressSpace>
-    <AddressSpace Name="system_PS_processing_system7_0.system_RAM_Block_RAM_3_PL_RAM_3_64K_3_ADDR_SPACE" ECC="NONE" Begin="1174405120" End="1174470655">
+    <AddressSpace Name="system_PS_processing_system7_0.system_RAM_Block_RAM_3_PL_RAM_3_64K_5_ADDR_SPACE" ECC="NONE" Begin="1174405120" End="1174470655">
       <BusBlock>
-        <BitLane MemType="RAM_Block_RAM_3_PL_RAM_3_64K_3_MEM_DEVICE" MemType_DataWidth="32" MemType_AddressDepth="1174470655">
+        <BitLane MemType="RAM_Block_RAM_3_PL_RAM_3_64K_5_MEM_DEVICE" MemType_DataWidth="32" MemType_AddressDepth="1174470655">
           <DataWidth MSB="31" LSB="0"/>
           <AddressRange Begin="0" End="16383"/>
           <Parity ON="false" NumBits="0"/>

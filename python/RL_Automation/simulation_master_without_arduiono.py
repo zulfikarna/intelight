@@ -1,5 +1,3 @@
-
-
 import csv
 import serial
 import random
@@ -12,12 +10,10 @@ import string
 import json
 import Traffic_Q_Learning3
 
-
-
-sys.path.insert(0, 'D:\Documents\kuliah\SMT_8\TA 2\Implementasi Produk\References\Traffic-Intersection-Simulation-with-Stats-main\Traffic-Intersection-Simulation-with-Stats-main')
-# import Traffic_Q_Learning3_
-# from Traffic_Q_Learning3_ import choose_action,state_action_pair
-from Traffic_Q_Learning3 import choose_action,state_action_pair
+# sys.path.insert(0, 'D:\Documents\kuliah\SMT_8\TA 2\Implementasi Produk\References\Traffic-Intersection-Simulation-with-Stats-main\Traffic-Intersection-Simulation-with-Stats-main')
+# # import Traffic_Q_Learning3_
+# # from Traffic_Q_Learning3_ import choose_action,state_action_pair
+# from Traffic_Q_Learning3 import choose_action,state_action_pair
 # serialcomm = serial.Serial('COM5', 9600)            #arduino
 
 # serialcomm.timeout = 1                              #arduino
@@ -369,17 +365,17 @@ def initialize():
     repeat()
 
 # Print the signal timers on cmd
-def printStatus():
-    for i in range(0, 4):
-        if(signals[i] != None):
-            if(i==currentGreen):
-                if(currentYellow==0):
-                    print(" GREEN TS",i+1,"-> r:",signals[i].red," y:",signals[i].yellow," g:",signals[i].green)
-                else:
-                    print("YELLOW TS",i+1,"-> r:",signals[i].red," y:",signals[i].yellow," g:",signals[i].green)
-            else:
-                print("   RED TS",i+1,"-> r:",signals[i].red," y:",signals[i].yellow," g:",signals[i].green)
-    print()  
+# def printStatus():
+#     for i in range(0, 4):
+#         if(signals[i] != None):
+#             if(i==currentGreen):
+#                 if(currentYellow==0):
+#                     print(" GREEN TS",i+1,"-> r:",signals[i].red," y:",signals[i].yellow," g:",signals[i].green)
+#                 else:
+#                     print("YELLOW TS",i+1,"-> r:",signals[i].red," y:",signals[i].yellow," g:",signals[i].green)
+#             else:
+#                 print("   RED TS",i+1,"-> r:",signals[i].red," y:",signals[i].yellow," g:",signals[i].green)
+#     print()  
 
 def repeat():
     global currentGreen, currentYellow, nextGreen
@@ -417,7 +413,7 @@ def repeat():
 
     
 
-    state_action_pair()
+    # state_action_pair()
     print ('state:',get_state(param_right,param_down,param_left,param_up))
     print ('chosen action:',state_action_pair.action_pair[get_state(param_right,param_down,param_left,param_up)])
 

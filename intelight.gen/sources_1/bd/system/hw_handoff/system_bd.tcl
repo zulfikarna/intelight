@@ -1164,6 +1164,7 @@ proc create_root_design { parentCell } {
 
 
   # Create ports
+  set act_adapt [ create_bd_port -dir O -from 1 -to 0 act_adapt ]
   set finish [ create_bd_port -dir O finish ]
   set finish_adapt [ create_bd_port -dir O finish_adapt ]
   set read_sig [ create_bd_port -dir O read_sig ]
@@ -1231,7 +1232,7 @@ proc create_root_design { parentCell } {
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins PS/FIXED_IO]
 
   # Create port connections
-  connect_bd_net -net AGENT_act [get_bd_pins AGENT/act] [get_bd_pins EV/act] [get_bd_pins adapt_mem_0/act_adapt] [get_bd_pins bram_input_interface_0/act] [get_bd_pins bram_output_interface_0/act]
+  connect_bd_net -net AGENT_act [get_bd_ports act_adapt] [get_bd_pins AGENT/act] [get_bd_pins EV/act] [get_bd_pins adapt_mem_0/act_adapt] [get_bd_pins bram_input_interface_0/act] [get_bd_pins bram_output_interface_0/act]
   connect_bd_net -net AGENT_act_SD [get_bd_pins AGENT/act_SD] [get_bd_pins EV/act_SD]
   connect_bd_net -net CU_0_BRAM_rd [get_bd_pins CU_0/BRAM_rd] [get_bd_pins bram_input_interface_0/en_rd] [get_bd_pins bram_output_interface_0/en_rd]
   connect_bd_net -net CU_0_BRAM_wr [get_bd_pins CU_0/BRAM_wr] [get_bd_pins bram_input_interface_0/en_wr]

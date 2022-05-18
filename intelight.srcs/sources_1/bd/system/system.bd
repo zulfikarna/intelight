@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xC051B6D9193248E4",
+      "boundary_crc": "0x49C308F02A8BF6CE",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../intelight.gen/sources_1/bd/system",
       "name": "system",
@@ -71,8 +71,8 @@
       "bram_output_interface_0": "",
       "bram_input_interface_0": "",
       "CU_0": "",
-      "adapt_mem_0": "",
-      "intelight_mem_v2_0": ""
+      "intelight_mem_v2_0": "",
+      "adapt_mem_0": ""
     },
     "interface_ports": {
       "DDR": {
@@ -160,6 +160,11 @@
       },
       "finish_adapt": {
         "direction": "O"
+      },
+      "act_adapt": {
+        "direction": "O",
+        "left": "1",
+        "right": "0"
       }
     },
     "components": {
@@ -4566,17 +4571,17 @@
           }
         }
       },
-      "adapt_mem_0": {
-        "vlnv": "xilinx.com:user:adapt_mem:1.0",
-        "xci_name": "system_adapt_mem_0_0",
-        "xci_path": "ip\\system_adapt_mem_0_0\\system_adapt_mem_0_0.xci",
-        "inst_hier_path": "adapt_mem_0"
-      },
       "intelight_mem_v2_0": {
         "vlnv": "xilinx.com:user:intelight_mem_v2:1.0",
         "xci_name": "system_intelight_mem_v2_0_1",
         "xci_path": "ip\\system_intelight_mem_v2_0_1\\system_intelight_mem_v2_0_1.xci",
         "inst_hier_path": "intelight_mem_v2_0"
+      },
+      "adapt_mem_0": {
+        "vlnv": "xilinx.com:user:adapt_mem:1.0",
+        "xci_name": "system_adapt_mem_0_0",
+        "xci_path": "ip\\system_adapt_mem_0_0\\system_adapt_mem_0_0.xci",
+        "inst_hier_path": "adapt_mem_0"
       }
     },
     "interface_nets": {
@@ -4636,6 +4641,7 @@
           "EV/act",
           "bram_output_interface_0/act",
           "bram_input_interface_0/act",
+          "act_adapt",
           "adapt_mem_0/act_adapt"
         ]
       },
@@ -4723,8 +4729,8 @@
           "bram_output_interface_0/clk",
           "bram_input_interface_0/clk",
           "CU_0/clk",
-          "adapt_mem_0/s00_axi_aclk",
-          "intelight_mem_v2_0/s00_axi_aclk"
+          "intelight_mem_v2_0/s00_axi_aclk",
+          "adapt_mem_0/s00_axi_aclk"
         ]
       },
       "PS_active_high_rst": {
@@ -4996,8 +5002,8 @@
         "ports": [
           "PS/rst_axi",
           "RAM_Block/rst_axi",
-          "adapt_mem_0/s00_axi_aresetn",
-          "intelight_mem_v2_0/s00_axi_aresetn"
+          "intelight_mem_v2_0/s00_axi_aresetn",
+          "adapt_mem_0/s00_axi_aresetn"
         ]
       },
       "state_sim_1": {
