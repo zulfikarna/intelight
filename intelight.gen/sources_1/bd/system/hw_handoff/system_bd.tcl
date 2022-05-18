@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# CU, bram_input_interface, bram_output_interface, PG, QA, RD, SD
+# CU, bram_input_interface, bram_output_interface, PG, QA, EG, RD, SD
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -334,13 +334,13 @@ proc create_hier_cell_RAM_2 { parentCell nameHier } {
   # Create instance: axi_bram_ctrl_0, and set properties
   set axi_bram_ctrl_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:4.1 axi_bram_ctrl_0 ]
   set_property -dict [ list \
-   CONFIG.ECC_TYPE {0} \
+   CONFIG.ECC_TYPE {Hamming} \
    CONFIG.PROTOCOL {AXI4} \
    CONFIG.SINGLE_PORT_BRAM {1} \
  ] $axi_bram_ctrl_0
 
   # Create interface connections
-  connect_bd_intf_net -intf_net Conn1 [get_bd_intf_pins S_AXI_2] [get_bd_intf_pins axi_bram_ctrl_0/S_AXI]
+  connect_bd_intf_net -intf_net S_AXI_2_1 [get_bd_intf_pins S_AXI_2] [get_bd_intf_pins axi_bram_ctrl_0/S_AXI]
   connect_bd_intf_net -intf_net axi_bram_ctrl_0_BRAM_PORTA [get_bd_intf_pins PL_RAM_2/BRAM_PORTB] [get_bd_intf_pins axi_bram_ctrl_0/BRAM_PORTA]
 
   # Create port connections
@@ -353,8 +353,8 @@ proc create_hier_cell_RAM_2 { parentCell nameHier } {
   connect_bd_net -net ena_2_1 [get_bd_pins en2_wr] [get_bd_pins Action_RAM_2/ena] [get_bd_pins PL_RAM_2/ena]
   connect_bd_net -net enb_2_1 [get_bd_pins en2_rd] [get_bd_pins Action_RAM_2/enb]
   connect_bd_net -net reg_32bit_0_out0 [get_bd_pins addra] [get_bd_pins Action_RAM_2/addra] [get_bd_pins PL_RAM_2/addra]
+  connect_bd_net -net rst_axi_1 [get_bd_pins rst_axi] [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn]
   connect_bd_net -net rsta_0_1 [get_bd_pins rst_bram] [get_bd_pins Action_RAM_2/rsta] [get_bd_pins Action_RAM_2/rstb] [get_bd_pins PL_RAM_2/rsta]
-  connect_bd_net -net s_axi_aresetn_2_1 [get_bd_pins rst_axi] [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn]
 
   # Restore current instance
   current_bd_instance $oldCurInst
@@ -763,6 +763,10 @@ proc create_hier_cell_PS { parentCell nameHier } {
 
   create_bd_intf_pin -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M04_AXI
 
+  create_bd_intf_pin -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M06_AXI
+
+  create_bd_intf_pin -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M07_AXI
+
 
   # Create pins
   create_bd_pin -dir O -type clk FCLK_CLK0
@@ -783,24 +787,88 @@ proc create_hier_cell_PS { parentCell nameHier } {
   # Create instance: processing_system7_0, and set properties
   set processing_system7_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0 ]
   set_property -dict [ list \
+   CONFIG.PCW_ACT_APU_PERIPHERAL_FREQMHZ {666.666687} \
+   CONFIG.PCW_ACT_CAN_PERIPHERAL_FREQMHZ {10.000000} \
+   CONFIG.PCW_ACT_DCI_PERIPHERAL_FREQMHZ {10.158730} \
+   CONFIG.PCW_ACT_ENET0_PERIPHERAL_FREQMHZ {10.000000} \
+   CONFIG.PCW_ACT_ENET1_PERIPHERAL_FREQMHZ {10.000000} \
+   CONFIG.PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ {50.000000} \
+   CONFIG.PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ {10.000000} \
+   CONFIG.PCW_ACT_FPGA2_PERIPHERAL_FREQMHZ {10.000000} \
+   CONFIG.PCW_ACT_FPGA3_PERIPHERAL_FREQMHZ {10.000000} \
+   CONFIG.PCW_ACT_PCAP_PERIPHERAL_FREQMHZ {200.000000} \
+   CONFIG.PCW_ACT_QSPI_PERIPHERAL_FREQMHZ {10.000000} \
+   CONFIG.PCW_ACT_SDIO_PERIPHERAL_FREQMHZ {10.000000} \
+   CONFIG.PCW_ACT_SMC_PERIPHERAL_FREQMHZ {10.000000} \
+   CONFIG.PCW_ACT_SPI_PERIPHERAL_FREQMHZ {10.000000} \
+   CONFIG.PCW_ACT_TPIU_PERIPHERAL_FREQMHZ {200.000000} \
+   CONFIG.PCW_ACT_TTC0_CLK0_PERIPHERAL_FREQMHZ {111.111115} \
+   CONFIG.PCW_ACT_TTC0_CLK1_PERIPHERAL_FREQMHZ {111.111115} \
+   CONFIG.PCW_ACT_TTC0_CLK2_PERIPHERAL_FREQMHZ {111.111115} \
+   CONFIG.PCW_ACT_TTC1_CLK0_PERIPHERAL_FREQMHZ {111.111115} \
+   CONFIG.PCW_ACT_TTC1_CLK1_PERIPHERAL_FREQMHZ {111.111115} \
+   CONFIG.PCW_ACT_TTC1_CLK2_PERIPHERAL_FREQMHZ {111.111115} \
+   CONFIG.PCW_ACT_UART_PERIPHERAL_FREQMHZ {10.000000} \
+   CONFIG.PCW_ACT_WDT_PERIPHERAL_FREQMHZ {111.111115} \
+   CONFIG.PCW_ARMPLL_CTRL_FBDIV {40} \
+   CONFIG.PCW_CAN_PERIPHERAL_DIVISOR0 {1} \
+   CONFIG.PCW_CAN_PERIPHERAL_DIVISOR1 {1} \
+   CONFIG.PCW_CLK0_FREQ {50000000} \
+   CONFIG.PCW_CLK1_FREQ {10000000} \
+   CONFIG.PCW_CLK2_FREQ {10000000} \
+   CONFIG.PCW_CLK3_FREQ {10000000} \
+   CONFIG.PCW_CPU_CPU_PLL_FREQMHZ {1333.333} \
+   CONFIG.PCW_CPU_PERIPHERAL_DIVISOR0 {2} \
+   CONFIG.PCW_DCI_PERIPHERAL_DIVISOR0 {15} \
+   CONFIG.PCW_DCI_PERIPHERAL_DIVISOR1 {7} \
+   CONFIG.PCW_DDRPLL_CTRL_FBDIV {32} \
+   CONFIG.PCW_DDR_DDR_PLL_FREQMHZ {1066.667} \
+   CONFIG.PCW_DDR_PERIPHERAL_DIVISOR0 {2} \
+   CONFIG.PCW_DDR_RAM_HIGHADDR {0x1FFFFFFF} \
+   CONFIG.PCW_ENET0_PERIPHERAL_DIVISOR0 {1} \
+   CONFIG.PCW_ENET0_PERIPHERAL_DIVISOR1 {1} \
+   CONFIG.PCW_ENET1_PERIPHERAL_DIVISOR0 {1} \
+   CONFIG.PCW_ENET1_PERIPHERAL_DIVISOR1 {1} \
+   CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR0 {8} \
+   CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR1 {4} \
+   CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR0 {1} \
+   CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR1 {1} \
+   CONFIG.PCW_FCLK2_PERIPHERAL_DIVISOR0 {1} \
+   CONFIG.PCW_FCLK2_PERIPHERAL_DIVISOR1 {1} \
+   CONFIG.PCW_FCLK3_PERIPHERAL_DIVISOR0 {1} \
+   CONFIG.PCW_FCLK3_PERIPHERAL_DIVISOR1 {1} \
+   CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ {50} \
    CONFIG.PCW_FPGA_FCLK0_ENABLE {1} \
    CONFIG.PCW_FPGA_FCLK1_ENABLE {0} \
    CONFIG.PCW_FPGA_FCLK2_ENABLE {0} \
    CONFIG.PCW_FPGA_FCLK3_ENABLE {0} \
+   CONFIG.PCW_I2C_PERIPHERAL_FREQMHZ {25} \
+   CONFIG.PCW_IOPLL_CTRL_FBDIV {48} \
+   CONFIG.PCW_IO_IO_PLL_FREQMHZ {1600.000} \
    CONFIG.PCW_IRQ_F2P_INTR {1} \
+   CONFIG.PCW_PCAP_PERIPHERAL_DIVISOR0 {8} \
+   CONFIG.PCW_QSPI_PERIPHERAL_DIVISOR0 {1} \
+   CONFIG.PCW_SDIO_PERIPHERAL_DIVISOR0 {1} \
+   CONFIG.PCW_SMC_PERIPHERAL_DIVISOR0 {1} \
+   CONFIG.PCW_SPI_PERIPHERAL_DIVISOR0 {1} \
+   CONFIG.PCW_TPIU_PERIPHERAL_DIVISOR0 {1} \
+   CONFIG.PCW_UART_PERIPHERAL_DIVISOR0 {1} \
+   CONFIG.PCW_UIPARAM_ACT_DDR_FREQ_MHZ {533.333374} \
    CONFIG.PCW_USE_FABRIC_INTERRUPT {1} \
  ] $processing_system7_0
 
   # Create instance: ps7_0_axi_periph, and set properties
   set ps7_0_axi_periph [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 ps7_0_axi_periph ]
   set_property -dict [ list \
-   CONFIG.NUM_MI {6} \
+   CONFIG.NUM_MI {8} \
  ] $ps7_0_axi_periph
 
   # Create instance: rst_ps7_0_50M, and set properties
   set rst_ps7_0_50M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_ps7_0_50M ]
 
   # Create interface connections
+  connect_bd_intf_net -intf_net Conn1 [get_bd_intf_pins M06_AXI] [get_bd_intf_pins ps7_0_axi_periph/M06_AXI]
+  connect_bd_intf_net -intf_net Conn2 [get_bd_intf_pins M07_AXI] [get_bd_intf_pins ps7_0_axi_periph/M07_AXI]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_pins DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_pins FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins ps7_0_axi_periph/S00_AXI]
@@ -815,9 +883,9 @@ proc create_hier_cell_PS { parentCell nameHier } {
   connect_bd_net -net CU_0_finish [get_bd_pins finish] [get_bd_pins axi_intc_0/intr]
   connect_bd_net -net PS_active_high_rst [get_bd_pins rtl_rst] [get_bd_pins rst_ps7_0_50M/peripheral_reset]
   connect_bd_net -net axi_intc_0_irq [get_bd_pins axi_intc_0/irq] [get_bd_pins processing_system7_0/IRQ_F2P]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins FCLK_CLK0] [get_bd_pins axi_intc_0/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/M03_ACLK] [get_bd_pins ps7_0_axi_periph/M04_ACLK] [get_bd_pins ps7_0_axi_periph/M05_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins rst_ps7_0_50M/slowest_sync_clk]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins FCLK_CLK0] [get_bd_pins axi_intc_0/s_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/M01_ACLK] [get_bd_pins ps7_0_axi_periph/M02_ACLK] [get_bd_pins ps7_0_axi_periph/M03_ACLK] [get_bd_pins ps7_0_axi_periph/M04_ACLK] [get_bd_pins ps7_0_axi_periph/M05_ACLK] [get_bd_pins ps7_0_axi_periph/M06_ACLK] [get_bd_pins ps7_0_axi_periph/M07_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins rst_ps7_0_50M/slowest_sync_clk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_50M/ext_reset_in]
-  connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins rst_axi] [get_bd_pins axi_intc_0/s_axi_aresetn] [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/M03_ARESETN] [get_bd_pins ps7_0_axi_periph/M04_ARESETN] [get_bd_pins ps7_0_axi_periph/M05_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_ps7_0_50M/peripheral_aresetn]
+  connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins rst_axi] [get_bd_pins axi_intc_0/s_axi_aresetn] [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/M01_ARESETN] [get_bd_pins ps7_0_axi_periph/M02_ARESETN] [get_bd_pins ps7_0_axi_periph/M03_ARESETN] [get_bd_pins ps7_0_axi_periph/M04_ARESETN] [get_bd_pins ps7_0_axi_periph/M05_ARESETN] [get_bd_pins ps7_0_axi_periph/M06_ARESETN] [get_bd_pins ps7_0_axi_periph/M07_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_ps7_0_50M/peripheral_aresetn]
 
   # Restore current instance
   current_bd_instance $oldCurInst
@@ -861,42 +929,42 @@ proc create_hier_cell_EV { parentCell nameHier } {
 
   # Create pins
   create_bd_pin -dir I -from 1 -to 0 act
+  create_bd_pin -dir I -from 1 -to 0 act_SD
   create_bd_pin -dir I -from 31 -to 0 batas_0
   create_bd_pin -dir I -from 31 -to 0 batas_1
   create_bd_pin -dir I -from 31 -to 0 batas_2
+  create_bd_pin -dir I -from 31 -to 0 batas_3
+  create_bd_pin -dir I -from 31 -to 0 batas_4
+  create_bd_pin -dir I -from 31 -to 0 batas_5
+  create_bd_pin -dir I -from 31 -to 0 batas_6
   create_bd_pin -dir I -type clk clk
   create_bd_pin -dir O -from 31 -to 0 curr_reward
   create_bd_pin -dir I -from 31 -to 0 debit_out
-  create_bd_pin -dir I -from 31 -to 0 debit_r0
-  create_bd_pin -dir I -from 31 -to 0 debit_r1
-  create_bd_pin -dir I -from 31 -to 0 debit_r2
-  create_bd_pin -dir I -from 31 -to 0 debit_r3
   create_bd_pin -dir I -from 2 -to 0 delta_t
   create_bd_pin -dir I en_RD
   create_bd_pin -dir I en_SD
+  create_bd_pin -dir I finish
   create_bd_pin -dir O goal_sig
-  create_bd_pin -dir I -from 31 -to 0 init_panjang_r0
-  create_bd_pin -dir I -from 31 -to 0 init_panjang_r1
-  create_bd_pin -dir I -from 31 -to 0 init_panjang_r2
-  create_bd_pin -dir I -from 31 -to 0 init_panjang_r3
-  create_bd_pin -dir O -from 7 -to 0 level_r0_0
-  create_bd_pin -dir O -from 7 -to 0 level_r1_0
-  create_bd_pin -dir O -from 7 -to 0 level_r2_0
-  create_bd_pin -dir O -from 7 -to 0 level_r3_0
-  create_bd_pin -dir O -from 31 -to 0 panjang_r0_0
-  create_bd_pin -dir O -from 31 -to 0 panjang_r1_0
-  create_bd_pin -dir O -from 31 -to 0 panjang_r2_0
-  create_bd_pin -dir O -from 31 -to 0 panjang_r3_0
-  create_bd_pin -dir O -from 31 -to 0 panjang_w0_0
-  create_bd_pin -dir O -from 31 -to 0 panjang_w1_0
-  create_bd_pin -dir O -from 31 -to 0 panjang_w2_0
-  create_bd_pin -dir O -from 31 -to 0 panjang_w3_0
   create_bd_pin -dir I -from 31 -to 0 reward_0
   create_bd_pin -dir I -from 31 -to 0 reward_1
   create_bd_pin -dir I -from 31 -to 0 reward_2
   create_bd_pin -dir I -type rst rst
+  create_bd_pin -dir I -from 31 -to 0 seed_EG0
+  create_bd_pin -dir I -from 31 -to 0 seed_EG1
   create_bd_pin -dir O -from 31 -to 0 state
+  create_bd_pin -dir I -from 31 -to 0 state_sim
 
+  # Create instance: EG_0, and set properties
+  set block_name EG
+  set block_cell_name EG_0
+  if { [catch {set EG_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2095 -severity "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $EG_0 eq "" } {
+     catch {common::send_gid_msg -ssname BD::TCL -id 2096 -severity "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create instance: RD_0, and set properties
   set block_name RD
   set block_cell_name RD_0
@@ -920,42 +988,39 @@ proc create_hier_cell_EV { parentCell nameHier } {
    }
   
   # Create port connections
-  connect_bd_net -net PG_0_act [get_bd_pins act] [get_bd_pins RD_0/act] [get_bd_pins SD_0/act]
+  connect_bd_net -net EG_0_debit_r0 [get_bd_pins EG_0/debit_r0] [get_bd_pins SD_0/debit_r0]
+  connect_bd_net -net EG_0_debit_r1 [get_bd_pins EG_0/debit_r1] [get_bd_pins SD_0/debit_r1]
+  connect_bd_net -net EG_0_debit_r2 [get_bd_pins EG_0/debit_r2] [get_bd_pins SD_0/debit_r2]
+  connect_bd_net -net EG_0_debit_r3 [get_bd_pins EG_0/debit_r3] [get_bd_pins SD_0/debit_r3]
+  connect_bd_net -net EG_0_init_r0 [get_bd_pins EG_0/init_r0] [get_bd_pins SD_0/init_panjang_r0]
+  connect_bd_net -net EG_0_init_r1 [get_bd_pins EG_0/init_r1] [get_bd_pins SD_0/init_panjang_r1]
+  connect_bd_net -net EG_0_init_r2 [get_bd_pins EG_0/init_r2] [get_bd_pins SD_0/init_panjang_r2]
+  connect_bd_net -net EG_0_init_r3 [get_bd_pins EG_0/init_r3] [get_bd_pins SD_0/init_panjang_r3]
+  connect_bd_net -net PG_0_act [get_bd_pins act] [get_bd_pins RD_0/act]
   connect_bd_net -net RD_0_reward [get_bd_pins curr_reward] [get_bd_pins RD_0/reward]
-  connect_bd_net -net SD_0_level_r0 [get_bd_pins level_r0_0] [get_bd_pins SD_0/level_r0]
-  connect_bd_net -net SD_0_level_r1 [get_bd_pins level_r1_0] [get_bd_pins SD_0/level_r1]
-  connect_bd_net -net SD_0_level_r2 [get_bd_pins level_r2_0] [get_bd_pins SD_0/level_r2]
-  connect_bd_net -net SD_0_level_r3 [get_bd_pins level_r3_0] [get_bd_pins SD_0/level_r3]
-  connect_bd_net -net SD_0_panjang_r0 [get_bd_pins panjang_r0_0] [get_bd_pins SD_0/panjang_r0]
-  connect_bd_net -net SD_0_panjang_r1 [get_bd_pins panjang_r1_0] [get_bd_pins SD_0/panjang_r1]
-  connect_bd_net -net SD_0_panjang_r2 [get_bd_pins panjang_r2_0] [get_bd_pins SD_0/panjang_r2]
-  connect_bd_net -net SD_0_panjang_r3 [get_bd_pins panjang_r3_0] [get_bd_pins SD_0/panjang_r3]
-  connect_bd_net -net SD_0_panjang_w0 [get_bd_pins panjang_w0_0] [get_bd_pins SD_0/panjang_r0_temp0]
-  connect_bd_net -net SD_0_panjang_w1 [get_bd_pins panjang_w1_0] [get_bd_pins SD_0/panjang_r1_temp0]
-  connect_bd_net -net SD_0_panjang_w2 [get_bd_pins panjang_w2_0] [get_bd_pins SD_0/panjang_r2_temp0]
-  connect_bd_net -net SD_0_panjang_w3 [get_bd_pins panjang_w3_0] [get_bd_pins SD_0/panjang_r3_temp0]
   connect_bd_net -net SD_0_sig_goal [get_bd_pins goal_sig] [get_bd_pins SD_0/goal_sig]
+  connect_bd_net -net act_0_1 [get_bd_pins act_SD] [get_bd_pins SD_0/act]
   connect_bd_net -net batas_0_0_1 [get_bd_pins batas_0] [get_bd_pins SD_0/batas_0]
   connect_bd_net -net batas_1_0_1 [get_bd_pins batas_1] [get_bd_pins SD_0/batas_1]
   connect_bd_net -net batas_2_0_1 [get_bd_pins batas_2] [get_bd_pins SD_0/batas_2]
-  connect_bd_net -net clk_1 [get_bd_pins clk] [get_bd_pins RD_0/clk] [get_bd_pins SD_0/clk]
+  connect_bd_net -net batas_3_0_1 [get_bd_pins batas_3] [get_bd_pins SD_0/batas_3]
+  connect_bd_net -net batas_4_0_1 [get_bd_pins batas_4] [get_bd_pins SD_0/batas_4]
+  connect_bd_net -net batas_5_0_1 [get_bd_pins batas_5] [get_bd_pins SD_0/batas_5]
+  connect_bd_net -net batas_6_0_1 [get_bd_pins batas_6] [get_bd_pins SD_0/batas_6]
+  connect_bd_net -net clk_1 [get_bd_pins clk] [get_bd_pins EG_0/clk] [get_bd_pins RD_0/clk] [get_bd_pins SD_0/clk]
   connect_bd_net -net debit_out_0_1 [get_bd_pins debit_out] [get_bd_pins SD_0/debit_out]
-  connect_bd_net -net debit_r0_0_1 [get_bd_pins debit_r0] [get_bd_pins SD_0/debit_r0]
-  connect_bd_net -net debit_r1_0_1 [get_bd_pins debit_r1] [get_bd_pins SD_0/debit_r1]
-  connect_bd_net -net debit_r2_0_1 [get_bd_pins debit_r2] [get_bd_pins SD_0/debit_r2]
-  connect_bd_net -net debit_r3_0_1 [get_bd_pins debit_r3] [get_bd_pins SD_0/debit_r3]
   connect_bd_net -net delta_t_0_1 [get_bd_pins delta_t] [get_bd_pins SD_0/delta_t]
   connect_bd_net -net en_1 [get_bd_pins en_SD] [get_bd_pins SD_0/en]
   connect_bd_net -net en_2 [get_bd_pins en_RD] [get_bd_pins RD_0/en]
-  connect_bd_net -net init_panjang_r0_0_1 [get_bd_pins init_panjang_r0] [get_bd_pins SD_0/init_panjang_r0]
-  connect_bd_net -net init_panjang_r1_0_1 [get_bd_pins init_panjang_r1] [get_bd_pins SD_0/init_panjang_r1]
-  connect_bd_net -net init_panjang_r2_0_1 [get_bd_pins init_panjang_r2] [get_bd_pins SD_0/init_panjang_r2]
-  connect_bd_net -net init_panjang_r3_0_1 [get_bd_pins init_panjang_r3] [get_bd_pins SD_0/init_panjang_r3]
-  connect_bd_net -net next_state_1 [get_bd_pins state] [get_bd_pins RD_0/state] [get_bd_pins SD_0/next_state]
+  connect_bd_net -net finish_0_1 [get_bd_pins finish] [get_bd_pins SD_0/finish]
+  connect_bd_net -net next_state_1 [get_bd_pins state] [get_bd_pins RD_0/state] [get_bd_pins SD_0/state]
   connect_bd_net -net reward_0_0_1 [get_bd_pins reward_0] [get_bd_pins RD_0/reward_0]
   connect_bd_net -net reward_1_0_1 [get_bd_pins reward_1] [get_bd_pins RD_0/reward_1]
   connect_bd_net -net reward_2_0_1 [get_bd_pins reward_2] [get_bd_pins RD_0/reward_2]
-  connect_bd_net -net rst_1 [get_bd_pins rst] [get_bd_pins RD_0/rst] [get_bd_pins SD_0/rst]
+  connect_bd_net -net rst_1 [get_bd_pins rst] [get_bd_pins EG_0/rst] [get_bd_pins RD_0/rst] [get_bd_pins SD_0/rst]
+  connect_bd_net -net seed1_0_1 [get_bd_pins seed_EG1] [get_bd_pins EG_0/seed1]
+  connect_bd_net -net seed_0_1 [get_bd_pins seed_EG0] [get_bd_pins EG_0/seed0]
+  connect_bd_net -net state_sim_0_1 [get_bd_pins state_sim] [get_bd_pins SD_0/state_sim]
 
   # Restore current instance
   current_bd_instance $oldCurInst
@@ -999,7 +1064,7 @@ proc create_hier_cell_AGENT { parentCell nameHier } {
 
   # Create pins
   create_bd_pin -dir O -from 1 -to 0 act
-  create_bd_pin -dir O -from 1 -to 0 act_greed_0
+  create_bd_pin -dir O -from 1 -to 0 act_SD
   create_bd_pin -dir I -from 1 -to 0 act_rand
   create_bd_pin -dir I -from 2 -to 0 alpha
   create_bd_pin -dir I -type clk clk
@@ -1043,7 +1108,7 @@ proc create_hier_cell_AGENT { parentCell nameHier } {
   connect_bd_net -net Action_RAM_q_next_2 [get_bd_pins q_next_2] [get_bd_pins PG_0/qA2] [get_bd_pins QA_0/next_qA2]
   connect_bd_net -net Action_RAM_q_next_3 [get_bd_pins q_next_3] [get_bd_pins PG_0/qA3] [get_bd_pins QA_0/next_qA3]
   connect_bd_net -net PG_0_act [get_bd_pins act] [get_bd_pins PG_0/act] [get_bd_pins QA_0/act]
-  connect_bd_net -net PG_0_act_greed [get_bd_pins act_greed_0] [get_bd_pins PG_0/act_greed]
+  connect_bd_net -net PG_0_act_SD [get_bd_pins act_SD] [get_bd_pins PG_0/act_SD]
   connect_bd_net -net QA_0_new_qA [get_bd_pins new_qA] [get_bd_pins QA_0/new_qA]
   connect_bd_net -net act_random_0_1 [get_bd_pins act_rand] [get_bd_pins PG_0/act_random]
   connect_bd_net -net alpha_1 [get_bd_pins alpha] [get_bd_pins QA_0/alpha]
@@ -1100,8 +1165,9 @@ proc create_root_design { parentCell } {
 
   # Create ports
   set finish [ create_bd_port -dir O finish ]
-  set mem_rst [ create_bd_port -dir O -from 0 -to 0 -type rst mem_rst ]
-  set rtl_rst [ create_bd_port -dir O -from 0 -to 0 -type rst rtl_rst ]
+  set finish_adapt [ create_bd_port -dir O finish_adapt ]
+  set read_sig [ create_bd_port -dir O read_sig ]
+  set start [ create_bd_port -dir O start ]
 
   # Create instance: AGENT
   create_hier_cell_AGENT [current_bd_instance .] AGENT
@@ -1126,6 +1192,9 @@ proc create_root_design { parentCell } {
   # Create instance: RAM_Block
   create_hier_cell_RAM_Block [current_bd_instance .] RAM_Block
 
+  # Create instance: adapt_mem_0, and set properties
+  set adapt_mem_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:adapt_mem:1.0 adapt_mem_0 ]
+
   # Create instance: bram_input_interface_0, and set properties
   set block_name bram_input_interface
   set block_cell_name bram_input_interface_0
@@ -1148,11 +1217,12 @@ proc create_root_design { parentCell } {
      return 1
    }
   
-  # Create instance: intelight_mem_0, and set properties
-  set intelight_mem_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:intelight_mem:1.0 intelight_mem_0 ]
+  # Create instance: intelight_mem_v2_0, and set properties
+  set intelight_mem_v2_0 [ create_bd_cell -type ip -vlnv xilinx.com:user:intelight_mem_v2:1.0 intelight_mem_v2_0 ]
 
   # Create interface connections
-  connect_bd_intf_net -intf_net PS_M00_AXI [get_bd_intf_pins PS/M00_AXI] [get_bd_intf_pins intelight_mem_0/S00_AXI]
+  connect_bd_intf_net -intf_net PS_M06_AXI [get_bd_intf_pins PS/M06_AXI] [get_bd_intf_pins adapt_mem_0/S00_AXI]
+  connect_bd_intf_net -intf_net PS_M07_AXI [get_bd_intf_pins PS/M07_AXI] [get_bd_intf_pins intelight_mem_v2_0/S00_AXI]
   connect_bd_intf_net -intf_net S_AXI_0_1 [get_bd_intf_pins PS/M01_AXI] [get_bd_intf_pins RAM_Block/S_AXI_0]
   connect_bd_intf_net -intf_net S_AXI_1_1 [get_bd_intf_pins PS/M02_AXI] [get_bd_intf_pins RAM_Block/S_AXI_1]
   connect_bd_intf_net -intf_net S_AXI_2_1 [get_bd_intf_pins PS/M03_AXI] [get_bd_intf_pins RAM_Block/S_AXI_2]
@@ -1161,21 +1231,33 @@ proc create_root_design { parentCell } {
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins PS/FIXED_IO]
 
   # Create port connections
-  connect_bd_net -net AGENT_act [get_bd_pins AGENT/act] [get_bd_pins EV/act] [get_bd_pins bram_input_interface_0/act] [get_bd_pins bram_output_interface_0/act]
+  connect_bd_net -net AGENT_act [get_bd_pins AGENT/act] [get_bd_pins EV/act] [get_bd_pins adapt_mem_0/act_adapt] [get_bd_pins bram_input_interface_0/act] [get_bd_pins bram_output_interface_0/act]
+  connect_bd_net -net AGENT_act_SD [get_bd_pins AGENT/act_SD] [get_bd_pins EV/act_SD]
+  connect_bd_net -net CU_0_BRAM_rd [get_bd_pins CU_0/BRAM_rd] [get_bd_pins bram_input_interface_0/en_rd] [get_bd_pins bram_output_interface_0/en_rd]
+  connect_bd_net -net CU_0_BRAM_wr [get_bd_pins CU_0/BRAM_wr] [get_bd_pins bram_input_interface_0/en_wr]
   connect_bd_net -net CU_0_RD [get_bd_pins CU_0/RD] [get_bd_pins EV/en_RD]
-  connect_bd_net -net CU_0_SD [get_bd_pins CU_0/SD] [get_bd_pins EV/en_SD] [get_bd_pins bram_input_interface_0/en] [get_bd_pins bram_output_interface_0/en]
+  connect_bd_net -net CU_0_SD [get_bd_pins CU_0/SD] [get_bd_pins EV/en_SD]
   connect_bd_net -net CU_0_act_random [get_bd_pins AGENT/act_rand] [get_bd_pins CU_0/act_random]
-  connect_bd_net -net CU_0_finish1 [get_bd_ports finish] [get_bd_pins CU_0/finish] [get_bd_pins PS/finish]
+  connect_bd_net -net CU_0_finish1 [get_bd_ports finish] [get_bd_pins CU_0/finish] [get_bd_pins EV/finish] [get_bd_pins PS/finish]
+  connect_bd_net -net CU_0_finish_adapt [get_bd_ports finish_adapt] [get_bd_pins CU_0/finish_adapt]
   connect_bd_net -net CU_0_sel_act [get_bd_pins AGENT/sel_act] [get_bd_pins CU_0/sel_act]
   connect_bd_net -net EV_curr_reward [get_bd_pins AGENT/reward] [get_bd_pins EV/curr_reward]
   connect_bd_net -net EV_goal_sig [get_bd_pins CU_0/goal_sig] [get_bd_pins EV/goal_sig]
   connect_bd_net -net EV_state [get_bd_pins EV/state] [get_bd_pins bram_input_interface_0/next_state]
-  connect_bd_net -net PS_FCLK_CLK0 [get_bd_pins AGENT/clk] [get_bd_pins CU_0/clk] [get_bd_pins EV/clk] [get_bd_pins PS/FCLK_CLK0] [get_bd_pins RAM_Block/clk_bram] [get_bd_pins bram_input_interface_0/clk] [get_bd_pins bram_output_interface_0/clk] [get_bd_pins intelight_mem_0/s00_axi_aclk]
-  connect_bd_net -net PS_active_high_rst [get_bd_ports rtl_rst] [get_bd_pins AGENT/rst] [get_bd_pins CU_0/rst] [get_bd_pins EV/rst] [get_bd_pins PS/rtl_rst] [get_bd_pins RAM_Block/rst_bram] [get_bd_pins bram_input_interface_0/rst] [get_bd_pins bram_output_interface_0/rst]
+  connect_bd_net -net PS_FCLK_CLK0 [get_bd_pins AGENT/clk] [get_bd_pins CU_0/clk] [get_bd_pins EV/clk] [get_bd_pins PS/FCLK_CLK0] [get_bd_pins RAM_Block/clk_bram] [get_bd_pins adapt_mem_0/s00_axi_aclk] [get_bd_pins bram_input_interface_0/clk] [get_bd_pins bram_output_interface_0/clk] [get_bd_pins intelight_mem_v2_0/s00_axi_aclk]
+  connect_bd_net -net PS_active_high_rst [get_bd_pins AGENT/rst] [get_bd_pins CU_0/rst] [get_bd_pins EV/rst] [get_bd_pins PS/rtl_rst] [get_bd_pins RAM_Block/rst_bram] [get_bd_pins bram_input_interface_0/rst] [get_bd_pins bram_output_interface_0/rst]
   connect_bd_net -net RAM_Block_q_next_0 [get_bd_pins RAM_Block/q_next_0] [get_bd_pins bram_output_interface_0/data0]
   connect_bd_net -net RAM_Block_q_next_1 [get_bd_pins RAM_Block/q_next_1] [get_bd_pins bram_output_interface_0/data1]
   connect_bd_net -net RAM_Block_q_next_2 [get_bd_pins RAM_Block/q_next_2] [get_bd_pins bram_output_interface_0/data2]
   connect_bd_net -net RAM_Block_q_next_3 [get_bd_pins RAM_Block/q_next_3] [get_bd_pins bram_output_interface_0/data3]
+  connect_bd_net -net adapt_mem_0_read_sig [get_bd_ports read_sig] [get_bd_pins CU_0/read_sig] [get_bd_pins adapt_mem_0/read_sig]
+  connect_bd_net -net batas_0_1 [get_bd_pins EV/batas_0] [get_bd_pins intelight_mem_v2_0/limit_level_0]
+  connect_bd_net -net batas_1_1 [get_bd_pins EV/batas_1] [get_bd_pins intelight_mem_v2_0/limit_level_1]
+  connect_bd_net -net batas_2_1 [get_bd_pins EV/batas_2] [get_bd_pins intelight_mem_v2_0/limit_level_2]
+  connect_bd_net -net batas_3_1 [get_bd_pins EV/batas_3] [get_bd_pins intelight_mem_v2_0/limit_level_3]
+  connect_bd_net -net batas_4_1 [get_bd_pins EV/batas_4] [get_bd_pins intelight_mem_v2_0/limit_level_4]
+  connect_bd_net -net batas_5_1 [get_bd_pins EV/batas_5] [get_bd_pins intelight_mem_v2_0/limit_level_5]
+  connect_bd_net -net batas_6_1 [get_bd_pins EV/batas_6] [get_bd_pins intelight_mem_v2_0/limit_level_6]
   connect_bd_net -net bram_input_interface_0_en0_rd [get_bd_pins RAM_Block/en0_rd] [get_bd_pins bram_input_interface_0/en0_rd]
   connect_bd_net -net bram_input_interface_0_en0_wr [get_bd_pins RAM_Block/en0_wr] [get_bd_pins bram_input_interface_0/en0_wr]
   connect_bd_net -net bram_input_interface_0_en1_rd [get_bd_pins RAM_Block/en1_rd] [get_bd_pins bram_input_interface_0/en1_rd]
@@ -1186,48 +1268,41 @@ proc create_root_design { parentCell } {
   connect_bd_net -net bram_input_interface_0_en3_wr [get_bd_pins RAM_Block/en3_wr] [get_bd_pins bram_input_interface_0/en3_wr]
   connect_bd_net -net bram_interface_0_rd_addr [get_bd_pins RAM_Block/rd_addr] [get_bd_pins bram_input_interface_0/rd_addr]
   connect_bd_net -net bram_interface_0_wr_addr [get_bd_pins RAM_Block/wr_addr] [get_bd_pins bram_input_interface_0/wr_addr]
-  connect_bd_net -net delta_t_1 [get_bd_pins EV/delta_t] [get_bd_pins intelight_mem_0/delta_t]
+  connect_bd_net -net debit_out_1 [get_bd_pins EV/debit_out] [get_bd_pins intelight_mem_v2_0/debit_out]
   connect_bd_net -net en_PG_1 [get_bd_pins AGENT/en_PG] [get_bd_pins CU_0/PG]
   connect_bd_net -net en_QA_1 [get_bd_pins AGENT/en_QA] [get_bd_pins CU_0/QA]
-  connect_bd_net -net intelight_mem_0_alpha [get_bd_pins AGENT/alpha] [get_bd_pins intelight_mem_0/alpha]
-  connect_bd_net -net intelight_mem_0_debit_out [get_bd_pins EV/debit_out] [get_bd_pins intelight_mem_0/debit_out]
-  connect_bd_net -net intelight_mem_0_debit_r0 [get_bd_pins EV/debit_r0] [get_bd_pins intelight_mem_0/debit_r0]
-  connect_bd_net -net intelight_mem_0_debit_r1 [get_bd_pins EV/debit_r1] [get_bd_pins intelight_mem_0/debit_r1]
-  connect_bd_net -net intelight_mem_0_debit_r2 [get_bd_pins EV/debit_r2] [get_bd_pins intelight_mem_0/debit_r2]
-  connect_bd_net -net intelight_mem_0_debit_r3 [get_bd_pins EV/debit_r3] [get_bd_pins intelight_mem_0/debit_r3]
-  connect_bd_net -net intelight_mem_0_gamma [get_bd_pins AGENT/gamma] [get_bd_pins intelight_mem_0/gamma]
-  connect_bd_net -net intelight_mem_0_init_trafic_r0 [get_bd_pins EV/init_panjang_r0] [get_bd_pins intelight_mem_0/init_trafic_r0]
-  connect_bd_net -net intelight_mem_0_init_trafic_r1 [get_bd_pins EV/init_panjang_r1] [get_bd_pins intelight_mem_0/init_trafic_r1]
-  connect_bd_net -net intelight_mem_0_init_trafic_r2 [get_bd_pins EV/init_panjang_r2] [get_bd_pins intelight_mem_0/init_trafic_r2]
-  connect_bd_net -net intelight_mem_0_init_trafic_r3 [get_bd_pins EV/init_panjang_r3] [get_bd_pins intelight_mem_0/init_trafic_r3]
-  connect_bd_net -net intelight_mem_0_limit_level_0 [get_bd_pins EV/batas_0] [get_bd_pins intelight_mem_0/limit_level_0]
-  connect_bd_net -net intelight_mem_0_limit_level_1 [get_bd_pins EV/batas_1] [get_bd_pins intelight_mem_0/limit_level_1]
-  connect_bd_net -net intelight_mem_0_limit_level_2 [get_bd_pins EV/batas_2] [get_bd_pins intelight_mem_0/limit_level_2]
-  connect_bd_net -net intelight_mem_0_max_episode [get_bd_pins CU_0/max_episode] [get_bd_pins intelight_mem_0/max_episode]
-  connect_bd_net -net intelight_mem_0_max_step [get_bd_pins CU_0/max_step] [get_bd_pins intelight_mem_0/max_step]
-  connect_bd_net -net intelight_mem_0_reward_0 [get_bd_pins EV/reward_0] [get_bd_pins intelight_mem_0/reward_0]
-  connect_bd_net -net intelight_mem_0_reward_1 [get_bd_pins EV/reward_1] [get_bd_pins intelight_mem_0/reward_1]
-  connect_bd_net -net intelight_mem_0_reward_2 [get_bd_pins EV/reward_2] [get_bd_pins intelight_mem_0/reward_2]
-  connect_bd_net -net intelight_mem_0_seed [get_bd_pins CU_0/seed] [get_bd_pins intelight_mem_0/seed]
-  connect_bd_net -net intelight_mem_0_start [get_bd_pins CU_0/start] [get_bd_pins intelight_mem_0/start]
+  connect_bd_net -net intelight_mem_v2_0_alpha [get_bd_pins AGENT/alpha] [get_bd_pins intelight_mem_v2_0/alpha]
+  connect_bd_net -net intelight_mem_v2_0_delta_t [get_bd_pins EV/delta_t] [get_bd_pins intelight_mem_v2_0/delta_t]
+  connect_bd_net -net intelight_mem_v2_0_gamma [get_bd_pins AGENT/gamma] [get_bd_pins intelight_mem_v2_0/gamma]
+  connect_bd_net -net intelight_mem_v2_0_max_episode [get_bd_pins CU_0/max_episode] [get_bd_pins intelight_mem_v2_0/max_episode]
+  connect_bd_net -net intelight_mem_v2_0_max_step [get_bd_pins CU_0/max_step] [get_bd_pins intelight_mem_v2_0/max_step]
+  connect_bd_net -net intelight_mem_v2_0_seed [get_bd_pins CU_0/seed] [get_bd_pins intelight_mem_v2_0/seed]
+  connect_bd_net -net intelight_mem_v2_0_seed_EG0 [get_bd_pins EV/seed_EG0] [get_bd_pins intelight_mem_v2_0/seed_EG0]
+  connect_bd_net -net intelight_mem_v2_0_seed_EG1 [get_bd_pins EV/seed_EG1] [get_bd_pins intelight_mem_v2_0/seed_EG1]
+  connect_bd_net -net intelight_mem_v2_0_start [get_bd_ports start] [get_bd_pins CU_0/start] [get_bd_pins intelight_mem_v2_0/start]
   connect_bd_net -net q_new_1 [get_bd_pins AGENT/new_qA] [get_bd_pins RAM_Block/q_new]
   connect_bd_net -net q_next_0_1 [get_bd_pins AGENT/q_next_0] [get_bd_pins bram_output_interface_0/q0]
   connect_bd_net -net q_next_1_1 [get_bd_pins AGENT/q_next_1] [get_bd_pins bram_output_interface_0/q1]
   connect_bd_net -net q_next_2_1 [get_bd_pins AGENT/q_next_2] [get_bd_pins bram_output_interface_0/q2]
   connect_bd_net -net q_next_3_1 [get_bd_pins AGENT/q_next_3] [get_bd_pins bram_output_interface_0/q3]
-  connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_ports mem_rst] [get_bd_pins PS/rst_axi] [get_bd_pins RAM_Block/rst_axi] [get_bd_pins intelight_mem_0/s00_axi_aresetn]
+  connect_bd_net -net reward_0_1 [get_bd_pins EV/reward_0] [get_bd_pins intelight_mem_v2_0/reward_0]
+  connect_bd_net -net reward_1_1 [get_bd_pins EV/reward_1] [get_bd_pins intelight_mem_v2_0/reward_1]
+  connect_bd_net -net reward_2_1 [get_bd_pins EV/reward_2] [get_bd_pins intelight_mem_v2_0/reward_2]
+  connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins PS/rst_axi] [get_bd_pins RAM_Block/rst_axi] [get_bd_pins adapt_mem_0/s00_axi_aresetn] [get_bd_pins intelight_mem_v2_0/s00_axi_aresetn]
+  connect_bd_net -net state_sim_1 [get_bd_pins EV/state_sim] [get_bd_pins adapt_mem_0/state_adapt]
   connect_bd_net -net wea_0_1 [get_bd_pins RAM_Block/wea_0] [get_bd_pins bram_input_interface_0/wen0]
   connect_bd_net -net wea_1_1 [get_bd_pins RAM_Block/wea_1] [get_bd_pins bram_input_interface_0/wen1]
   connect_bd_net -net wea_2_1 [get_bd_pins RAM_Block/wea_2] [get_bd_pins bram_input_interface_0/wen2]
   connect_bd_net -net wea_3_1 [get_bd_pins RAM_Block/wea_3] [get_bd_pins bram_input_interface_0/wen3]
 
   # Create address segments
-  assign_bd_address -offset 0x40000000 -range 0x00002000 -target_address_space [get_bd_addr_spaces PS/processing_system7_0/Data] [get_bd_addr_segs RAM_Block/RAM_0/axi_bram_ctrl_0/S_AXI/Mem0] -force
-  assign_bd_address -offset 0x42000000 -range 0x00002000 -target_address_space [get_bd_addr_spaces PS/processing_system7_0/Data] [get_bd_addr_segs RAM_Block/RAM_1/axi_bram_ctrl_0/S_AXI/Mem0] -force
-  assign_bd_address -offset 0x44000000 -range 0x00002000 -target_address_space [get_bd_addr_spaces PS/processing_system7_0/Data] [get_bd_addr_segs RAM_Block/RAM_2/axi_bram_ctrl_0/S_AXI/Mem0] -force
-  assign_bd_address -offset 0x46000000 -range 0x00002000 -target_address_space [get_bd_addr_spaces PS/processing_system7_0/Data] [get_bd_addr_segs RAM_Block/RAM_3/axi_bram_ctrl_0/S_AXI/Mem0] -force
+  assign_bd_address -offset 0x43C10000 -range 0x00010000 -target_address_space [get_bd_addr_spaces PS/processing_system7_0/Data] [get_bd_addr_segs adapt_mem_0/S00_AXI/S00_AXI_reg] -force
+  assign_bd_address -offset 0x40000000 -range 0x00010000 -target_address_space [get_bd_addr_spaces PS/processing_system7_0/Data] [get_bd_addr_segs RAM_Block/RAM_0/axi_bram_ctrl_0/S_AXI/Mem0] -force
+  assign_bd_address -offset 0x42000000 -range 0x00010000 -target_address_space [get_bd_addr_spaces PS/processing_system7_0/Data] [get_bd_addr_segs RAM_Block/RAM_1/axi_bram_ctrl_0/S_AXI/Mem0] -force
+  assign_bd_address -offset 0x44000000 -range 0x00010000 -target_address_space [get_bd_addr_spaces PS/processing_system7_0/Data] [get_bd_addr_segs RAM_Block/RAM_2/axi_bram_ctrl_0/S_AXI/Mem0] -force
+  assign_bd_address -offset 0x46000000 -range 0x00010000 -target_address_space [get_bd_addr_spaces PS/processing_system7_0/Data] [get_bd_addr_segs RAM_Block/RAM_3/axi_bram_ctrl_0/S_AXI/Mem0] -force
   assign_bd_address -offset 0x41800000 -range 0x00010000 -target_address_space [get_bd_addr_spaces PS/processing_system7_0/Data] [get_bd_addr_segs PS/axi_intc_0/S_AXI/Reg] -force
-  assign_bd_address -offset 0x43C00000 -range 0x00010000 -target_address_space [get_bd_addr_spaces PS/processing_system7_0/Data] [get_bd_addr_segs intelight_mem_0/S00_AXI/S00_AXI_reg] -force
+  assign_bd_address -offset 0x43C20000 -range 0x00010000 -target_address_space [get_bd_addr_spaces PS/processing_system7_0/Data] [get_bd_addr_segs intelight_mem_v2_0/S00_AXI/S00_AXI_reg] -force
 
 
   # Restore current instance

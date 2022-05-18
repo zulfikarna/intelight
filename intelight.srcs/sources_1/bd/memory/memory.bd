@@ -29,8 +29,7 @@
           "PL_RAM_0": "",
           "Action_RAM_0": ""
         }
-      },
-      "bram_interface_0": ""
+      }
     },
     "ports": {
       "clk": {
@@ -49,16 +48,6 @@
       "q_new": {
         "direction": "I",
         "left": "31",
-        "right": "0"
-      },
-      "next_state": {
-        "direction": "I",
-        "left": "31",
-        "right": "0"
-      },
-      "act": {
-        "direction": "I",
-        "left": "1",
         "right": "0"
       },
       "q_next_3": {
@@ -109,6 +98,16 @@
       "en3": {
         "direction": "O",
         "left": "3",
+        "right": "0"
+      },
+      "act": {
+        "direction": "I",
+        "left": "1",
+        "right": "0"
+      },
+      "next_state": {
+        "direction": "I",
+        "left": "31",
         "right": "0"
       }
     },
@@ -1098,97 +1097,6 @@
             ]
           }
         }
-      },
-      "bram_interface_0": {
-        "vlnv": "xilinx.com:module_ref:bram_interface:1.0",
-        "xci_name": "memory_bram_interface_0_0",
-        "xci_path": "ip\\memory_bram_interface_0_0\\memory_bram_interface_0_0.xci",
-        "inst_hier_path": "bram_interface_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "bram_interface",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rst",
-                "value_src": "constant"
-              }
-            }
-          },
-          "rst": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "next_state": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "rd_addr": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "wr_addr": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "act": {
-            "direction": "I",
-            "left": "1",
-            "right": "0"
-          },
-          "wen0": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "wen1": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "wen2": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "wen3": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "en0_wr": {
-            "direction": "O"
-          },
-          "en0_rd": {
-            "direction": "O"
-          },
-          "en1_wr": {
-            "direction": "O"
-          },
-          "en1_rd": {
-            "direction": "O"
-          },
-          "en2_wr": {
-            "direction": "O"
-          },
-          "en2_rd": {
-            "direction": "O"
-          },
-          "en3_wr": {
-            "direction": "O"
-          },
-          "en3_rd": {
-            "direction": "O"
-          }
-        }
       }
     },
     "nets": {
@@ -1214,12 +1122,6 @@
         "ports": [
           "RAM_Block/q_next_3",
           "q_next_3"
-        ]
-      },
-      "act_0_1": {
-        "ports": [
-          "act",
-          "bram_interface_0/act"
         ]
       },
       "bram_interface_0_en0": {
@@ -1248,14 +1150,12 @@
       },
       "bram_interface_0_rd_addr": {
         "ports": [
-          "bram_interface_0/rd_addr",
           "RAM_Block/addrb",
           "rd_addr"
         ]
       },
       "bram_interface_0_wr_addr": {
         "ports": [
-          "bram_interface_0/wr_addr",
           "RAM_Block/addra",
           "wr_addr"
         ]
@@ -1263,14 +1163,7 @@
       "clk_0_1": {
         "ports": [
           "clk",
-          "RAM_Block/clk_bram",
-          "bram_interface_0/clk"
-        ]
-      },
-      "next_state_0_1": {
-        "ports": [
-          "next_state",
-          "bram_interface_0/next_state"
+          "RAM_Block/clk_bram"
         ]
       },
       "q_new_0_1": {
@@ -1282,8 +1175,7 @@
       "rst_0_1": {
         "ports": [
           "rst",
-          "RAM_Block/rst_bram",
-          "bram_interface_0/rst"
+          "RAM_Block/rst_bram"
         ]
       }
     }

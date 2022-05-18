@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-// Date        : Sun Mar 13 14:48:25 2022
+// Date        : Sun Mar 13 14:48:24 2022
 // Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_rst_ps7_0_50M_1/system_rst_ps7_0_50M_1_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top system_rst_ps7_0_50M_1 -prefix
+//               system_rst_ps7_0_50M_1_ system_rst_ps7_0_50M_1_stub.v
 // Design      : system_rst_ps7_0_50M_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg400-1

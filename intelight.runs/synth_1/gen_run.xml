@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1648885210">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1652875497">
   <File Type="PA-TCL" Name="system_wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="system_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="system_wrapper_reports.tcl"/>
@@ -60,7 +60,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/CU.v">
+    <File Path="$PSRCDIR/sources_1/new/RD.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -74,7 +74,7 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/RD.v">
+    <File Path="$PSRCDIR/sources_1/new/EG.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -82,6 +82,13 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/bram_interface.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/CU.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -118,6 +125,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/uart_file.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/bd/memory/memory.bd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
@@ -127,6 +142,14 @@
       </FileInfo>
     </File>
     <File Path="$PGENDIR/sources_1/bd/memory/hdl/memory_wrapper.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/uart_interface.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -161,12 +184,26 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
     <Step Id="synth_design"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="system_bram_output_interface_0_2"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_PL_RAM_2_3"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_axi_bram_ctrl_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="testbench_QA_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_PL_RAM_3_3"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_axi_intc_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_axi_bram_ctrl_0_3"/>
   <BlockFileSet Type="BlockSrcs" Name="system_rst_ps7_0_50M_1"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_axi_bram_ctrl_0_2"/>
-  <BlockFileSet Type="BlockSrcs" Name="testbench_CU_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="system_axi_bram_ctrl_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="system_xbar_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_RD_0_3"/>
-  <BlockFileSet Type="BlockSrcs" Name="system_axi_bram_ctrl_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_PL_RAM_1_3"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_PL_RAM_0_2"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_axi_bram_ctrl_0_4"/>
+  <BlockFileSet Type="BlockSrcs" Name="testbench_PG_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="testbench_RD_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="testbench_bram_input_interface_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_EG_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="testbench_SD_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="testbench_EG_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="testbench_CU_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_adapt_mem_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="system_intelight_mem_v2_0_1"/>
 </GenRun>

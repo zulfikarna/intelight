@@ -15,6 +15,7 @@
 
 module CU(
     input wire clk, rst, start,
+    input wire read_sig,
     // From Processing System 
     input wire [15:0] max_step,
     input wire [15:0] max_episode,
@@ -25,6 +26,8 @@ module CU(
     output wire sel_act,
     output wire [1:0] act_random,
     // Control Signal
+    output wire BRAM_rd,
+    output wire BRAM_wr,
     output wire PG,
     output wire QA,
     output wire SD,
@@ -33,34 +36,50 @@ module CU(
     output wire [15:0] wire_sc,
     output wire [15:0] wire_ec,
     output wire [3:0] wire_cs,
-    output reg finish
+    output wire [15:0] wire_as,
+    output wire [15:0] wire_epsilon,
+    output reg finish,
+    output reg finish_adapt
 
     );
     
     // State variable for FSM implementation 
     localparam
+        // Preprocessing states
         S_IDLE  = 4'hA,
         S_INIT  = 4'hB,
+        // Learning states
         S_L0    = 4'h0,
         S_L1    = 4'h1,
         S_L2    = 4'h2,
         S_L3    = 4'h3,
         S_L4    = 4'h4,
         S_L5    = 4'h5,
-        S_L6    = 4'h6,
-        S_L7    = 4'h7,
+        // Adaptation states
+        S_S0    = 4'h6,
+        S_S1    = 4'h7,
+        S_S2    = 4'h8,
+        S_S3    = 4'h9,
         S_DONE  = 4'hF;
+        
     // State transition variable
     reg [3:0] cs;
     reg [3:0] ns;
     // Counter variabel 
     reg [15:0] sc; // step counter
     reg [15:0] ec; // episode counter
+    reg [15:0] as; // adaptation step
     reg [15:0] epsilon;
     // Variables for generating random number 
     reg  [15:0] i_lsfr;
     wire [15:0] o_lsfr;
     lsfr_16bit rand(.in0(i_lsfr), .out0(o_lsfr));
+    
+    // Goal signal handler 
+    reg reg_goal_sig;
+    always @(goal_sig) begin 
+        reg_goal_sig <= goal_sig;
+    end
     
     // LSFR Configuration 
     always@(posedge clk) begin
@@ -108,19 +127,34 @@ module CU(
             S_L4 :
                 ns <= S_L5;
             S_L5 :
-                ns <= S_L6;
-            S_L6 :
-                ns <= S_L7;
-            S_L7 :
                 ns <= S_INIT;
             S_DONE :
-                ns <= S_IDLE;
+                if((read_sig)&(start))
+                    ns <= S_S0;
+                else if ((!read_sig)&(start))
+                    ns <= S_DONE;
+                else
+                    ns <= S_IDLE;
+            S_S0 :
+                ns <= S_S1;
+            S_S1 :
+                ns <= S_S2;
+            S_S2 :
+                if (as > max_episode)
+                    ns <= S_S3;
+                else
+                    ns <= S_S2;
+            S_S3 :
+                if (read_sig)
+                    ns <= S_S3;
+                else
+                    ns <= S_DONE;
             default
                 ns <= S_IDLE;
          endcase
     end
     
-    // Step and Episode Counter Machine 
+    // Step Counter Machine 
     always@(posedge clk) begin
         // Step Counter
         if((cs == S_L3)) begin
@@ -130,10 +164,25 @@ module CU(
         end else begin
             sc = sc;
         end
+    end
+    
+    // Adaptation Step Counter Machine 
+    always @(posedge clk) begin 
+        if(cs == S_S2) begin
+            as = as + 1;
+        end else if ((cs == S_DONE)|(cs == S_IDLE)) begin 
+            as = 16'd0;
+        end else begin 
+            as = as;
+        end
+    end
+    
+    // Episode Counter Machine 
+    always @(posedge clk) begin
         // Episode Counter 
         if(cs == S_IDLE) begin
             ec = 16'd0;
-        end else if (cs == S_L7) begin
+        end else if (cs == S_L5) begin
             ec = ec + 16'd1;
         end else begin
             ec = ec;
@@ -141,60 +190,80 @@ module CU(
     end
     
     // Epsilon updating machine
-    always @(ec) begin
-        if (cs == S_IDLE) begin
+    always @(*) begin
+        // resetting epsilon
+        if ((cs == S_IDLE)|(cs == S_DONE)) begin 
             epsilon = 11'd0;
-        end else begin
+        // epsilon for adaptation
+        end else if (cs == S_S2) begin 
+            epsilon = max_episode - as;
+        // epsilon for learning 
+        end else if (cs == S_L5) begin
             epsilon = max_episode - ec;
+        end else begin
+            epsilon = epsilon;
         end
     end
     
     // Control signal generator
-    reg [3:0] ctrl_sig;
+    reg [5:0] ctrl_sig;
     always @(*) begin
-        // Format Control Signal : |SD|PG|RD|QA| 
+        // Format Control Signal : READ|WRITE|SD|PG|RD|QA| 
         case(cs)
             S_L0 :
-                ctrl_sig = 4'b1000;
+                ctrl_sig = 6'b101000;
             S_L1 :
-                ctrl_sig = 4'b1100;
+                ctrl_sig = 6'b101100;
             S_L2 :
-                ctrl_sig = 4'b1110;
+                ctrl_sig = 6'b101110;
             S_L3 :
-                ctrl_sig = 4'b1111;
+                ctrl_sig = 6'b111111;
             S_L4 :
-                ctrl_sig = 4'b0111;
+                ctrl_sig = 6'b010111;
             S_L5 :
-                ctrl_sig = 4'b0011;
-            S_L6 :
-                ctrl_sig = 4'b0001;
-            S_L7 :
-                ctrl_sig = 4'b0000;
+                ctrl_sig = 6'b010011;
+            S_DONE :
+                ctrl_sig = 6'b100000;
+            S_S0 :
+                ctrl_sig = 6'b101000;
+            S_S1 :
+                ctrl_sig = 6'b100100;
+            S_S2 :
+                ctrl_sig = 6'b010111;
+            S_S3 :
+                ctrl_sig = 6'b010111;
             default
-                ctrl_sig = 4'b0000;       
+                ctrl_sig = 6'b000000;       
         endcase
     end
     
     // Finish signal generator 
     always @(cs) begin
-        if (cs==S_DONE) begin
+        if ((cs==S_DONE)|(cs==S_S0)|(cs==S_S1)|(cs==S_S2)|(cs==S_S3)) begin
             finish = 1'b1;
         end else begin
             finish = 1'b0;
         end
     end
     
-    // Goal signal handler 
-    reg reg_goal_sig;
-    always @(goal_sig) begin 
-        reg_goal_sig <= goal_sig;
+    // Finish signal generator 
+    always @(cs) begin
+        if (cs==S_S3) begin
+            finish_adapt = 1'b1;
+        end else begin
+            finish_adapt = 1'b0;
+        end
     end
+    
+
     
     // Random numbers for Policy Generator 
     assign sel_act = (epsilon < o_lsfr[10:0])? 1'b1 : 1'b0;
     assign act_random = o_lsfr[1:0];
     
     // Control signal decoder
+    assign BRAM_rd = ctrl_sig[5];
+    assign BRAM_wr = ctrl_sig[4];
     assign SD = ctrl_sig[3];
     assign PG = ctrl_sig[2];
     assign RD = ctrl_sig[1];
@@ -202,5 +271,7 @@ module CU(
     
     assign wire_cs = cs;
     assign wire_ec = ec;
-    assign wire_sc = sc;    
+    assign wire_sc = sc;  
+    assign wire_as = as;
+    assign wire_epsilon = epsilon;  
 endmodule

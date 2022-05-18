@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-// Date        : Sat Mar 26 03:02:07 2022
+// Date        : Wed May 11 13:42:06 2022
 // Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub -rename_top testbench_bram_input_interface_0_0 -prefix
-//               testbench_bram_input_interface_0_0_ testbench_bram_input_interface_0_0_stub.v
+// Command     : write_verilog -force -mode synth_stub
+//               d:/intelight/intelight_backup3/intelight.gen/sources_1/bd/testbench/ip/testbench_bram_input_interface_0_0/testbench_bram_input_interface_0_0_stub.v
 // Design      : testbench_bram_input_interface_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg400-1
@@ -14,12 +14,13 @@
 // The synthesis directives are for Synopsys Synplify support to prevent IO buffer insertion.
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* X_CORE_INFO = "bram_input_interface,Vivado 2021.1" *)
-module testbench_bram_input_interface_0_0(clk, rst, en, next_state, rd_addr, wr_addr, act, wen0, 
-  wen1, wen2, wen3, en0_wr, en0_rd, en1_wr, en1_rd, en2_wr, en2_rd, en3_wr, en3_rd)
-/* synthesis syn_black_box black_box_pad_pin="clk,rst,en,next_state[31:0],rd_addr[31:0],wr_addr[31:0],act[1:0],wen0[3:0],wen1[3:0],wen2[3:0],wen3[3:0],en0_wr,en0_rd,en1_wr,en1_rd,en2_wr,en2_rd,en3_wr,en3_rd" */;
+module testbench_bram_input_interface_0_0(clk, rst, en_wr, en_rd, next_state, rd_addr, wr_addr, 
+  act, wen0, wen1, wen2, wen3, en0_wr, en0_rd, en1_wr, en1_rd, en2_wr, en2_rd, en3_wr, en3_rd)
+/* synthesis syn_black_box black_box_pad_pin="clk,rst,en_wr,en_rd,next_state[31:0],rd_addr[31:0],wr_addr[31:0],act[1:0],wen0[3:0],wen1[3:0],wen2[3:0],wen3[3:0],en0_wr,en0_rd,en1_wr,en1_rd,en2_wr,en2_rd,en3_wr,en3_rd" */;
   input clk;
   input rst;
-  input en;
+  input en_wr;
+  input en_rd;
   input [31:0]next_state;
   output [31:0]rd_addr;
   output [31:0]wr_addr;

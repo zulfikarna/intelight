@@ -58,7 +58,7 @@
 module testbench_bram_output_interface_0_0 (
   rst,
   clk,
-  en,
+  en_rd,
   act,
   data0,
   data1,
@@ -76,7 +76,7 @@ input wire rst;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN testbench_clk, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
-input wire en;
+input wire en_rd;
 input wire [1 : 0] act;
 input wire [31 : 0] data0;
 input wire [31 : 0] data1;
@@ -90,7 +90,7 @@ output wire [31 : 0] q3;
   bram_output_interface inst (
     .rst(rst),
     .clk(clk),
-    .en(en),
+    .en_rd(en_rd),
     .act(act),
     .data0(data0),
     .data1(data1),

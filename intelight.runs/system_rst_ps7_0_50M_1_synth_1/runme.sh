@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/intelight/intelight/intelight.runs/system_rst_ps7_0_50M_1_synth_1'
+HD_PWD='D:/intelight/intelight_backup2/intelight.runs/system_rst_ps7_0_50M_1_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

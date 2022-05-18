@@ -18,8 +18,9 @@
 -makelib ies_lib/xil_defaultlib \
   "../../../bd/testbench/ip/testbench_PG_0_0/sim/testbench_PG_0_0.v" \
   "../../../bd/testbench/ip/testbench_QA_0_0/sim/testbench_QA_0_0.v" \
-  "../../../bd/testbench/ip/testbench_SD_0_0/sim/testbench_SD_0_0.v" \
   "../../../bd/testbench/ip/testbench_RD_0_0/sim/testbench_RD_0_0.v" \
+  "../../../bd/testbench/ip/testbench_SD_0_0/sim/testbench_SD_0_0.v" \
+  "../../../bd/testbench/ip/testbench_EG_0_0/sim/testbench_EG_0_0.v" \
 -endlib
 -makelib ies_lib/xlconstant_v1_1_7 \
   "../../../../intelight.gen/sources_1/bd/testbench/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v" \
@@ -39,9 +40,9 @@
   "../../../bd/testbench/ip/testbench_PL_RAM_3_0/sim/testbench_PL_RAM_3_0.v" \
   "../../../bd/testbench/ip/testbench_PL_RAM_0_0/sim/testbench_PL_RAM_0_0.v" \
   "../../../bd/testbench/ip/testbench_Action_RAM_0_0/sim/testbench_Action_RAM_0_0.v" \
-  "../../../bd/testbench/ip/testbench_CU_0_0/sim/testbench_CU_0_0.v" \
-  "../../../bd/testbench/ip/testbench_bram_input_interface_0_0/sim/testbench_bram_input_interface_0_0.v" \
   "../../../bd/testbench/ip/testbench_bram_output_interface_0_0/sim/testbench_bram_output_interface_0_0.v" \
+  "../../../bd/testbench/ip/testbench_bram_input_interface_0_0/sim/testbench_bram_input_interface_0_0.v" \
+  "../../../bd/testbench/ip/testbench_CU_0_0/sim/testbench_CU_0_0.v" \
   "../../../bd/testbench/sim/testbench.v" \
 -endlib
 -makelib ies_lib/xil_defaultlib \

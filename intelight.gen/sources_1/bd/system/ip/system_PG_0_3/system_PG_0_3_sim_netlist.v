@@ -1,11 +1,11 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-// Date        : Sat Apr  2 08:15:36 2022
+// Date        : Wed May 11 13:42:09 2022
 // Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim -rename_top system_PG_0_3 -prefix
-//               system_PG_0_3_ system_PG_0_1_sim_netlist.v
-// Design      : system_PG_0_1
+//               system_PG_0_3_ testbench_PG_0_0_sim_netlist.v
+// Design      : testbench_PG_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7z020clg400-1
@@ -14,22 +14,24 @@
 
 module system_PG_0_3_PG
    (act,
+    act_SD,
     act_greed,
     en,
+    rst,
     sel,
     act_random,
-    rst,
     clk,
     qA2,
     qA3,
     qA0,
     qA1);
   output [1:0]act;
+  output [1:0]act_SD;
   output [1:0]act_greed;
   input en;
+  input rst;
   input sel;
   input [1:0]act_random;
-  input rst;
   input clk;
   input [31:0]qA2;
   input [31:0]qA3;
@@ -37,6 +39,7 @@ module system_PG_0_3_PG
   input [31:0]qA1;
 
   wire [1:0]act;
+  wire [1:0]act_SD;
   wire [1:0]act_greed;
   wire act_greed1;
   wire act_greed1_carry__0_n_0;
@@ -190,7 +193,7 @@ module system_PG_0_3_PG
         .DI({1'b0,1'b0,1'b0,1'b0}),
         .O(NLW_act_greed3_carry__1_O_UNCONNECTED[3:0]),
         .S({1'b0,greed_action_n_27,greed_action_n_28,greed_action_n_29}));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT3 #(
     .INIT(8'h0D)) 
     \act_greed[0]_INST_0 
@@ -198,7 +201,7 @@ module system_PG_0_3_PG
         .I1(act_greed2),
         .I2(act_greed1),
         .O(act_greed[0]));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \act_greed[1]_INST_0 
@@ -206,9 +209,19 @@ module system_PG_0_3_PG
         .I1(act_greed2),
         .O(act_greed[1]));
   system_PG_0_3_enabler_2bit en0
-       (.act(act),
-        .act_temp1(act_temp1),
-        .en(en));
+       (.D(act_temp1),
+        .act(act),
+        .en(en),
+        .rst(rst));
+  system_PG_0_3_enabler_2bit_0 en1
+       (.CO(act_greed1),
+        .act_SD(act_SD),
+        .\act_SD[0] (act_greed3),
+        .\act_SD[1] (act_greed2),
+        .act_random(act_random),
+        .en(en),
+        .rst(rst),
+        .sel(sel));
   system_PG_0_3_max4to1_32bit greed_action
        (.S({greed_action_n_0,greed_action_n_1,greed_action_n_2,greed_action_n_3}),
         .qA0(qA0),
@@ -224,42 +237,115 @@ module system_PG_0_3_PG
         .\qA2[9] ({greed_action_n_4,greed_action_n_5,greed_action_n_6,greed_action_n_7}),
         .qA3(qA3));
   system_PG_0_3_reg_2bit reg0
-       (.CO(act_greed2),
+       (.CO(act_greed1),
+        .D(act_temp1),
         .act_random(act_random),
-        .act_temp1(act_temp1),
         .clk(clk),
         .\out0_reg[0]_0 (act_greed3),
-        .\out0_reg[1]_0 (act_greed1),
+        .\out0_reg[1]_0 (act_greed2),
         .rst(rst),
         .sel(sel));
 endmodule
 
 module system_PG_0_3_enabler_2bit
    (act,
+    D,
     en,
-    act_temp1);
+    rst);
   output [1:0]act;
+  input [1:0]D;
   input en;
-  input [1:0]act_temp1;
+  input rst;
 
+  wire [1:0]D;
   wire [1:0]act;
-  wire [1:0]act_temp1;
   wire en;
+  wire rst;
 
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \act[0]_INST_0 
-       (.I0(en),
-        .I1(act_temp1[0]),
-        .O(act[0]));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \act[1]_INST_0 
-       (.I0(en),
-        .I1(act_temp1[1]),
-        .O(act[1]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[0] 
+       (.CLR(rst),
+        .D(D[0]),
+        .G(en),
+        .GE(1'b1),
+        .Q(act[0]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[1] 
+       (.CLR(rst),
+        .D(D[1]),
+        .G(en),
+        .GE(1'b1),
+        .Q(act[1]));
+endmodule
+
+(* ORIG_REF_NAME = "enabler_2bit" *) 
+module system_PG_0_3_enabler_2bit_0
+   (act_SD,
+    act_random,
+    sel,
+    CO,
+    \act_SD[1] ,
+    \act_SD[0] ,
+    en,
+    rst);
+  output [1:0]act_SD;
+  input [1:0]act_random;
+  input sel;
+  input [0:0]CO;
+  input [0:0]\act_SD[1] ;
+  input [0:0]\act_SD[0] ;
+  input en;
+  input rst;
+
+  wire [0:0]CO;
+  wire [1:0]act_SD;
+  wire [0:0]\act_SD[0] ;
+  wire [0:0]\act_SD[1] ;
+  wire [1:0]act_random;
+  wire [1:0]act_temp0;
+  wire en;
+  wire rst;
+  wire sel;
+
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[0] 
+       (.CLR(rst),
+        .D(act_temp0[0]),
+        .G(en),
+        .GE(1'b1),
+        .Q(act_SD[0]));
+  LUT5 #(
+    .INIT(32'hAA00AACF)) 
+    \out0_reg[0]_i_1 
+       (.I0(act_random[0]),
+        .I1(\act_SD[1] ),
+        .I2(\act_SD[0] ),
+        .I3(sel),
+        .I4(CO),
+        .O(act_temp0[0]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[1] 
+       (.CLR(rst),
+        .D(act_temp0[1]),
+        .G(en),
+        .GE(1'b1),
+        .Q(act_SD[1]));
+  LUT4 #(
+    .INIT(16'h888B)) 
+    \out0_reg[1]_i_1 
+       (.I0(act_random[1]),
+        .I1(sel),
+        .I2(CO),
+        .I3(\act_SD[1] ),
+        .O(act_temp0[1]));
 endmodule
 
 module system_PG_0_3_max2to1_32bit
@@ -879,7 +965,7 @@ module system_PG_0_3_max2to1_32bit
 endmodule
 
 (* ORIG_REF_NAME = "max2to1_32bit" *) 
-module system_PG_0_3_max2to1_32bit_0
+module system_PG_0_3_max2to1_32bit_1
    (\qA3[31] ,
     \qA1[9] ,
     \qA2[9] ,
@@ -2407,7 +2493,7 @@ module system_PG_0_3_max2to1_32bit_0
 endmodule
 
 (* ORIG_REF_NAME = "max2to1_32bit" *) 
-module system_PG_0_3_max2to1_32bit_1
+module system_PG_0_3_max2to1_32bit_2
    (\qA1[30] ,
     \qA3[31] ,
     \qA2[31] ,
@@ -2753,7 +2839,7 @@ module system_PG_0_3_max4to1_32bit
         .\qA1[6] ({max0_n_1,max0_n_2,max0_n_3,max0_n_4}),
         .qA2(qA2[31]),
         .qA3(qA3[31]));
-  system_PG_0_3_max2to1_32bit_0 max1
+  system_PG_0_3_max2to1_32bit_1 max1
        (.CO(max0_n_0),
         .DI({max2_n_1,max2_n_2,max2_n_3,max2_n_4}),
         .S({max2_n_5,max2_n_6,max2_n_7,max2_n_8}),
@@ -2779,7 +2865,7 @@ module system_PG_0_3_max4to1_32bit
         .\qA2[9] (\qA2[9] ),
         .qA3(qA3),
         .\qA3[31] (max1_n_0));
-  system_PG_0_3_max2to1_32bit_1 max2
+  system_PG_0_3_max2to1_32bit_2 max2
        (.DI({max1_n_80,max0_n_14,max0_n_15,max0_n_16}),
         .S({max0_n_17,max1_n_77,max1_n_78,max1_n_79}),
         .out01_carry__0_0({max0_n_1,max0_n_2,max0_n_3,max0_n_4}),
@@ -2800,17 +2886,17 @@ module system_PG_0_3_max4to1_32bit
 endmodule
 
 module system_PG_0_3_reg_2bit
-   (act_temp1,
-    CO,
+   (D,
     \out0_reg[1]_0 ,
+    CO,
     sel,
     act_random,
     rst,
     \out0_reg[0]_0 ,
     clk);
-  output [1:0]act_temp1;
-  input [0:0]CO;
+  output [1:0]D;
   input [0:0]\out0_reg[1]_0 ;
+  input [0:0]CO;
   input sel;
   input [1:0]act_random;
   input rst;
@@ -2818,8 +2904,8 @@ module system_PG_0_3_reg_2bit
   input clk;
 
   wire [0:0]CO;
+  wire [1:0]D;
   wire [1:0]act_random;
-  wire [1:0]act_temp1;
   wire clk;
   wire \out0[0]_i_1_n_0 ;
   wire \out0[1]_i_1_n_0 ;
@@ -2831,18 +2917,18 @@ module system_PG_0_3_reg_2bit
   LUT6 #(
     .INIT(64'h00000000DDCD1101)) 
     \out0[0]_i_1 
-       (.I0(\out0_reg[1]_0 ),
+       (.I0(CO),
         .I1(sel),
         .I2(\out0_reg[0]_0 ),
-        .I3(CO),
+        .I3(\out0_reg[1]_0 ),
         .I4(act_random[0]),
         .I5(rst),
         .O(\out0[0]_i_1_n_0 ));
   LUT5 #(
     .INIT(32'h0000F101)) 
     \out0[1]_i_1 
-       (.I0(CO),
-        .I1(\out0_reg[1]_0 ),
+       (.I0(\out0_reg[1]_0 ),
+        .I1(CO),
         .I2(sel),
         .I3(act_random[1]),
         .I4(rst),
@@ -2851,17 +2937,17 @@ module system_PG_0_3_reg_2bit
        (.C(clk),
         .CE(1'b1),
         .D(\out0[0]_i_1_n_0 ),
-        .Q(act_temp1[0]),
+        .Q(D[0]),
         .R(1'b0));
   FDRE \out0_reg[1] 
        (.C(clk),
         .CE(1'b1),
         .D(\out0[1]_i_1_n_0 ),
-        .Q(act_temp1[1]),
+        .Q(D[1]),
         .R(1'b0));
 endmodule
 
-(* CHECK_LICENSE_TYPE = "system_PG_0_1,PG,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* CHECK_LICENSE_TYPE = "testbench_PG_0_0,PG,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
 (* X_CORE_INFO = "PG,Vivado 2021.1" *) 
 (* NotValidForBitStream *)
 module system_PG_0_3
@@ -2875,9 +2961,10 @@ module system_PG_0_3
     sel,
     act_random,
     act,
+    act_SD,
     act_greed);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *) input clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input rst;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN testbench_clk, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rst;
   input en;
   input [31:0]qA0;
   input [31:0]qA1;
@@ -2886,9 +2973,11 @@ module system_PG_0_3
   input sel;
   input [1:0]act_random;
   output [1:0]act;
+  output [1:0]act_SD;
   output [1:0]act_greed;
 
   wire [1:0]act;
+  wire [1:0]act_SD;
   wire [1:0]act_greed;
   wire [1:0]act_random;
   wire clk;
@@ -2902,6 +2991,7 @@ module system_PG_0_3
 
   system_PG_0_3_PG inst
        (.act(act),
+        .act_SD(act_SD),
         .act_greed(act_greed),
         .act_random(act_random),
         .clk(clk),

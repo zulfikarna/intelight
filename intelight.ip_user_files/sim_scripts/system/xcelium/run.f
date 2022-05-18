@@ -71,9 +71,9 @@
   "../../../bd/system/ip/system_xbar_0/sim/system_xbar_0.v" \
   "../../../bd/system/ip/system_PG_0_3/sim/system_PG_0_3.v" \
   "../../../bd/system/ip/system_QA_0_3/sim/system_QA_0_3.v" \
-  "../../../bd/system/ip/system_CU_0_3/sim/system_CU_0_3.v" \
-  "../../../bd/system/ip/system_SD_0_3/sim/system_SD_0_3.v" \
   "../../../bd/system/ip/system_RD_0_3/sim/system_RD_0_3.v" \
+  "../../../bd/system/ip/system_SD_0_3/sim/system_SD_0_3.v" \
+  "../../../bd/system/ip/system_EG_0_0/sim/system_EG_0_0.v" \
 -endlib
 -makelib xcelium_lib/xlconstant_v1_1_7 \
   "../../../../intelight.gen/sources_1/bd/system/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v" \
@@ -87,35 +87,54 @@
 -makelib xcelium_lib/xil_defaultlib \
   "../../../bd/system/ip/system_Action_RAM_2_3/sim/system_Action_RAM_2_3.v" \
   "../../../bd/system/ip/system_PL_RAM_2_3/sim/system_PL_RAM_2_3.v" \
-  "../../../bd/system/ip/system_Action_RAM_1_3/sim/system_Action_RAM_1_3.v" \
-  "../../../bd/system/ip/system_PL_RAM_1_3/sim/system_PL_RAM_1_3.v" \
-  "../../../bd/system/ip/system_Action_RAM_3_3/sim/system_Action_RAM_3_3.v" \
-  "../../../bd/system/ip/system_PL_RAM_3_3/sim/system_PL_RAM_3_3.v" \
-  "../../../bd/system/ip/system_PL_RAM_0_2/sim/system_PL_RAM_0_2.v" \
-  "../../../bd/system/ip/system_Action_RAM_0_3/sim/system_Action_RAM_0_3.v" \
-  "../../../bd/system/ip/system_bram_input_interface_0_2/sim/system_bram_input_interface_0_2.v" \
-  "../../../bd/system/ip/system_bram_output_interface_0_2/sim/system_bram_output_interface_0_2.v" \
-  "../../../bd/system/ipshared/13f6/hdl/intelight_mem_v1_0_S00_AXI.v" \
-  "../../../bd/system/ipshared/13f6/hdl/intelight_mem_v1_0.v" \
-  "../../../bd/system/ip/system_intelight_mem_0_1/sim/system_intelight_mem_0_1.v" \
-  "../../../bd/system/sim/system.v" \
 -endlib
 -makelib xcelium_lib/axi_bram_ctrl_v4_1_5 \
   "../../../../intelight.gen/sources_1/bd/system/ipshared/33c1/hdl/axi_bram_ctrl_v4_1_rfs.vhd" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/system/ip/system_axi_bram_ctrl_0_2/sim/system_axi_bram_ctrl_0_2.vhd" \
+  "../../../bd/system/ip/system_axi_bram_ctrl_0_4/sim/system_axi_bram_ctrl_0_4.vhd" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/system/ip/system_Action_RAM_1_3/sim/system_Action_RAM_1_3.v" \
+  "../../../bd/system/ip/system_PL_RAM_1_3/sim/system_PL_RAM_1_3.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
   "../../../bd/system/ip/system_axi_bram_ctrl_0_1/sim/system_axi_bram_ctrl_0_1.vhd" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/system/ip/system_Action_RAM_3_3/sim/system_Action_RAM_3_3.v" \
+  "../../../bd/system/ip/system_PL_RAM_3_3/sim/system_PL_RAM_3_3.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
   "../../../bd/system/ip/system_axi_bram_ctrl_0_3/sim/system_axi_bram_ctrl_0_3.vhd" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/system/ip/system_PL_RAM_0_2/sim/system_PL_RAM_0_2.v" \
+  "../../../bd/system/ip/system_Action_RAM_0_3/sim/system_Action_RAM_0_3.v" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
   "../../../bd/system/ip/system_axi_bram_ctrl_0_0/sim/system_axi_bram_ctrl_0_0.vhd" \
+-endlib
+-makelib xcelium_lib/xil_defaultlib \
+  "../../../bd/system/ip/system_bram_output_interface_0_2/sim/system_bram_output_interface_0_2.v" \
+  "../../../bd/system/ipshared/ba2f/hdl/adapt_mem_v1_0_S00_AXI.v" \
+  "../../../bd/system/ipshared/ba2f/hdl/adapt_mem_v1_0.v" \
+  "../../../bd/system/ip/system_adapt_mem_0_0/sim/system_adapt_mem_0_0.v" \
+  "../../../bd/system/ip/system_bram_input_interface_0_2/sim/system_bram_input_interface_0_2.v" \
+  "../../../bd/system/ipshared/890d/hdl/intelight_mem_v2_v1_0_S00_AXI.v" \
+  "../../../bd/system/ipshared/890d/hdl/intelight_mem_v2_v1_0.v" \
+  "../../../bd/system/ip/system_intelight_mem_v2_0_1/sim/system_intelight_mem_v2_0_1.v" \
+  "../../../bd/system/ip/system_CU_0_3/sim/system_CU_0_3.v" \
+  "../../../bd/system/sim/system.v" \
 -endlib
 -makelib xcelium_lib/axi_protocol_converter_v2_1_24 \
   "../../../../intelight.gen/sources_1/bd/system/ipshared/6e0d/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../bd/system/ip/system_auto_pc_2/sim/system_auto_pc_2.v" \
+  "../../../bd/system/ip/system_auto_pc_3/sim/system_auto_pc_3.v" \
   "../../../bd/system/ip/system_auto_pc_0/sim/system_auto_pc_0.v" \
   "../../../bd/system/ip/system_auto_pc_1/sim/system_auto_pc_1.v" \
+  "../../../bd/system/ip/system_auto_pc_2/sim/system_auto_pc_2.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   glbl.v

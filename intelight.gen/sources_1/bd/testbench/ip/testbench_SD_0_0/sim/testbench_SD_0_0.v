@@ -58,6 +58,8 @@ module testbench_SD_0_0 (
   clk,
   rst,
   en,
+  state_sim,
+  finish,
   act,
   delta_t,
   debit_out,
@@ -72,7 +74,11 @@ module testbench_SD_0_0 (
   batas_0,
   batas_1,
   batas_2,
-  next_state,
+  batas_3,
+  batas_4,
+  batas_5,
+  batas_6,
+  state,
   goal_sig,
   panjang_r0,
   panjang_r1,
@@ -95,6 +101,8 @@ input wire clk;
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *)
 input wire rst;
 input wire en;
+input wire [31 : 0] state_sim;
+input wire finish;
 input wire [1 : 0] act;
 input wire [2 : 0] delta_t;
 input wire [31 : 0] debit_out;
@@ -109,7 +117,11 @@ input wire [31 : 0] init_panjang_r3;
 input wire [31 : 0] batas_0;
 input wire [31 : 0] batas_1;
 input wire [31 : 0] batas_2;
-output wire [31 : 0] next_state;
+input wire [31 : 0] batas_3;
+input wire [31 : 0] batas_4;
+input wire [31 : 0] batas_5;
+input wire [31 : 0] batas_6;
+output wire [31 : 0] state;
 output wire goal_sig;
 output wire [31 : 0] panjang_r0;
 output wire [31 : 0] panjang_r1;
@@ -119,15 +131,17 @@ output wire [31 : 0] panjang_r0_temp0;
 output wire [31 : 0] panjang_r1_temp0;
 output wire [31 : 0] panjang_r2_temp0;
 output wire [31 : 0] panjang_r3_temp0;
-output wire [7 : 0] level_r0;
-output wire [7 : 0] level_r1;
-output wire [7 : 0] level_r2;
-output wire [7 : 0] level_r3;
+output wire [2 : 0] level_r0;
+output wire [2 : 0] level_r1;
+output wire [2 : 0] level_r2;
+output wire [2 : 0] level_r3;
 
   SD inst (
     .clk(clk),
     .rst(rst),
     .en(en),
+    .state_sim(state_sim),
+    .finish(finish),
     .act(act),
     .delta_t(delta_t),
     .debit_out(debit_out),
@@ -142,7 +156,11 @@ output wire [7 : 0] level_r3;
     .batas_0(batas_0),
     .batas_1(batas_1),
     .batas_2(batas_2),
-    .next_state(next_state),
+    .batas_3(batas_3),
+    .batas_4(batas_4),
+    .batas_5(batas_5),
+    .batas_6(batas_6),
+    .state(state),
     .goal_sig(goal_sig),
     .panjang_r0(panjang_r0),
     .panjang_r1(panjang_r1),

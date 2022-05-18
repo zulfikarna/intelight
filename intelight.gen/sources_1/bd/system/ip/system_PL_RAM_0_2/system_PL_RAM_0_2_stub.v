@@ -1,11 +1,11 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-// Date        : Sat Mar  5 17:37:14 2022
-// Host        : DESKTOP-JVERO04 running 64-bit major release  (build 9200)
+// Date        : Sun Apr 24 14:44:25 2022
+// Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub -rename_top system_PL_RAM_0_2 -prefix
-//               system_PL_RAM_0_2_ bram_blk_mem_gen_1_0_stub.v
-// Design      : bram_blk_mem_gen_1_0
+//               system_PL_RAM_0_2_ system_PL_RAM_2_3_stub.v
+// Design      : system_PL_RAM_2_3
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg400-1
 // --------------------------------------------------------------------------------

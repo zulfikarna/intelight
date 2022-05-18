@@ -1,11 +1,11 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
--- Date        : Sat Apr  2 08:15:36 2022
+-- Date        : Wed May 11 13:42:10 2022
 -- Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top testbench_PG_0_0 -prefix
---               testbench_PG_0_0_ system_PG_0_1_sim_netlist.vhdl
--- Design      : system_PG_0_1
+-- Command     : write_vhdl -force -mode funcsim
+--               d:/intelight/intelight_backup3/intelight.gen/sources_1/bd/testbench/ip/testbench_PG_0_0/testbench_PG_0_0_sim_netlist.vhdl
+-- Design      : testbench_PG_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xc7z020clg400-1
@@ -17,33 +17,111 @@ use UNISIM.VCOMPONENTS.ALL;
 entity testbench_PG_0_0_enabler_2bit is
   port (
     act : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    D : in STD_LOGIC_VECTOR ( 1 downto 0 );
     en : in STD_LOGIC;
-    act_temp1 : in STD_LOGIC_VECTOR ( 1 downto 0 )
+    rst : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of testbench_PG_0_0_enabler_2bit : entity is "enabler_2bit";
 end testbench_PG_0_0_enabler_2bit;
 
 architecture STRUCTURE of testbench_PG_0_0_enabler_2bit is
-  attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \act[0]_INST_0\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \act[1]_INST_0\ : label is "soft_lutpair24";
+  attribute XILINX_LEGACY_PRIM : string;
+  attribute XILINX_LEGACY_PRIM of \out0_reg[0]\ : label is "LDC";
+  attribute XILINX_LEGACY_PRIM of \out0_reg[1]\ : label is "LDC";
 begin
-\act[0]_INST_0\: unisim.vcomponents.LUT2
+\out0_reg[0]\: unisim.vcomponents.LDCE
     generic map(
-      INIT => X"8"
+      INIT => '0'
     )
         port map (
-      I0 => en,
-      I1 => act_temp1(0),
-      O => act(0)
+      CLR => rst,
+      D => D(0),
+      G => en,
+      GE => '1',
+      Q => act(0)
     );
-\act[1]_INST_0\: unisim.vcomponents.LUT2
+\out0_reg[1]\: unisim.vcomponents.LDCE
     generic map(
-      INIT => X"8"
+      INIT => '0'
     )
         port map (
-      I0 => en,
-      I1 => act_temp1(1),
-      O => act(1)
+      CLR => rst,
+      D => D(1),
+      G => en,
+      GE => '1',
+      Q => act(1)
+    );
+end STRUCTURE;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+library UNISIM;
+use UNISIM.VCOMPONENTS.ALL;
+entity testbench_PG_0_0_enabler_2bit_0 is
+  port (
+    act_SD : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    act_random : in STD_LOGIC_VECTOR ( 1 downto 0 );
+    sel : in STD_LOGIC;
+    CO : in STD_LOGIC_VECTOR ( 0 to 0 );
+    \act_SD[1]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    \act_SD[0]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    en : in STD_LOGIC;
+    rst : in STD_LOGIC
+  );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of testbench_PG_0_0_enabler_2bit_0 : entity is "enabler_2bit";
+end testbench_PG_0_0_enabler_2bit_0;
+
+architecture STRUCTURE of testbench_PG_0_0_enabler_2bit_0 is
+  signal act_temp0 : STD_LOGIC_VECTOR ( 1 downto 0 );
+  attribute XILINX_LEGACY_PRIM : string;
+  attribute XILINX_LEGACY_PRIM of \out0_reg[0]\ : label is "LDC";
+  attribute XILINX_LEGACY_PRIM of \out0_reg[1]\ : label is "LDC";
+begin
+\out0_reg[0]\: unisim.vcomponents.LDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      CLR => rst,
+      D => act_temp0(0),
+      G => en,
+      GE => '1',
+      Q => act_SD(0)
+    );
+\out0_reg[0]_i_1\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"AA00AACF"
+    )
+        port map (
+      I0 => act_random(0),
+      I1 => \act_SD[1]\(0),
+      I2 => \act_SD[0]\(0),
+      I3 => sel,
+      I4 => CO(0),
+      O => act_temp0(0)
+    );
+\out0_reg[1]\: unisim.vcomponents.LDCE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      CLR => rst,
+      D => act_temp0(1),
+      G => en,
+      GE => '1',
+      Q => act_SD(1)
+    );
+\out0_reg[1]_i_1\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"888B"
+    )
+        port map (
+      I0 => act_random(1),
+      I1 => sel,
+      I2 => CO(0),
+      I3 => \act_SD[1]\(0),
+      O => act_temp0(1)
     );
 end STRUCTURE;
 library IEEE;
@@ -68,6 +146,8 @@ entity testbench_PG_0_0_max2to1_32bit is
     \out01_carry__2_i_5__1_0\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     qA2 : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of testbench_PG_0_0_max2to1_32bit : entity is "max2to1_32bit";
 end testbench_PG_0_0_max2to1_32bit;
 
 architecture STRUCTURE of testbench_PG_0_0_max2to1_32bit is
@@ -856,7 +936,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity testbench_PG_0_0_max2to1_32bit_0 is
+entity testbench_PG_0_0_max2to1_32bit_1 is
   port (
     \qA3[31]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \qA1[9]\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -885,10 +965,10 @@ entity testbench_PG_0_0_max2to1_32bit_0 is
     \out01_carry__2_0\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of testbench_PG_0_0_max2to1_32bit_0 : entity is "max2to1_32bit";
-end testbench_PG_0_0_max2to1_32bit_0;
+  attribute ORIG_REF_NAME of testbench_PG_0_0_max2to1_32bit_1 : entity is "max2to1_32bit";
+end testbench_PG_0_0_max2to1_32bit_1;
 
-architecture STRUCTURE of testbench_PG_0_0_max2to1_32bit_0 is
+architecture STRUCTURE of testbench_PG_0_0_max2to1_32bit_1 is
   signal in1 : STD_LOGIC_VECTOR ( 31 to 31 );
   signal maxqA : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal \out01_carry__0_i_1_n_0\ : STD_LOGIC;
@@ -2842,7 +2922,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity testbench_PG_0_0_max2to1_32bit_1 is
+entity testbench_PG_0_0_max2to1_32bit_2 is
   port (
     \qA1[30]\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     \qA3[31]\ : out STD_LOGIC_VECTOR ( 3 downto 0 );
@@ -2863,10 +2943,10 @@ entity testbench_PG_0_0_max2to1_32bit_1 is
     qA1 : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of testbench_PG_0_0_max2to1_32bit_1 : entity is "max2to1_32bit";
-end testbench_PG_0_0_max2to1_32bit_1;
+  attribute ORIG_REF_NAME of testbench_PG_0_0_max2to1_32bit_2 : entity is "max2to1_32bit";
+end testbench_PG_0_0_max2to1_32bit_2;
 
-architecture STRUCTURE of testbench_PG_0_0_max2to1_32bit_1 is
+architecture STRUCTURE of testbench_PG_0_0_max2to1_32bit_2 is
   signal \out01_carry__0_n_0\ : STD_LOGIC;
   signal \out01_carry__0_n_1\ : STD_LOGIC;
   signal \out01_carry__0_n_2\ : STD_LOGIC;
@@ -3123,15 +3203,17 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity testbench_PG_0_0_reg_2bit is
   port (
-    act_temp1 : out STD_LOGIC_VECTOR ( 1 downto 0 );
-    CO : in STD_LOGIC_VECTOR ( 0 to 0 );
+    D : out STD_LOGIC_VECTOR ( 1 downto 0 );
     \out0_reg[1]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 );
+    CO : in STD_LOGIC_VECTOR ( 0 to 0 );
     sel : in STD_LOGIC;
     act_random : in STD_LOGIC_VECTOR ( 1 downto 0 );
     rst : in STD_LOGIC;
     \out0_reg[0]_0\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     clk : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of testbench_PG_0_0_reg_2bit : entity is "reg_2bit";
 end testbench_PG_0_0_reg_2bit;
 
 architecture STRUCTURE of testbench_PG_0_0_reg_2bit is
@@ -3143,10 +3225,10 @@ begin
       INIT => X"00000000DDCD1101"
     )
         port map (
-      I0 => \out0_reg[1]_0\(0),
+      I0 => CO(0),
       I1 => sel,
       I2 => \out0_reg[0]_0\(0),
-      I3 => CO(0),
+      I3 => \out0_reg[1]_0\(0),
       I4 => act_random(0),
       I5 => rst,
       O => \out0[0]_i_1_n_0\
@@ -3156,8 +3238,8 @@ begin
       INIT => X"0000F101"
     )
         port map (
-      I0 => CO(0),
-      I1 => \out0_reg[1]_0\(0),
+      I0 => \out0_reg[1]_0\(0),
+      I1 => CO(0),
       I2 => sel,
       I3 => act_random(1),
       I4 => rst,
@@ -3168,7 +3250,7 @@ begin
       C => clk,
       CE => '1',
       D => \out0[0]_i_1_n_0\,
-      Q => act_temp1(0),
+      Q => D(0),
       R => '0'
     );
 \out0_reg[1]\: unisim.vcomponents.FDRE
@@ -3176,7 +3258,7 @@ begin
       C => clk,
       CE => '1',
       D => \out0[1]_i_1_n_0\,
-      Q => act_temp1(1),
+      Q => D(1),
       R => '0'
     );
 end STRUCTURE;
@@ -3200,6 +3282,8 @@ entity testbench_PG_0_0_max4to1_32bit is
     qA0 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     qA1 : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of testbench_PG_0_0_max4to1_32bit : entity is "max4to1_32bit";
 end testbench_PG_0_0_max4to1_32bit;
 
 architecture STRUCTURE of testbench_PG_0_0_max4to1_32bit is
@@ -3292,7 +3376,7 @@ max0: entity work.testbench_PG_0_0_max2to1_32bit
       qA2(0) => qA2(31),
       qA3(0) => qA3(31)
     );
-max1: entity work.testbench_PG_0_0_max2to1_32bit_0
+max1: entity work.testbench_PG_0_0_max2to1_32bit_1
      port map (
       CO(0) => max0_n_0,
       DI(3) => max2_n_1,
@@ -3337,7 +3421,7 @@ max1: entity work.testbench_PG_0_0_max2to1_32bit_0
       qA3(31 downto 0) => qA3(31 downto 0),
       \qA3[31]\(0) => max1_n_0
     );
-max2: entity work.testbench_PG_0_0_max2to1_32bit_1
+max2: entity work.testbench_PG_0_0_max2to1_32bit_2
      port map (
       DI(3) => max1_n_80,
       DI(2) => max0_n_14,
@@ -3401,17 +3485,20 @@ use UNISIM.VCOMPONENTS.ALL;
 entity testbench_PG_0_0_PG is
   port (
     act : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    act_SD : out STD_LOGIC_VECTOR ( 1 downto 0 );
     act_greed : out STD_LOGIC_VECTOR ( 1 downto 0 );
     en : in STD_LOGIC;
+    rst : in STD_LOGIC;
     sel : in STD_LOGIC;
     act_random : in STD_LOGIC_VECTOR ( 1 downto 0 );
-    rst : in STD_LOGIC;
     clk : in STD_LOGIC;
     qA2 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     qA3 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     qA0 : in STD_LOGIC_VECTOR ( 31 downto 0 );
     qA1 : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of testbench_PG_0_0_PG : entity is "PG";
 end testbench_PG_0_0_PG;
 
 architecture STRUCTURE of testbench_PG_0_0_PG is
@@ -3495,8 +3582,8 @@ architecture STRUCTURE of testbench_PG_0_0_PG is
   signal \NLW_act_greed3_carry__1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   signal \NLW_act_greed3_carry__1_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \act_greed[0]_INST_0\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \act_greed[1]_INST_0\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \act_greed[0]_INST_0\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \act_greed[1]_INST_0\ : label is "soft_lutpair24";
 begin
 act_greed1_carry: unisim.vcomponents.CARRY4
      port map (
@@ -3654,9 +3741,21 @@ act_greed3_carry: unisim.vcomponents.CARRY4
     );
 en0: entity work.testbench_PG_0_0_enabler_2bit
      port map (
+      D(1 downto 0) => act_temp1(1 downto 0),
       act(1 downto 0) => act(1 downto 0),
-      act_temp1(1 downto 0) => act_temp1(1 downto 0),
-      en => en
+      en => en,
+      rst => rst
+    );
+en1: entity work.testbench_PG_0_0_enabler_2bit_0
+     port map (
+      CO(0) => act_greed1,
+      act_SD(1 downto 0) => act_SD(1 downto 0),
+      \act_SD[0]\(0) => act_greed3,
+      \act_SD[1]\(0) => act_greed2,
+      act_random(1 downto 0) => act_random(1 downto 0),
+      en => en,
+      rst => rst,
+      sel => sel
     );
 greed_action: entity work.testbench_PG_0_0_max4to1_32bit
      port map (
@@ -3700,12 +3799,12 @@ greed_action: entity work.testbench_PG_0_0_max4to1_32bit
     );
 reg0: entity work.testbench_PG_0_0_reg_2bit
      port map (
-      CO(0) => act_greed2,
+      CO(0) => act_greed1,
+      D(1 downto 0) => act_temp1(1 downto 0),
       act_random(1 downto 0) => act_random(1 downto 0),
-      act_temp1(1 downto 0) => act_temp1(1 downto 0),
       clk => clk,
       \out0_reg[0]_0\(0) => act_greed3,
-      \out0_reg[1]_0\(0) => act_greed1,
+      \out0_reg[1]_0\(0) => act_greed2,
       rst => rst,
       sel => sel
     );
@@ -3726,12 +3825,13 @@ entity testbench_PG_0_0 is
     sel : in STD_LOGIC;
     act_random : in STD_LOGIC_VECTOR ( 1 downto 0 );
     act : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    act_SD : out STD_LOGIC_VECTOR ( 1 downto 0 );
     act_greed : out STD_LOGIC_VECTOR ( 1 downto 0 )
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of testbench_PG_0_0 : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of testbench_PG_0_0 : entity is "system_PG_0_1,PG,{}";
+  attribute CHECK_LICENSE_TYPE of testbench_PG_0_0 : entity is "testbench_PG_0_0,PG,{}";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of testbench_PG_0_0 : entity is "yes";
   attribute IP_DEFINITION_SOURCE : string;
@@ -3744,13 +3844,14 @@ architecture STRUCTURE of testbench_PG_0_0 is
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of clk : signal is "xilinx.com:signal:clock:1.0 clk CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of clk : signal is "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of clk : signal is "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN testbench_clk, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of rst : signal is "xilinx.com:signal:reset:1.0 rst RST";
-  attribute X_INTERFACE_PARAMETER of rst : signal is "XIL_INTERFACENAME rst, POLARITY ACTIVE_HIGH, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of rst : signal is "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0";
 begin
 inst: entity work.testbench_PG_0_0_PG
      port map (
       act(1 downto 0) => act(1 downto 0),
+      act_SD(1 downto 0) => act_SD(1 downto 0),
       act_greed(1 downto 0) => act_greed(1 downto 0),
       act_random(1 downto 0) => act_random(1 downto 0),
       clk => clk,

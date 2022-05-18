@@ -58,7 +58,8 @@
 module testbench_bram_input_interface_0_0 (
   clk,
   rst,
-  en,
+  en_wr,
+  en_rd,
   next_state,
   rd_addr,
   wr_addr,
@@ -83,7 +84,8 @@ input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *)
 input wire rst;
-input wire en;
+input wire en_wr;
+input wire en_rd;
 input wire [31 : 0] next_state;
 output wire [31 : 0] rd_addr;
 output wire [31 : 0] wr_addr;
@@ -104,7 +106,8 @@ output wire en3_rd;
   bram_input_interface inst (
     .clk(clk),
     .rst(rst),
-    .en(en),
+    .en_wr(en_wr),
+    .en_rd(en_rd),
     .next_state(next_state),
     .rd_addr(rd_addr),
     .wr_addr(wr_addr),

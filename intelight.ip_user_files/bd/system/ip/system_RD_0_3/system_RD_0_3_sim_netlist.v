@@ -1,105 +1,43 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-// Date        : Sat Apr  2 11:26:37 2022
+// Date        : Wed May 11 13:42:07 2022
 // Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               d:/intelight/intelight/intelight.gen/sources_1/bd/system/ip/system_RD_0_3/system_RD_0_3_sim_netlist.v
-// Design      : system_RD_0_3
+// Command     : write_verilog -force -mode funcsim -rename_top system_RD_0_3 -prefix
+//               system_RD_0_3_ testbench_RD_0_0_sim_netlist.v
+// Design      : testbench_RD_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7z020clg400-1
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "system_RD_0_3,RD,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "RD,Vivado 2021.1" *) 
-(* NotValidForBitStream *)
-module system_RD_0_3
-   (sel,
-    w_min,
-    w_max,
-    w_act,
-    clk,
-    rst,
-    en,
-    act,
-    state,
-    reward_0,
-    reward_1,
-    reward_2,
-    reward);
-  output [1:0]sel;
-  output [1:0]w_min;
-  output [1:0]w_max;
-  output [1:0]w_act;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *) input clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) input rst;
-  input en;
-  input [1:0]act;
-  input [31:0]state;
-  input [31:0]reward_0;
-  input [31:0]reward_1;
-  input [31:0]reward_2;
-  output [31:0]reward;
-
-  wire [1:0]act;
-  wire clk;
-  wire en;
-  wire [31:0]reward;
-  wire [31:0]reward_0;
-  wire [31:0]reward_1;
-  wire [31:0]reward_2;
-  wire rst;
-  wire [1:0]sel;
-  wire [31:0]state;
-  wire [1:0]w_act;
-  wire [1:0]w_max;
-  wire [1:0]w_min;
-
-  system_RD_0_3_RD inst
-       (.Q(sel),
-        .act(act),
-        .clk(clk),
-        .en(en),
-        .reward(reward),
-        .reward_0(reward_0),
-        .reward_1(reward_1),
-        .reward_2(reward_2),
-        .rst(rst),
-        .state(state[7:0]),
-        .w_act(w_act),
-        .w_max(w_max),
-        .w_min(w_min));
-endmodule
-
-(* ORIG_REF_NAME = "RD" *) 
 module system_RD_0_3_RD
-   (w_max,
+   (reward,
+    w_max,
     w_min,
-    w_act,
     Q,
-    reward,
+    w_act,
+    en,
     rst,
     clk,
     state,
-    en,
-    reward_0,
-    reward_2,
     reward_1,
+    reward_2,
+    reward_0,
     act);
-  output [1:0]w_max;
-  output [1:0]w_min;
-  output [1:0]w_act;
-  output [1:0]Q;
   output [31:0]reward;
+  output [2:0]w_max;
+  output [2:0]w_min;
+  output [1:0]Q;
+  output [2:0]w_act;
+  input en;
   input rst;
   input clk;
-  input [7:0]state;
-  input en;
-  input [31:0]reward_0;
-  input [31:0]reward_2;
+  input [11:0]state;
   input [31:0]reward_1;
+  input [31:0]reward_2;
+  input [31:0]reward_0;
   input [1:0]act;
 
   wire [1:0]Q;
@@ -111,10 +49,11 @@ module system_RD_0_3_RD
   wire [31:0]reward_1;
   wire [31:0]reward_2;
   wire rst;
-  wire [7:0]state;
-  wire [1:0]w_act;
-  wire [1:0]w_max;
-  wire [1:0]w_min;
+  wire [11:0]state;
+  wire [2:0]w_act;
+  wire [2:0]w_max;
+  wire [2:0]w_min;
+  wire [31:0]w_reward;
 
   system_RD_0_3_analyzer analyzer0
        (.Q(Q),
@@ -126,575 +65,687 @@ module system_RD_0_3_RD
         .w_max(w_max),
         .w_min(w_min));
   system_RD_0_3_enabler_32bit en0
-       (.Q(Q),
+       (.D(w_reward),
         .en(en),
         .reward(reward),
+        .rst(rst));
+  system_RD_0_3_mux4to1_32bit rd0
+       (.D(w_reward),
+        .Q(Q),
         .reward_0(reward_0),
         .reward_1(reward_1),
         .reward_2(reward_2));
 endmodule
 
-(* ORIG_REF_NAME = "analyzer" *) 
 module system_RD_0_3_analyzer
    (w_max,
     w_min,
-    w_act,
     Q,
+    w_act,
     rst,
     clk,
     state,
     act);
-  output [1:0]w_max;
-  output [1:0]w_min;
-  output [1:0]w_act;
+  output [2:0]w_max;
+  output [2:0]w_min;
   output [1:0]Q;
+  output [2:0]w_act;
   input rst;
   input clk;
-  input [7:0]state;
+  input [11:0]state;
   input [1:0]act;
 
   wire [1:0]Q;
   wire [1:0]act;
   wire clk;
-  wire reg0_n_0;
+  wire reg3_n_0;
   wire rst;
-  wire [7:0]state;
-  wire [1:0]w_act;
-  wire [1:0]w_max;
-  wire [1:0]w_min;
+  wire [11:0]state;
+  wire [2:0]w_act;
+  wire [2:0]w_max;
+  wire [2:0]w_min;
   wire [0:0]w_sel;
 
-  system_RD_0_3_reg_2bit reg0
-       (.D({reg0_n_0,w_sel}),
+  system_RD_0_3_reg_3bit reg0
+       (.clk(clk),
+        .rst(rst),
+        .state(state),
+        .w_max(w_max));
+  system_RD_0_3_reg_3bit_0 reg1
+       (.clk(clk),
+        .rst(rst),
+        .state(state),
+        .w_min(w_min));
+  system_RD_0_3_reg_32bit reg3
+       (.D({reg3_n_0,w_sel}),
+        .act(act),
         .clk(clk),
         .rst(rst),
         .state(state),
         .w_act(w_act),
         .w_max(w_max),
         .w_min(w_min));
-  system_RD_0_3_reg_2bit_0 reg1
-       (.clk(clk),
-        .rst(rst),
-        .state(state),
-        .w_min(w_min));
-  system_RD_0_3_reg_32bit reg3
-       (.act(act),
-        .clk(clk),
-        .rst(rst),
-        .state(state),
-        .w_act(w_act));
-  system_RD_0_3_reg_2bit_1 reg4
-       (.D({reg0_n_0,w_sel}),
+  system_RD_0_3_reg_2bit reg4
+       (.D({reg3_n_0,w_sel}),
         .Q(Q),
         .clk(clk),
         .rst(rst));
 endmodule
 
-(* ORIG_REF_NAME = "enabler_32bit" *) 
 module system_RD_0_3_enabler_32bit
    (reward,
+    D,
     en,
-    reward_0,
-    Q,
-    reward_2,
-    reward_1);
+    rst);
   output [31:0]reward;
+  input [31:0]D;
   input en;
-  input [31:0]reward_0;
-  input [1:0]Q;
-  input [31:0]reward_2;
-  input [31:0]reward_1;
+  input rst;
 
-  wire [1:0]Q;
+  wire [31:0]D;
   wire en;
   wire [31:0]reward;
+  wire rst;
+
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[0] 
+       (.CLR(rst),
+        .D(D[0]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[0]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[10] 
+       (.CLR(rst),
+        .D(D[10]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[10]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[11] 
+       (.CLR(rst),
+        .D(D[11]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[11]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[12] 
+       (.CLR(rst),
+        .D(D[12]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[12]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[13] 
+       (.CLR(rst),
+        .D(D[13]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[13]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[14] 
+       (.CLR(rst),
+        .D(D[14]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[14]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[15] 
+       (.CLR(rst),
+        .D(D[15]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[15]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[16] 
+       (.CLR(rst),
+        .D(D[16]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[16]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[17] 
+       (.CLR(rst),
+        .D(D[17]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[17]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[18] 
+       (.CLR(rst),
+        .D(D[18]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[18]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[19] 
+       (.CLR(rst),
+        .D(D[19]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[19]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[1] 
+       (.CLR(rst),
+        .D(D[1]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[1]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[20] 
+       (.CLR(rst),
+        .D(D[20]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[20]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[21] 
+       (.CLR(rst),
+        .D(D[21]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[21]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[22] 
+       (.CLR(rst),
+        .D(D[22]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[22]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[23] 
+       (.CLR(rst),
+        .D(D[23]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[23]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[24] 
+       (.CLR(rst),
+        .D(D[24]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[24]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[25] 
+       (.CLR(rst),
+        .D(D[25]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[25]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[26] 
+       (.CLR(rst),
+        .D(D[26]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[26]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[27] 
+       (.CLR(rst),
+        .D(D[27]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[27]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[28] 
+       (.CLR(rst),
+        .D(D[28]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[28]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[29] 
+       (.CLR(rst),
+        .D(D[29]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[29]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[2] 
+       (.CLR(rst),
+        .D(D[2]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[2]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[30] 
+       (.CLR(rst),
+        .D(D[30]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[30]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[31] 
+       (.CLR(rst),
+        .D(D[31]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[31]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[3] 
+       (.CLR(rst),
+        .D(D[3]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[3]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[4] 
+       (.CLR(rst),
+        .D(D[4]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[4]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[5] 
+       (.CLR(rst),
+        .D(D[5]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[5]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[6] 
+       (.CLR(rst),
+        .D(D[6]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[6]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[7] 
+       (.CLR(rst),
+        .D(D[7]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[7]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[8] 
+       (.CLR(rst),
+        .D(D[8]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[8]));
+  (* XILINX_LEGACY_PRIM = "LDC" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    \out0_reg[9] 
+       (.CLR(rst),
+        .D(D[9]),
+        .G(en),
+        .GE(1'b1),
+        .Q(reward[9]));
+endmodule
+
+module system_RD_0_3_mux4to1_32bit
+   (D,
+    reward_1,
+    Q,
+    reward_2,
+    reward_0);
+  output [31:0]D;
+  input [31:0]reward_1;
+  input [1:0]Q;
+  input [31:0]reward_2;
+  input [31:0]reward_0;
+
+  wire [31:0]D;
+  wire [1:0]Q;
   wire [31:0]reward_0;
   wire [31:0]reward_1;
   wire [31:0]reward_2;
 
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[0]_INST_0 
-       (.I0(en),
-        .I1(reward_0[0]),
-        .I2(Q[1]),
-        .I3(reward_2[0]),
-        .I4(Q[0]),
-        .I5(reward_1[0]),
-        .O(reward[0]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[10]_INST_0 
-       (.I0(en),
-        .I1(reward_0[10]),
-        .I2(Q[1]),
-        .I3(reward_2[10]),
-        .I4(Q[0]),
-        .I5(reward_1[10]),
-        .O(reward[10]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[11]_INST_0 
-       (.I0(en),
-        .I1(reward_0[11]),
-        .I2(Q[1]),
-        .I3(reward_2[11]),
-        .I4(Q[0]),
-        .I5(reward_1[11]),
-        .O(reward[11]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[12]_INST_0 
-       (.I0(en),
-        .I1(reward_0[12]),
-        .I2(Q[1]),
-        .I3(reward_2[12]),
-        .I4(Q[0]),
-        .I5(reward_1[12]),
-        .O(reward[12]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[13]_INST_0 
-       (.I0(en),
-        .I1(reward_0[13]),
-        .I2(Q[1]),
-        .I3(reward_2[13]),
-        .I4(Q[0]),
-        .I5(reward_1[13]),
-        .O(reward[13]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[14]_INST_0 
-       (.I0(en),
-        .I1(reward_0[14]),
-        .I2(Q[1]),
-        .I3(reward_2[14]),
-        .I4(Q[0]),
-        .I5(reward_1[14]),
-        .O(reward[14]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[15]_INST_0 
-       (.I0(en),
-        .I1(reward_0[15]),
-        .I2(Q[1]),
-        .I3(reward_2[15]),
-        .I4(Q[0]),
-        .I5(reward_1[15]),
-        .O(reward[15]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[16]_INST_0 
-       (.I0(en),
-        .I1(reward_0[16]),
-        .I2(Q[1]),
-        .I3(reward_2[16]),
-        .I4(Q[0]),
-        .I5(reward_1[16]),
-        .O(reward[16]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[17]_INST_0 
-       (.I0(en),
-        .I1(reward_0[17]),
-        .I2(Q[1]),
-        .I3(reward_2[17]),
-        .I4(Q[0]),
-        .I5(reward_1[17]),
-        .O(reward[17]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[18]_INST_0 
-       (.I0(en),
-        .I1(reward_0[18]),
-        .I2(Q[1]),
-        .I3(reward_2[18]),
-        .I4(Q[0]),
-        .I5(reward_1[18]),
-        .O(reward[18]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[19]_INST_0 
-       (.I0(en),
-        .I1(reward_0[19]),
-        .I2(Q[1]),
-        .I3(reward_2[19]),
-        .I4(Q[0]),
-        .I5(reward_1[19]),
-        .O(reward[19]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[1]_INST_0 
-       (.I0(en),
-        .I1(reward_0[1]),
-        .I2(Q[1]),
-        .I3(reward_2[1]),
-        .I4(Q[0]),
-        .I5(reward_1[1]),
-        .O(reward[1]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[20]_INST_0 
-       (.I0(en),
-        .I1(reward_0[20]),
-        .I2(Q[1]),
-        .I3(reward_2[20]),
-        .I4(Q[0]),
-        .I5(reward_1[20]),
-        .O(reward[20]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[21]_INST_0 
-       (.I0(en),
-        .I1(reward_0[21]),
-        .I2(Q[1]),
-        .I3(reward_2[21]),
-        .I4(Q[0]),
-        .I5(reward_1[21]),
-        .O(reward[21]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[22]_INST_0 
-       (.I0(en),
-        .I1(reward_0[22]),
-        .I2(Q[1]),
-        .I3(reward_2[22]),
-        .I4(Q[0]),
-        .I5(reward_1[22]),
-        .O(reward[22]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[23]_INST_0 
-       (.I0(en),
-        .I1(reward_0[23]),
-        .I2(Q[1]),
-        .I3(reward_2[23]),
-        .I4(Q[0]),
-        .I5(reward_1[23]),
-        .O(reward[23]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[24]_INST_0 
-       (.I0(en),
-        .I1(reward_0[24]),
-        .I2(Q[1]),
-        .I3(reward_2[24]),
-        .I4(Q[0]),
-        .I5(reward_1[24]),
-        .O(reward[24]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[25]_INST_0 
-       (.I0(en),
-        .I1(reward_0[25]),
-        .I2(Q[1]),
-        .I3(reward_2[25]),
-        .I4(Q[0]),
-        .I5(reward_1[25]),
-        .O(reward[25]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[26]_INST_0 
-       (.I0(en),
-        .I1(reward_0[26]),
-        .I2(Q[1]),
-        .I3(reward_2[26]),
-        .I4(Q[0]),
-        .I5(reward_1[26]),
-        .O(reward[26]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[27]_INST_0 
-       (.I0(en),
-        .I1(reward_0[27]),
-        .I2(Q[1]),
-        .I3(reward_2[27]),
-        .I4(Q[0]),
-        .I5(reward_1[27]),
-        .O(reward[27]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[28]_INST_0 
-       (.I0(en),
-        .I1(reward_0[28]),
-        .I2(Q[1]),
-        .I3(reward_2[28]),
-        .I4(Q[0]),
-        .I5(reward_1[28]),
-        .O(reward[28]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[29]_INST_0 
-       (.I0(en),
-        .I1(reward_0[29]),
-        .I2(Q[1]),
-        .I3(reward_2[29]),
-        .I4(Q[0]),
-        .I5(reward_1[29]),
-        .O(reward[29]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[2]_INST_0 
-       (.I0(en),
-        .I1(reward_0[2]),
-        .I2(Q[1]),
-        .I3(reward_2[2]),
-        .I4(Q[0]),
-        .I5(reward_1[2]),
-        .O(reward[2]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[30]_INST_0 
-       (.I0(en),
-        .I1(reward_0[30]),
-        .I2(Q[1]),
-        .I3(reward_2[30]),
-        .I4(Q[0]),
-        .I5(reward_1[30]),
-        .O(reward[30]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[31]_INST_0 
-       (.I0(en),
-        .I1(reward_0[31]),
-        .I2(Q[1]),
-        .I3(reward_2[31]),
-        .I4(Q[0]),
-        .I5(reward_1[31]),
-        .O(reward[31]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[3]_INST_0 
-       (.I0(en),
-        .I1(reward_0[3]),
-        .I2(Q[1]),
-        .I3(reward_2[3]),
-        .I4(Q[0]),
-        .I5(reward_1[3]),
-        .O(reward[3]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[4]_INST_0 
-       (.I0(en),
-        .I1(reward_0[4]),
-        .I2(Q[1]),
-        .I3(reward_2[4]),
-        .I4(Q[0]),
-        .I5(reward_1[4]),
-        .O(reward[4]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[5]_INST_0 
-       (.I0(en),
-        .I1(reward_0[5]),
-        .I2(Q[1]),
-        .I3(reward_2[5]),
-        .I4(Q[0]),
-        .I5(reward_1[5]),
-        .O(reward[5]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[6]_INST_0 
-       (.I0(en),
-        .I1(reward_0[6]),
-        .I2(Q[1]),
-        .I3(reward_2[6]),
-        .I4(Q[0]),
-        .I5(reward_1[6]),
-        .O(reward[6]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[7]_INST_0 
-       (.I0(en),
-        .I1(reward_0[7]),
-        .I2(Q[1]),
-        .I3(reward_2[7]),
-        .I4(Q[0]),
-        .I5(reward_1[7]),
-        .O(reward[7]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[8]_INST_0 
-       (.I0(en),
-        .I1(reward_0[8]),
-        .I2(Q[1]),
-        .I3(reward_2[8]),
-        .I4(Q[0]),
-        .I5(reward_1[8]),
-        .O(reward[8]));
-  LUT6 #(
-    .INIT(64'h0A0AA8080000A808)) 
-    \reward[9]_INST_0 
-       (.I0(en),
-        .I1(reward_0[9]),
-        .I2(Q[1]),
-        .I3(reward_2[9]),
-        .I4(Q[0]),
-        .I5(reward_1[9]),
-        .O(reward[9]));
-endmodule
-
-(* ORIG_REF_NAME = "reg_2bit" *) 
-module system_RD_0_3_reg_2bit
-   (D,
-    w_max,
-    w_min,
-    w_act,
-    state,
-    rst,
-    clk);
-  output [1:0]D;
-  output [1:0]w_max;
-  input [1:0]w_min;
-  input [1:0]w_act;
-  input [7:0]state;
-  input rst;
-  input clk;
-
-  wire [1:0]D;
-  wire clk;
-  wire [1:0]\max0/w0__1 ;
-  wire rst;
-  wire [7:0]state;
-  wire [1:0]w_act;
-  wire [1:0]w_max;
-  wire [1:0]w_max0;
-  wire [1:0]w_min;
-
-  LUT6 #(
-    .INIT(64'hFFFFECAFECA0ECAE)) 
-    \out0[0]_i_1 
-       (.I0(state[4]),
-        .I1(state[6]),
-        .I2(state[5]),
-        .I3(state[7]),
-        .I4(\max0/w0__1 [1]),
-        .I5(\max0/w0__1 [0]),
-        .O(w_max0[0]));
-  LUT6 #(
-    .INIT(64'h07B077BBDDEE0DE0)) 
-    \out0[0]_i_1__1 
-       (.I0(w_max[1]),
-        .I1(w_max[0]),
-        .I2(w_min[1]),
-        .I3(w_act[1]),
-        .I4(w_min[0]),
-        .I5(w_act[0]),
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[0]_i_1 
+       (.I0(reward_1[0]),
+        .I1(Q[0]),
+        .I2(reward_2[0]),
+        .I3(Q[1]),
+        .I4(reward_0[0]),
         .O(D[0]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT4 #(
-    .INIT(16'hECAE)) 
-    \out0[0]_i_2 
-       (.I0(state[0]),
-        .I1(state[2]),
-        .I2(state[1]),
-        .I3(state[3]),
-        .O(\max0/w0__1 [0]));
-  LUT3 #(
-    .INIT(8'hFE)) 
-    \out0[1]_i_1__0 
-       (.I0(state[5]),
-        .I1(state[7]),
-        .I2(\max0/w0__1 [1]),
-        .O(w_max0[1]));
-  LUT6 #(
-    .INIT(64'h0840884422110210)) 
-    \out0[1]_i_1__1 
-       (.I0(w_max[1]),
-        .I1(w_max[0]),
-        .I2(w_min[1]),
-        .I3(w_act[1]),
-        .I4(w_min[0]),
-        .I5(w_act[0]),
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[10]_i_1 
+       (.I0(reward_1[10]),
+        .I1(Q[0]),
+        .I2(reward_2[10]),
+        .I3(Q[1]),
+        .I4(reward_0[10]),
+        .O(D[10]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[11]_i_1 
+       (.I0(reward_1[11]),
+        .I1(Q[0]),
+        .I2(reward_2[11]),
+        .I3(Q[1]),
+        .I4(reward_0[11]),
+        .O(D[11]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[12]_i_1 
+       (.I0(reward_1[12]),
+        .I1(Q[0]),
+        .I2(reward_2[12]),
+        .I3(Q[1]),
+        .I4(reward_0[12]),
+        .O(D[12]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[13]_i_1 
+       (.I0(reward_1[13]),
+        .I1(Q[0]),
+        .I2(reward_2[13]),
+        .I3(Q[1]),
+        .I4(reward_0[13]),
+        .O(D[13]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[14]_i_1 
+       (.I0(reward_1[14]),
+        .I1(Q[0]),
+        .I2(reward_2[14]),
+        .I3(Q[1]),
+        .I4(reward_0[14]),
+        .O(D[14]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[15]_i_1 
+       (.I0(reward_1[15]),
+        .I1(Q[0]),
+        .I2(reward_2[15]),
+        .I3(Q[1]),
+        .I4(reward_0[15]),
+        .O(D[15]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[16]_i_1 
+       (.I0(reward_1[16]),
+        .I1(Q[0]),
+        .I2(reward_2[16]),
+        .I3(Q[1]),
+        .I4(reward_0[16]),
+        .O(D[16]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[17]_i_1 
+       (.I0(reward_1[17]),
+        .I1(Q[0]),
+        .I2(reward_2[17]),
+        .I3(Q[1]),
+        .I4(reward_0[17]),
+        .O(D[17]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[18]_i_1 
+       (.I0(reward_1[18]),
+        .I1(Q[0]),
+        .I2(reward_2[18]),
+        .I3(Q[1]),
+        .I4(reward_0[18]),
+        .O(D[18]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[19]_i_1 
+       (.I0(reward_1[19]),
+        .I1(Q[0]),
+        .I2(reward_2[19]),
+        .I3(Q[1]),
+        .I4(reward_0[19]),
+        .O(D[19]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[1]_i_1 
+       (.I0(reward_1[1]),
+        .I1(Q[0]),
+        .I2(reward_2[1]),
+        .I3(Q[1]),
+        .I4(reward_0[1]),
         .O(D[1]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT2 #(
-    .INIT(4'hE)) 
-    \out0[1]_i_2__0 
-       (.I0(state[1]),
-        .I1(state[3]),
-        .O(\max0/w0__1 [1]));
-  FDRE \out0_reg[0] 
-       (.C(clk),
-        .CE(1'b1),
-        .D(w_max0[0]),
-        .Q(w_max[0]),
-        .R(rst));
-  FDRE \out0_reg[1] 
-       (.C(clk),
-        .CE(1'b1),
-        .D(w_max0[1]),
-        .Q(w_max[1]),
-        .R(rst));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[20]_i_1 
+       (.I0(reward_1[20]),
+        .I1(Q[0]),
+        .I2(reward_2[20]),
+        .I3(Q[1]),
+        .I4(reward_0[20]),
+        .O(D[20]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[21]_i_1 
+       (.I0(reward_1[21]),
+        .I1(Q[0]),
+        .I2(reward_2[21]),
+        .I3(Q[1]),
+        .I4(reward_0[21]),
+        .O(D[21]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[22]_i_1 
+       (.I0(reward_1[22]),
+        .I1(Q[0]),
+        .I2(reward_2[22]),
+        .I3(Q[1]),
+        .I4(reward_0[22]),
+        .O(D[22]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[23]_i_1 
+       (.I0(reward_1[23]),
+        .I1(Q[0]),
+        .I2(reward_2[23]),
+        .I3(Q[1]),
+        .I4(reward_0[23]),
+        .O(D[23]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[24]_i_1 
+       (.I0(reward_1[24]),
+        .I1(Q[0]),
+        .I2(reward_2[24]),
+        .I3(Q[1]),
+        .I4(reward_0[24]),
+        .O(D[24]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[25]_i_1 
+       (.I0(reward_1[25]),
+        .I1(Q[0]),
+        .I2(reward_2[25]),
+        .I3(Q[1]),
+        .I4(reward_0[25]),
+        .O(D[25]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[26]_i_1 
+       (.I0(reward_1[26]),
+        .I1(Q[0]),
+        .I2(reward_2[26]),
+        .I3(Q[1]),
+        .I4(reward_0[26]),
+        .O(D[26]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[27]_i_1 
+       (.I0(reward_1[27]),
+        .I1(Q[0]),
+        .I2(reward_2[27]),
+        .I3(Q[1]),
+        .I4(reward_0[27]),
+        .O(D[27]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[28]_i_1 
+       (.I0(reward_1[28]),
+        .I1(Q[0]),
+        .I2(reward_2[28]),
+        .I3(Q[1]),
+        .I4(reward_0[28]),
+        .O(D[28]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[29]_i_1 
+       (.I0(reward_1[29]),
+        .I1(Q[0]),
+        .I2(reward_2[29]),
+        .I3(Q[1]),
+        .I4(reward_0[29]),
+        .O(D[29]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[2]_i_1 
+       (.I0(reward_1[2]),
+        .I1(Q[0]),
+        .I2(reward_2[2]),
+        .I3(Q[1]),
+        .I4(reward_0[2]),
+        .O(D[2]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[30]_i_1 
+       (.I0(reward_1[30]),
+        .I1(Q[0]),
+        .I2(reward_2[30]),
+        .I3(Q[1]),
+        .I4(reward_0[30]),
+        .O(D[30]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[31]_i_1 
+       (.I0(reward_1[31]),
+        .I1(Q[0]),
+        .I2(reward_2[31]),
+        .I3(Q[1]),
+        .I4(reward_0[31]),
+        .O(D[31]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[3]_i_1 
+       (.I0(reward_1[3]),
+        .I1(Q[0]),
+        .I2(reward_2[3]),
+        .I3(Q[1]),
+        .I4(reward_0[3]),
+        .O(D[3]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[4]_i_1 
+       (.I0(reward_1[4]),
+        .I1(Q[0]),
+        .I2(reward_2[4]),
+        .I3(Q[1]),
+        .I4(reward_0[4]),
+        .O(D[4]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[5]_i_1 
+       (.I0(reward_1[5]),
+        .I1(Q[0]),
+        .I2(reward_2[5]),
+        .I3(Q[1]),
+        .I4(reward_0[5]),
+        .O(D[5]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[6]_i_1 
+       (.I0(reward_1[6]),
+        .I1(Q[0]),
+        .I2(reward_2[6]),
+        .I3(Q[1]),
+        .I4(reward_0[6]),
+        .O(D[6]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[7]_i_1 
+       (.I0(reward_1[7]),
+        .I1(Q[0]),
+        .I2(reward_2[7]),
+        .I3(Q[1]),
+        .I4(reward_0[7]),
+        .O(D[7]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[8]_i_1 
+       (.I0(reward_1[8]),
+        .I1(Q[0]),
+        .I2(reward_2[8]),
+        .I3(Q[1]),
+        .I4(reward_0[8]),
+        .O(D[8]));
+  LUT5 #(
+    .INIT(32'h30BB3088)) 
+    \out0_reg[9]_i_1 
+       (.I0(reward_1[9]),
+        .I1(Q[0]),
+        .I2(reward_2[9]),
+        .I3(Q[1]),
+        .I4(reward_0[9]),
+        .O(D[9]));
 endmodule
 
-(* ORIG_REF_NAME = "reg_2bit" *) 
-module system_RD_0_3_reg_2bit_0
-   (w_min,
-    state,
-    rst,
-    clk);
-  output [1:0]w_min;
-  input [7:0]state;
-  input rst;
-  input clk;
-
-  wire clk;
-  wire [1:0]\min0/w0__1 ;
-  wire rst;
-  wire [7:0]state;
-  wire [1:0]w_min;
-  wire [1:0]w_min0;
-
-  LUT6 #(
-    .INIT(64'hF240FAC872400000)) 
-    \out0[0]_i_1__0 
-       (.I0(state[7]),
-        .I1(state[5]),
-        .I2(state[6]),
-        .I3(state[4]),
-        .I4(\min0/w0__1 [1]),
-        .I5(\min0/w0__1 [0]),
-        .O(w_min0[0]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT4 #(
-    .INIT(16'hF240)) 
-    \out0[0]_i_2__0 
-       (.I0(state[3]),
-        .I1(state[1]),
-        .I2(state[2]),
-        .I3(state[0]),
-        .O(\min0/w0__1 [0]));
-  LUT3 #(
-    .INIT(8'h80)) 
-    \out0[1]_i_1 
-       (.I0(state[7]),
-        .I1(state[5]),
-        .I2(\min0/w0__1 [1]),
-        .O(w_min0[1]));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \out0[1]_i_2 
-       (.I0(state[3]),
-        .I1(state[1]),
-        .O(\min0/w0__1 [1]));
-  FDRE \out0_reg[0] 
-       (.C(clk),
-        .CE(1'b1),
-        .D(w_min0[0]),
-        .Q(w_min[0]),
-        .R(rst));
-  FDRE \out0_reg[1] 
-       (.C(clk),
-        .CE(1'b1),
-        .D(w_min0[1]),
-        .Q(w_min[1]),
-        .R(rst));
-endmodule
-
-(* ORIG_REF_NAME = "reg_2bit" *) 
-module system_RD_0_3_reg_2bit_1
+module system_RD_0_3_reg_2bit
    (Q,
     rst,
     D,
@@ -723,22 +774,30 @@ module system_RD_0_3_reg_2bit_1
         .R(rst));
 endmodule
 
-(* ORIG_REF_NAME = "reg_32bit" *) 
 module system_RD_0_3_reg_32bit
-   (w_act,
-    act,
+   (D,
+    w_act,
     rst,
     state,
-    clk);
-  output [1:0]w_act;
-  input [1:0]act;
+    clk,
+    w_max,
+    w_min,
+    act);
+  output [1:0]D;
+  output [2:0]w_act;
   input rst;
-  input [7:0]state;
+  input [11:0]state;
   input clk;
+  input [2:0]w_max;
+  input [2:0]w_min;
+  input [1:0]act;
 
+  wire [1:0]D;
   wire [1:0]act;
   wire clk;
   wire \out0_reg_n_0_[0] ;
+  wire \out0_reg_n_0_[10] ;
+  wire \out0_reg_n_0_[11] ;
   wire \out0_reg_n_0_[1] ;
   wire \out0_reg_n_0_[2] ;
   wire \out0_reg_n_0_[3] ;
@@ -746,15 +805,67 @@ module system_RD_0_3_reg_32bit
   wire \out0_reg_n_0_[5] ;
   wire \out0_reg_n_0_[6] ;
   wire \out0_reg_n_0_[7] ;
+  wire \out0_reg_n_0_[8] ;
+  wire \out0_reg_n_0_[9] ;
   wire rst;
-  wire [7:0]state;
-  wire [1:0]w_act;
+  wire [11:0]state;
+  wire [2:0]w_act;
+  wire [2:0]w_max;
+  wire [2:0]w_min;
+  wire w_sel1__4;
+  wire w_sel2__4;
 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT2 #(
+    .INIT(4'h1)) 
+    \out0[0]_i_1__1 
+       (.I0(w_sel2__4),
+        .I1(w_sel1__4),
+        .O(D[0]));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \out0[1]_i_1__1 
+       (.I0(w_sel2__4),
+        .I1(w_sel1__4),
+        .O(D[1]));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    \out0[1]_i_2__1 
+       (.I0(w_act[0]),
+        .I1(w_max[0]),
+        .I2(w_max[2]),
+        .I3(w_act[2]),
+        .I4(w_max[1]),
+        .I5(w_act[1]),
+        .O(w_sel2__4));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    \out0[1]_i_3 
+       (.I0(w_act[0]),
+        .I1(w_min[0]),
+        .I2(w_min[2]),
+        .I3(w_act[2]),
+        .I4(w_min[1]),
+        .I5(w_act[1]),
+        .O(w_sel1__4));
   FDRE \out0_reg[0] 
        (.C(clk),
         .CE(1'b1),
         .D(state[0]),
         .Q(\out0_reg_n_0_[0] ),
+        .R(rst));
+  FDRE \out0_reg[10] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(state[10]),
+        .Q(\out0_reg_n_0_[10] ),
+        .R(rst));
+  FDRE \out0_reg[11] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(state[11]),
+        .Q(\out0_reg_n_0_[11] ),
         .R(rst));
   FDRE \out0_reg[1] 
        (.C(clk),
@@ -798,26 +909,362 @@ module system_RD_0_3_reg_32bit
         .D(state[7]),
         .Q(\out0_reg_n_0_[7] ),
         .R(rst));
+  FDRE \out0_reg[8] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(state[8]),
+        .Q(\out0_reg_n_0_[8] ),
+        .R(rst));
+  FDRE \out0_reg[9] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(state[9]),
+        .Q(\out0_reg_n_0_[9] ),
+        .R(rst));
   LUT6 #(
     .INIT(64'hF0FFAACCF000AACC)) 
     \w_act[0]_INST_0 
-       (.I0(\out0_reg_n_0_[2] ),
+       (.I0(\out0_reg_n_0_[3] ),
         .I1(\out0_reg_n_0_[0] ),
-        .I2(\out0_reg_n_0_[6] ),
+        .I2(\out0_reg_n_0_[9] ),
         .I3(act[0]),
         .I4(act[1]),
-        .I5(\out0_reg_n_0_[4] ),
+        .I5(\out0_reg_n_0_[6] ),
         .O(w_act[0]));
   LUT6 #(
     .INIT(64'hF0FFAACCF000AACC)) 
     \w_act[1]_INST_0 
-       (.I0(\out0_reg_n_0_[3] ),
+       (.I0(\out0_reg_n_0_[4] ),
         .I1(\out0_reg_n_0_[1] ),
-        .I2(\out0_reg_n_0_[7] ),
+        .I2(\out0_reg_n_0_[10] ),
         .I3(act[0]),
         .I4(act[1]),
-        .I5(\out0_reg_n_0_[5] ),
+        .I5(\out0_reg_n_0_[7] ),
         .O(w_act[1]));
+  LUT6 #(
+    .INIT(64'hF0FFAACCF000AACC)) 
+    \w_act[2]_INST_0 
+       (.I0(\out0_reg_n_0_[5] ),
+        .I1(\out0_reg_n_0_[2] ),
+        .I2(\out0_reg_n_0_[11] ),
+        .I3(act[0]),
+        .I4(act[1]),
+        .I5(\out0_reg_n_0_[8] ),
+        .O(w_act[2]));
+endmodule
+
+module system_RD_0_3_reg_3bit
+   (w_max,
+    state,
+    rst,
+    clk);
+  output [2:0]w_max;
+  input [11:0]state;
+  input rst;
+  input clk;
+
+  wire clk;
+  wire [2:0]\max0/w0__2 ;
+  wire \out0[2]_i_2__0_n_0 ;
+  wire \out0[2]_i_4__0_n_0 ;
+  wire \out0[2]_i_5__0_n_0 ;
+  wire rst;
+  wire [11:0]state;
+  wire [2:0]w_max;
+  wire [2:0]w_max0;
+
+  LUT6 #(
+    .INIT(64'hFFCCE4E400CCE4E4)) 
+    \out0[0]_i_1__0 
+       (.I0(\out0[2]_i_2__0_n_0 ),
+        .I1(\max0/w0__2 [0]),
+        .I2(state[9]),
+        .I3(\out0[2]_i_4__0_n_0 ),
+        .I4(\out0[2]_i_5__0_n_0 ),
+        .I5(state[6]),
+        .O(w_max0[0]));
+  LUT6 #(
+    .INIT(64'hECAECCCCAAAAECAE)) 
+    \out0[0]_i_2__0 
+       (.I0(state[0]),
+        .I1(state[3]),
+        .I2(state[1]),
+        .I3(state[4]),
+        .I4(state[2]),
+        .I5(state[5]),
+        .O(\max0/w0__2 [0]));
+  LUT6 #(
+    .INIT(64'hFFCCE4E400CCE4E4)) 
+    \out0[1]_i_1__0 
+       (.I0(\out0[2]_i_2__0_n_0 ),
+        .I1(\max0/w0__2 [1]),
+        .I2(state[10]),
+        .I3(\out0[2]_i_4__0_n_0 ),
+        .I4(\out0[2]_i_5__0_n_0 ),
+        .I5(state[7]),
+        .O(w_max0[1]));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT4 #(
+    .INIT(16'hECAE)) 
+    \out0[1]_i_2__0 
+       (.I0(state[1]),
+        .I1(state[4]),
+        .I2(state[2]),
+        .I3(state[5]),
+        .O(\max0/w0__2 [1]));
+  LUT6 #(
+    .INIT(64'hFFCCE4E400CCE4E4)) 
+    \out0[2]_i_1__0 
+       (.I0(\out0[2]_i_2__0_n_0 ),
+        .I1(\max0/w0__2 [2]),
+        .I2(state[11]),
+        .I3(\out0[2]_i_4__0_n_0 ),
+        .I4(\out0[2]_i_5__0_n_0 ),
+        .I5(state[8]),
+        .O(w_max0[2]));
+  LUT6 #(
+    .INIT(64'h44D4DDDD444444D4)) 
+    \out0[2]_i_2__0 
+       (.I0(\max0/w0__2 [2]),
+        .I1(state[11]),
+        .I2(state[9]),
+        .I3(\max0/w0__2 [0]),
+        .I4(\max0/w0__2 [1]),
+        .I5(state[10]),
+        .O(\out0[2]_i_2__0_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT2 #(
+    .INIT(4'hE)) 
+    \out0[2]_i_3__0 
+       (.I0(state[2]),
+        .I1(state[5]),
+        .O(\max0/w0__2 [2]));
+  LUT6 #(
+    .INIT(64'h44D4DDDD444444D4)) 
+    \out0[2]_i_4__0 
+       (.I0(\max0/w0__2 [2]),
+        .I1(state[8]),
+        .I2(state[6]),
+        .I3(\max0/w0__2 [0]),
+        .I4(\max0/w0__2 [1]),
+        .I5(state[7]),
+        .O(\out0[2]_i_4__0_n_0 ));
+  LUT6 #(
+    .INIT(64'h20F20000FFFF20F2)) 
+    \out0[2]_i_5__0 
+       (.I0(state[6]),
+        .I1(state[9]),
+        .I2(state[7]),
+        .I3(state[10]),
+        .I4(state[8]),
+        .I5(state[11]),
+        .O(\out0[2]_i_5__0_n_0 ));
+  FDRE \out0_reg[0] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(w_max0[0]),
+        .Q(w_max[0]),
+        .R(rst));
+  FDRE \out0_reg[1] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(w_max0[1]),
+        .Q(w_max[1]),
+        .R(rst));
+  FDRE \out0_reg[2] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(w_max0[2]),
+        .Q(w_max[2]),
+        .R(rst));
+endmodule
+
+(* ORIG_REF_NAME = "reg_3bit" *) 
+module system_RD_0_3_reg_3bit_0
+   (w_min,
+    state,
+    rst,
+    clk);
+  output [2:0]w_min;
+  input [11:0]state;
+  input rst;
+  input clk;
+
+  wire clk;
+  wire [2:0]\min0/w0__2 ;
+  wire \out0[2]_i_2_n_0 ;
+  wire \out0[2]_i_4_n_0 ;
+  wire \out0[2]_i_5_n_0 ;
+  wire rst;
+  wire [11:0]state;
+  wire [2:0]w_min;
+  wire [2:0]w_min0;
+
+  LUT6 #(
+    .INIT(64'hFFCCE4E400CCE4E4)) 
+    \out0[0]_i_1 
+       (.I0(\out0[2]_i_2_n_0 ),
+        .I1(\min0/w0__2 [0]),
+        .I2(state[9]),
+        .I3(\out0[2]_i_4_n_0 ),
+        .I4(\out0[2]_i_5_n_0 ),
+        .I5(state[6]),
+        .O(w_min0[0]));
+  LUT6 #(
+    .INIT(64'hF420F4B0FD20F420)) 
+    \out0[0]_i_2 
+       (.I0(state[5]),
+        .I1(state[2]),
+        .I2(state[0]),
+        .I3(state[3]),
+        .I4(state[1]),
+        .I5(state[4]),
+        .O(\min0/w0__2 [0]));
+  LUT6 #(
+    .INIT(64'hFFCCE4E400CCE4E4)) 
+    \out0[1]_i_1 
+       (.I0(\out0[2]_i_2_n_0 ),
+        .I1(\min0/w0__2 [1]),
+        .I2(state[10]),
+        .I3(\out0[2]_i_4_n_0 ),
+        .I4(\out0[2]_i_5_n_0 ),
+        .I5(state[7]),
+        .O(w_min0[1]));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT4 #(
+    .INIT(16'hF420)) 
+    \out0[1]_i_2 
+       (.I0(state[5]),
+        .I1(state[2]),
+        .I2(state[1]),
+        .I3(state[4]),
+        .O(\min0/w0__2 [1]));
+  LUT6 #(
+    .INIT(64'hFFCCE4E400CCE4E4)) 
+    \out0[2]_i_1 
+       (.I0(\out0[2]_i_2_n_0 ),
+        .I1(\min0/w0__2 [2]),
+        .I2(state[11]),
+        .I3(\out0[2]_i_4_n_0 ),
+        .I4(\out0[2]_i_5_n_0 ),
+        .I5(state[8]),
+        .O(w_min0[2]));
+  LUT6 #(
+    .INIT(64'h44D4DDDD444444D4)) 
+    \out0[2]_i_2 
+       (.I0(state[11]),
+        .I1(\min0/w0__2 [2]),
+        .I2(\min0/w0__2 [0]),
+        .I3(state[9]),
+        .I4(state[10]),
+        .I5(\min0/w0__2 [1]),
+        .O(\out0[2]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \out0[2]_i_3 
+       (.I0(state[5]),
+        .I1(state[2]),
+        .O(\min0/w0__2 [2]));
+  LUT6 #(
+    .INIT(64'h44D4DDDD444444D4)) 
+    \out0[2]_i_4 
+       (.I0(state[8]),
+        .I1(\min0/w0__2 [2]),
+        .I2(\min0/w0__2 [0]),
+        .I3(state[6]),
+        .I4(state[7]),
+        .I5(\min0/w0__2 [1]),
+        .O(\out0[2]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'h2B22BBBB22222B22)) 
+    \out0[2]_i_5 
+       (.I0(state[11]),
+        .I1(state[8]),
+        .I2(state[6]),
+        .I3(state[9]),
+        .I4(state[7]),
+        .I5(state[10]),
+        .O(\out0[2]_i_5_n_0 ));
+  FDRE \out0_reg[0] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(w_min0[0]),
+        .Q(w_min[0]),
+        .R(rst));
+  FDRE \out0_reg[1] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(w_min0[1]),
+        .Q(w_min[1]),
+        .R(rst));
+  FDRE \out0_reg[2] 
+       (.C(clk),
+        .CE(1'b1),
+        .D(w_min0[2]),
+        .Q(w_min[2]),
+        .R(rst));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "testbench_RD_0_0,RD,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "RD,Vivado 2021.1" *) 
+(* NotValidForBitStream *)
+module system_RD_0_3
+   (sel,
+    w_min,
+    w_max,
+    w_act,
+    clk,
+    rst,
+    en,
+    act,
+    state,
+    reward_0,
+    reward_1,
+    reward_2,
+    reward);
+  output [1:0]sel;
+  output [2:0]w_min;
+  output [2:0]w_max;
+  output [2:0]w_act;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN testbench_clk, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rst;
+  input en;
+  input [1:0]act;
+  input [31:0]state;
+  input [31:0]reward_0;
+  input [31:0]reward_1;
+  input [31:0]reward_2;
+  output [31:0]reward;
+
+  wire [1:0]act;
+  wire clk;
+  wire en;
+  wire [31:0]reward;
+  wire [31:0]reward_0;
+  wire [31:0]reward_1;
+  wire [31:0]reward_2;
+  wire rst;
+  wire [1:0]sel;
+  wire [31:0]state;
+  wire [2:0]w_act;
+  wire [2:0]w_max;
+  wire [2:0]w_min;
+
+  system_RD_0_3_RD inst
+       (.Q(sel),
+        .act(act),
+        .clk(clk),
+        .en(en),
+        .reward(reward),
+        .reward_0(reward_0),
+        .reward_1(reward_1),
+        .reward_2(reward_2),
+        .rst(rst),
+        .state(state[11:0]),
+        .w_act(w_act),
+        .w_max(w_max),
+        .w_min(w_min));
 endmodule
 `ifndef GLBL
 `define GLBL

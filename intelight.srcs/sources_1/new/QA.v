@@ -72,12 +72,12 @@ module QA(
    // assign w_new_qA_1 = 32'hFFFF_FFFF; // for debugging
    
    // Enabling output 
-   enabler_32bit en0(.in0(w_new_qA_1), .out0(new_qA), .en(en));
-   enabler_32bit en1(.in0(chos_curr_qA), .out0(debug_chos_curr_qA), .en(en));
-   enabler_32bit en2(.in0(max_next_qA), .out0(debug_max_next_qA), .en(en));
-   enabler_32bit en3(.in0(curr_qA0), .out0(debug_curr_qA0), .en(en));
-   enabler_32bit en4(.in0(curr_qA1), .out0(debug_curr_qA1), .en(en));
-   enabler_32bit en5(.in0(curr_qA2), .out0(debug_curr_qA2), .en(en));
-   enabler_32bit en6(.in0(curr_qA3), .out0(debug_curr_qA3), .en(en));
+   enabler_32bit en0(.rst(rst), .in0(w_new_qA_1), .out0(new_qA), .en(en));
+   enabler_32bit en1(.rst(rst), .in0(chos_curr_qA), .out0(debug_chos_curr_qA), .en(en));
+   enabler_32bit en2(.rst(rst), .in0(max_next_qA), .out0(debug_max_next_qA), .en(en));
+   enabler_32bit en3(.rst(rst), .in0(curr_qA0), .out0(debug_curr_qA0), .en(en));
+   enabler_32bit en4(.rst(rst), .in0(curr_qA1), .out0(debug_curr_qA1), .en(en));
+   enabler_32bit en5(.rst(rst), .in0(curr_qA2), .out0(debug_curr_qA2), .en(en));
+   enabler_32bit en6(.rst(rst), .in0(curr_qA3), .out0(debug_curr_qA3), .en(en));
    
 endmodule

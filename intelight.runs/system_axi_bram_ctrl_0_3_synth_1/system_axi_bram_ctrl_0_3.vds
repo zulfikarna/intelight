@@ -2,16 +2,17 @@
 # Vivado v2021.1 (64-bit)
 # SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
 # IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
-# Start of session at: Sat Apr  2 13:53:39 2022
-# Process ID: 25036
-# Current directory: D:/intelight/intelight/intelight.runs/system_axi_bram_ctrl_0_3_synth_1
+# Start of session at: Sun Apr 24 14:44:05 2022
+# Process ID: 12540
+# Current directory: D:/intelight/intelight_backup2/intelight.runs/system_axi_bram_ctrl_0_3_synth_1
 # Command line: vivado.exe -log system_axi_bram_ctrl_0_3.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system_axi_bram_ctrl_0_3.tcl
-# Log file: D:/intelight/intelight/intelight.runs/system_axi_bram_ctrl_0_3_synth_1/system_axi_bram_ctrl_0_3.vds
-# Journal file: D:/intelight/intelight/intelight.runs/system_axi_bram_ctrl_0_3_synth_1\vivado.jou
+# Log file: D:/intelight/intelight_backup2/intelight.runs/system_axi_bram_ctrl_0_3_synth_1/system_axi_bram_ctrl_0_3.vds
+# Journal file: D:/intelight/intelight_backup2/intelight.runs/system_axi_bram_ctrl_0_3_synth_1\vivado.jou
 #-----------------------------------------------------------
 source system_axi_bram_ctrl_0_3.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-3685] Ignored loading user repository 'd:/intelight/ip_repo/adapt_mem/adapt_mem_1.0'. The path is contained within another repository.
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/intelight/ip_repo'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2021.1/data/ip'.
-INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP system_axi_bram_ctrl_0_3, cache-ID = f4108b5807a7c3b6.
-INFO: [Common 17-206] Exiting Vivado at Sat Apr  2 13:53:48 2022...
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP system_axi_bram_ctrl_0_3, cache-ID = d4c08a822d8561d6.
+INFO: [Common 17-206] Exiting Vivado at Sun Apr 24 14:44:19 2022...

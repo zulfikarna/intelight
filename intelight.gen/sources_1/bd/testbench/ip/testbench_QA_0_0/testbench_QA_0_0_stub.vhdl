@@ -1,11 +1,11 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
--- Date        : Sat Apr  2 08:15:39 2022
+-- Date        : Wed May 18 18:19:15 2022
 -- Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub -rename_top testbench_QA_0_0 -prefix
---               testbench_QA_0_0_ system_QA_0_1_stub.vhdl
--- Design      : system_QA_0_1
+-- Command     : write_vhdl -force -mode synth_stub
+--               d:/intelight/intelight_backup3/intelight.gen/sources_1/bd/testbench/ip/testbench_QA_0_0/testbench_QA_0_0_stub.vhdl
+-- Design      : testbench_QA_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg400-1
 -- --------------------------------------------------------------------------------

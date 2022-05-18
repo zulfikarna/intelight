@@ -1,11 +1,11 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
--- Date        : Sat Mar  5 17:37:14 2022
--- Host        : DESKTOP-JVERO04 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub -rename_top system_PL_RAM_2_3 -prefix
---               system_PL_RAM_2_3_ bram_blk_mem_gen_1_0_stub.vhdl
--- Design      : bram_blk_mem_gen_1_0
+-- Date        : Sun Apr 24 14:44:26 2022
+-- Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
+-- Command     : write_vhdl -force -mode synth_stub
+--               d:/intelight/intelight_backup2/intelight.gen/sources_1/bd/system/ip/system_PL_RAM_2_3/system_PL_RAM_2_3_stub.vhdl
+-- Design      : system_PL_RAM_2_3
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg400-1
 -- --------------------------------------------------------------------------------

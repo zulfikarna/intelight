@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-| Date         : Sat Apr  2 14:41:52 2022
+| Date         : Wed May 18 19:06:38 2022
 | Host         : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_wrapper_utilization_synth.rpt -pb system_wrapper_utilization_synth.pb
 | Design       : system_wrapper
@@ -90,7 +90,7 @@ Table of Contents
 +-----------------------------+------+-------+------------+-----------+-------+
 |          Site Type          | Used | Fixed | Prohibited | Available | Util% |
 +-----------------------------+------+-------+------------+-----------+-------+
-| Bonded IOB                  |    3 |     0 |          0 |       125 |  2.40 |
+| Bonded IOB                  |    4 |     0 |          0 |       125 |  3.20 |
 | Bonded IPADs                |    0 |     0 |          0 |         2 |  0.00 |
 | Bonded IOPADs               |    0 |     0 |          0 |       130 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |          0 |         4 |  0.00 |
@@ -146,7 +146,7 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| OBUF     |    3 |                  IO |
+| OBUF     |    4 |                  IO |
 +----------+------+---------------------+
 
 
@@ -159,17 +159,19 @@ Table of Contents
 | system_xbar_0                    |    1 |
 | system_rst_ps7_0_50M_1           |    1 |
 | system_processing_system7_0_0    |    1 |
-| system_intelight_mem_0_1         |    1 |
+| system_intelight_mem_v2_0_1      |    1 |
 | system_bram_output_interface_0_2 |    1 |
 | system_bram_input_interface_0_2  |    1 |
 | system_axi_intc_0_0              |    1 |
+| system_axi_bram_ctrl_0_4         |    1 |
 | system_axi_bram_ctrl_0_3         |    1 |
-| system_axi_bram_ctrl_0_2         |    1 |
 | system_axi_bram_ctrl_0_1         |    1 |
 | system_axi_bram_ctrl_0_0         |    1 |
+| system_auto_pc_3                 |    1 |
 | system_auto_pc_2                 |    1 |
 | system_auto_pc_1                 |    1 |
 | system_auto_pc_0                 |    1 |
+| system_adapt_mem_0_0             |    1 |
 | system_SD_0_3                    |    1 |
 | system_RD_0_3                    |    1 |
 | system_QA_0_3                    |    1 |
@@ -178,6 +180,7 @@ Table of Contents
 | system_PL_RAM_1_3                |    1 |
 | system_PL_RAM_0_2                |    1 |
 | system_PG_0_3                    |    1 |
+| system_EG_0_0                    |    1 |
 | system_CU_0_3                    |    1 |
 | system_Action_RAM_3_3            |    1 |
 | system_Action_RAM_2_3            |    1 |

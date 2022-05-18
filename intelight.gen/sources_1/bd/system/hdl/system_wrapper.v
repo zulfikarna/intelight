@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-//Date        : Sat Apr  2 14:38:24 2022
+//Date        : Wed May 18 19:02:36 2022
 //Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 //Command     : generate_target system_wrapper.bd
 //Design      : system_wrapper
@@ -32,8 +32,9 @@ module system_wrapper
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
     finish,
-    mem_rst,
-    rtl_rst);
+    finish_adapt,
+    read_sig,
+    start);
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -56,8 +57,9 @@ module system_wrapper
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
   output finish;
-  output [0:0]mem_rst;
-  output [0:0]rtl_rst;
+  output finish_adapt;
+  output read_sig;
+  output start;
 
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
@@ -81,8 +83,9 @@ module system_wrapper
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
   wire finish;
-  wire [0:0]mem_rst;
-  wire [0:0]rtl_rst;
+  wire finish_adapt;
+  wire read_sig;
+  wire start;
 
   system system_i
        (.DDR_addr(DDR_addr),
@@ -107,6 +110,7 @@ module system_wrapper
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
         .finish(finish),
-        .mem_rst(mem_rst),
-        .rtl_rst(rtl_rst));
+        .finish_adapt(finish_adapt),
+        .read_sig(read_sig),
+        .start(start));
 endmodule

@@ -1,0 +1,22 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Wed May 11 08:58:09 2022
+# Process ID: 9792
+# Current directory: D:/intelight/intelight_backup2
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent16348 D:\intelight\intelight_backup2\intelight.xpr
+# Log file: D:/intelight/intelight_backup2/vivado.log
+# Journal file: D:/intelight/intelight_backup2\vivado.jou
+#-----------------------------------------------------------
+start_gui
+oopen_project D:/intelight/intelight_backup2/intelight.xprScanning sources...
+Finished scanning sources
+IINFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-3685] Ignored loading user repository 'd:/intelight/ip_repo/uart_mem/uart_mem_1.0'. The path is contained within another repository.IINFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/intelight/ip_repo'.IINFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2021.1/data/ip'.WWARNING: [BD 41-1661] One or more IPs have been locked in the design 'system.bd'. Please run report_ip_status for more details and recommendations on how to fix this issue.
+List of locked IPs:
+system_adapt_mem_0_0
+oopen_project: Time (s): cpu = 00:00:48 ; elapsed = 00:00:46 . Memory (MB): peak = 1313.113 ; gain = 0.000eupdate_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed May 11 09:08:52 2022...
+ould not getCurrentGraph()

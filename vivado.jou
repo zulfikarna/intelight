@@ -2,13 +2,140 @@
 # Vivado v2021.1 (64-bit)
 # SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
 # IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
-# Start of session at: Fri Mar 25 14:11:53 2022
-# Process ID: 11416
-# Current directory: D:/intelight/intelight
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10200 D:\intelight\intelight\intelight.xpr
-# Log file: D:/intelight/intelight/vivado.log
-# Journal file: D:/intelight/intelight\vivado.jou
+# Start of session at: Tue May 17 15:01:44 2022
+# Process ID: 16928
+# Current directory: D:/intelight/intelight_backup3
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4672 D:\intelight\intelight_backup3\intelight.xpr
+# Log file: D:/intelight/intelight_backup3/vivado.log
+# Journal file: D:/intelight/intelight_backup3\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project D:/intelight/intelight/intelight.xpr
+open_project D:/intelight/intelight_backup3/intelight.xpr
 update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top system_wrapper [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top testbench_wrapper [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config D:/intelight/intelight_backup3/system_wrapper_tb_behav.wcfg
+source testbench_wrapper_tb.tcl
+run 10 s
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+launch_simulation -mode post-synthesis -type timing
+open_wave_config D:/intelight/intelight_backup3/system_wrapper_tb_behav.wcfg
+source testbench_wrapper_tb.tcl
+run 10 s
+open_bd_design {D:/intelight/intelight_backup3/intelight.srcs/sources_1/bd/testbench/testbench.bd}
+update_module_reference {system_SD_0_3 testbench_SD_0_0}
+startgroup
+make_bd_pins_external  [get_bd_pins EV/SD_0/state_sim]
+endgroup
+delete_bd_objs [get_bd_nets state_sim_0_2] [get_bd_ports state_sim_0]
+delete_bd_objs [get_bd_nets EV/state_sim_0_2] [get_bd_pins EV/state_sim_0]
+connect_bd_net [get_bd_pins EV/state_sim] [get_bd_pins EV/SD_0/state_sim]
+save_bd_design
+current_bd_design [get_bd_designs system]
+delete_bd_objs [get_bd_nets EV/sel_state_sim_0_1] [get_bd_pins EV/sel_state_sim]
+delete_bd_objs [get_bd_nets UART_com_state] [get_bd_nets EV/state_sim_0_1] [get_bd_pins EV/state_arduino]
+delete_bd_objs [get_bd_nets state_python_1] [get_bd_nets EV/state_python_0_1] [get_bd_pins EV/state_python]
+delete_bd_objs [get_bd_nets CU_0_read_sig]
+connect_bd_net [get_bd_ports read_sig] [get_bd_pins adapt_mem_0/read_sig]
+startgroup
+make_bd_pins_external  [get_bd_pins EV/SD_0/state_sim]
+endgroup
+set_property name state_sim [get_bd_pins EV/state_sim_0]
+save_bd_design
+set_property name state_sim [get_bd_ports state_sim_0]
+delete_bd_objs [get_bd_nets state_sim_0_1] [get_bd_ports state_sim]
+set_property location {3 1448 591} [get_bd_cells adapt_mem_0]
+set_property location {2 1164 1466} [get_bd_cells adapt_mem_0]
+set_property location {1 307 1641} [get_bd_cells adapt_mem_0]
+connect_bd_net [get_bd_pins EV/state_sim] [get_bd_pins adapt_mem_0/state_python]
+save_bd_design
+current_bd_design [get_bd_designs testbench]
+update_module_reference {system_CU_0_3 testbench_CU_0_0}
+current_bd_design [get_bd_designs system]
+delete_bd_objs [get_bd_nets sel_state_sim_0_1] [get_bd_ports sel_sim]
+save_bd_design
+update_module_reference {system_CU_0_3 testbench_CU_0_0}
+update_module_reference {system_CU_0_3 testbench_CU_0_0}
+delete_bd_objs [get_bd_nets read_sig_0_1] [get_bd_ports read_sig]
+save_bd_design
+undo
+connect_bd_net [get_bd_ports read_sig] [get_bd_pins CU_0/read_sig]
+save_bd_design
+make_wrapper -files [get_files D:/intelight/intelight_backup3/intelight.srcs/sources_1/bd/testbench/testbench.bd] -top
+current_sim simulation_1
+close_sim
+generate_target Simulation [get_files D:/intelight/intelight_backup3/intelight.srcs/sources_1/bd/testbench/testbench.bd]
+export_ip_user_files -of_objects [get_files D:/intelight/intelight_backup3/intelight.srcs/sources_1/bd/testbench/testbench.bd] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/intelight/intelight_backup3/intelight.srcs/sources_1/bd/testbench/testbench.bd] -directory D:/intelight/intelight_backup3/intelight.ip_user_files/sim_scripts -ip_user_files_dir D:/intelight/intelight_backup3/intelight.ip_user_files -ipstatic_source_dir D:/intelight/intelight_backup3/intelight.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/intelight/intelight_backup3/intelight.cache/compile_simlib/modelsim} {questa=D:/intelight/intelight_backup3/intelight.cache/compile_simlib/questa} {riviera=D:/intelight/intelight_backup3/intelight.cache/compile_simlib/riviera} {activehdl=D:/intelight/intelight_backup3/intelight.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+launch_simulation
+launch_simulation
+close_sim
+launch_simulation
+open_wave_config D:/intelight/intelight_backup3/system_wrapper_tb_behav.wcfg
+source testbench_wrapper_tb.tcl
+run 10 s
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+close_design
+launch_simulation -mode post-synthesis -type timing
+open_wave_config D:/intelight/intelight_backup3/system_wrapper_tb_behav.wcfg
+source testbench_wrapper_tb.tcl
+run 10 s
+run 10 s
+open_bd_design {D:/intelight/intelight_backup3/intelight.srcs/sources_1/bd/testbench/testbench.bd}
+open_bd_design {D:/intelight/intelight_backup3/intelight.srcs/sources_1/bd/testbench/testbench.bd}
+close_sim
+launch_simulation -mode post-synthesis -type timing
+open_wave_config D:/intelight/intelight_backup3/system_wrapper_tb_behav.wcfg
+source testbench_wrapper_tb.tcl
+run 10 s
+run 10 s
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top system_wrapper [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+reset_run synth_1
+reset_run system_xbar_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_bd_design {D:/intelight/intelight_backup3/intelight.srcs/sources_1/bd/system/system.bd}
+connect_bd_net [get_bd_pins CU_0/read_sig] [get_bd_pins adapt_mem_0/read_sig]
+save_bd_design
+delete_bd_objs [get_bd_nets i_Rx_Serial_0_1] [get_bd_ports i_Rx_Serial]
+delete_bd_objs [get_bd_nets uart_tx_0_o_Tx_Serial] [get_bd_ports o_Tx_Serial]
+delete_bd_objs [get_bd_nets simulation_mem_0_read_sig] [get_bd_cells UART_com]
+save_bd_design
+update_compile_order -fileset sources_1
+current_bd_design [get_bd_designs testbench]
+current_bd_design [get_bd_designs system]
+open_bd_design {D:/intelight/intelight_backup3/intelight.srcs/sources_1/bd/system/system.bd}
+make_wrapper -files [get_files D:/intelight/intelight_backup3/intelight.srcs/sources_1/bd/system/system.bd] -top
+generate_target all [get_files  D:/intelight/intelight_backup3/intelight.srcs/sources_1/bd/system/system.bd]
+catch { config_ip_cache -export [get_ips -all system_auto_pc_3] }
+catch { config_ip_cache -export [get_ips -all system_auto_pc_0] }
+catch { config_ip_cache -export [get_ips -all system_auto_pc_1] }
+catch { config_ip_cache -export [get_ips -all system_auto_pc_2] }
+export_ip_user_files -of_objects [get_files D:/intelight/intelight_backup3/intelight.srcs/sources_1/bd/system/system.bd] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] D:/intelight/intelight_backup3/intelight.srcs/sources_1/bd/system/system.bd]
+export_simulation -of_objects [get_files D:/intelight/intelight_backup3/intelight.srcs/sources_1/bd/system/system.bd] -directory D:/intelight/intelight_backup3/intelight.ip_user_files/sim_scripts -ip_user_files_dir D:/intelight/intelight_backup3/intelight.ip_user_files -ipstatic_source_dir D:/intelight/intelight_backup3/intelight.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/intelight/intelight_backup3/intelight.cache/compile_simlib/modelsim} {questa=D:/intelight/intelight_backup3/intelight.cache/compile_simlib/questa} {riviera=D:/intelight/intelight_backup3/intelight.cache/compile_simlib/riviera} {activehdl=D:/intelight/intelight_backup3/intelight.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+close_sim
+close_sim

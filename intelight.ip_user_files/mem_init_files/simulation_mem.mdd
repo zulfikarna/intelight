@@ -1,0 +1,10 @@
+
+
+OPTION psf_version = 2.1;
+
+BEGIN DRIVER simulation_mem
+	OPTION supported_peripherals = (simulation_mem);
+	OPTION copyfiles = all;
+	OPTION VERSION = 1.0;
+	OPTION NAME = simulation_mem;
+END DRIVER

@@ -1,0 +1,10 @@
+
+
+OPTION psf_version = 2.1;
+
+BEGIN DRIVER adapt_mem
+	OPTION supported_peripherals = (adapt_mem);
+	OPTION copyfiles = all;
+	OPTION VERSION = 1.0;
+	OPTION NAME = adapt_mem;
+END DRIVER

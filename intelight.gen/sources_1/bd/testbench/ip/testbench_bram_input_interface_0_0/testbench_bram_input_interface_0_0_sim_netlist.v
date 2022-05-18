@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
-// Date        : Sat Mar 26 03:02:07 2022
+// Date        : Wed May 11 13:42:06 2022
 // Host        : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top testbench_bram_input_interface_0_0 -prefix
-//               testbench_bram_input_interface_0_0_ testbench_bram_input_interface_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               d:/intelight/intelight_backup3/intelight.gen/sources_1/bd/testbench/ip/testbench_bram_input_interface_0_0/testbench_bram_input_interface_0_0_sim_netlist.v
 // Design      : testbench_bram_input_interface_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,47 +12,54 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-module testbench_bram_input_interface_0_0_bram_input_interface
-   (en2_wr,
-    en0_wr,
+(* CHECK_LICENSE_TYPE = "testbench_bram_input_interface_0_0,bram_input_interface,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "bram_input_interface,Vivado 2021.1" *) 
+(* NotValidForBitStream *)
+module testbench_bram_input_interface_0_0
+   (clk,
+    rst,
+    en_wr,
+    en_rd,
+    next_state,
+    rd_addr,
+    wr_addr,
+    act,
+    wen0,
     wen1,
     wen2,
-    wr_addr,
-    en1_wr,
-    en3_wr,
-    wen0,
     wen3,
+    en0_wr,
     en0_rd,
+    en1_wr,
     en1_rd,
+    en2_wr,
     en2_rd,
-    en3_rd,
-    en,
-    rst,
-    next_state,
-    clk,
-    act);
-  output en2_wr;
-  output en0_wr;
-  output [0:0]wen1;
-  output [0:0]wen2;
-  output [29:0]wr_addr;
-  output en1_wr;
-  output en3_wr;
-  output [0:0]wen0;
-  output [0:0]wen3;
-  output en0_rd;
-  output en1_rd;
-  output en2_rd;
-  output en3_rd;
-  input en;
-  input rst;
-  input [29:0]next_state;
-  input clk;
+    en3_wr,
+    en3_rd);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN testbench_clk, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rst;
+  input en_wr;
+  input en_rd;
+  input [31:0]next_state;
+  output [31:0]rd_addr;
+  output [31:0]wr_addr;
   input [1:0]act;
+  output [3:0]wen0;
+  output [3:0]wen1;
+  output [3:0]wen2;
+  output [3:0]wen3;
+  output en0_wr;
+  output en0_rd;
+  output en1_wr;
+  output en1_rd;
+  output en2_wr;
+  output en2_rd;
+  output en3_wr;
+  output en3_rd;
 
+  wire \<const0> ;
   wire [1:0]act;
   wire clk;
-  wire en;
   wire en0_rd;
   wire en0_wr;
   wire en1_rd;
@@ -61,6 +68,116 @@ module testbench_bram_input_interface_0_0_bram_input_interface
   wire en2_wr;
   wire en3_rd;
   wire en3_wr;
+  wire en_rd;
+  wire en_wr;
+  wire [31:0]next_state;
+  wire rst;
+  wire [3:3]\^wen0 ;
+  wire [0:0]\^wen1 ;
+  wire [0:0]\^wen2 ;
+  wire [3:3]\^wen3 ;
+  wire [31:2]\^wr_addr ;
+
+  assign rd_addr[31:2] = next_state[29:0];
+  assign rd_addr[1] = \<const0> ;
+  assign rd_addr[0] = \<const0> ;
+  assign wen0[3] = \^wen0 [3];
+  assign wen0[2] = \^wen0 [3];
+  assign wen0[1] = \^wen0 [3];
+  assign wen0[0] = \^wen0 [3];
+  assign wen1[3] = \^wen1 [0];
+  assign wen1[2] = \^wen1 [0];
+  assign wen1[1] = \^wen1 [0];
+  assign wen1[0] = \^wen1 [0];
+  assign wen2[3] = \^wen2 [0];
+  assign wen2[2] = \^wen2 [0];
+  assign wen2[1] = \^wen2 [0];
+  assign wen2[0] = \^wen2 [0];
+  assign wen3[3] = \^wen3 [3];
+  assign wen3[2] = \^wen3 [3];
+  assign wen3[1] = \^wen3 [3];
+  assign wen3[0] = \^wen3 [3];
+  assign wr_addr[31:2] = \^wr_addr [31:2];
+  assign wr_addr[1] = \<const0> ;
+  assign wr_addr[0] = \<const0> ;
+  GND GND
+       (.G(\<const0> ));
+  testbench_bram_input_interface_0_0_bram_input_interface inst
+       (.act(act),
+        .clk(clk),
+        .en0_rd(en0_rd),
+        .en0_wr(en0_wr),
+        .en1_rd(en1_rd),
+        .en1_wr(en1_wr),
+        .en2_rd(en2_rd),
+        .en2_wr(en2_wr),
+        .en3_rd(en3_rd),
+        .en3_wr(en3_wr),
+        .en_rd(en_rd),
+        .en_wr(en_wr),
+        .next_state(next_state[29:0]),
+        .rst(rst),
+        .wen0(\^wen0 ),
+        .wen1(\^wen1 ),
+        .wen2(\^wen2 ),
+        .wen3(\^wen3 ),
+        .wr_addr(\^wr_addr ));
+endmodule
+
+(* ORIG_REF_NAME = "bram_input_interface" *) 
+module testbench_bram_input_interface_0_0_bram_input_interface
+   (en2_wr,
+    wr_addr,
+    en0_wr,
+    wen1,
+    wen2,
+    en2_rd,
+    en3_rd,
+    en1_wr,
+    en3_wr,
+    wen0,
+    wen3,
+    en0_rd,
+    en1_rd,
+    en_wr,
+    next_state,
+    rst,
+    clk,
+    act,
+    en_rd);
+  output en2_wr;
+  output [29:0]wr_addr;
+  output en0_wr;
+  output [0:0]wen1;
+  output [0:0]wen2;
+  output en2_rd;
+  output en3_rd;
+  output en1_wr;
+  output en3_wr;
+  output [0:0]wen0;
+  output [0:0]wen3;
+  output en0_rd;
+  output en1_rd;
+  input en_wr;
+  input [29:0]next_state;
+  input rst;
+  input clk;
+  input [1:0]act;
+  input en_rd;
+
+  wire [1:0]act;
+  wire clk;
+  wire decod0_n_1;
+  wire en0_rd;
+  wire en0_wr;
+  wire en1_rd;
+  wire en1_wr;
+  wire en2_rd;
+  wire en2_wr;
+  wire en3_rd;
+  wire en3_wr;
+  wire en_rd;
+  wire en_wr;
   wire [29:0]next_state;
   wire reg0_n_0;
   wire reg0_n_1;
@@ -122,8 +239,21 @@ module testbench_bram_input_interface_0_0_bram_input_interface
   wire reg1_n_7;
   wire reg1_n_8;
   wire reg1_n_9;
+  wire reg2_n_0;
+  wire reg2_n_1;
+  wire reg2_n_2;
+  wire reg2_n_3;
+  wire reg2_n_34;
+  wire reg2_n_35;
+  wire reg2_n_36;
+  wire reg2_n_37;
+  wire reg2_n_38;
+  wire reg2_n_39;
+  wire reg2_n_40;
   wire reg3_n_0;
   wire reg3_n_1;
+  wire reg4_n_8;
+  wire reg4_n_9;
   wire rst;
   wire [1:0]w1_act;
   wire [0:0]wen0;
@@ -133,10 +263,18 @@ module testbench_bram_input_interface_0_0_bram_input_interface
   wire [29:0]wr_addr;
 
   testbench_bram_input_interface_0_0_en_decoder decod0
-       (.Q(w1_act),
-        .en(en),
+       (.CO(decod0_n_1),
+        .Q(w1_act),
+        .S({reg2_n_0,reg2_n_1,reg2_n_2,reg2_n_3}),
         .en1_wr(en1_wr),
-        .en3_wr(en3_wr));
+        .en2_rd(en2_rd),
+        .en2_rd_0(reg4_n_8),
+        .en2_rd_1({reg2_n_38,reg2_n_39,reg2_n_40}),
+        .en2_rd_temp00__0_carry__1_0({reg2_n_34,reg2_n_35,reg2_n_36,reg2_n_37}),
+        .en3_rd(en3_rd),
+        .en3_rd_0(reg4_n_9),
+        .en3_wr(en3_wr),
+        .en_wr(en_wr));
   testbench_bram_input_interface_0_0_reg_32bit reg0
        (.Q({reg0_n_0,reg0_n_1,reg0_n_2,reg0_n_3,reg0_n_4,reg0_n_5,reg0_n_6,reg0_n_7,reg0_n_8,reg0_n_9,reg0_n_10,reg0_n_11,reg0_n_12,reg0_n_13,reg0_n_14,reg0_n_15,reg0_n_16,reg0_n_17,reg0_n_18,reg0_n_19,reg0_n_20,reg0_n_21,reg0_n_22,reg0_n_23,reg0_n_24,reg0_n_25,reg0_n_26,reg0_n_27,reg0_n_28,reg0_n_29}),
         .clk(clk),
@@ -149,7 +287,11 @@ module testbench_bram_input_interface_0_0_bram_input_interface
         .rst(rst));
   testbench_bram_input_interface_0_0_reg_32bit_1 reg2
        (.D({reg1_n_0,reg1_n_1,reg1_n_2,reg1_n_3,reg1_n_4,reg1_n_5,reg1_n_6,reg1_n_7,reg1_n_8,reg1_n_9,reg1_n_10,reg1_n_11,reg1_n_12,reg1_n_13,reg1_n_14,reg1_n_15,reg1_n_16,reg1_n_17,reg1_n_18,reg1_n_19,reg1_n_20,reg1_n_21,reg1_n_22,reg1_n_23,reg1_n_24,reg1_n_25,reg1_n_26,reg1_n_27,reg1_n_28,reg1_n_29}),
+        .S({reg2_n_0,reg2_n_1,reg2_n_2,reg2_n_3}),
         .clk(clk),
+        .next_state(next_state),
+        .\out0_reg[19]_0 ({reg2_n_34,reg2_n_35,reg2_n_36,reg2_n_37}),
+        .\out0_reg[28]_0 ({reg2_n_38,reg2_n_39,reg2_n_40}),
         .rst(rst),
         .wr_addr(wr_addr));
   testbench_bram_input_interface_0_0_reg_2bit reg3
@@ -158,16 +300,18 @@ module testbench_bram_input_interface_0_0_bram_input_interface
         .clk(clk),
         .rst(rst));
   testbench_bram_input_interface_0_0_reg_2bit_2 reg4
-       (.D({reg3_n_0,reg3_n_1}),
+       (.CO(decod0_n_1),
+        .D({reg3_n_0,reg3_n_1}),
         .Q(w1_act),
         .clk(clk),
-        .en(en),
         .en0_rd(en0_rd),
         .en0_wr(en0_wr),
         .en1_rd(en1_rd),
-        .en2_rd(en2_rd),
         .en2_wr(en2_wr),
-        .en3_rd(en3_rd),
+        .en_rd(en_rd),
+        .en_wr(en_wr),
+        .\out0_reg[0]_0 (reg4_n_8),
+        .\out0_reg[1]_0 (reg4_n_9),
         .rst(rst),
         .wen0(wen0),
         .wen1(wen1),
@@ -175,20 +319,59 @@ module testbench_bram_input_interface_0_0_bram_input_interface
         .wen3(wen3));
 endmodule
 
+(* ORIG_REF_NAME = "en_decoder" *) 
 module testbench_bram_input_interface_0_0_en_decoder
-   (en1_wr,
+   (en2_rd,
+    CO,
+    en3_rd,
+    en1_wr,
     en3_wr,
+    en2_rd_0,
+    en3_rd_0,
+    S,
+    en2_rd_temp00__0_carry__1_0,
+    en2_rd_1,
     Q,
-    en);
+    en_wr);
+  output en2_rd;
+  output [0:0]CO;
+  output en3_rd;
   output en1_wr;
   output en3_wr;
+  input en2_rd_0;
+  input en3_rd_0;
+  input [3:0]S;
+  input [3:0]en2_rd_temp00__0_carry__1_0;
+  input [2:0]en2_rd_1;
   input [1:0]Q;
-  input en;
+  input en_wr;
 
+  wire [0:0]CO;
   wire [1:0]Q;
-  wire en;
+  wire [3:0]S;
   wire en1_wr;
+  wire en2_rd;
+  wire en2_rd_0;
+  wire [2:0]en2_rd_1;
+  wire en2_rd_temp00__0_carry__0_n_0;
+  wire en2_rd_temp00__0_carry__0_n_1;
+  wire en2_rd_temp00__0_carry__0_n_2;
+  wire en2_rd_temp00__0_carry__0_n_3;
+  wire [3:0]en2_rd_temp00__0_carry__1_0;
+  wire en2_rd_temp00__0_carry__1_n_2;
+  wire en2_rd_temp00__0_carry__1_n_3;
+  wire en2_rd_temp00__0_carry_n_0;
+  wire en2_rd_temp00__0_carry_n_1;
+  wire en2_rd_temp00__0_carry_n_2;
+  wire en2_rd_temp00__0_carry_n_3;
+  wire en3_rd;
+  wire en3_rd_0;
   wire en3_wr;
+  wire en_wr;
+  wire [3:0]NLW_en2_rd_temp00__0_carry_O_UNCONNECTED;
+  wire [3:0]NLW_en2_rd_temp00__0_carry__0_O_UNCONNECTED;
+  wire [3:3]NLW_en2_rd_temp00__0_carry__1_CO_UNCONNECTED;
+  wire [3:0]NLW_en2_rd_temp00__0_carry__1_O_UNCONNECTED;
 
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT3 #(
@@ -196,18 +379,58 @@ module testbench_bram_input_interface_0_0_en_decoder
     en1_wr_INST_0
        (.I0(Q[0]),
         .I1(Q[1]),
-        .I2(en),
+        .I2(en_wr),
         .O(en1_wr));
+  CARRY4 en2_rd_temp00__0_carry
+       (.CI(1'b0),
+        .CO({en2_rd_temp00__0_carry_n_0,en2_rd_temp00__0_carry_n_1,en2_rd_temp00__0_carry_n_2,en2_rd_temp00__0_carry_n_3}),
+        .CYINIT(1'b1),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(NLW_en2_rd_temp00__0_carry_O_UNCONNECTED[3:0]),
+        .S(S));
+  CARRY4 en2_rd_temp00__0_carry__0
+       (.CI(en2_rd_temp00__0_carry_n_0),
+        .CO({en2_rd_temp00__0_carry__0_n_0,en2_rd_temp00__0_carry__0_n_1,en2_rd_temp00__0_carry__0_n_2,en2_rd_temp00__0_carry__0_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(NLW_en2_rd_temp00__0_carry__0_O_UNCONNECTED[3:0]),
+        .S(en2_rd_temp00__0_carry__1_0));
+  CARRY4 en2_rd_temp00__0_carry__1
+       (.CI(en2_rd_temp00__0_carry__0_n_0),
+        .CO({NLW_en2_rd_temp00__0_carry__1_CO_UNCONNECTED[3],CO,en2_rd_temp00__0_carry__1_n_2,en2_rd_temp00__0_carry__1_n_3}),
+        .CYINIT(1'b0),
+        .DI({1'b0,1'b0,1'b0,1'b0}),
+        .O(NLW_en2_rd_temp00__0_carry__1_O_UNCONNECTED[3:0]),
+        .S({1'b0,en2_rd_1}));
+  (* XILINX_LEGACY_PRIM = "LD" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    en2_rd_temp0_reg
+       (.CLR(1'b0),
+        .D(en2_rd_0),
+        .G(CO),
+        .GE(1'b1),
+        .Q(en2_rd));
+  (* XILINX_LEGACY_PRIM = "LD" *) 
+  LDCE #(
+    .INIT(1'b0)) 
+    en3_rd_temp0_reg
+       (.CLR(1'b0),
+        .D(en3_rd_0),
+        .G(CO),
+        .GE(1'b1),
+        .Q(en3_rd));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT3 #(
     .INIT(8'h80)) 
     en3_wr_INST_0
        (.I0(Q[0]),
-        .I1(en),
+        .I1(en_wr),
         .I2(Q[1]),
         .O(en3_wr));
 endmodule
 
+(* ORIG_REF_NAME = "reg_2bit" *) 
 module testbench_bram_input_interface_0_0_reg_2bit
    (Q,
     rst,
@@ -246,11 +469,13 @@ module testbench_bram_input_interface_0_0_reg_2bit_2
     wen2,
     en0_rd,
     en1_rd,
-    en2_rd,
-    en3_rd,
+    \out0_reg[0]_0 ,
+    \out0_reg[1]_0 ,
     wen0,
     wen3,
-    en,
+    en_wr,
+    CO,
+    en_rd,
     rst,
     D,
     clk);
@@ -261,79 +486,87 @@ module testbench_bram_input_interface_0_0_reg_2bit_2
   output [0:0]wen2;
   output en0_rd;
   output en1_rd;
-  output en2_rd;
-  output en3_rd;
+  output \out0_reg[0]_0 ;
+  output \out0_reg[1]_0 ;
   output [0:0]wen0;
   output [0:0]wen3;
-  input en;
+  input en_wr;
+  input [0:0]CO;
+  input en_rd;
   input rst;
   input [1:0]D;
   input clk;
 
+  wire [0:0]CO;
   wire [1:0]D;
   wire [1:0]Q;
   wire clk;
-  wire en;
   wire en0_rd;
   wire en0_wr;
   wire en1_rd;
-  wire en2_rd;
   wire en2_wr;
-  wire en3_rd;
+  wire en_rd;
+  wire en_wr;
+  wire \out0_reg[0]_0 ;
+  wire \out0_reg[1]_0 ;
   wire rst;
   wire [0:0]wen0;
   wire [0:0]wen1;
   wire [0:0]wen2;
   wire [0:0]wen3;
 
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT3 #(
-    .INIT(8'hFB)) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT5 #(
+    .INIT(32'hFBFFFB00)) 
     en0_rd_INST_0
        (.I0(Q[0]),
-        .I1(en),
+        .I1(en_wr),
         .I2(Q[1]),
+        .I3(CO),
+        .I4(en_rd),
         .O(en0_rd));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT3 #(
     .INIT(8'h04)) 
     en0_wr_INST_0
        (.I0(Q[1]),
-        .I1(en),
+        .I1(en_wr),
         .I2(Q[0]),
         .O(en0_wr));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT3 #(
-    .INIT(8'hDF)) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT5 #(
+    .INIT(32'hDFFFDF00)) 
     en1_rd_INST_0
-       (.I0(en),
+       (.I0(en_wr),
         .I1(Q[1]),
         .I2(Q[0]),
+        .I3(CO),
+        .I4(en_rd),
         .O(en1_rd));
   (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT3 #(
     .INIT(8'hBF)) 
-    en2_rd_INST_0
+    en2_rd_temp0_reg_i_1
        (.I0(Q[0]),
         .I1(Q[1]),
-        .I2(en),
-        .O(en2_rd));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+        .I2(en_wr),
+        .O(\out0_reg[0]_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT3 #(
     .INIT(8'h08)) 
     en2_wr_INST_0
-       (.I0(en),
+       (.I0(en_wr),
         .I1(Q[1]),
         .I2(Q[0]),
         .O(en2_wr));
   (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT3 #(
     .INIT(8'h7F)) 
-    en3_rd_INST_0
+    en3_rd_temp0_reg_i_1
        (.I0(Q[1]),
-        .I1(en),
+        .I1(en_wr),
         .I2(Q[0]),
-        .O(en3_rd));
+        .O(\out0_reg[1]_0 ));
   FDRE \out0_reg[0] 
        (.C(clk),
         .CE(1'b1),
@@ -376,6 +609,7 @@ module testbench_bram_input_interface_0_0_reg_2bit_2
         .O(wen3));
 endmodule
 
+(* ORIG_REF_NAME = "reg_32bit" *) 
 module testbench_bram_input_interface_0_0_reg_32bit
    (Q,
     rst,
@@ -773,20 +1007,136 @@ endmodule
 
 (* ORIG_REF_NAME = "reg_32bit" *) 
 module testbench_bram_input_interface_0_0_reg_32bit_1
-   (wr_addr,
+   (S,
+    wr_addr,
+    \out0_reg[19]_0 ,
+    \out0_reg[28]_0 ,
+    next_state,
     rst,
     D,
     clk);
+  output [3:0]S;
   output [29:0]wr_addr;
+  output [3:0]\out0_reg[19]_0 ;
+  output [2:0]\out0_reg[28]_0 ;
+  input [29:0]next_state;
   input rst;
   input [29:0]D;
   input clk;
 
   wire [29:0]D;
+  wire [3:0]S;
   wire clk;
+  wire [29:0]next_state;
+  wire [3:0]\out0_reg[19]_0 ;
+  wire [2:0]\out0_reg[28]_0 ;
   wire rst;
   wire [29:0]wr_addr;
 
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    en2_rd_temp00__0_carry__0_i_1
+       (.I0(wr_addr[19]),
+        .I1(next_state[19]),
+        .I2(next_state[21]),
+        .I3(wr_addr[21]),
+        .I4(next_state[20]),
+        .I5(wr_addr[20]),
+        .O(\out0_reg[19]_0 [3]));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    en2_rd_temp00__0_carry__0_i_2
+       (.I0(wr_addr[16]),
+        .I1(next_state[16]),
+        .I2(next_state[18]),
+        .I3(wr_addr[18]),
+        .I4(next_state[17]),
+        .I5(wr_addr[17]),
+        .O(\out0_reg[19]_0 [2]));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    en2_rd_temp00__0_carry__0_i_3
+       (.I0(wr_addr[13]),
+        .I1(next_state[13]),
+        .I2(next_state[15]),
+        .I3(wr_addr[15]),
+        .I4(next_state[14]),
+        .I5(wr_addr[14]),
+        .O(\out0_reg[19]_0 [1]));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    en2_rd_temp00__0_carry__0_i_4
+       (.I0(wr_addr[10]),
+        .I1(next_state[10]),
+        .I2(next_state[12]),
+        .I3(wr_addr[12]),
+        .I4(next_state[11]),
+        .I5(wr_addr[11]),
+        .O(\out0_reg[19]_0 [0]));
+  LUT4 #(
+    .INIT(16'h9009)) 
+    en2_rd_temp00__0_carry__1_i_1
+       (.I0(wr_addr[28]),
+        .I1(next_state[28]),
+        .I2(wr_addr[29]),
+        .I3(next_state[29]),
+        .O(\out0_reg[28]_0 [2]));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    en2_rd_temp00__0_carry__1_i_2
+       (.I0(wr_addr[25]),
+        .I1(next_state[25]),
+        .I2(next_state[27]),
+        .I3(wr_addr[27]),
+        .I4(next_state[26]),
+        .I5(wr_addr[26]),
+        .O(\out0_reg[28]_0 [1]));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    en2_rd_temp00__0_carry__1_i_3
+       (.I0(wr_addr[22]),
+        .I1(next_state[22]),
+        .I2(next_state[24]),
+        .I3(wr_addr[24]),
+        .I4(next_state[23]),
+        .I5(wr_addr[23]),
+        .O(\out0_reg[28]_0 [0]));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    en2_rd_temp00__0_carry_i_1
+       (.I0(wr_addr[7]),
+        .I1(next_state[7]),
+        .I2(next_state[9]),
+        .I3(wr_addr[9]),
+        .I4(next_state[8]),
+        .I5(wr_addr[8]),
+        .O(S[3]));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    en2_rd_temp00__0_carry_i_2
+       (.I0(wr_addr[4]),
+        .I1(next_state[4]),
+        .I2(next_state[6]),
+        .I3(wr_addr[6]),
+        .I4(next_state[5]),
+        .I5(wr_addr[5]),
+        .O(S[2]));
+  LUT6 #(
+    .INIT(64'h9009000000009009)) 
+    en2_rd_temp00__0_carry_i_3
+       (.I0(wr_addr[1]),
+        .I1(next_state[1]),
+        .I2(next_state[3]),
+        .I3(wr_addr[3]),
+        .I4(next_state[2]),
+        .I5(wr_addr[2]),
+        .O(S[1]));
+  LUT2 #(
+    .INIT(4'h9)) 
+    en2_rd_temp00__0_carry_i_4
+       (.I0(next_state[0]),
+        .I1(wr_addr[0]),
+        .O(S[0]));
   FDRE \out0_reg[0] 
        (.C(clk),
         .CE(1'b1),
@@ -967,114 +1317,6 @@ module testbench_bram_input_interface_0_0_reg_32bit_1
         .D(D[9]),
         .Q(wr_addr[9]),
         .R(rst));
-endmodule
-
-(* CHECK_LICENSE_TYPE = "testbench_bram_input_interface_0_0,bram_input_interface,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "bram_input_interface,Vivado 2021.1" *) 
-(* NotValidForBitStream *)
-module testbench_bram_input_interface_0_0
-   (clk,
-    rst,
-    en,
-    next_state,
-    rd_addr,
-    wr_addr,
-    act,
-    wen0,
-    wen1,
-    wen2,
-    wen3,
-    en0_wr,
-    en0_rd,
-    en1_wr,
-    en1_rd,
-    en2_wr,
-    en2_rd,
-    en3_wr,
-    en3_rd);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN testbench_clk, INSERT_VIP 0" *) input clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rst, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rst;
-  input en;
-  input [31:0]next_state;
-  output [31:0]rd_addr;
-  output [31:0]wr_addr;
-  input [1:0]act;
-  output [3:0]wen0;
-  output [3:0]wen1;
-  output [3:0]wen2;
-  output [3:0]wen3;
-  output en0_wr;
-  output en0_rd;
-  output en1_wr;
-  output en1_rd;
-  output en2_wr;
-  output en2_rd;
-  output en3_wr;
-  output en3_rd;
-
-  wire \<const0> ;
-  wire [1:0]act;
-  wire clk;
-  wire en;
-  wire en0_rd;
-  wire en0_wr;
-  wire en1_rd;
-  wire en1_wr;
-  wire en2_rd;
-  wire en2_wr;
-  wire en3_rd;
-  wire en3_wr;
-  wire [31:0]next_state;
-  wire rst;
-  wire [3:3]\^wen0 ;
-  wire [0:0]\^wen1 ;
-  wire [0:0]\^wen2 ;
-  wire [3:3]\^wen3 ;
-  wire [31:2]\^wr_addr ;
-
-  assign rd_addr[31:2] = next_state[29:0];
-  assign rd_addr[1] = \<const0> ;
-  assign rd_addr[0] = \<const0> ;
-  assign wen0[3] = \^wen0 [3];
-  assign wen0[2] = \^wen0 [3];
-  assign wen0[1] = \^wen0 [3];
-  assign wen0[0] = \^wen0 [3];
-  assign wen1[3] = \^wen1 [0];
-  assign wen1[2] = \^wen1 [0];
-  assign wen1[1] = \^wen1 [0];
-  assign wen1[0] = \^wen1 [0];
-  assign wen2[3] = \^wen2 [0];
-  assign wen2[2] = \^wen2 [0];
-  assign wen2[1] = \^wen2 [0];
-  assign wen2[0] = \^wen2 [0];
-  assign wen3[3] = \^wen3 [3];
-  assign wen3[2] = \^wen3 [3];
-  assign wen3[1] = \^wen3 [3];
-  assign wen3[0] = \^wen3 [3];
-  assign wr_addr[31:2] = \^wr_addr [31:2];
-  assign wr_addr[1] = \<const0> ;
-  assign wr_addr[0] = \<const0> ;
-  GND GND
-       (.G(\<const0> ));
-  testbench_bram_input_interface_0_0_bram_input_interface inst
-       (.act(act),
-        .clk(clk),
-        .en(en),
-        .en0_rd(en0_rd),
-        .en0_wr(en0_wr),
-        .en1_rd(en1_rd),
-        .en1_wr(en1_wr),
-        .en2_rd(en2_rd),
-        .en2_wr(en2_wr),
-        .en3_rd(en3_rd),
-        .en3_wr(en3_wr),
-        .next_state(next_state[29:0]),
-        .rst(rst),
-        .wen0(\^wen0 ),
-        .wen1(\^wen1 ),
-        .wen2(\^wen2 ),
-        .wen3(\^wen3 ),
-        .wr_addr(\^wr_addr ));
 endmodule
 `ifndef GLBL
 `define GLBL

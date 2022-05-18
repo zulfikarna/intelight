@@ -12,9 +12,9 @@
 module RD(
     // for debugging 
     output wire [1:0] sel,
-    output wire [1:0] w_min,
-    output wire [1:0] w_max,
-    output wire [1:0] w_act,
+    output wire [2:0] w_min,
+    output wire [2:0] w_max,
+    output wire [2:0] w_act,
     // ----
     input wire clk, rst, en,
     input wire [1:0] act,
@@ -39,14 +39,14 @@ module RD(
                         .out0(w_reward));
     
     // Enabling output 
-    enabler_32bit en0(.in0(w_reward), .out0(reward), .en(en));
+    enabler_32bit en0(.rst(rst), .in0(w_reward), .out0(reward), .en(en));
 endmodule
 
 module analyzer(
     // For debugging 
-    output wire [1:0] w_max,
-    output wire [1:0] w_min,
-    output wire [1:0] w_act, 
+    output wire [2:0] w_max,
+    output wire [2:0] w_min,
+    output wire [2:0] w_act, 
     // -----
     input wire clk, rst,
     input wire [31:0] state,
@@ -55,16 +55,16 @@ module analyzer(
     );
     
     // MAX block
-    wire [1:0] w_max0;
+    wire [2:0] w_max0;
 //    wire [1:0] w_max; // nilai tertinggi
-    max4to1_2bit max0(.in0(state[1:0]), .in1(state[3:2]), .in2(state[5:4]), .in3(state[7:6]), .out0(w_max0));
-    reg_2bit reg0(.clk(clk), .rst(rst), .in0(w_max0), .out0(w_max));
+    max4to1_3bit max0(.in0(state[2:0]), .in1(state[5:3]), .in2(state[8:6]), .in3(state[11:9]), .out0(w_max0));
+    reg_3bit reg0(.clk(clk), .rst(rst), .in0(w_max0), .out0(w_max));
     
     // MIN Block
-    wire [1:0] w_min0;
+    wire [2:0] w_min0;
     //wire [1:0] w_min; 
-    min4to1_2bit min0(.in0(state[1:0]), .in1(state[3:2]), .in2(state[5:4]), .in3(state[7:6]), .out0(w_min0));
-    reg_2bit reg1(.clk(clk), .rst(rst), .in0(w_min0), .out0(w_min));
+    min4to1_3bit min0(.in0(state[2:0]), .in1(state[5:3]), .in2(state[8:6]), .in3(state[11:9]), .out0(w_min0));
+    reg_3bit reg1(.clk(clk), .rst(rst), .in0(w_min0), .out0(w_min));
 //    min4to2_2bit min0(.in0(state[1:0]), .in1(state[3:2]), .in2(state[5:4]), .in3(state[7:6]), .out0(w_min0), .out1(w_mid0));
 //    reg_2bit reg1(.clk(clk), .rst(rst), .in0(w_min0), .out0(w_min));
 //    reg_2bit reg2(.clk(clk), .rst(rst), .in0(w_mid0), .out0(w_mid));
@@ -73,7 +73,7 @@ module analyzer(
     wire [31:0] w_state; 
     reg_32bit reg3(.clk(clk), .rst(rst), .in0(state), .out0(w_state));
     // wire [1:0] w_act;
-    mux4to1_2bit mux0(.in0(w_state[1:0]), .in1(w_state[3:2]), .in2(w_state[5:4]), .in3(w_state[7:6]), .out0(w_act), .sel(act));
+    mux4to1_3bit mux0(.in0(w_state[2:0]), .in1(w_state[5:3]), .in2(w_state[8:6]), .in3(w_state[11:9]), .out0(w_act), .sel(act));
     
     // COMP Block
     wire [1:0] w_sel;

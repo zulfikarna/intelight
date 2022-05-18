@@ -72,9 +72,9 @@ module testbench_RD_0_0 (
 );
 
 output wire [1 : 0] sel;
-output wire [1 : 0] w_min;
-output wire [1 : 0] w_max;
-output wire [1 : 0] w_act;
+output wire [2 : 0] w_min;
+output wire [2 : 0] w_max;
+output wire [2 : 0] w_act;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN testbench_clk, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;

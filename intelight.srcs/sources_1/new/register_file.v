@@ -23,6 +23,21 @@ module reg_32bit(
     end
 endmodule
 
+module reg_3bit(
+    input wire clk, rst,
+    input wire [2:0] in0,
+    output reg [2:0] out0
+    );
+    //reg [31:0] temp;
+    always@(posedge clk) begin
+        if (rst) begin
+            out0 <= 2'b000;
+        end else begin
+            out0 <= in0;
+        end
+    end
+endmodule
+
 module reg_2bit(
     input wire clk, rst,
     input wire [1:0] in0,

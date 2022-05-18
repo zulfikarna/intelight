@@ -59,12 +59,15 @@ module system_CU_0_3 (
   clk,
   rst,
   start,
+  read_sig,
   max_step,
   max_episode,
   seed,
   goal_sig,
   sel_act,
   act_random,
+  BRAM_rd,
+  BRAM_wr,
   PG,
   QA,
   SD,
@@ -72,7 +75,10 @@ module system_CU_0_3 (
   wire_sc,
   wire_ec,
   wire_cs,
-  finish
+  wire_as,
+  wire_epsilon,
+  finish,
+  finish_adapt
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rst, FREQ_HZ 50000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN system_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *)
@@ -82,12 +88,15 @@ input wire clk;
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rst RST" *)
 input wire rst;
 input wire start;
+input wire read_sig;
 input wire [15 : 0] max_step;
 input wire [15 : 0] max_episode;
 input wire [15 : 0] seed;
 input wire goal_sig;
 output wire sel_act;
 output wire [1 : 0] act_random;
+output wire BRAM_rd;
+output wire BRAM_wr;
 output wire PG;
 output wire QA;
 output wire SD;
@@ -95,18 +104,24 @@ output wire RD;
 output wire [15 : 0] wire_sc;
 output wire [15 : 0] wire_ec;
 output wire [3 : 0] wire_cs;
+output wire [15 : 0] wire_as;
+output wire [15 : 0] wire_epsilon;
 output wire finish;
+output wire finish_adapt;
 
   CU inst (
     .clk(clk),
     .rst(rst),
     .start(start),
+    .read_sig(read_sig),
     .max_step(max_step),
     .max_episode(max_episode),
     .seed(seed),
     .goal_sig(goal_sig),
     .sel_act(sel_act),
     .act_random(act_random),
+    .BRAM_rd(BRAM_rd),
+    .BRAM_wr(BRAM_wr),
     .PG(PG),
     .QA(QA),
     .SD(SD),
@@ -114,6 +129,9 @@ output wire finish;
     .wire_sc(wire_sc),
     .wire_ec(wire_ec),
     .wire_cs(wire_cs),
-    .finish(finish)
+    .wire_as(wire_as),
+    .wire_epsilon(wire_epsilon),
+    .finish(finish),
+    .finish_adapt(finish_adapt)
   );
 endmodule

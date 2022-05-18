@@ -6,7 +6,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module bram_input_interface(
-    input clk, rst, en,
+    input clk, rst, en_wr, en_rd,
     // For state-address converter
     input [31:0] next_state,
     output [31:0] rd_addr,
@@ -45,7 +45,10 @@ module bram_input_interface(
     reg_2bit reg4(.clk(clk), .rst(rst), .in0(w0_act), .out0(w1_act));
     
     // RAM Enable Handling 
-    en_decoder decod0(  .en(en),
+    en_decoder decod0(  .en_rd(en_rd),
+                        .en_wr(en_wr),
+                        .rd_addr(rd_addr),
+                        .wr_addr(wr_addr),
                         .act(w1_act),
                         .en0_wr(en0_wr),
                         .en0_rd(en0_rd),
@@ -63,42 +66,32 @@ module bram_input_interface(
 endmodule
 
 module bram_output_interface(
-    input rst, clk, en,
+    input rst, clk, en_rd,
     input [1:0] act,
     input [31:0] data0, data1, data2, data3,
-    output [31:0] q0, q1, q2, q3
+    output reg [31:0] q0, q1, q2, q3
     );
-    reg [31:0] reg0, reg1, reg2, reg3;
-    wire [31:0] wire0, wire1, wire2, wire3;
+
     always @(*) begin
         if (rst) begin
-            reg0 = 32'h0000_0000;
-            reg1 = 32'h0000_0000;
-            reg2 = 32'h0000_0000;
-            reg3 = 32'h0000_0000;
+            q0 = 32'h0000_0000;
+            q1 = 32'h0000_0000;
+            q2 = 32'h0000_0000;
+            q3 = 32'h0000_0000;
         end else begin
-            reg0 = (act==0)? reg0 : data0;
-            reg1 = (act==1)? reg1 : data1;
-            reg2 = (act==2)? reg2 : data2;
-            reg3 = (act==3)? reg3 : data3;
+            if (en_rd) begin
+                q0 = (act==0)? q0 : data0;
+                q1 = (act==1)? q1 : data1;
+                q2 = (act==2)? q2 : data2;
+                q3 = (act==3)? q3 : data3;
+            end else begin
+                q0 = q0;
+                q1 = q1;
+                q2 = q2;
+                q3 = q3;
+            end
         end
     end
-    assign wire0 = reg0;
-    assign wire1 = reg1;
-    assign wire2 = reg2;
-    assign wire3 = reg3;
-    
-    // Enable 4 data 32 bit 
-    enabler4_32bit en0( .en(en),
-                        .in0(wire0),
-                        .in1(wire1),
-                        .in2(wire2),
-                        .in3(wire3),
-                        .out0(q0),
-                        .out1(q1),
-                        .out2(q2),
-                        .out3(q3)
-                        );
 endmodule 
 
 module wen_decoder(
@@ -112,7 +105,8 @@ module wen_decoder(
 endmodule
 
 module en_decoder(
-    input en,
+    input en_rd, en_wr,
+    input [31:0] wr_addr, rd_addr,
     input wire [1:0] act,
     output en0_wr,
     output en0_rd,
@@ -123,20 +117,31 @@ module en_decoder(
     output en3_wr,
     output en3_rd
     );
-//    assign en0_wr = ((act==0)&(en))? 1'b1 : 1'b0;
-//    assign en1_wr = ((act==1)&(en))? 1'b1 : 1'b0;
-//    assign en2_wr = ((act==2)&(en))? 1'b1 : 1'b0;
-//    assign en3_wr = ((act==3)&(en))? 1'b1 : 1'b0;
-//    assign en0_rd = ((act==0)|(!en))? 1'b0 : 1'b1;
-//    assign en1_rd = ((act==1)|(!en))? 1'b0 : 1'b1;
-//    assign en2_rd = ((act==2)|(!en))? 1'b0 : 1'b1;
-//    assign en3_rd = ((act==3)|(!en))? 1'b0 : 1'b1;
-    assign en0_wr = ((act==0)&(en))? 1'b1 : 1'b0;
-    assign en1_wr = ((act==1)&(en))? 1'b1 : 1'b0;
-    assign en2_wr = ((act==2)&(en))? 1'b1 : 1'b0;
-    assign en3_wr = ((act==3)&(en))? 1'b1 : 1'b0;
-    assign en0_rd = ((act==0)&(en))? 1'b0 : 1'b1;
-    assign en1_rd = ((act==1)&(en))? 1'b0 : 1'b1;
-    assign en2_rd = ((act==2)&(en))? 1'b0 : 1'b1;
-    assign en3_rd = ((act==3)&(en))? 1'b0 : 1'b1;
+    assign en0_wr = ((act==0)&(en_wr))? 1'b1 : 1'b0;
+    assign en1_wr = ((act==1)&(en_wr))? 1'b1 : 1'b0;
+    assign en2_wr = ((act==2)&(en_wr))? 1'b1 : 1'b0;
+    assign en3_wr = ((act==3)&(en_wr))? 1'b1 : 1'b0;
+    
+    reg en0_rd_temp0;
+    reg en1_rd_temp0;
+    reg en2_rd_temp0;
+    reg en3_rd_temp0;
+    always @(*) begin
+        if (wr_addr==rd_addr) begin 
+            en0_rd_temp0 = ((act==0)&(en_wr))? 1'b0 : 1'b1;
+            en1_rd_temp0 = ((act==1)&(en_wr))? 1'b0 : 1'b1;
+            en2_rd_temp0 = ((act==2)&(en_wr))? 1'b0 : 1'b1;
+            en3_rd_temp0 = ((act==3)&(en_wr))? 1'b0 : 1'b1;
+        end else begin
+            en0_rd_temp0 = (en_rd)? 1'b1 : 1'b0;
+            en1_rd_temp0 = (en_rd)? 1'b1 : 1'b0;
+            en1_rd_temp0 = (en_rd)? 1'b1 : 1'b0;
+            en1_rd_temp0 = (en_rd)? 1'b1 : 1'b0;
+        end
+    end
+    
+    assign en0_rd = en0_rd_temp0;
+    assign en1_rd = en1_rd_temp0;
+    assign en2_rd = en2_rd_temp0;
+    assign en3_rd = en3_rd_temp0;
 endmodule 

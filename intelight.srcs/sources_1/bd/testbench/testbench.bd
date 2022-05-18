@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x1787A4C2E2EDB06B",
+      "boundary_crc": "0x17D4C89E45E78F68",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../intelight.gen/sources_1/bd/testbench",
       "name": "testbench",
@@ -16,8 +16,9 @@
         "QA_0": ""
       },
       "EV": {
+        "RD_0": "",
         "SD_0": "",
-        "RD_0": ""
+        "EG_0": ""
       },
       "RAM_Block": {
         "cnst_0_4bit": "",
@@ -38,9 +39,9 @@
           "Action_RAM_0": ""
         }
       },
-      "CU_0": "",
+      "bram_output_interface_0": "",
       "bram_input_interface_0": "",
-      "bram_output_interface_0": ""
+      "CU_0": ""
     },
     "ports": {
       "clk": {
@@ -137,46 +138,6 @@
         "left": "2",
         "right": "0"
       },
-      "debit_r0": {
-        "direction": "I",
-        "left": "31",
-        "right": "0"
-      },
-      "debit_r1": {
-        "direction": "I",
-        "left": "31",
-        "right": "0"
-      },
-      "debit_r2": {
-        "direction": "I",
-        "left": "31",
-        "right": "0"
-      },
-      "debit_r3": {
-        "direction": "I",
-        "left": "31",
-        "right": "0"
-      },
-      "init_panjang_r0": {
-        "direction": "I",
-        "left": "31",
-        "right": "0"
-      },
-      "init_panjang_r1": {
-        "direction": "I",
-        "left": "31",
-        "right": "0"
-      },
-      "init_panjang_r2": {
-        "direction": "I",
-        "left": "31",
-        "right": "0"
-      },
-      "init_panjang_r3": {
-        "direction": "I",
-        "left": "31",
-        "right": "0"
-      },
       "batas_0": {
         "direction": "I",
         "left": "31",
@@ -232,22 +193,22 @@
       },
       "level_r0": {
         "direction": "O",
-        "left": "7",
+        "left": "2",
         "right": "0"
       },
       "level_r1": {
         "direction": "O",
-        "left": "7",
+        "left": "2",
         "right": "0"
       },
       "level_r2": {
         "direction": "O",
-        "left": "7",
+        "left": "2",
         "right": "0"
       },
       "level_r3": {
         "direction": "O",
-        "left": "7",
+        "left": "2",
         "right": "0"
       },
       "panjang_w0": {
@@ -408,6 +369,63 @@
         "direction": "I",
         "left": "31",
         "right": "0"
+      },
+      "state_sim": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "BRAM_rd": {
+        "direction": "O"
+      },
+      "BRAM_wr": {
+        "direction": "O"
+      },
+      "wire_as": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      },
+      "wire_epsilon": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      },
+      "finish_adapt": {
+        "direction": "O"
+      },
+      "batas_3": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "batas_4": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "batas_5": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "batas_6": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "read_sig": {
+        "direction": "I"
+      },
+      "seed_EG0": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "seed_EG1": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
       }
     },
     "components": {
@@ -484,6 +502,11 @@
             "direction": "O",
             "left": "1",
             "right": "0"
+          },
+          "act_SD": {
+            "direction": "O",
+            "left": "1",
+            "right": "0"
           }
         },
         "components": {
@@ -552,6 +575,11 @@
                 "right": "0"
               },
               "act": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "act_SD": {
                 "direction": "O",
                 "left": "1",
                 "right": "0"
@@ -713,6 +741,12 @@
               "QA_0/act"
             ]
           },
+          "PG_0_act_SD": {
+            "ports": [
+              "PG_0/act_SD",
+              "act_SD"
+            ]
+          },
           "PG_0_act_greed": {
             "ports": [
               "PG_0/act_greed",
@@ -799,46 +833,6 @@
             "left": "2",
             "right": "0"
           },
-          "debit_r0": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "debit_r1": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "debit_r2": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "debit_r3": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "init_panjang_r0": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "init_panjang_r1": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "init_panjang_r2": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "init_panjang_r3": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
           "batas_0": {
             "direction": "I",
             "left": "31",
@@ -894,22 +888,22 @@
           },
           "level_r0_0": {
             "direction": "O",
-            "left": "7",
+            "left": "2",
             "right": "0"
           },
           "level_r1_0": {
             "direction": "O",
-            "left": "7",
+            "left": "2",
             "right": "0"
           },
           "level_r2_0": {
             "direction": "O",
-            "left": "7",
+            "left": "2",
             "right": "0"
           },
           "level_r3_0": {
             "direction": "O",
-            "left": "7",
+            "left": "2",
             "right": "0"
           },
           "panjang_w0_0": {
@@ -956,9 +950,140 @@
             "direction": "I",
             "left": "31",
             "right": "0"
+          },
+          "finish": {
+            "direction": "I"
+          },
+          "state_sim": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "act_SD": {
+            "direction": "I",
+            "left": "1",
+            "right": "0"
+          },
+          "batas_3": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "batas_4": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "batas_5": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "batas_6": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "seed_EG0": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "seed_EG1": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
           }
         },
         "components": {
+          "RD_0": {
+            "vlnv": "xilinx.com:module_ref:RD:1.0",
+            "xci_name": "testbench_RD_0_0",
+            "xci_path": "ip\\testbench_RD_0_0\\testbench_RD_0_0.xci",
+            "inst_hier_path": "EV/RD_0",
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "RD",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "sel": {
+                "direction": "O",
+                "left": "1",
+                "right": "0"
+              },
+              "w_min": {
+                "direction": "O",
+                "left": "2",
+                "right": "0"
+              },
+              "w_max": {
+                "direction": "O",
+                "left": "2",
+                "right": "0"
+              },
+              "w_act": {
+                "direction": "O",
+                "left": "2",
+                "right": "0"
+              },
+              "clk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "rst",
+                    "value_src": "constant"
+                  },
+                  "FREQ_HZ": {
+                    "value": "50000000",
+                    "value_src": "user_prop"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "testbench_clk",
+                    "value_src": "default_prop"
+                  }
+                }
+              },
+              "rst": {
+                "type": "rst",
+                "direction": "I"
+              },
+              "en": {
+                "direction": "I"
+              },
+              "act": {
+                "direction": "I",
+                "left": "1",
+                "right": "0"
+              },
+              "state": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward_0": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward_1": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward_2": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "reward": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              }
+            }
+          },
           "SD_0": {
             "vlnv": "xilinx.com:module_ref:SD:1.0",
             "xci_name": "testbench_SD_0_0",
@@ -993,6 +1118,14 @@
                 "direction": "I"
               },
               "en": {
+                "direction": "I"
+              },
+              "state_sim": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "finish": {
                 "direction": "I"
               },
               "act": {
@@ -1065,7 +1198,27 @@
                 "left": "31",
                 "right": "0"
               },
-              "next_state": {
+              "batas_3": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "batas_4": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "batas_5": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "batas_6": {
+                "direction": "I",
+                "left": "31",
+                "right": "0"
+              },
+              "state": {
                 "direction": "O",
                 "left": "31",
                 "right": "0"
@@ -1115,55 +1268,45 @@
               },
               "level_r0": {
                 "direction": "O",
-                "left": "7",
+                "left": "2",
                 "right": "0"
               },
               "level_r1": {
                 "direction": "O",
-                "left": "7",
+                "left": "2",
                 "right": "0"
               },
               "level_r2": {
                 "direction": "O",
-                "left": "7",
+                "left": "2",
                 "right": "0"
               },
               "level_r3": {
                 "direction": "O",
-                "left": "7",
+                "left": "2",
                 "right": "0"
               }
             }
           },
-          "RD_0": {
-            "vlnv": "xilinx.com:module_ref:RD:1.0",
-            "xci_name": "testbench_RD_0_0",
-            "xci_path": "ip\\testbench_RD_0_0\\testbench_RD_0_0.xci",
-            "inst_hier_path": "EV/RD_0",
+          "EG_0": {
+            "vlnv": "xilinx.com:module_ref:EG:1.0",
+            "xci_name": "testbench_EG_0_0",
+            "xci_path": "ip\\testbench_EG_0_0\\testbench_EG_0_0.xci",
+            "inst_hier_path": "EV/EG_0",
             "reference_info": {
               "ref_type": "hdl",
-              "ref_name": "RD",
+              "ref_name": "EG",
               "boundary_crc": "0x0"
             },
             "ports": {
-              "sel": {
+              "o_lsfr0": {
                 "direction": "O",
-                "left": "1",
+                "left": "63",
                 "right": "0"
               },
-              "w_min": {
+              "o_lsfr1": {
                 "direction": "O",
-                "left": "1",
-                "right": "0"
-              },
-              "w_max": {
-                "direction": "O",
-                "left": "1",
-                "right": "0"
-              },
-              "w_act": {
-                "direction": "O",
-                "left": "1",
+                "left": "63",
                 "right": "0"
               },
               "clk": {
@@ -1188,35 +1331,52 @@
                 "type": "rst",
                 "direction": "I"
               },
-              "en": {
-                "direction": "I"
-              },
-              "act": {
-                "direction": "I",
-                "left": "1",
-                "right": "0"
-              },
-              "state": {
+              "seed0": {
                 "direction": "I",
                 "left": "31",
                 "right": "0"
               },
-              "reward_0": {
+              "seed1": {
                 "direction": "I",
                 "left": "31",
                 "right": "0"
               },
-              "reward_1": {
-                "direction": "I",
+              "init_r0": {
+                "direction": "O",
                 "left": "31",
                 "right": "0"
               },
-              "reward_2": {
-                "direction": "I",
+              "init_r1": {
+                "direction": "O",
                 "left": "31",
                 "right": "0"
               },
-              "reward": {
+              "init_r2": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "init_r3": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "debit_r0": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "debit_r1": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "debit_r2": {
+                "direction": "O",
+                "left": "31",
+                "right": "0"
+              },
+              "debit_r3": {
                 "direction": "O",
                 "left": "31",
                 "right": "0"
@@ -1225,10 +1385,57 @@
           }
         },
         "nets": {
+          "EG_0_debit_r0": {
+            "ports": [
+              "EG_0/debit_r0",
+              "SD_0/debit_r0"
+            ]
+          },
+          "EG_0_debit_r1": {
+            "ports": [
+              "EG_0/debit_r1",
+              "SD_0/debit_r1"
+            ]
+          },
+          "EG_0_debit_r2": {
+            "ports": [
+              "EG_0/debit_r2",
+              "SD_0/debit_r2"
+            ]
+          },
+          "EG_0_debit_r3": {
+            "ports": [
+              "EG_0/debit_r3",
+              "SD_0/debit_r3"
+            ]
+          },
+          "EG_0_init_r0": {
+            "ports": [
+              "EG_0/init_r0",
+              "SD_0/init_panjang_r0"
+            ]
+          },
+          "EG_0_init_r1": {
+            "ports": [
+              "EG_0/init_r1",
+              "SD_0/init_panjang_r1"
+            ]
+          },
+          "EG_0_init_r2": {
+            "ports": [
+              "EG_0/init_r2",
+              "SD_0/init_panjang_r2"
+            ]
+          },
+          "EG_0_init_r3": {
+            "ports": [
+              "EG_0/init_r3",
+              "SD_0/init_panjang_r3"
+            ]
+          },
           "PG_0_act": {
             "ports": [
               "act",
-              "SD_0/act",
               "RD_0/act"
             ]
           },
@@ -1316,6 +1523,12 @@
               "goal_sig"
             ]
           },
+          "act_0_1": {
+            "ports": [
+              "act_SD",
+              "SD_0/act"
+            ]
+          },
           "batas_0_0_1": {
             "ports": [
               "batas_0",
@@ -1334,41 +1547,42 @@
               "SD_0/batas_2"
             ]
           },
+          "batas_3_0_1": {
+            "ports": [
+              "batas_3",
+              "SD_0/batas_3"
+            ]
+          },
+          "batas_4_0_1": {
+            "ports": [
+              "batas_4",
+              "SD_0/batas_4"
+            ]
+          },
+          "batas_5_0_1": {
+            "ports": [
+              "batas_5",
+              "SD_0/batas_5"
+            ]
+          },
+          "batas_6_0_1": {
+            "ports": [
+              "batas_6",
+              "SD_0/batas_6"
+            ]
+          },
           "clk_1": {
             "ports": [
               "clk",
+              "RD_0/clk",
               "SD_0/clk",
-              "RD_0/clk"
+              "EG_0/clk"
             ]
           },
           "debit_out_0_1": {
             "ports": [
               "debit_out",
               "SD_0/debit_out"
-            ]
-          },
-          "debit_r0_0_1": {
-            "ports": [
-              "debit_r0",
-              "SD_0/debit_r0"
-            ]
-          },
-          "debit_r1_0_1": {
-            "ports": [
-              "debit_r1",
-              "SD_0/debit_r1"
-            ]
-          },
-          "debit_r2_0_1": {
-            "ports": [
-              "debit_r2",
-              "SD_0/debit_r2"
-            ]
-          },
-          "debit_r3_0_1": {
-            "ports": [
-              "debit_r3",
-              "SD_0/debit_r3"
             ]
           },
           "delta_t_0_1": {
@@ -1389,33 +1603,15 @@
               "RD_0/en"
             ]
           },
-          "init_panjang_r0_0_1": {
+          "finish_0_1": {
             "ports": [
-              "init_panjang_r0",
-              "SD_0/init_panjang_r0"
-            ]
-          },
-          "init_panjang_r1_0_1": {
-            "ports": [
-              "init_panjang_r1",
-              "SD_0/init_panjang_r1"
-            ]
-          },
-          "init_panjang_r2_0_1": {
-            "ports": [
-              "init_panjang_r2",
-              "SD_0/init_panjang_r2"
-            ]
-          },
-          "init_panjang_r3_0_1": {
-            "ports": [
-              "init_panjang_r3",
-              "SD_0/init_panjang_r3"
+              "finish",
+              "SD_0/finish"
             ]
           },
           "next_state_1": {
             "ports": [
-              "SD_0/next_state",
+              "SD_0/state",
               "state",
               "RD_0/state"
             ]
@@ -1441,8 +1637,27 @@
           "rst_1": {
             "ports": [
               "rst",
+              "RD_0/rst",
               "SD_0/rst",
-              "RD_0/rst"
+              "EG_0/rst"
+            ]
+          },
+          "seed1_0_1": {
+            "ports": [
+              "seed_EG1",
+              "EG_0/seed1"
+            ]
+          },
+          "seed_0_1": {
+            "ports": [
+              "seed_EG0",
+              "EG_0/seed0"
+            ]
+          },
+          "state_sim_0_1": {
+            "ports": [
+              "state_sim",
+              "SD_0/state_sim"
             ]
           }
         }
@@ -2542,17 +2757,21 @@
           }
         }
       },
-      "CU_0": {
-        "vlnv": "xilinx.com:module_ref:CU:1.0",
-        "xci_name": "testbench_CU_0_0",
-        "xci_path": "ip\\testbench_CU_0_0\\testbench_CU_0_0.xci",
-        "inst_hier_path": "CU_0",
+      "bram_output_interface_0": {
+        "vlnv": "xilinx.com:module_ref:bram_output_interface:1.0",
+        "xci_name": "testbench_bram_output_interface_0_0",
+        "xci_path": "ip\\testbench_bram_output_interface_0_0\\testbench_bram_output_interface_0_0.xci",
+        "inst_hier_path": "bram_output_interface_0",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "CU",
+          "ref_name": "bram_output_interface",
           "boundary_crc": "0x0"
         },
         "ports": {
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
           "clk": {
             "type": "clk",
             "direction": "I",
@@ -2571,68 +2790,53 @@
               }
             }
           },
-          "rst": {
-            "type": "rst",
+          "en_rd": {
             "direction": "I"
           },
-          "start": {
-            "direction": "I"
-          },
-          "max_step": {
+          "act": {
             "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "max_episode": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "seed": {
-            "direction": "I",
-            "left": "15",
-            "right": "0"
-          },
-          "goal_sig": {
-            "direction": "I"
-          },
-          "sel_act": {
-            "direction": "O"
-          },
-          "act_random": {
-            "direction": "O",
             "left": "1",
             "right": "0"
           },
-          "PG": {
-            "direction": "O"
-          },
-          "QA": {
-            "direction": "O"
-          },
-          "SD": {
-            "direction": "O"
-          },
-          "RD": {
-            "direction": "O"
-          },
-          "wire_sc": {
-            "direction": "O",
-            "left": "15",
+          "data0": {
+            "direction": "I",
+            "left": "31",
             "right": "0"
           },
-          "wire_ec": {
-            "direction": "O",
-            "left": "15",
+          "data1": {
+            "direction": "I",
+            "left": "31",
             "right": "0"
           },
-          "wire_cs": {
-            "direction": "O",
-            "left": "3",
+          "data2": {
+            "direction": "I",
+            "left": "31",
             "right": "0"
           },
-          "finish": {
-            "direction": "O"
+          "data3": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "q0": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "q1": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "q2": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "q3": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
           }
         }
       },
@@ -2669,7 +2873,10 @@
             "type": "rst",
             "direction": "I"
           },
-          "en": {
+          "en_wr": {
+            "direction": "I"
+          },
+          "en_rd": {
             "direction": "I"
           },
           "next_state": {
@@ -2738,21 +2945,17 @@
           }
         }
       },
-      "bram_output_interface_0": {
-        "vlnv": "xilinx.com:module_ref:bram_output_interface:1.0",
-        "xci_name": "testbench_bram_output_interface_0_0",
-        "xci_path": "ip\\testbench_bram_output_interface_0_0\\testbench_bram_output_interface_0_0.xci",
-        "inst_hier_path": "bram_output_interface_0",
+      "CU_0": {
+        "vlnv": "xilinx.com:module_ref:CU:1.0",
+        "xci_name": "testbench_CU_0_0",
+        "xci_path": "ip\\testbench_CU_0_0\\testbench_CU_0_0.xci",
+        "inst_hier_path": "CU_0",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "bram_output_interface",
+          "ref_name": "CU",
           "boundary_crc": "0x0"
         },
         "ports": {
-          "rst": {
-            "type": "rst",
-            "direction": "I"
-          },
           "clk": {
             "type": "clk",
             "direction": "I",
@@ -2771,53 +2974,90 @@
               }
             }
           },
-          "en": {
+          "rst": {
+            "type": "rst",
             "direction": "I"
           },
-          "act": {
+          "start": {
+            "direction": "I"
+          },
+          "read_sig": {
+            "direction": "I"
+          },
+          "max_step": {
             "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "max_episode": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "seed": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "goal_sig": {
+            "direction": "I"
+          },
+          "sel_act": {
+            "direction": "O"
+          },
+          "act_random": {
+            "direction": "O",
             "left": "1",
             "right": "0"
           },
-          "data0": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
+          "BRAM_rd": {
+            "direction": "O"
           },
-          "data1": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
+          "BRAM_wr": {
+            "direction": "O"
           },
-          "data2": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
+          "PG": {
+            "direction": "O"
           },
-          "data3": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
+          "QA": {
+            "direction": "O"
           },
-          "q0": {
+          "SD": {
+            "direction": "O"
+          },
+          "RD": {
+            "direction": "O"
+          },
+          "wire_sc": {
             "direction": "O",
-            "left": "31",
+            "left": "15",
             "right": "0"
           },
-          "q1": {
+          "wire_ec": {
             "direction": "O",
-            "left": "31",
+            "left": "15",
             "right": "0"
           },
-          "q2": {
+          "wire_cs": {
             "direction": "O",
-            "left": "31",
+            "left": "3",
             "right": "0"
           },
-          "q3": {
+          "wire_as": {
             "direction": "O",
-            "left": "31",
+            "left": "15",
             "right": "0"
+          },
+          "wire_epsilon": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "finish": {
+            "direction": "O"
+          },
+          "finish_adapt": {
+            "direction": "O"
           }
         }
       }
@@ -2828,14 +3068,35 @@
           "AGENT/act",
           "EV/act",
           "act",
-          "bram_input_interface_0/act",
-          "bram_output_interface_0/act"
+          "bram_output_interface_0/act",
+          "bram_input_interface_0/act"
+        ]
+      },
+      "AGENT_act_SD": {
+        "ports": [
+          "AGENT/act_SD",
+          "EV/act_SD"
         ]
       },
       "AGENT_act_greed_0": {
         "ports": [
           "AGENT/act_greed_0",
           "act_greed"
+        ]
+      },
+      "CU_0_BRAM_rd": {
+        "ports": [
+          "CU_0/BRAM_rd",
+          "BRAM_rd",
+          "bram_output_interface_0/en_rd",
+          "bram_input_interface_0/en_rd"
+        ]
+      },
+      "CU_0_BRAM_wr": {
+        "ports": [
+          "CU_0/BRAM_wr",
+          "BRAM_wr",
+          "bram_input_interface_0/en_wr"
         ]
       },
       "CU_0_RD": {
@@ -2849,9 +3110,7 @@
         "ports": [
           "CU_0/SD",
           "EV/en_SD",
-          "SD",
-          "bram_input_interface_0/en",
-          "bram_output_interface_0/en"
+          "SD"
         ]
       },
       "CU_0_act_random": {
@@ -2864,7 +3123,14 @@
       "CU_0_finish": {
         "ports": [
           "CU_0/finish",
-          "finish"
+          "finish",
+          "EV/finish"
+        ]
+      },
+      "CU_0_finish_adapt": {
+        "ports": [
+          "CU_0/finish_adapt",
+          "finish_adapt"
         ]
       },
       "CU_0_sel_act": {
@@ -2872,6 +3138,12 @@
           "CU_0/sel_act",
           "AGENT/sel_act",
           "sel_act"
+        ]
+      },
+      "CU_0_wire_as": {
+        "ports": [
+          "CU_0/wire_as",
+          "wire_as"
         ]
       },
       "CU_0_wire_cs": {
@@ -2884,6 +3156,12 @@
         "ports": [
           "CU_0/wire_ec",
           "wire_ec"
+        ]
+      },
+      "CU_0_wire_epsilon": {
+        "ports": [
+          "CU_0/wire_epsilon",
+          "wire_epsilon"
         ]
       },
       "CU_0_wire_sc": {
@@ -3036,6 +3314,30 @@
           "EV/batas_2"
         ]
       },
+      "batas_3_0_1": {
+        "ports": [
+          "batas_3",
+          "EV/batas_3"
+        ]
+      },
+      "batas_4_0_1": {
+        "ports": [
+          "batas_4",
+          "EV/batas_4"
+        ]
+      },
+      "batas_5_0_1": {
+        "ports": [
+          "batas_5",
+          "EV/batas_5"
+        ]
+      },
+      "batas_6_0_1": {
+        "ports": [
+          "batas_6",
+          "EV/batas_6"
+        ]
+      },
       "bram_input_interface_0_en0_rd": {
         "ports": [
           "bram_input_interface_0/en0_rd",
@@ -3112,39 +3414,15 @@
           "RAM_Block/clk_bram",
           "AGENT/clk",
           "EV/clk",
-          "CU_0/clk",
+          "bram_output_interface_0/clk",
           "bram_input_interface_0/clk",
-          "bram_output_interface_0/clk"
+          "CU_0/clk"
         ]
       },
       "debit_out_0_1": {
         "ports": [
           "debit_out",
           "EV/debit_out"
-        ]
-      },
-      "debit_r0_0_1": {
-        "ports": [
-          "debit_r0",
-          "EV/debit_r0"
-        ]
-      },
-      "debit_r1_0_1": {
-        "ports": [
-          "debit_r1",
-          "EV/debit_r1"
-        ]
-      },
-      "debit_r2_0_1": {
-        "ports": [
-          "debit_r2",
-          "EV/debit_r2"
-        ]
-      },
-      "debit_r3_0_1": {
-        "ports": [
-          "debit_r3",
-          "EV/debit_r3"
         ]
       },
       "delta_t_0_1": {
@@ -3171,30 +3449,6 @@
         "ports": [
           "gamma",
           "AGENT/gamma"
-        ]
-      },
-      "init_panjang_r0_0_1": {
-        "ports": [
-          "init_panjang_r0",
-          "EV/init_panjang_r0"
-        ]
-      },
-      "init_panjang_r1_0_1": {
-        "ports": [
-          "init_panjang_r1",
-          "EV/init_panjang_r1"
-        ]
-      },
-      "init_panjang_r2_0_1": {
-        "ports": [
-          "init_panjang_r2",
-          "EV/init_panjang_r2"
-        ]
-      },
-      "init_panjang_r3_0_1": {
-        "ports": [
-          "init_panjang_r3",
-          "EV/init_panjang_r3"
         ]
       },
       "max_episode_0_1": {
@@ -3244,6 +3498,12 @@
           "q_next_3"
         ]
       },
+      "read_sig_0_1": {
+        "ports": [
+          "read_sig",
+          "CU_0/read_sig"
+        ]
+      },
       "reward_0_0_1": {
         "ports": [
           "reward_0",
@@ -3268,9 +3528,15 @@
           "RAM_Block/rst_bram",
           "AGENT/rst",
           "EV/rst",
-          "CU_0/rst",
+          "bram_output_interface_0/rst",
           "bram_input_interface_0/rst",
-          "bram_output_interface_0/rst"
+          "CU_0/rst"
+        ]
+      },
+      "seed1_0_1": {
+        "ports": [
+          "seed_EG1",
+          "EV/seed_EG1"
         ]
       },
       "seed_0_1": {
@@ -3279,10 +3545,22 @@
           "CU_0/seed"
         ]
       },
+      "seed_0_2": {
+        "ports": [
+          "seed_EG0",
+          "EV/seed_EG0"
+        ]
+      },
       "start_0_1": {
         "ports": [
           "start",
           "CU_0/start"
+        ]
+      },
+      "state_sim_0_1": {
+        "ports": [
+          "state_sim",
+          "EV/state_sim"
         ]
       },
       "wea_0_1": {

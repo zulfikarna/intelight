@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="testbench_wrapper_tb_time_synth.wdb" id="1">
+      <db_ref path="testbench_wrapper_tb_behav.wdb" id="1">
          <top_modules>
             <top_module name="glbl" />
             <top_module name="testbench_wrapper_tb" />
@@ -12,14 +12,22 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="453.501 ns"></ZoomEndTime>
-      <Cursor1Time time="245.000 ns"></Cursor1Time>
+      <ZoomEndTime time="3,810.001 ns"></ZoomEndTime>
+      <Cursor1Time time="7,340.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="171"></NameColumnWidth>
-      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+      <NameColumnWidth column_width="262"></NameColumnWidth>
+      <ValueColumnWidth column_width="126"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="73" />
+   <WVObjectSize size="78" />
+   <wvobject fp_name="/testbench_wrapper_tb/read_sig" type="logic">
+      <obj_property name="ElementShortName">read_sig</obj_property>
+      <obj_property name="ObjectShortName">read_sig</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_wrapper_tb/state_sim" type="array">
+      <obj_property name="ElementShortName">state_sim[31:0]</obj_property>
+      <obj_property name="ObjectShortName">state_sim[31:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/testbench_wrapper_tb/alpha" type="array">
       <obj_property name="ElementShortName">alpha[2:0]</obj_property>
       <obj_property name="ObjectShortName">alpha[2:0]</obj_property>
@@ -36,25 +44,29 @@
       <obj_property name="ElementShortName">batas_2[31:0]</obj_property>
       <obj_property name="ObjectShortName">batas_2[31:0]</obj_property>
    </wvobject>
+   <wvobject fp_name="/testbench_wrapper_tb/batas_3" type="array">
+      <obj_property name="ElementShortName">batas_3[31:0]</obj_property>
+      <obj_property name="ObjectShortName">batas_3[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_wrapper_tb/batas_4" type="array">
+      <obj_property name="ElementShortName">batas_4[31:0]</obj_property>
+      <obj_property name="ObjectShortName">batas_4[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_wrapper_tb/batas_5" type="array">
+      <obj_property name="ElementShortName">batas_5[31:0]</obj_property>
+      <obj_property name="ObjectShortName">batas_5[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_wrapper_tb/batas_6" type="array">
+      <obj_property name="ElementShortName">batas_6[31:0]</obj_property>
+      <obj_property name="ObjectShortName">batas_6[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_wrapper_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
    <wvobject fp_name="/testbench_wrapper_tb/debit_out" type="array">
       <obj_property name="ElementShortName">debit_out[31:0]</obj_property>
       <obj_property name="ObjectShortName">debit_out[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench_wrapper_tb/debit_r0" type="array">
-      <obj_property name="ElementShortName">debit_r0[31:0]</obj_property>
-      <obj_property name="ObjectShortName">debit_r0[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench_wrapper_tb/debit_r1" type="array">
-      <obj_property name="ElementShortName">debit_r1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">debit_r1[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench_wrapper_tb/debit_r2" type="array">
-      <obj_property name="ElementShortName">debit_r2[31:0]</obj_property>
-      <obj_property name="ObjectShortName">debit_r2[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench_wrapper_tb/debit_r3" type="array">
-      <obj_property name="ElementShortName">debit_r3[31:0]</obj_property>
-      <obj_property name="ObjectShortName">debit_r3[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench_wrapper_tb/delta_t" type="array">
       <obj_property name="ElementShortName">delta_t[2:0]</obj_property>
@@ -64,26 +76,9 @@
       <obj_property name="ElementShortName">gamma[2:0]</obj_property>
       <obj_property name="ObjectShortName">gamma[2:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench_wrapper_tb/init_panjang_r0" type="array">
-      <obj_property name="ElementShortName">init_panjang_r0[31:0]</obj_property>
-      <obj_property name="ObjectShortName">init_panjang_r0[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench_wrapper_tb/init_panjang_r1" type="array">
-      <obj_property name="ElementShortName">init_panjang_r1[31:0]</obj_property>
-      <obj_property name="ObjectShortName">init_panjang_r1[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench_wrapper_tb/init_panjang_r2" type="array">
-      <obj_property name="ElementShortName">init_panjang_r2[31:0]</obj_property>
-      <obj_property name="ObjectShortName">init_panjang_r2[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench_wrapper_tb/init_panjang_r3" type="array">
-      <obj_property name="ElementShortName">init_panjang_r3[31:0]</obj_property>
-      <obj_property name="ObjectShortName">init_panjang_r3[31:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/testbench_wrapper_tb/max_episode" type="array">
       <obj_property name="ElementShortName">max_episode[15:0]</obj_property>
       <obj_property name="ObjectShortName">max_episode[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench_wrapper_tb/max_step" type="array">
       <obj_property name="ElementShortName">max_step[15:0]</obj_property>
@@ -101,13 +96,33 @@
       <obj_property name="ElementShortName">reward_2[31:0]</obj_property>
       <obj_property name="ObjectShortName">reward_2[31:0]</obj_property>
    </wvobject>
+   <wvobject fp_name="/testbench_wrapper_tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
    <wvobject fp_name="/testbench_wrapper_tb/seed" type="array">
       <obj_property name="ElementShortName">seed[15:0]</obj_property>
       <obj_property name="ObjectShortName">seed[15:0]</obj_property>
    </wvobject>
+   <wvobject fp_name="/testbench_wrapper_tb/seed_EG0" type="array">
+      <obj_property name="ElementShortName">seed_EG0[31:0]</obj_property>
+      <obj_property name="ObjectShortName">seed_EG0[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_wrapper_tb/seed_EG1" type="array">
+      <obj_property name="ElementShortName">seed_EG1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">seed_EG1[31:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/testbench_wrapper_tb/start" type="logic">
       <obj_property name="ElementShortName">start</obj_property>
       <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_wrapper_tb/BRAM_rd" type="logic">
+      <obj_property name="ElementShortName">BRAM_rd</obj_property>
+      <obj_property name="ObjectShortName">BRAM_rd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_wrapper_tb/BRAM_wr" type="logic">
+      <obj_property name="ElementShortName">BRAM_wr</obj_property>
+      <obj_property name="ObjectShortName">BRAM_wr</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench_wrapper_tb/PG" type="logic">
       <obj_property name="ElementShortName">PG</obj_property>
@@ -129,6 +144,10 @@
       <obj_property name="ElementShortName">finish</obj_property>
       <obj_property name="ObjectShortName">finish</obj_property>
    </wvobject>
+   <wvobject fp_name="/testbench_wrapper_tb/finish_adapt" type="logic">
+      <obj_property name="ElementShortName">finish_adapt</obj_property>
+      <obj_property name="ObjectShortName">finish_adapt</obj_property>
+   </wvobject>
    <wvobject fp_name="/testbench_wrapper_tb/wire_cs" type="array">
       <obj_property name="ElementShortName">wire_cs[3:0]</obj_property>
       <obj_property name="ObjectShortName">wire_cs[3:0]</obj_property>
@@ -136,11 +155,18 @@
    <wvobject fp_name="/testbench_wrapper_tb/wire_ec" type="array">
       <obj_property name="ElementShortName">wire_ec[15:0]</obj_property>
       <obj_property name="ObjectShortName">wire_ec[15:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench_wrapper_tb/wire_sc" type="array">
       <obj_property name="ElementShortName">wire_sc[15:0]</obj_property>
       <obj_property name="ObjectShortName">wire_sc[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_wrapper_tb/wire_as" type="array">
+      <obj_property name="ElementShortName">wire_as[15:0]</obj_property>
+      <obj_property name="ObjectShortName">wire_as[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench_wrapper_tb/wire_epsilon" type="array">
+      <obj_property name="ElementShortName">wire_epsilon[15:0]</obj_property>
+      <obj_property name="ObjectShortName">wire_epsilon[15:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench_wrapper_tb/goal_sig" type="logic">
       <obj_property name="ElementShortName">goal_sig</obj_property>
@@ -289,14 +315,6 @@
    <wvobject fp_name="/testbench_wrapper_tb/en3_rd" type="logic">
       <obj_property name="ElementShortName">en3_rd</obj_property>
       <obj_property name="ObjectShortName">en3_rd</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench_wrapper_tb/rst" type="logic">
-      <obj_property name="ElementShortName">rst</obj_property>
-      <obj_property name="ObjectShortName">rst</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench_wrapper_tb/clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench_wrapper_tb/dataout0" type="array">
       <obj_property name="ElementShortName">dataout0[31:0]</obj_property>

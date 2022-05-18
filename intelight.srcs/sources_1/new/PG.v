@@ -14,6 +14,7 @@ module PG(
     input wire sel,
     input wire [1:0] act_random,
     output wire [1:0] act,
+    output wire [1:0] act_SD,
     // for debugging 
     output wire [1:0] act_greed
     );
@@ -35,8 +36,10 @@ module PG(
     wire [1:0] act_temp1;
     mux2to1_2bit    action_decider(.in0(act_greed),  .in1(act_random),   .sel(sel),  .out0(act_temp0));
     reg_2bit reg0(.clk(clk), .rst(rst), .in0(act_temp0), .out0(act_temp1));
+    
     // Enabling output
-    enabler_2bit en0(.in0(act_temp1), .out0(act), .en(en));
+    enabler_2bit en0(.rst(rst), .in0(act_temp1), .out0(act), .en(en));
+    enabler_2bit en1(.rst(rst), .in0(act_temp0), .out0(act_SD), .en(en));
 endmodule
 
 

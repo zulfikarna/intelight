@@ -1,6 +1,231 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Wed May 18 18:51:29 2022
+| Host         : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_intelight_mem_v2_0_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_intelight_mem_v2_0_1 (xilinx.com:user:intelight_mem_v2:1.0) from (Rev. 2) to (Rev. 6)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'system_intelight_mem_v2_0_1'. These changes may impact your design.
+
+
+-Upgrade has removed port 'debit_r0'
+
+-Upgrade has removed port 'debit_r1'
+
+-Upgrade has removed port 'debit_r2'
+
+-Upgrade has removed port 'debit_r3'
+
+-Upgrade has removed port 'init_trafic_r0'
+
+-Upgrade has removed port 'init_trafic_r1'
+
+-Upgrade has removed port 'init_trafic_r2'
+
+-Upgrade has removed port 'init_trafic_r3'
+
+-Upgrade has added port 'seed_EG0'
+
+-Upgrade has added port 'seed_EG1'
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Wed May 18 18:51:29 2022
+| Host         : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_adapt_mem_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_adapt_mem_0_0 (xilinx.com:user:adapt_mem:1.0) from (Rev. 3) to (Rev. 4)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'system_adapt_mem_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'state_arduino'
+
+-Upgrade has removed port 'state_python'
+
+-Upgrade has added port 'state_adapt'
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Wed May 11 13:24:03 2022
+| Host         : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_intelight_mem_v2_0_1'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_intelight_mem_v2_0_1 (xilinx.com:user:intelight_mem_v2:1.0) from (Rev. 1) to (Rev. 2)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'system_intelight_mem_v2_0_1'. These changes may impact your design.
+
+
+-Upgrade has added port 'alpha'
+
+-Upgrade has added port 'debit_out'
+
+-Upgrade has added port 'debit_r0'
+
+-Upgrade has added port 'debit_r1'
+
+-Upgrade has added port 'debit_r2'
+
+-Upgrade has added port 'debit_r3'
+
+-Upgrade has added port 'delta_t'
+
+-Upgrade has added port 'gamma'
+
+-Upgrade has added port 'init_trafic_r0'
+
+-Upgrade has added port 'init_trafic_r1'
+
+-Upgrade has added port 'init_trafic_r2'
+
+-Upgrade has added port 'init_trafic_r3'
+
+-Upgrade has added port 'limit_level_0'
+
+-Upgrade has added port 'limit_level_1'
+
+-Upgrade has added port 'limit_level_2'
+
+-Upgrade has added port 'limit_level_3'
+
+-Upgrade has added port 'limit_level_4'
+
+-Upgrade has added port 'limit_level_5'
+
+-Upgrade has added port 'limit_level_6'
+
+-Upgrade has added port 'max_episode'
+
+-Upgrade has added port 'max_step'
+
+-Upgrade has added port 'reward_0'
+
+-Upgrade has added port 'reward_1'
+
+-Upgrade has added port 'reward_2'
+
+-Upgrade has added port 'seed'
+
+-Upgrade has added port 'start'
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Wed May 11 12:47:08 2022
+| Host         : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_adapt_mem_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of system_adapt_mem_0_0 (xilinx.com:user:adapt_mem:1.0) from (Rev. 2) to (Rev. 3)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'system_adapt_mem_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'state_adapt'
+
+-Upgrade has added port 'state_arduino'
+
+-Upgrade has added port 'state_python'
+
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
+| Date         : Mon Apr 18 13:47:34 2022
+| Host         : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg400-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'system_simulation_mem_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of system_simulation_mem_0_0 (xilinx.com:user:simulation_mem:1.0) from (Rev. 8) to (Rev. 9)
+
+
+
+
+
+
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
 | Date         : Sat Apr  2 08:10:41 2022
 | Host         : DESKTOP-LNFBGQQ running 64-bit major release  (build 9200)
 | Command      : upgrade_ip

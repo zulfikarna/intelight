@@ -62,6 +62,7 @@
 
 // TESTBENCH EN_DECODER
 module bram_interface_tb();
+    reg [31:0]state;
     reg clk;
     reg rst;
     reg [1:0] act;
