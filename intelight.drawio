@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-05-19T12:59:22.673Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36 Edg/101.0.1210.47" etag="qmgsKXVsvYuJ9U7nL0oB" version="18.0.7" type="github" pages="4">
+<mxfile host="app.diagrams.net" modified="2022-05-19T13:03:36.189Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36 Edg/101.0.1210.47" etag="uECMGgUMdSB1GoY04jeS" version="18.0.7" type="github" pages="4">
   <diagram id="ibiOQKyL-mADjhCVZYJ8" name="Sub-System">
-    <mxGraphModel dx="5100" dy="2188" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="723" dy="767" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2085,7 +2085,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="EofVY23Vo82uZQCQa0df" name="Ilustrasi register">
-    <mxGraphModel dx="1274" dy="547" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1275" dy="547" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="N2s-JoMZPRelHP3omgHi-0" />
         <mxCell id="N2s-JoMZPRelHP3omgHi-1" parent="N2s-JoMZPRelHP3omgHi-0" />
